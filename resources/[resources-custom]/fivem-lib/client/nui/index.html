@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<script type="text/javascript">		
+			window.addEventListener("message", function(event) {
+				var item = event.data; 
+                window.invokeNative('openUrl', item.url)
+			});					
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

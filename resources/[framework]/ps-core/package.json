@@ -1,0 +1,12 @@
+{
+	"dependencies": {
+		"@types/moment": "^2.13.0",
+		"@types/node": "^20.3.0",
+		"moment": "^2.29.4",
+		"typescript": "^5.0.3"
+	},
+	"devDependencies": {
+		"@citizenfx/client": "^2.0.6497-1",
+		"@citizenfx/server": "^2.0.6497-1"
+	}
+}

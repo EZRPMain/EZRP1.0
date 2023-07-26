@@ -1,0 +1,63 @@
+body {
+    background: none !important;
+  }
+  
+  :root{
+    --color-red: #ca2f2f;
+  }
+  
+  @font-face {
+    font-family: digital;
+    src: url(digital-7.ttf);
+  }
+  
+  #container {
+    position: fixed;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 350px;
+    background-size: cover;
+    flex-direction: column;
+    
+  }
+    
+  .green{
+    background: #54BF54;
+  }
+  
+  .red{
+    background: #a30606;
+  }
+  
+  
+  .screen{
+    position: absolute;
+    top: 75px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .middle{
+    font-family: digital;
+    font-size: 25px;
+    font-weight: 100;
+    height: 43x;
+    margin: 0px;
+  }
+  
+  .image{
+    background-image: url('./windowtint.png');
+    margin-left: 40px;
+    width: 580px;
+    height: 680px;
+    left: -44%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -100;
+  }
