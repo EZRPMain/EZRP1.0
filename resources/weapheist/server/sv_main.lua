@@ -1,4 +1,5 @@
 local xSound = exports['xsound']
+local looted = false
 -- local QBCore = exports['qb-core']:GetCoreObject()
 local heist = false
 local inheist = {}
@@ -104,7 +105,6 @@ RegisterNetEvent("weapheist:SpawnHeist", function()
     end
 end)
 
-local looted = false
 RegisterNetEvent("weapheist:loot", function(netid)
     local ped = GetPlayerPed(source)
     local coords = GetEntityCoords(ped)
