@@ -284,8 +284,8 @@ Config.BusinessManager = {
     },
 
     ["burgershot"] = {
-        coords = vector3(-1178.43, -896.33, 13.77), -- Coords of the place where buisnesses can create and manage menu items
-        polysize = 0.56, -- How big is the Sphere?
+        coords = vector3(vector3(-1200.53, -902.65, 13.89)), -- Coords of the place where buisnesses can create and manage menu items
+        polysize = 1.00, -- How big is the Sphere?
         label = Lang:t('target.manager_menu'), -- This is the manager_menu under the locales
         icon = "fa-solid fa-laptop", -- This is the favicon Icon I use 6.0 beta so if you need to change it do it here.
         job = {["burgershot"] = 3}, -- Which job and grade should have access to change and access menu?
@@ -506,21 +506,11 @@ Config.Stations = {
     },
 
     ["burgershot"] = {
-        ["Grill"] = { coords = vector3(-1198.5, -895.21, 13.82), pSize = 0.60, name = "Grill", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "bbq" },
-        ["Frier"] = { coords = vector3(-1200.85, -896.78, 13.72), pSize = 0.70, name = "Frier", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "uncuff" },
-        ["Assembly Line"] = { coords = vector3(-1196.33, -899.09, 13.82), pSize = 0.5, name = "Assembly Line", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
-        ["Drinks"] = { coords = vector3(-1196.52, -894.49, 14.54), pSize = 0.5, name = "Drinks", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
-
-        -- vector3(6874.049, 434.151, 57.957) --[vector4(6874.049, 434.151, 57.957, 45.0)]--
-        ["Grill2"] = { coords = vector3(6874.049, 434.151, 57.957), pSize = 0.60, name = "Grill", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "bbq" },
-        --vector3(6871.784, 431.998, 57.998) --[vector4(6871.784, 431.998, 57.998, 45.0)]--
-        ["Frier2"] = { coords = vector3(6871.784, 431.998, 57.998), pSize = 0.70, name = "Frier", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "uncuff" },
-        --vector3(6877.084, 428.782, 57.996) --[vector4(6877.084, 428.782, 57.996, 45.0)]--
-        ["Assembly Line2"] = { coords = vector3(6877.084, 428.782, 57.996), pSize = 0.5, name = "Assembly Line", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
-    
-        --vector3(6880.643, 428.011, 58.265) --[vector4(6880.643, 428.011, 58.265, 45.0)]--
-        ["Drinks2"] = { coords = vector3(6880.643, 428.011, 58.265), pSize = 0.5, name = "Drinks", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
-
+        ["Grill"] = { coords = vector3(-1195.82, -897.38, 13.89), pSize = 0.60, name = "Grill", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "bbq" },
+        ["Grill2"] = { coords = vector3(-1194.95, -897.59, 13.89), pSize = 0.60, name = "Grill", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "bbq" },
+        ["Frier"] = { coords = vector3(-1196.16, -900.04, 13.89), pSize = 0.70, name = "Frier", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "uncuff" },
+        ["Assembly Line"] = { coords = vector3(-1201.3, -895.15, 13.89), pSize = 0.5, name = "Assembly Line", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
+        ["Drinks"] = { coords = vector3(-1190.74, -899.1, 13.89), pSize = 0.5, name = "Drinks", job = { ["burgershot"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
     },
 
     ["henhouse"] = {
@@ -591,15 +581,12 @@ Config.Registers = {
         [2] = { coords = vector3(1595.22, 6455.28, 26.12), polysize = 0.30, icon = "fa-solid fa-circle" }
     },
     burgershot = {
-        [1] = { coords = vector3(-1192.98, -896.29, 14.15), polysize = 0.25, icon = "fa-solid fa-circle" },
-        [2] = { coords = vector3(-1193.96, -894.67, 14.32), polysize = 0.25, icon = "fa-solid fa-circle" },
-        [3] = { coords = vector3(-1194.98, -893.19, 14.03), polysize = 0.25, icon = "fa-solid fa-circle" },
+        [1] = { coords = vector3(-1197.48, -892.51, 13.89), polysize = 0.25, icon = "fa-solid fa-circle" },
+        [2] = { coords = vector3(-1195.44, -893.07, 13.89), polysize = 0.25, icon = "fa-solid fa-circle" },
+        [3] = { coords = vector3(-1193.44, -893.64, 13.89), polysize = 0.25, icon = "fa-solid fa-circle" },
         --vector3(6881.226, 429.879, 58.285) --[vector4(6881.226, 429.879, 58.285, 45.0)]--
-        [4] = { coords = vector3(6881.226, 429.879, 58.285), polysize = 0.25, icon = "fa-solid fa-circle" },
+        [4] = { coords = vector3(-1191.51, -894.17, 13.89), polysize = 0.25, icon = "fa-solid fa-circle" },
         --vector3(6879.987, 431.132, 58.226) --[vector4(6879.987, 431.132, 58.226, 45.0)]--
-        [5] = { coords = vector3(6879.987, 431.132, 58.226), polysize = 0.25, icon = "fa-solid fa-circle" },
-        --6878.515, 432.644, 58.266
-        [6] = { coords = vector3(6878.515, 432.644, 58.266), polysize = 0.25, icon = "fa-solid fa-circle" },
     },
     tequilala = {
         [1] = { coords = vector3(-562.98, 287.51, 82.23), polysize = 0.25, icon = "fa-solid fa-circle" }
@@ -624,7 +611,7 @@ Config.CuttingBoardCoords = {
     [4]  = { coords = vector3(-591.07, -1063.04, 22.36), job = "catcafe", polysize = 0.55, icon = "fa-solid fa-circle" },
 
     -- burgershot
-    [5]  = { coords = vector3(-1197.48, -898.29, 13.92), job = "burgershot", polysize = 0.45, icon = "fa-solid fa-circle" },
+    [5]  = { coords = vector3(-1194.01, -900.6, 13.89), job = "burgershot", polysize = 0.45, icon = "fa-solid fa-circle" },
 
     --henhouse
     [6]  = { coords = vector3(-298.58, 6270.07, 31.5), job = "henhouse", polysize = 0.45, icon = "fa-solid fa-circle" },

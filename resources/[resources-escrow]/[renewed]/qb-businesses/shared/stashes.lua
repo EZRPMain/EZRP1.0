@@ -46,44 +46,25 @@ Config.Tables = {
     [38] = { coords = vector3(-298.69, 6261.05, 34.52), business = "henhouse"},
 
     -- burgershot
-    [39] = { coords = vector3(-1194.38, -893.99, 14.1), business = "burgershot"},
-    [40] = { coords = vector3(-1193.34, -895.32, 14.1), business = "burgershot"},
-    [41] = { coords = vector3(-1192.48, -896.94, 14.1), business = "burgershot"},
-    [42] = { coords = vector3(-1188.59, -895.73, 13.73), business = "burgershot"},
-    [43] = { coords = vector3(-1186.88, -894.35, 13.76), business = "burgershot"},
+    [39] = { coords = vector3(-1196.77, -886.14, 13.89), business = "burgershot"},
+    [40] = { coords = vector3(-1193.93, -884.2, 13.89), business = "burgershot"},
+    [41] = { coords = vector3(-1191.12, -882.27, 13.89), business = "burgershot"},
+    [42] = { coords = vector3(-1188.15, -880.31, 13.89), business = "burgershot"},
+    [43] = { coords = vector3(-1190.08, -886.04, 13.89), business = "burgershot"},
     [44] = { coords = vector3(-1184.58, -893.31, 13.73), business = "burgershot"},
-    [45] = { coords = vector3(-1186.96, -889.7, 13.73), business = "burgershot"},
-    [46] = { coords = vector3(-1188.89, -891.17, 13.73), business = "burgershot"},
-    [47] = { coords = vector3(-1192.08, -886.72, 13.75), business = "burgershot"},
+    [45] = { coords = vector3(-1187.19, -884.06, 13.89), business = "burgershot"},
+    [46] = { coords = vector3(-1184.4, -894.56, 13.89), business = "burgershot"},
+    [47] = { coords = vector3(-1181.48, -892.69, 13.89), business = "burgershot"},
+    -- -- burgershot counter
+    [48] = { coords = vector3(-1196.81, -892.78, 13.98), business = "burgershot"},--vector3(6880.655, 430.598, 58.195) --[vector4(6880.655, 430.598, 58.195, 44.0)]--
+    [49] = { coords = vector3(-1194.8, -893.28, 13.98), business = "burgershot"}, --vector3(6879.288, 432.029, 58.296) --[vector4(6879.288, 432.029, 58.296, 44.0)]--
+    [50] = { coords = vector3(-1192.83, -893.83, 13.98), business = "burgershot"}, --vector3(6881.871, 429.425, 58.195) --[vector4(6881.871, 429.425, 58.195, 44.0)]--
+    [51] = { coords = vector3(-1190.87, -894.34, 13.98), business = "burgershot"},
+    [52] = { coords = vector3(-1184.07, -898.78, 13.89), business = "burgershot"},
+    [53] = { coords = vector3(-1181.2, -896.87, 13.89), business = "burgershot"},
+    [54] = { coords = vector3(-1178.27, -894.94, 13.89), business = "burgershot"},
 
-    -- YELLOW WHACK
-    [48] = { coords = vector3(1989.242, 3049.929, 47.015), business = "yellowjack"},
-    [49] = { coords = vector3(1988.542, 3046.325, 47.015), business = "yellowjack"},
-    [50] = { coords = vector3(1985.204, 3054.227, 47.315), business = "yellowjack"},
-    --vector3(1985.204, 3054.227, 47.315) --[vector4(1985.204, 3054.227, 47.315, 330.0)]--
-    --vector3(1988.542, 3046.325, 47.015) --[vector4(1988.542, 3046.325, 47.015, 330.0)]--
-
-    -- -- burgershot far far away
-    [51] = { coords = vector3(6880.655, 430.598, 58.195), business = "burgershot"}, --vector3(6880.655, 430.598, 58.195) --[vector4(6880.655, 430.598, 58.195, 44.0)]--
-    [52] = { coords = vector3(6879.288, 432.029, 58.195), business = "burgershot"}, --vector3(6879.288, 432.029, 58.296) --[vector4(6879.288, 432.029, 58.296, 44.0)]--
-    [53] = { coords = vector3(6881.871, 429.425, 58.195), business = "burgershot"}, --vector3(6881.871, 429.425, 58.195) --[vector4(6881.871, 429.425, 58.195, 44.0)]--
-
-    -- cluckin bell cuckers
-    --vector3(-516.058, -697.586, 33.268) --[vector4(-516.058, -697.586, 33.268, 0.0)]--
-    [54] = { coords = vector3(-516.058, -697.586, 33.268), business = "cluckinbell"},
-    --vector3(-517.758, -697.586, 33.268) --[vector4(-517.758, -697.586, 33.268, 0.0)]--
-    [55] = { coords = vector3(-517.758, -697.586, 33.268), business = "cluckinbell"},
-    --vector3(-519.357, -697.586, 33.268) --[vector4(-519.357, -697.586, 33.268, 0.0)]--
-    [56] = { coords = vector3(-519.357, -697.586, 33.268), business = "cluckinbell"},
-
-
-    -- TACO
-    --vector3(10.645, -1604.952, 29.671) --[vector4(10.645, -1604.952, 29.671, 320.0)]--+
-    [57] = { coords = vector3(10.645, -1604.952, 29.671), business = "taco"},
-    --vector3(15.01, -1596.209, 29.578) --[vector4(15.01, -1596.209, 29.578, 320.0)]--
-    [58] = { coords = vector3(15.01, -1596.209, 29.578), business = "taco"}, -- drive thru window
 }
-
 
 Config.StaffStashes = {
     --pizza
@@ -95,8 +76,8 @@ Config.StaffStashes = {
     [4] = { coords = vector3(-588.12, -1066.59, 22.64), size = 0.94, job = {["catcafe"] = 0}, stashsize = 1500000, stashslots = 300, name = "uwu_stash32" }, -- The name HAS to be unique
 
     -- burgershot
-    [5] = { coords = vector3(-1200.04, -903.73, 13.89), size = 0.94, job = {["burgershot"] = 0}, stashsize = 1500000, stashslots = 300, name = "Burgershot1" }, -- The name HAS to be unique
-    [6] = { coords = vector3(-1195.02, -897.49, 13.52), size = 0.94, job = {["burgershot"] = 0}, stashsize = 1500000, stashslots = 300, name = "Burgershot2" }, -- The name HAS to be unique
+    [5] = { coords = vector3(-1194.89, -895.64, 13.89), size = 0.94, job = {["burgershot"] = 0}, stashsize = 1500000, stashslots = 300, name = "Burgershot1" }, -- The name HAS to be unique
+    [6] = { coords = vector3(-1195.9, -901.8, 13.89), size = 0.94, job = {["burgershot"] = 0}, stashsize = 1500000, stashslots = 300, name = "Burgershot2" }, -- The name HAS to be unique
 
     -- catcafe
     [7] = { coords = vector3(-587.74, -1058.96, 22.29), size = 0.94, job = {["catcafe"] = 0}, stashsize = 1500000, stashslots = 300, name = "uwu_stash33" }, -- The name HAS to be unique
