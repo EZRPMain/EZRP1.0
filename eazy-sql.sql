@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `apartments` (
   KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.apartments: ~0 rows (approximately)
+-- Dumping data for table ezfw.apartments: ~1 rows (approximately)
 INSERT IGNORE INTO `apartments` (`id`, `name`, `type`, `label`, `citizenid`) VALUES
 	(1, 'apartment33356', 'apartment3', 'Integrity Way 3356', 'CWP72955');
 
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `crypto` (
   PRIMARY KEY (`crypto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.crypto: ~0 rows (approximately)
+-- Dumping data for table ezfw.crypto: ~1 rows (approximately)
 INSERT IGNORE INTO `crypto` (`crypto`, `worth`, `history`) VALUES
 	('qbit', 988, '[{"PreviousWorth":996,"NewWorth":990},{"PreviousWorth":996,"NewWorth":990},{"PreviousWorth":996,"NewWorth":990},{"PreviousWorth":990,"NewWorth":988}]');
 
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `gloveboxitems` (
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.gloveboxitems: ~0 rows (approximately)
+-- Dumping data for table ezfw.gloveboxitems: ~1 rows (approximately)
 INSERT IGNORE INTO `gloveboxitems` (`id`, `plate`, `items`) VALUES
 	(1, '6ZH099JU', '[]');
 
@@ -491,6 +491,42 @@ CREATE TABLE IF NOT EXISTS `occasion_vehicles` (
 
 -- Dumping data for table ezfw.occasion_vehicles: ~0 rows (approximately)
 
+-- Dumping structure for table ezfw.phone_chatrooms
+CREATE TABLE IF NOT EXISTS `phone_chatrooms` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `room_code` varchar(10) NOT NULL,
+  `room_name` varchar(15) NOT NULL,
+  `room_owner_id` varchar(20) DEFAULT NULL,
+  `room_owner_name` varchar(60) DEFAULT NULL,
+  `room_members` text DEFAULT '{}',
+  `room_pin` varchar(50) DEFAULT NULL,
+  `unpaid_balance` decimal(10,2) DEFAULT 0.00,
+  `is_pinned` tinyint(1) DEFAULT 0,
+  `created` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `room_code` (`room_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table ezfw.phone_chatrooms: ~3 rows (approximately)
+INSERT IGNORE INTO `phone_chatrooms` (`id`, `room_code`, `room_name`, `room_owner_id`, `room_owner_name`, `room_members`, `room_pin`, `unpaid_balance`, `is_pinned`, `created`) VALUES
+	(1, '411', '411', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-07-26 15:15:33'),
+	(2, 'lounge', 'The Lounge', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-07-26 15:15:33'),
+	(3, 'events', 'Events', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-07-26 15:15:33');
+
+-- Dumping structure for table ezfw.phone_chatroom_messages
+CREATE TABLE IF NOT EXISTS `phone_chatroom_messages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `room_id` int(10) unsigned DEFAULT NULL,
+  `member_id` varchar(20) DEFAULT NULL,
+  `member_name` varchar(50) DEFAULT NULL,
+  `message` text NOT NULL,
+  `is_pinned` tinyint(1) DEFAULT 0,
+  `created` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table ezfw.phone_chatroom_messages: ~0 rows (approximately)
+
 -- Dumping structure for table ezfw.phone_gallery
 CREATE TABLE IF NOT EXISTS `phone_gallery` (
   `citizenid` varchar(255) NOT NULL,
@@ -508,9 +544,10 @@ CREATE TABLE IF NOT EXISTS `phone_invoices` (
   `society` tinytext DEFAULT NULL,
   `sender` varchar(50) DEFAULT NULL,
   `sendercitizenid` varchar(50) DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ezfw.phone_invoices: ~0 rows (approximately)
 
@@ -520,12 +557,26 @@ CREATE TABLE IF NOT EXISTS `phone_messages` (
   `citizenid` varchar(50) DEFAULT NULL,
   `number` varchar(50) DEFAULT NULL,
   `messages` text DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`),
   KEY `number` (`number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ezfw.phone_messages: ~0 rows (approximately)
+
+-- Dumping structure for table ezfw.phone_note
+CREATE TABLE IF NOT EXISTS `phone_note` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `citizenid` varchar(50) DEFAULT NULL,
+  `title` text DEFAULT NULL,
+  `text` text DEFAULT NULL,
+  `lastupdate` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `citizenid` (`citizenid`)
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table ezfw.phone_note: ~0 rows (approximately)
 
 -- Dumping structure for table ezfw.phone_tweets
 CREATE TABLE IF NOT EXISTS `phone_tweets` (
@@ -533,14 +584,14 @@ CREATE TABLE IF NOT EXISTS `phone_tweets` (
   `citizenid` varchar(50) DEFAULT NULL,
   `firstName` varchar(25) DEFAULT NULL,
   `lastName` varchar(25) DEFAULT NULL,
+  `type` varchar(25) DEFAULT NULL,
   `message` text DEFAULT NULL,
-  `date` datetime DEFAULT current_timestamp(),
   `url` text DEFAULT NULL,
-  `picture` varchar(512) DEFAULT './img/default.png',
   `tweetId` varchar(25) NOT NULL,
+  `date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ezfw.phone_tweets: ~0 rows (approximately)
 
@@ -563,11 +614,12 @@ CREATE TABLE IF NOT EXISTS `players` (
   KEY `id` (`id`),
   KEY `last_updated` (`last_updated`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=455 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=468 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.players: ~1 rows (approximately)
+-- Dumping data for table ezfw.players: ~2 rows (approximately)
 INSERT IGNORE INTO `players` (`id`, `citizenid`, `cid`, `license`, `name`, `money`, `charinfo`, `job`, `gang`, `position`, `metadata`, `inventory`, `last_updated`) VALUES
-	(1, 'CWP72955', 1, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'Jay', '{"cash":9944290,"crypto":0,"payslip":600,"bank":999999998684300}', '{"phone":"6665010077","lastname":"Beef","gender":0,"firstname":"Angus","nationality":"Australia","birthdate":"1993-11-25","cid":1,"backstory":"placeholder backstory","account":"US05QBCore5392494060"}', '{"payment":30,"grade":{"level":3,"name":"Owner"},"name":"realtor","isboss":false,"type":"none","label":"Realtor","onduty":true}', '{"isboss":false,"grade":{"level":0,"name":"none"},"label":"No Gang Affiliaton","name":"none"}', '{"x":-512.940673828125,"y":-1187.235107421875,"z":20.046142578125}', '{"stress":14,"ishandcuffed":false,"callsign":"NO CALLSIGN","inlaststand":false,"licences":{"driver":true,"weapon":false,"business":false},"tracker":false,"dealerrep":0,"attachmentcraftingrep":0,"commandbinds":[],"jailitems":[],"fitbit":[],"injail":0,"phone":[],"jobrep":{"trucker":0,"taxi":0,"tow":0,"hotdog":0},"fingerprint":"XM774I16RRz1009","thirst":58.20000000000003,"isdead":false,"walletid":"QB-43772046","criminalrecord":{"hasRecord":false},"status":[],"inside":{"apartment":[]},"bloodtype":"A-","phonedata":{"SerialNumber":54687142,"InstalledApps":[]},"hunger":53.79999999999997,"craftingrep":0,"armor":0}', '[{"amount":1,"slot":1,"name":"weapon_glock18c","type":"weapon","info":{"ammo":214,"serie":"23BbS2pJ702PsBG","quality":97.59999999999991}},{"amount":1,"slot":5,"name":"weapon_fnx45","type":"weapon","info":{"ammo":221,"serie":"33mJc3kF402OXuT","quality":95.1999999999998}},{"amount":1,"slot":6,"name":"blueprint_document","type":"item","info":[]},{"amount":1,"slot":7,"name":"phone","type":"item","info":[]},{"amount":1,"slot":8,"name":"weapon_glock17","type":"weapon","info":{"ammo":0,"serie":"99NHN8wl509xBVo","quality":100}},{"amount":1,"slot":9,"name":"weapon_huntingrifle","type":"weapon","info":{"serie":"22JhB5PR958hXAV","quality":100}},{"amount":3,"slot":10,"name":"markedbills","type":"item","info":{"worth":404}},{"amount":1,"slot":11,"name":"weapon_glock22","type":"weapon","info":{"ammo":0,"serie":"76cJj6aa217sJkZ","quality":100}},{"amount":1,"slot":12,"name":"advancedlockpick","type":"item","info":[]},{"amount":1,"slot":13,"name":"weedplant_packedweed","type":"item","info":[]},{"amount":1,"slot":14,"name":"megaphone","type":"item","info":[]},{"amount":1,"slot":15,"name":"weapon_carbinerifle","type":"weapon","info":{"ammo":0,"serie":"10eMt6Tr873JjmI","quality":100}}]', '2023-07-25 12:36:41');
+	(1, 'CWP72955', 1, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'Jay', '{"cash":9944290,"crypto":0,"payslip":600,"bank":999999998684300}', '{"phone":"6665010077","lastname":"Beef","gender":0,"firstname":"Angus","nationality":"Australia","birthdate":"1993-11-25","cid":1,"backstory":"placeholder backstory","account":"US05QBCore5392494060"}', '{"payment":30,"grade":{"level":3,"name":"Owner"},"name":"realtor","isboss":false,"type":"none","label":"Realtor","onduty":true}', '{"isboss":false,"grade":{"level":0,"name":"none"},"label":"No Gang Affiliaton","name":"none"}', '{"x":-512.940673828125,"y":-1187.235107421875,"z":20.046142578125}', '{"stress":14,"ishandcuffed":false,"callsign":"NO CALLSIGN","inlaststand":false,"licences":{"driver":true,"weapon":false,"business":false},"tracker":false,"dealerrep":0,"attachmentcraftingrep":0,"commandbinds":[],"jailitems":[],"fitbit":[],"injail":0,"phone":[],"jobrep":{"trucker":0,"taxi":0,"tow":0,"hotdog":0},"fingerprint":"XM774I16RRz1009","thirst":58.20000000000003,"isdead":false,"walletid":"QB-43772046","criminalrecord":{"hasRecord":false},"status":[],"inside":{"apartment":[]},"bloodtype":"A-","phonedata":{"SerialNumber":54687142,"InstalledApps":[]},"hunger":53.79999999999997,"craftingrep":0,"armor":0}', '[{"amount":1,"slot":1,"name":"weapon_glock18c","type":"weapon","info":{"ammo":214,"serie":"23BbS2pJ702PsBG","quality":97.59999999999991}},{"amount":1,"slot":5,"name":"weapon_fnx45","type":"weapon","info":{"ammo":221,"serie":"33mJc3kF402OXuT","quality":95.1999999999998}},{"amount":1,"slot":6,"name":"blueprint_document","type":"item","info":[]},{"amount":1,"slot":7,"name":"phone","type":"item","info":[]},{"amount":1,"slot":8,"name":"weapon_glock17","type":"weapon","info":{"ammo":0,"serie":"99NHN8wl509xBVo","quality":100}},{"amount":1,"slot":9,"name":"weapon_huntingrifle","type":"weapon","info":{"serie":"22JhB5PR958hXAV","quality":100}},{"amount":3,"slot":10,"name":"markedbills","type":"item","info":{"worth":404}},{"amount":1,"slot":11,"name":"weapon_glock22","type":"weapon","info":{"ammo":0,"serie":"76cJj6aa217sJkZ","quality":100}},{"amount":1,"slot":12,"name":"advancedlockpick","type":"item","info":[]},{"amount":1,"slot":13,"name":"weedplant_packedweed","type":"item","info":[]},{"amount":1,"slot":14,"name":"megaphone","type":"item","info":[]},{"amount":1,"slot":15,"name":"weapon_carbinerifle","type":"weapon","info":{"ammo":0,"serie":"10eMt6Tr873JjmI","quality":100}}]', '2023-07-25 12:36:41'),
+	(455, 'IQU46439', 5, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'Jay', '{"crypto":0,"payslip":60,"cash":500,"bank":5000}', '{"nationality":"bobursuncle","phone":"6449338333","account":"US05QBCore5906148294","birthdate":"2000-02-03","gender":0,"firstname":"test","cid":"5","backstory":"placeholder backstory","lastname":"test"}', '{"name":"unemployed","onduty":true,"type":"none","payment":10,"grade":{"name":"Freelancer","level":0},"isboss":false,"label":"Civilian"}', '{"name":"none","grade":{"name":"none","level":0},"isboss":false,"label":"No Gang Affiliaton"}', '{"x":809.5516357421875,"y":-2157.67919921875,"z":29.6168212890625}', '{"hunger":66.39999999999998,"phone":[],"ishandcuffed":false,"armor":0,"craftingrep":0,"jobrep":{"hotdog":0,"trucker":0,"tow":0,"taxi":0},"licences":{"business":false,"driver":true,"weapon":false},"phonedata":{"InstalledApps":[],"SerialNumber":99865129},"callsign":"NO CALLSIGN","jailitems":[],"commandbinds":[],"inlaststand":false,"fitbit":[],"fingerprint":"TL261Q21FjO8480","dealerrep":0,"walletid":"QB-61930889","inside":{"apartment":[]},"attachmentcraftingrep":0,"bloodtype":"O+","isdead":false,"stress":0,"injail":0,"tracker":false,"criminalrecord":{"hasRecord":false},"thirst":69.60000000000002,"status":[]}', '[{"amount":1,"type":"item","name":"weedplant_branch","info":[],"slot":1},{"amount":1,"type":"item","name":"meth","info":[],"slot":2},{"amount":1,"type":"item","name":"markedbills","info":{"worth":6840},"slot":3},{"amount":1,"type":"weapon","name":"weapon_katana","info":{"quality":100,"serie":"88zfB5DX264HMrO"},"slot":4}]', '2023-07-26 05:41:43');
 
 -- Dumping structure for table ezfw.playerskins
 CREATE TABLE IF NOT EXISTS `playerskins` (
@@ -579,11 +631,12 @@ CREATE TABLE IF NOT EXISTS `playerskins` (
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.playerskins: ~1 rows (approximately)
+-- Dumping data for table ezfw.playerskins: ~2 rows (approximately)
 INSERT IGNORE INTO `playerskins` (`id`, `citizenid`, `model`, `skin`, `active`) VALUES
-	(5, 'CWP72955', '-970362752', '{"cheek_2":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"moles":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"pants":{"defaultItem":0,"texture":2,"item":4,"defaultTexture":0},"nose_0":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"bag":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"eyebrows":{"defaultItem":-1,"texture":1,"item":30,"defaultTexture":1},"lipstick":{"defaultItem":-1,"texture":1,"item":-1,"defaultTexture":1},"chimp_bone_lowering":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"eyebrown_forward":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"cheek_3":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"chimp_hole":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"mask":{"defaultItem":0,"texture":1,"item":0,"defaultTexture":0},"eye_color":{"defaultItem":-1,"texture":0,"item":2,"defaultTexture":0},"t-shirt":{"defaultItem":1,"texture":0,"item":0,"defaultTexture":0},"eyebrown_high":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"cheek_1":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_2":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_1":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"hat":{"defaultItem":-1,"texture":0,"item":0,"defaultTexture":0},"accessory":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"shoes":{"defaultItem":1,"texture":0,"item":1,"defaultTexture":0},"vest":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"watch":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"ageing":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"hair":{"defaultItem":0,"texture":0,"item":1,"defaultTexture":0},"face":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"facemix":{"defaultSkinMix":0.0,"shapeMix":0.5,"defaultShapeMix":0.0,"skinMix":0},"glass":{"defaultItem":0,"texture":0,"item":1,"defaultTexture":0},"lips_thickness":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_3":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_4":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"torso2":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"bracelet":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"jaw_bone_back_lenght":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"jaw_bone_width":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"face2":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"decals":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"makeup":{"defaultItem":-1,"texture":1,"item":-1,"defaultTexture":1},"chimp_bone_width":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_5":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"eye_opening":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"arms":{"defaultItem":0,"texture":0,"item":1,"defaultTexture":0},"chimp_bone_lenght":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"ear":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"blush":{"defaultItem":-1,"texture":1,"item":-1,"defaultTexture":1},"beard":{"defaultItem":-1,"texture":1,"item":0,"defaultTexture":1},"neck_thikness":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0}}', 1);
+	(5, 'CWP72955', '-970362752', '{"cheek_2":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"moles":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"pants":{"defaultItem":0,"texture":2,"item":4,"defaultTexture":0},"nose_0":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"bag":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"eyebrows":{"defaultItem":-1,"texture":1,"item":30,"defaultTexture":1},"lipstick":{"defaultItem":-1,"texture":1,"item":-1,"defaultTexture":1},"chimp_bone_lowering":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"eyebrown_forward":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"cheek_3":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"chimp_hole":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"mask":{"defaultItem":0,"texture":1,"item":0,"defaultTexture":0},"eye_color":{"defaultItem":-1,"texture":0,"item":2,"defaultTexture":0},"t-shirt":{"defaultItem":1,"texture":0,"item":0,"defaultTexture":0},"eyebrown_high":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"cheek_1":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_2":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_1":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"hat":{"defaultItem":-1,"texture":0,"item":0,"defaultTexture":0},"accessory":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"shoes":{"defaultItem":1,"texture":0,"item":1,"defaultTexture":0},"vest":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"watch":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"ageing":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"hair":{"defaultItem":0,"texture":0,"item":1,"defaultTexture":0},"face":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"facemix":{"defaultSkinMix":0.0,"shapeMix":0.5,"defaultShapeMix":0.0,"skinMix":0},"glass":{"defaultItem":0,"texture":0,"item":1,"defaultTexture":0},"lips_thickness":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_3":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_4":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"torso2":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"bracelet":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"jaw_bone_back_lenght":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"jaw_bone_width":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"face2":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"decals":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"makeup":{"defaultItem":-1,"texture":1,"item":-1,"defaultTexture":1},"chimp_bone_width":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"nose_5":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"eye_opening":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"arms":{"defaultItem":0,"texture":0,"item":1,"defaultTexture":0},"chimp_bone_lenght":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0},"ear":{"defaultItem":-1,"texture":0,"item":-1,"defaultTexture":0},"blush":{"defaultItem":-1,"texture":1,"item":-1,"defaultTexture":1},"beard":{"defaultItem":-1,"texture":1,"item":0,"defaultTexture":1},"neck_thikness":{"defaultItem":0,"texture":0,"item":0,"defaultTexture":0}}', 1),
+	(8, 'IQU46439', '-554721426', '{"torso2":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"bracelet":{"texture":0,"defaultItem":-1,"defaultTexture":0,"item":-1},"makeup":{"texture":1,"defaultItem":-1,"defaultTexture":1,"item":-1},"facemix":{"shapeMix":0,"skinMix":0,"defaultShapeMix":0.0,"defaultSkinMix":0.0},"nose_3":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"eyebrown_forward":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"eye_color":{"texture":0,"defaultItem":-1,"defaultTexture":0,"item":-1},"mask":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"ear":{"texture":0,"defaultItem":-1,"defaultTexture":0,"item":-1},"moles":{"texture":0,"defaultItem":-1,"defaultTexture":0,"item":-1},"watch":{"texture":0,"defaultItem":-1,"defaultTexture":0,"item":-1},"t-shirt":{"texture":0,"defaultItem":1,"defaultTexture":0,"item":1},"shoes":{"texture":0,"defaultItem":1,"defaultTexture":0,"item":1},"lipstick":{"texture":1,"defaultItem":-1,"defaultTexture":1,"item":-1},"face2":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"face":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"glass":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"eyebrows":{"texture":1,"defaultItem":-1,"defaultTexture":1,"item":-1},"hair":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"eyebrown_high":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"blush":{"texture":1,"defaultItem":-1,"defaultTexture":1,"item":-1},"nose_2":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"chimp_hole":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"nose_1":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"nose_4":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"chimp_bone_lowering":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"jaw_bone_back_lenght":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"neck_thikness":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"jaw_bone_width":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"pants":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"lips_thickness":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"eye_opening":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"vest":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"ageing":{"texture":0,"defaultItem":-1,"defaultTexture":0,"item":-1},"cheek_3":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"cheek_2":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"bag":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"nose_5":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"cheek_1":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"decals":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"chimp_bone_lenght":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"accessory":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"chimp_bone_width":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"nose_0":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"arms":{"texture":0,"defaultItem":0,"defaultTexture":0,"item":0},"beard":{"texture":1,"defaultItem":-1,"defaultTexture":1,"item":-1},"hat":{"texture":0,"defaultItem":-1,"defaultTexture":0,"item":-1}}', 1);
 
 -- Dumping structure for table ezfw.player_contacts
 CREATE TABLE IF NOT EXISTS `player_contacts` (
@@ -591,10 +644,9 @@ CREATE TABLE IF NOT EXISTS `player_contacts` (
   `citizenid` varchar(50) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `number` varchar(50) DEFAULT NULL,
-  `iban` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ezfw.player_contacts: ~0 rows (approximately)
 
@@ -617,6 +669,17 @@ CREATE TABLE IF NOT EXISTS `player_houses` (
 
 -- Dumping data for table ezfw.player_houses: ~0 rows (approximately)
 
+-- Dumping structure for table ezfw.player_jobs
+CREATE TABLE IF NOT EXISTS `player_jobs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `jobname` varchar(50) DEFAULT NULL,
+  `employees` text DEFAULT NULL,
+  `maxEmployee` tinyint(11) DEFAULT 15,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table ezfw.player_jobs: ~0 rows (approximately)
+
 -- Dumping structure for table ezfw.player_mails
 CREATE TABLE IF NOT EXISTS `player_mails` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -630,13 +693,9 @@ CREATE TABLE IF NOT EXISTS `player_mails` (
   `button` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.player_mails: ~3 rows (approximately)
-INSERT IGNORE INTO `player_mails` (`id`, `citizenid`, `sender`, `subject`, `message`, `read`, `mailid`, `date`, `button`) VALUES
-	(1, 'CWP72955', 'Unknown Email', 'Unknown', 'Alright, write it down. The plate is: 5ZK309ZE', 0, 293476, '2023-07-24 12:54:47', NULL),
-	(2, 'CWP72955', 'Crafting Company', 'Materials list', 'Dear Mr. Beef, <br /><br />List of materials you need to craft (Repair kit): <br /><br /> * Success rate: 100, <br /> * Restricted: No <br /><br /># Materials list: <br />- Metal Scrap 20x <br />- Steel 25x<br /><br />We are happy to have you!', 0, 472547, '2023-07-25 02:16:58', ''),
-	(3, 'CWP72955', 'Crafting Company', 'Materials list', 'Dear Mr. Beef, <br /><br />List of materials you need to craft (Lockpick): <br /><br /> * Success rate: 100, <br /> * Restricted: No <br /> * Level: 0 <br /><br /># Materials list: <br />- Wrench 1x<br /><br />We are happy to have you!', 0, 618859, '2023-07-25 02:17:42', '[]');
+-- Dumping data for table ezfw.player_mails: ~0 rows (approximately)
 
 -- Dumping structure for table ezfw.player_outfits
 CREATE TABLE IF NOT EXISTS `player_outfits` (
@@ -691,7 +750,7 @@ CREATE TABLE IF NOT EXISTS `player_vehicles` (
   KEY `license` (`license`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.player_vehicles: ~2 rows (approximately)
+-- Dumping data for table ezfw.player_vehicles: ~4 rows (approximately)
 INSERT IGNORE INTO `player_vehicles` (`id`, `license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `fakeplate`, `garage`, `fuel`, `engine`, `body`, `state`, `depotprice`, `drivingdistance`, `status`, `balance`, `paymentamount`, `paymentsleft`, `financetime`) VALUES
 	(1, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'CWP72955', 'ardent', '159274291', '{"modSpeakers":-1,"modTrimB":-1,"tyreSmokeColor":[255,255,255],"tankHealth":1000.0592475178704,"modArchCover":-1,"plateIndex":0,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modGrille":-1,"extras":[],"modStruts":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modHorns":-1,"dirtLevel":6.35462587779425,"fuelLevel":100.08535757525947,"modAirFilter":-1,"plate":"6ZH099JU","modExhaust":-1,"modRoof":-1,"modVanityPlate":-1,"modBrakes":-1,"modCustomTiresF":false,"modRightFender":-1,"modKit19":-1,"modAerials":-1,"modDashboard":-1,"pearlescentColor":87,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTransmission":-1,"modSideSkirt":-1,"neonEnabled":[false,false,false,false],"modSteeringWheel":-1,"modTrimA":-1,"model":159274291,"modKit21":-1,"modTurbo":false,"modShifterLeavers":-1,"modPlateHolder":-1,"bodyHealth":1000.0592475178704,"engineHealth":1000.0592475178704,"modDial":-1,"oilLevel":6.35462587779425,"modEngineBlock":-1,"modBackWheels":-1,"modFrontBumper":-1,"modHood":-1,"liveryRoof":-1,"modFrame":-1,"modDoorSpeaker":-1,"modTank":-1,"modSmokeEnabled":false,"modKit47":-1,"modXenon":false,"modKit17":-1,"wheelWidth":0.0,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSuspension":-1,"color2":0,"modArmor":-1,"modWindows":-1,"modSeats":-1,"modFrontWheels":-1,"dashboardColor":93,"modSpoilers":-1,"xenonColor":255,"modLivery":-1,"modKit49":-1,"neonColor":[255,0,255],"modTrunk":-1,"modOrnaments":-1,"modHydrolic":-1,"windowTint":-1,"wheelSize":0.0,"modRearBumper":-1,"modCustomTiresR":false,"wheelColor":112,"color1":88,"wheels":1,"interiorColor":93,"modFender":-1,"modAPlate":-1,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"headlightColor":255,"modEngine":-1}', '6ZH099JU', NULL, 'pillboxgarage', 100, 1000, 1000, 0, 0, 128, NULL, 0, 0, 0, 0),
 	(2, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'CWP72955', 'bati', '-114291515', '{"modSpeakers":-1,"modTrimB":-1,"tyreSmokeColor":[255,255,255],"tankHealth":1000.0592475178704,"modArchCover":-1,"plateIndex":3,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modGrille":-1,"extras":[],"modStruts":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":true,"7":false,"0":false},"modHorns":-1,"dirtLevel":7.14895411251853,"fuelLevel":100.08535757525947,"modAirFilter":-1,"plate":"7NP674SL","modExhaust":-1,"modRoof":-1,"modVanityPlate":-1,"modBrakes":-1,"modCustomTiresF":false,"modRightFender":-1,"modKit19":-1,"modAerials":-1,"modDashboard":-1,"pearlescentColor":111,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTransmission":-1,"modSideSkirt":-1,"neonEnabled":[false,false,false,false],"modSteeringWheel":-1,"modTrimA":-1,"model":-114291515,"modKit21":-1,"modTurbo":false,"modShifterLeavers":-1,"modPlateHolder":-1,"bodyHealth":1000.0592475178704,"engineHealth":1000.0592475178704,"modDial":-1,"oilLevel":4.76596940834568,"modEngineBlock":-1,"modBackWheels":-1,"modFrontBumper":-1,"modHood":-1,"liveryRoof":-1,"modFrame":-1,"modDoorSpeaker":-1,"modTank":-1,"modSmokeEnabled":false,"modKit47":-1,"modXenon":false,"modKit17":-1,"wheelWidth":0.0,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSuspension":-1,"color2":41,"modArmor":-1,"modWindows":-1,"modSeats":-1,"modFrontWheels":-1,"dashboardColor":0,"modSpoilers":-1,"xenonColor":255,"modLivery":-1,"modKit49":-1,"neonColor":[255,0,255],"modTrunk":-1,"modOrnaments":-1,"modHydrolic":-1,"windowTint":-1,"wheelSize":0.0,"modRearBumper":-1,"modCustomTiresR":false,"wheelColor":156,"color1":5,"wheels":6,"interiorColor":0,"modFender":-1,"modAPlate":-1,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"headlightColor":255,"modEngine":-1}', '7NP674SL', NULL, 'pillboxgarage', 100, 1000, 1000, 0, 0, 27648, NULL, 0, 0, 0, 0),
@@ -729,11 +788,12 @@ CREATE TABLE IF NOT EXISTS `properties` (
   PRIMARY KEY (`property_id`),
   UNIQUE KEY `UQ_owner_apartment` (`owner_citizenid`,`apartment`),
   CONSTRAINT `FK_owner_citizenid` FOREIGN KEY (`owner_citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.properties: ~0 rows (approximately)
+-- Dumping data for table ezfw.properties: ~2 rows (approximately)
 INSERT IGNORE INTO `properties` (`property_id`, `owner_citizenid`, `street`, `region`, `description`, `has_access`, `extra_imgs`, `furnitures`, `for_sale`, `price`, `shell`, `apartment`, `door_data`, `garage_data`) VALUES
-	(1, 'CWP72955', NULL, NULL, 'This is Angus Beef\'s apartment in Tinsel Towers', '[]', '[]', '[{"id":"4924841","object":"v_res_tre_storagebox","label":"Storage Unit","type":"storage","rotation":{"x":0.0,"y":0.0,"z":-87.99999237060547},"position":{"y":1.1852,"x":2.9145,"z":-1.5219}}]', 0, 0, 'Apartment Furnished', 'Tinsel Towers', '[]', '[]');
+	(1, 'CWP72955', NULL, NULL, 'This is Angus Beef\'s apartment in Tinsel Towers', '[]', '[]', '[{"id":"4924841","object":"v_res_tre_storagebox","label":"Storage Unit","type":"storage","rotation":{"x":0.0,"y":0.0,"z":-87.99999237060547},"position":{"y":1.1852,"x":2.9145,"z":-1.5219}}]', 0, 0, 'Apartment Furnished', 'Tinsel Towers', '[]', '[]'),
+	(2, 'IQU46439', NULL, NULL, 'This is test test\'s apartment in Integrity Way', '[]', '[]', '[]', 0, 0, 'Apartment Furnished', 'Integrity Way', '[]', '[]');
 
 -- Dumping structure for table ezfw.stashitems
 CREATE TABLE IF NOT EXISTS `stashitems` (
@@ -742,11 +802,12 @@ CREATE TABLE IF NOT EXISTS `stashitems` (
   `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`stash`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.stashitems: ~0 rows (approximately)
+-- Dumping data for table ezfw.stashitems: ~2 rows (approximately)
 INSERT IGNORE INTO `stashitems` (`id`, `stash`, `items`) VALUES
-	(1, 'property_1', '[]');
+	(1, 'property_1', '[]'),
+	(4, 'property_2', '[]');
 
 -- Dumping structure for table ezfw.trunkitems
 CREATE TABLE IF NOT EXISTS `trunkitems` (
