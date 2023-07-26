@@ -36,23 +36,23 @@ function GetModule(mod)
 end
 exports('GetModule', GetModule)
 
-function LoadModule(mod)
-    local mod = mod
-    local result = false
-    CreateThread(function()
-        local tenSec = 0
-        repeat
-            tenSec = tenSec + 1
-            Wait(1000)
-        until DoesModuleExist(mod) or tenSec >= 10
-        -- while not DoesModuleExist(mod) do
-        --     Wait(1000)
-        -- end
-        result = GetModule(mod)
-    end)
-    return result
-end
-exports("LoadModule",LoadModule)
+-- function LoadModule(mod)
+--     local mod = mod
+--     local result = false
+--     CreateThread(function()
+--         local tenSec = 0
+--         repeat
+--             tenSec = tenSec + 1
+--             Wait(1000)
+--         until DoesModuleExist(mod) or tenSec >= 10
+--         -- while not DoesModuleExist(mod) do
+--         --     Wait(1000)
+--         -- end
+--         result = GetModule(mod)
+--     end)
+--     return result
+-- end
+-- exports("LoadModule",LoadModule)
 -- To use this export in a script instead of GetCoreObject method
 -- Just put these lines of code below at the very top of the script
 --[[
