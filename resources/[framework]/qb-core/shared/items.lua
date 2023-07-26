@@ -551,12 +551,12 @@ QBShared.Items = {
 	["slicedonion"] 				= {["name"] = "slicedonion",				["label"] = "Sliced Onions",			["weight"] = 500,		["type"] = "item",		["image"] = "images/slicedonion.png",	["unique"] = false, 	["useable"] = false,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "Sliced Onion"},
 
     -- Prop / Bushes
-    ["bush"] 				        = {["name"] = "bush",				["label"] = "Bush",			["weight"] = 500,		["type"] = "item",		["image"] = "images/bush.png",	["unique"] = false, 	["useable"] = false,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "A potential outfit?"},
-    ["bush2"] 				        = {["name"] = "bush2",				["label"] = "Bush",			["weight"] = 500,		["type"] = "item",		["image"] = "images/bush.png",	["unique"] = false, 	["useable"] = false,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "A potential outfit?"},
+    ["bush"] 				        = {["name"] = "bush",				["label"] = "Bush",			["weight"] = 500,		["type"] = "item",		["image"] = "images/bush.png",	["unique"] = true, 	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "A potential outfit?"},
+    ["bush2"] 				        = {["name"] = "bush2",				["label"] = "Bush",			["weight"] = 500,		["type"] = "item",		["image"] = "images/bush.png",	["unique"] = true, 	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "A potential outfit?"},
 
     -- Vehicle
-    ["wheelchair"] 				        = {["name"] = "wheelchair",				["label"] = "Wheelchair",			["weight"] = 500,		["type"] = "item",		["image"] = "images/wheelchair.png",	["unique"] = false, 	["useable"] = false,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "They see me rollin', They hatin'"},
-    ["hoverboard"] 				        = {["name"] = "hoverboard",				["label"] = "Hoverboard",			["weight"] = 500,		["type"] = "item",		["image"] = "images/hoverboard.png",	["unique"] = false, 	["useable"] = false,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "Go to the future"},
+    ["wheelchair"] 				        = {["name"] = "wheelchair",				["label"] = "Wheelchair",			["weight"] = 500,		["type"] = "item",		["image"] = "images/wheelchair.png",	["unique"] = true, 	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "They see me rollin', They hatin'"},
+    ["hoverboard"] 				        = {["name"] = "hoverboard",				["label"] = "Hoverboard",			["weight"] = 500,		["type"] = "item",		["image"] = "images/hoverboard.png",	["unique"] = true, 	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "Go to the future"},
 
 }
 
