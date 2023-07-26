@@ -5547,6 +5547,9 @@ QBShared.Vehicles = {
         ['hash'] = `virtue`,
         ['shop'] = 'luxury',
     },
+
+      --------------------------------- Custom Vehicles
+
 }
 
 exports("GetSharedVehicles", function()
