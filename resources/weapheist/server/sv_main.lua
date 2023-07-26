@@ -4,11 +4,12 @@ local heist = false
 local inheist = false
 
 RegisterNetEvent("weapheist:StartHeist", function()
+    local source = source
     local Player = QBCore.Functions.GetPlayer(source)
     if Player then
-        if not inheist then
+        if not inheist[source] then
             if Player.Functions.RemoveMoney("cash", 15000) then
-                inheist = true
+                inheist[source] = true
                 TriggerClientEvent("weapheist:AddBlip", source)
             else
                 TriggerClientEvent("QBCore:Notify", source, "You don't have enough money", 'error')
@@ -70,7 +71,7 @@ local moneytrol = {
 
 RegisterNetEvent("weapheist:SpawnHeist", function()
     local source = source
-    if not heist and inheist then
+    if not heist and inheist[source] then
         heist = true
         local netIds = {}
         local netId
