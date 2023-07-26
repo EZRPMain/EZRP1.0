@@ -73,6 +73,7 @@ local objtoDeleteonLoot = nil
 RegisterNetEvent("weapheist:SpawnHeist", function()
     local source = source
     if not heist and inheist[source] then
+        looted = false
         heist = true
         local netIds = {}
         local netId
@@ -109,7 +110,7 @@ RegisterNetEvent("weapheist:loot", function(netid)
     local coords = GetEntityCoords(ped)
     local dist = #(coords - vector3(1120.27, -2173.53, 31.85))
     if dist < 25 then
-        if not looted then 
+        if not looted and heist then 
             looted = true
             local loot = {
                 "weapon_assaultrifle",
@@ -129,6 +130,7 @@ RegisterNetEvent("weapheist:loot", function(netid)
                 -- TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[item], 'add', 1)
             end
             objtoDeleteonLoot = DeleteObject(objtoDeleteonLoot)
+            heist = false
         end
     end
 end)
