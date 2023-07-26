@@ -1,11 +1,11 @@
 local xSound = exports['xsound']
-local QBCore = exports['qb-core']:GetCoreObject()
+-- local QBCore = exports['qb-core']:GetCoreObject()
 local heist = false
-local inheist = false
+local inheist = {}
 
 RegisterNetEvent("weapheist:StartHeist", function()
     local source = source
-    local Player = QBCore.Functions.GetPlayer(source)
+    local Player = exports['qb-core']:GetPlayer(source)
     if Player then
         if not inheist[source] then
             if Player.Functions.RemoveMoney("cash", 15000) then
@@ -68,6 +68,7 @@ local trolnetIds = {}
 local moneytrol = {
     vector4(1119.86, -2178.59, 30.85, 358.33)
 }
+local objtoDeleteonLoot = nil
 
 RegisterNetEvent("weapheist:SpawnHeist", function()
     local source = source
@@ -91,6 +92,7 @@ RegisterNetEvent("weapheist:SpawnHeist", function()
             local trol = CreateObject(`p_secret_weapon_02`, moneytrol[i].x, moneytrol[i].y, moneytrol[i].z, true, true, false)
             SetEntityHeading(trol, moneytrol[i].w)
             -- PlaceObjectOnGroundProperly(trol)
+            objtoDeleteonLoot = trol
             while not DoesEntityExist(trol) do Wait(25) end
             trolnetId = NetworkGetNetworkIdFromEntity(trol)
             trolnetIds[#trolnetIds+1] = trolnetId
@@ -123,8 +125,10 @@ RegisterNetEvent("weapheist:loot", function(netid)
             for i = 1,math.random(1,#loot) do
                 local item = loot[math.random(1,#loot)]
                 exports["lj-inventory"]:AddItem(source,item, 1)
-                TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[item], 'add', 1)
+                TriggerClientEvent('inventory:client:ItemBox', source, exports['qb-core']:GetSharedItem(item), 'add', 1)
+                -- TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[item], 'add', 1)
             end
+            objtoDeleteonLoot = DeleteObject(objtoDeleteonLoot)
         end
     end
 end)

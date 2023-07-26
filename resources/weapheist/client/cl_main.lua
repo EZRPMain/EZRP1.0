@@ -1,4 +1,4 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+-- local QBCore = exports['qb-core']:GetCoreObject()
 local RadiusBlip = nil
 local BlipLocation = nil
 
@@ -12,15 +12,15 @@ local weapheist = BoxZone:Create(vector3(1116.85, -2178.1, 38.24), 300, 300, {
 
 weapheist:onPlayerInOut(function(isPointInside)
     if isPointInside then
-        -- QBCore.Functions.Notify("You are nearby the area")
+        -- exports['qb-core']:Notify("You are nearby the area")
         TriggerServerEvent("weapheist:SpawnHeist")
     else
-        -- QBCore.Functions.Notify("")
+        -- exports['qb-core']:Notify("")
     end
 end)
 
 RegisterNetEvent("weapheist:spawnGang", function(netIds)
-    local PlayerData = QBCore.Functions.GetPlayerData()
+    local PlayerData = exports['qb-core']:GetPlayerData()
     Wait(1000)
     for i = 1, #netIds, 1 do
         local guard = NetworkGetEntityFromNetworkId(netIds[i])
@@ -57,7 +57,7 @@ exports['qb-target']:SpawnPed({
                 icon = 'fas fa-circle',
                 label = 'Talk',
                 action = function(entity)
-                    QBCore.Functions.Progressbar("talking_man", "Talking..", 10000, false, true, {
+                    exports['qb-core']:Progressbar("talking_man", "Talking..", 10000, false, true, {
                         disableMovement = false,
                         disableCarMovement = false,
                         disableMouse = false,
@@ -81,7 +81,7 @@ exports['qb-target']:AddTargetModel(`p_secret_weapon_02`, {
             action = function(entity)
                 print("netid", ObjToNet(entity))
                 print("normal id", entity)
-                QBCore.Functions.Progressbar("lotting_wh", "Looting..", 10000, false, true, {
+                exports['qb-core']:Progressbar("lotting_wh", "Looting..", 10000, false, true, {
                     disableMovement = false,
                     disableCarMovement = false,
                     disableMouse = false,
