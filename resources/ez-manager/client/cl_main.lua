@@ -1,5 +1,3 @@
-local Framework = exports['qb-core']
-
 function GetVehiclePlate(vehicle)
 	if not DoesEntityExist(vehicle) then
 		return ""
