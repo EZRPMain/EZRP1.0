@@ -1,0 +1,26 @@
+<CodeWalkerProject>
+  <Name>New CodeWalker Project</Name>
+  <Version value="1" />
+  <YmapFilenames>
+    <Item>huntbar_prentiss.ymap</Item>
+    <Item>hei_id2_occl_01.ymap</Item>
+    <Item>hei_id2_13_strm_0.ymap</Item>
+    <Item>huntbar_exterior.ymap</Item>
+  </YmapFilenames>
+  <YtypFilenames>
+    <Item>huntbar_prentiss.ytyp</Item>
+  </YtypFilenames>
+  <YbnFilenames>
+    <Item>hi@id2_13_0.ybn</Item>
+    <Item>id2_13_0.ybn</Item>
+  </YbnFilenames>
+  <YndFilenames />
+  <YnvFilenames />
+  <TrainsFilenames />
+  <ScenarioFilenames />
+  <AudioRelFilenames />
+  <YdrFilenames />
+  <YddFilenames />
+  <YftFilenames />
+  <YtdFilenames />
+</CodeWalkerProject>
