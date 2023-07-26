@@ -18,23 +18,6 @@ RegisterNetEvent('qb-weathersync:client:EnableSync', function()
     TriggerServerEvent('qb-weathersync:server:RequestStateSync')
 end)
 
-RegisterNetEvent('qb-weathersync:client:CayoPerico', function()
-	disable = true
-	CreateThread(function()
-		while disable do
-            SetRainLevel(0.0)
-            ClearOverrideWeather()
-            ClearWeatherTypePersist()
-            SetWeatherTypePersist('XMAS')
-            SetWeatherTypeNow('XMAS')
-            SetWeatherTypeNowPersist('XMAS')
-            SetForceVehicleTrails(true)
-            SetForcePedFootstepsTracks(true)
-			Wait(5000)
-		end
-	end)
-end)
-
 RegisterNetEvent('qb-weathersync:client:DisableSync', function()
 	disable = true
 	CreateThread(function()
