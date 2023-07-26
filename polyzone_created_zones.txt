@@ -1,0 +1,7 @@
+--Name: genral DK | 2023-07-26T13:35:19Z
+BoxZone:Create(vector3(4893.45, -4905.94, 3.49), 1, 1, {
+  name="genral DK",
+  heading=0,
+  --debugPoly=true
+})
+
