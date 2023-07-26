@@ -368,7 +368,8 @@ body {
     width: auto;
     top: 0px;
     left: 0px;
-    background-color: #646475 !important;
+    /* background-color: #646475 !important; */
+    background-color: #5177aa1c !important;
     text-align: center;
     line-height: 48px;
     font-size: 1.2vh;
