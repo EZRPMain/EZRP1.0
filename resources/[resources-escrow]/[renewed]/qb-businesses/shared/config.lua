@@ -656,7 +656,7 @@ Config.HandWash = {
     [9] = { coords = vector3(-587.79, -1062.57, 22.31), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
 
     ---- ** Burger Shot ** ----
-    [10] = { coords = vector3(-1198.58, -899.36, 13.89), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
+    [10] = { coords = vector3(-1202.3, -899.22, 13.89), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
     --henhouse
     [11] = { coords = vector3(185.45, -248.21, 54.07), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
     [12] = { coords = vector3(-300.02, 6270.46, 31.1), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
