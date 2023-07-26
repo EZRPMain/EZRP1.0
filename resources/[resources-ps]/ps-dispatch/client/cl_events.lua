@@ -17,7 +17,7 @@ local WeaponTable = {
     [`weapon_mp9`] = "CLASS 2: MP9",
     [`weapon_mossberg`] = "CLASS 2: Mossberg",
     [`weapon_remington`] = "CLASS 2: Remington",
-    [`weapon_scarh`] = "CLASS 3: Scar-H"
+    [`weapon_scarh`] = "CLASS 3: Scar-H",
 
     [584646201]   = "CLASS 2: AP-Pistol",
     [453432689]   = "CLASS 1: Pistol",
