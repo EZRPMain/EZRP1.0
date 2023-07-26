@@ -74,7 +74,7 @@ local objtoDeleteonLoot = nil
 RegisterNetEvent("weapheist:SpawnHeist", function()
     local source = source
     if not heist and inheist[source] then
-        looted = false
+        -- looted = false
         heist = true
         local netIds = {}
         local netId
@@ -113,14 +113,14 @@ RegisterNetEvent("weapheist:loot", function(netid)
         if not looted and heist then 
             looted = true
             local loot = {
-                "weapon_assaultrifle",
-                "weapon_compactrifle",
-                "weapon_pistol",
-                "weapon_pistol50",
-                "weapon_microsmg",
-                "weapon_machinepistol",
-                "weapon_pumpshotgun",
-                "weapon_gusenberg",
+                "WEAPON_MAC10",
+                "WEAPON_FNX45",
+                "WEAPON_MP5",
+                "WEAPON_HK416",
+                "WEAPON_MOSSBERG",
+                "WEAPON_REMINGTON",
+                "WEAPON_UZI",
+                "WEAPON_AK47",
             }
             
             for i = 1,math.random(1,#loot) do
@@ -129,8 +129,8 @@ RegisterNetEvent("weapheist:loot", function(netid)
                 TriggerClientEvent('inventory:client:ItemBox', source, exports['qb-core']:GetSharedItem(item), 'add', 1)
                 -- TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[item], 'add', 1)
             end
-            objtoDeleteonLoot = DeleteObject(objtoDeleteonLoot)
-            heist = false
+            objtoDeleteonLoot = DeleteEntity(objtoDeleteonLoot)
+            -- heist = false
         end
     end
 end)
