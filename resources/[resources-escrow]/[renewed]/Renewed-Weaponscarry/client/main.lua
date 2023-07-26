@@ -630,3 +630,7 @@ AddEventHandler('onResourceStop', function(resource)
 		end
 	end
 end)
+
+RegisterCommand('refreshprops', function()
+    refreshProps()
+end)
