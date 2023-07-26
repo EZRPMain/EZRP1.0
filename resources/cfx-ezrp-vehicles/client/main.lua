@@ -1,8 +1,8 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local Framework = exports['qb-core']
 local wheelchair = nil
 
 RegisterNetEvent('tnj-vehicles:wheelchair', function()
-    if QBCore.Functions.HasItem('wheelchair') then
+    if Framework:HasItem('wheelchair') then
         if not DoesEntityExist(wheelchair) then
             local wheelchairModel = 'wheelchair'
             RequestModel(wheelchairModel)
@@ -21,14 +21,14 @@ RegisterNetEvent('tnj-vehicles:wheelchair', function()
             DeleteVehicle(wheelchair)
             wheelchair = nil
         else
-            QBCore.Functions.Notify("You already have a wheelchair out!")
+            Framework:Notify("You already have a wheelchair out!")
         end
     end
 end)
 local hoverboard = nil
 
 RegisterNetEvent('tnj-vehicles:hoverboard', function()
-    if QBCore.Functions.HasItem('hoverboard') then
+    if Framework:HasItem('hoverboard') then
         if not DoesEntityExist(hoverboard) then
             local hoverboardModel = 'hoverboard'
             RequestModel(hoverboardModel)
@@ -47,7 +47,7 @@ RegisterNetEvent('tnj-vehicles:hoverboard', function()
             DeleteVehicle(hoverboard)
             hoverboard = nil
         else
-            QBCore.Functions.Notify("You already have a hoverboard out!")
+            Framework:Notify("You already have a hoverboard out!")
         end
     end
 end)

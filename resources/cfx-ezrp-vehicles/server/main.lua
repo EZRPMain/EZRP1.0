@@ -1,11 +1,11 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local Framework = exports['qb-core']
 
-QBCore.Functions.CreateUseableItem("wheelchair", function(source)
+Framework:CreateUseableItem("wheelchair", function(source)
     local source = source
     TriggerClientEvent('tnj-vehicles:wheelchair', source)
 end)
 
-QBCore.Functions.CreateUseableItem("hoverboard", function(source)
+Framework:CreateUseableItem("hoverboard", function(source)
     local source = source
     TriggerClientEvent('tnj-vehicles:hoverboard', source)
 end)
