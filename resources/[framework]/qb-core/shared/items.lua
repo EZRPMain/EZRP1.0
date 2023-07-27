@@ -557,6 +557,10 @@ QBShared.Items = {
     -- Vehicle
     ["wheelchair"] 				        = {["name"] = "wheelchair",				["label"] = "Wheelchair",			["weight"] = 500,		["type"] = "item",		["image"] = "images/wheelchair.png",	["unique"] = true, 	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "They see me rollin', They hatin'"},
     ["hoverboard"] 				        = {["name"] = "hoverboard",				["label"] = "Hoverboard",			["weight"] = 500,		["type"] = "item",		["image"] = "images/hoverboard.png",	["unique"] = true, 	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	["description"] = "Go to the future"},
+    
+
+    -- clothing shits
+    ['mask']  = {['name'] = 'mask', ['label'] = 'Mask',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'mask.png',  ['unique'] = true,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
 
 }
 

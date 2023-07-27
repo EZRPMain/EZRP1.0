@@ -251,7 +251,8 @@ Config.MenuItems = {
                                 title = 'Mask',
                                 icon = 'masks-theater',
                                 type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
+                                -- event = 'qb-radialmenu:ToggleClothing',
+                                event = 'ez-usables:client:ToggleMask'
                                 shouldClose = true
                             }, {
                                 id = 'Vest',
@@ -827,13 +828,13 @@ Config.Commands = {
         Button = 13,
         Name = "Bracelet"
     },
-    ["mask"] = {
-        Func = function() ToggleClothing("Mask") end,
-        Sprite = "mask",
-        Desc = "Take your mask off/on",
-        Button = 6,
-        Name = "Mask"
-    }
+    -- ["mask"] = {
+    --     Func = function() ToggleClothing("Mask") end,
+    --     Sprite = "mask",
+    --     Desc = "Take your mask off/on",
+    --     Button = 6,
+    --     Name = "Mask"
+    -- }
 }
 
 local bags = {[40] = true, [41] = true, [44] = true, [45] = true}

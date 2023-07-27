@@ -649,6 +649,11 @@ function FormatItemInfo(itemData, dom) {
                 "<p><span>" + itemData.description + "</span></p>" +
                 "<p><strong>Blueprint :</strong> " + itemData.info.blueprint_label + "</p>"
             );
+        } else if (itemData.name == "mask") {
+            $(".item-info-title").html("<p>" + `${itemData.info.label|| itemData.label}` + "</p>");
+            $(".item-info-description").html(
+                "<p>" + itemData.info.drawableId + "-" + itemData.info.textureId + "</p>"
+            );
         } else {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html("<p>" + itemData.description + "</p>");
