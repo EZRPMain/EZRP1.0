@@ -252,7 +252,7 @@ Config.MenuItems = {
                                 icon = 'masks-theater',
                                 type = 'client',
                                 -- event = 'qb-radialmenu:ToggleClothing',
-                                event = 'ez-usables:client:ToggleMask'
+                                event = 'ez-usables:client:ToggleMask',
                                 shouldClose = true
                             }, {
                                 id = 'Vest',
