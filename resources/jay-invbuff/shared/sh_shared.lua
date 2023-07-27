@@ -25,7 +25,7 @@ CreateThread(function()
         end
     end
     print("Passed Dependency Check")
-    if Inventory:MaxWeight then 
+    if not IsDuplicityVersion() and Inventory:MaxWeight then 
         print("Passed Export Check")
     end
 end)
