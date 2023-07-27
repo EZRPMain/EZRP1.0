@@ -5550,7 +5550,8 @@ QBShared.Vehicles = {
     -- Fuck me cunt asshole licker CUM
     --------------------------------- Custom Vehicles
     ['2f2fgtr34'] = {
-        ['name'] = '2f2fgtr34', 
+        ['name'] = '2f2fgtr34',
+        ['brand'] = 'Brand', 
         ['model'] = '2f2fgtr34', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5560,6 +5561,7 @@ QBShared.Vehicles = {
     }, 
     ['2f2fgts'] = {
         ['name'] = '2f2fgts', 
+        ['brand'] = 'Brand', 
         ['model'] = '2f2fgts', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5569,6 +5571,7 @@ QBShared.Vehicles = {
     }, 
     ['2f2fmk4'] = {
         ['name'] = '2f2fmk4', 
+        ['brand'] = 'Brand', 
         ['model'] = '2f2fmk4', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5578,6 +5581,7 @@ QBShared.Vehicles = {
     }, 
     ['2f2fmle7'] = {
         ['name'] = '2f2fmle7', 
+        ['brand'] = 'Brand', 
         ['model'] = '2f2fmle7', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5587,6 +5591,7 @@ QBShared.Vehicles = {
     }, 
     ['610lb'] = {
         ['name'] = '610lb', 
+        ['brand'] = 'Brand', 
         ['model'] = '610lb', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5596,6 +5601,7 @@ QBShared.Vehicles = {
     }, 
     ['a6'] = {
         ['name'] = 'a6', 
+        ['brand'] = 'Brand', 
         ['model'] = 'a6', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5605,6 +5611,7 @@ QBShared.Vehicles = {
     }, 
     ['ae86'] = {
         ['name'] = 'ae86', 
+        ['brand'] = 'Brand', 
         ['model'] = 'ae86', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5614,6 +5621,7 @@ QBShared.Vehicles = {
     }, 
     ['ben17'] = {
         ['name'] = 'ben17', 
+        ['brand'] = 'Brand', 
         ['model'] = 'ben17', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5621,17 +5629,19 @@ QBShared.Vehicles = {
         ['hash'] = 'ben17', 
         ['shop'] = 'pdm', 
     }, 
-    ['blista2'] = {
-        ['name'] = 'blista2', 
-        ['model'] = 'blista2', 
-        ['price'] = 20000, 
-        ['category'] = 'compacts', 
-        ['categoryLabel'] = 'Compacts', 
-        ['hash'] = 'blista2', 
-        ['shop'] = 'pdm', 
-    }, 
+    -- ['blista2'] = {
+    --     ['name'] = 'blista2',
+    --     ['brand'] = 'Brand',  
+    --     ['model'] = 'blista2', 
+    --     ['price'] = 20000, 
+    --     ['category'] = 'compacts', 
+    --     ['categoryLabel'] = 'Compacts', 
+    --     ['hash'] = 'blista2', 
+    --     ['shop'] = 'pdm', 
+    -- }, 
     ['bmw1'] = {
         ['name'] = 'bmw1', 
+        ['brand'] = 'Brand',  
         ['model'] = 'bmw1', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5641,6 +5651,7 @@ QBShared.Vehicles = {
     }, 
     ['camry55'] = {
         ['name'] = 'camry55', 
+        ['brand'] = 'Brand',  
         ['model'] = 'camry55', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5649,7 +5660,8 @@ QBShared.Vehicles = {
         ['shop'] = 'pdm', 
     }, 
     ['crownvic2011'] = {
-        ['name'] = 'crownvic2011', 
+        ['name'] = 'crownvic2011',
+        ['brand'] = 'Brand',   
         ['model'] = 'crownvic2011', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5658,7 +5670,8 @@ QBShared.Vehicles = {
         ['shop'] = 'pdm', 
     }, 
     ['cullinan'] = {
-        ['name'] = 'cullinan', 
+        ['name'] = 'cullinan',
+        ['brand'] = 'Brand',   
         ['model'] = 'cullinan', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5666,17 +5679,9 @@ QBShared.Vehicles = {
         ['hash'] = 'cullinan', 
         ['shop'] = 'pdm', 
     }, 
-    ['draftgpr+hi'] = {
-        ['name'] = 'draftgpr+hi', 
-        ['model'] = 'draftgpr+hi', 
-        ['price'] = 20000, 
-        ['category'] = 'compacts', 
-        ['categoryLabel'] = 'Compacts', 
-        ['hash'] = 'draftgpr+hi', 
-        ['shop'] = 'pdm', 
-    }, 
     ['draftgpr'] = {
         ['name'] = 'draftgpr', 
+        ['brand'] = 'Brand',  
         ['model'] = 'draftgpr', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5686,6 +5691,7 @@ QBShared.Vehicles = {
     }, 
     ['ferio'] = {
         ['name'] = 'ferio', 
+        ['brand'] = 'Brand',  
         ['model'] = 'ferio', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5695,6 +5701,7 @@ QBShared.Vehicles = {
     }, 
     ['ferio2'] = {
         ['name'] = 'ferio2', 
+        ['brand'] = 'Brand',  
         ['model'] = 'ferio2', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5704,6 +5711,7 @@ QBShared.Vehicles = {
     }, 
     ['ff4wrx'] = {
         ['name'] = 'ff4wrx', 
+        ['brand'] = 'Brand',  
         ['model'] = 'ff4wrx', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5713,6 +5721,7 @@ QBShared.Vehicles = {
     }, 
     ['fk8'] = {
         ['name'] = 'fk8', 
+        ['brand'] = 'Brand',  
         ['model'] = 'fk8', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5722,6 +5731,7 @@ QBShared.Vehicles = {
     }, 
     ['fnf4r34'] = {
         ['name'] = 'fnf4r34', 
+        ['brand'] = 'Brand',  
         ['model'] = 'fnf4r34', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5731,6 +5741,7 @@ QBShared.Vehicles = {
     }, 
     ['fnflan'] = {
         ['name'] = 'fnflan', 
+        ['brand'] = 'Brand',  
         ['model'] = 'fnflan', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5740,6 +5751,7 @@ QBShared.Vehicles = {
     }, 
     ['fnfmits'] = {
         ['name'] = 'fnfmits', 
+        ['brand'] = 'Brand',  
         ['model'] = 'fnfmits', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5749,6 +5761,7 @@ QBShared.Vehicles = {
     }, 
     ['fnfmk4'] = {
         ['name'] = 'fnfmk4', 
+        ['brand'] = 'Brand',  
         ['model'] = 'fnfmk4', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5758,6 +5771,7 @@ QBShared.Vehicles = {
     }, 
     ['fnfrx7'] = {
         ['name'] = 'fnfrx7', 
+        ['brand'] = 'Brand',  
         ['model'] = 'fnfrx7', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5767,6 +5781,7 @@ QBShared.Vehicles = {
     }, 
     ['gtr'] = {
         ['name'] = 'gtr', 
+        ['brand'] = 'Brand',  
         ['model'] = 'gtr', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5775,7 +5790,8 @@ QBShared.Vehicles = {
         ['shop'] = 'pdm', 
     }, 
     ['hoverboard'] = {
-        ['name'] = 'hoverboard', 
+        ['name'] = 'hoverboard',
+        ['brand'] = 'Brand',   
         ['model'] = 'hoverboard', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5785,6 +5801,7 @@ QBShared.Vehicles = {
     }, 
     ['lc200'] = {
         ['name'] = 'lc200', 
+        ['brand'] = 'Brand',  
         ['model'] = 'lc200', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5794,6 +5811,7 @@ QBShared.Vehicles = {
     }, 
     ['m5f90'] = {
         ['name'] = 'm5f90', 
+        ['brand'] = 'Brand',  
         ['model'] = 'm5f90', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5803,6 +5821,7 @@ QBShared.Vehicles = {
     }, 
     ['mgt'] = {
         ['name'] = 'mgt', 
+        ['brand'] = 'Brand',  
         ['model'] = 'mgt', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5812,6 +5831,7 @@ QBShared.Vehicles = {
     }, 
     ['nc1'] = {
         ['name'] = 'nc1', 
+        ['brand'] = 'Brand',  
         ['model'] = 'nc1', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5821,6 +5841,7 @@ QBShared.Vehicles = {
     }, 
     ['oracle'] = {
         ['name'] = 'oracle', 
+        ['brand'] = 'Brand',  
         ['model'] = 'oracle', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5831,6 +5852,7 @@ QBShared.Vehicles = {
     ['prius'] = {
         ['name'] = 'prius', 
         ['model'] = 'prius', 
+        ['brand'] = 'Brand',  
         ['price'] = 20000, 
         ['category'] = 'compacts', 
         ['categoryLabel'] = 'Compacts', 
@@ -5838,7 +5860,8 @@ QBShared.Vehicles = {
         ['shop'] = 'pdm', 
     }, 
     ['r8hycade'] = {
-        ['name'] = 'r8hycade', 
+        ['name'] = 'r8hycade',
+        ['brand'] = 'Brand',   
         ['model'] = 'r8hycade', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5848,6 +5871,7 @@ QBShared.Vehicles = {
     }, 
     ['rmodmustang'] = {
         ['name'] = 'rmodmustang', 
+        ['brand'] = 'Brand',  
         ['model'] = 'rmodmustang', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5856,7 +5880,8 @@ QBShared.Vehicles = {
         ['shop'] = 'pdm', 
     }, 
     ['ruiner6str'] = {
-        ['name'] = 'ruiner6str', 
+        ['name'] = 'ruiner6str',
+        ['brand'] = 'Brand',   
         ['model'] = 'ruiner6str', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5866,6 +5891,7 @@ QBShared.Vehicles = {
     }, 
     ['sentinel'] = {
         ['name'] = 'sentinel',
+        ['brand'] = 'Brand',  
         ['model'] = 'sentinel',
         ['price'] = 20000,
         ['category'] = 'compacts',
@@ -5875,6 +5901,7 @@ QBShared.Vehicles = {
     }, 
     ['sjdodge'] = {
         ['name'] = 'sjdodge', 
+        ['brand'] = 'Brand',  
         ['model'] = 'sjdodge', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5884,6 +5911,7 @@ QBShared.Vehicles = {
     }, 
     ['skyline'] = {
         ['name'] = 'skyline', 
+        ['brand'] = 'Brand',  
         ['model'] = 'skyline', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5892,7 +5920,8 @@ QBShared.Vehicles = {
         ['shop'] = 'pdm', 
     }, 
     ['stratumc'] = {
-        ['name'] = 'stratumc', 
+        ['name'] = 'stratumc',
+        ['brand'] = 'Brand',   
         ['model'] = 'stratumc', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5902,6 +5931,7 @@ QBShared.Vehicles = {
     }, 
     ['supra19'] = {
         ['name'] = 'supra19', 
+        ['brand'] = 'Brand',  
         ['model'] = 'supra19', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5910,7 +5940,8 @@ QBShared.Vehicles = {
         ['shop'] = 'pdm', 
     }, 
     ['wheelchair'] = {
-        ['name'] = 'wheelchair', 
+        ['name'] = 'wheelchair',
+        ['brand'] = 'Brand',   
         ['model'] = 'wheelchair', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5920,6 +5951,7 @@ QBShared.Vehicles = {
     }, 
     ['yaluxe'] = {
         ['name'] = 'yaluxe', 
+        ['brand'] = 'Brand',  
         ['model'] = 'yaluxe', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
@@ -5928,7 +5960,8 @@ QBShared.Vehicles = {
         ['shop'] = 'pdm', 
     }, 
     ['yosemite6str'] = {
-        ['name'] = 'yosemite6str', 
+        ['name'] = 'yosemite6str',
+        ['brand'] = 'Brand',   
         ['model'] = 'yosemite6str', 
         ['price'] = 20000, 
         ['category'] = 'compacts', 
