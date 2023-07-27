@@ -9,25 +9,40 @@ local choosingSpawn = false
 local Houses = {}
 local cam = nil
 local cam2 = nil
+local cloudOpacity = 0.01 -- (default: 0.01)
+local muteSound = true -- (default: true)
 
 -- Functions
 
 local function SetDisplay(bool)
-    local translations = {}
-    for k in pairs(Lang.fallback and Lang.fallback.phrases or Lang.phrases) do
-        if k:sub(0, #'ui.') then
-            translations[k:sub(#'ui.' + 1)] = Lang:t(k)
-        end
-    end
     choosingSpawn = bool
     SetNuiFocus(bool, bool)
     SendNUIMessage({
         action = "showUi",
-        status = bool,
-        translations = translations
+        status = bool
     })
 end
 
+function ToggleSound(state)
+    if state then
+        StartAudioScene("MP_LEADERBOARD_SCENE");
+    else
+        StopAudioScene("MP_LEADERBOARD_SCENE");
+    end
+end
+
+function InitialSetup()
+    ToggleSound(muteSound)
+    if not IsPlayerSwitchInProgress() then
+        SwitchOutPlayer(PlayerPedId(), 0, 1)
+    end
+end
+
+function ClearScreen()
+    SetCloudHatOpacity(cloudOpacity)
+    HideHudAndRadarThisFrame()
+    SetDrawOrigin(0.0, 0.0, 0.0, 0)
+end
 -- Events
 
 RegisterNetEvent('qb-spawn:client:openUI', function(value)
@@ -148,10 +163,47 @@ RegisterNUICallback('chooseAppa', function(data, cb)
     TriggerServerEvent("ps-housing:server:createNewApartment", appaYeet)
     cb('ok')
 end)
+
+RegisterNetEvent('qb-spawn:client:PreSpawnPlayer', function()
+    while GetPlayerSwitchState() ~= 5 do
+        Wait(0)
+        ClearScreen()
+    end
+    ClearScreen()
+    Wait(0)
+    DoScreenFadeOut(0)
+    ClearScreen()
+    Wait(0)
+    ClearScreen()
+    DoScreenFadeIn(500)
+    while not IsScreenFadedIn() do
+        Wait(0)
+        ClearScreen()
+    end
+    local timer = GetGameTimer()
+    ToggleSound(false)
+    while true do
+        ClearScreen()
+        Wait(0)
+        if GetGameTimer() - timer > 5000 then
+            SwitchInPlayer(PlayerPedId())     
+            ClearScreen()
+            while GetPlayerSwitchState() ~= 12 do
+                Wait(0)
+                ClearScreen()
+            end
+    
+            break
+        end
+    end
+    ClearDrawOrigin()
+end)
+
 local function PreSpawnPlayer()
     SetDisplay(false)
     DoScreenFadeOut(500)
-    Wait(2000)
+    TriggerEvent('qb-spawn:client:spawnscene')
+    Wait(5500)
 end
 
 local function PostSpawnPlayer(ped)

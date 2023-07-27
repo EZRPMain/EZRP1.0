@@ -5,54 +5,102 @@
 }
 
 .spawn-locations {
-    text-transform: uppercase;
+    background: url("https://cdn.discordapp.com/attachments/787563216816832528/1039282811938545705/unknown.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* text-transform: uppercase;
     position: absolute;
-    min-width: 30vh;
-    width: fit-content;
-    max-width: 35vh;
-    top: 10vh;
-    left: 10vh;
-    background-color: #161923f2;
-    border-radius: 5px;
-    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-    border-radius: .8vh;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://cdn.discordapp.com/attachments/787563216816832528/1039282811938545705/unknown.png");
     padding: 30px;
     cursor: default;
     transition: 300ms;
+    border-radius: 0px;
+    color: white; */
+}
+.spawn-information {
+    background: url("https://cdn.discordapp.com/attachments/787563216816832528/1039282811938545705/unknown.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* text-transform: uppercase;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://cdn.discordapp.com/attachments/787563216816832528/1039282811938545705/unknown.png");
+    padding: 30px;
+    cursor: default;
+    transition: 300ms;
+    border-radius: 0px;
+    color: white;
+    text-align: center; */
+}  
+
+
+.spawn-information-header {
+    width: 100%;
+    transition: 0.2s;
+    margin-bottom: -3.5px;
+    text-indent: 0px; 
+    text-align: center;
+    
+}
+
+ul.b {
+  list-style-type: square;
+}
+
+.spawn-information-header > p {
+    margin-bottom: 10vh;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    position: relative;
+    color: #ededed;
+    text-align: center;
+    font-size: 1.5vh;
 }
 
 .location {
-    width: 100%;
+    width: auto;
+    margin-right: 50%;
     margin-bottom: 15px;
     transition: 200ms;
     border-radius: .3vh;
-    cursor: pointer;
+    cursor: default;
+    text-align: center;
 }
 
 .v-btn.location:hover {
-    background-color: #a90d2ca6!important;
     transition: 300ms;
 }
 
 .v-btn.location .v-btn__content,
 .v-btn.submit-spawn .v-btn__content {
     font-size: 1.4vh!important;
-    font-weight: 600!important;
+    font-weight: bolder !important;
     color: white!important;
-    letter-spacing: 3;
+    text-align: center !important;
+
 }
 
 .v-btn.location.selected {
-    background-color: #a90d2ca6!important;
+    border-left: 4px solid #fffffffd!important;
+    border-radius: 15px;
 }
 
 .submit-spawn {
-    background-color: rgb(47 134 67)!important;
-    width: 100%;
-    margin-top: 1.5vh;
+    background-color: transparent !important;
+    width: auto;
+    margin-top: 60.5vh;
+    margin-left: 92%;
     transition: 0.2s;
-    border-radius: .3vh;
     cursor: pointer;
+    color: white;
 }
 
 .spawn_locations-header {
