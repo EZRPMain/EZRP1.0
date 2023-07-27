@@ -46,7 +46,7 @@ svg.icons {
 svg.menu {
     position: absolute;
     overflow: visible;
-    transition: .25s;
+    transition: .1s;
     transition-timing-function: ease-out;
 }
 
@@ -63,11 +63,11 @@ svg.menu.outer {
 
 svg.menu > g > path {
     cursor: pointer;
-    fill: rgb(0, 0, 0);
+    fill: #000000;
     fill-opacity: 0.4;
-    stroke: rgb(255, 255, 255);
+    stroke: #5177aa;
     stroke-opacity: 0.45;
-    stroke-width: 0.5;
+    stroke-width: 1.5;
 }
 
 svg.menu > g.sector > path {
@@ -86,34 +86,43 @@ svg.menu > g.sector > use {
 }
 
 svg.menu > g.sector:hover > path {
-    fill: white;
-
+    fill:#5177aa;
+    fill-opacity: 0.3;
 }
+
+/* svg.menu > g.sector.selected > path {
+
+    cursor: pointer;
+    fill: #000000;
+    fill-opacity: 0.15;
+    stroke: #5177aa;
+    stroke-opacity: 0.45;
+    stroke-width: 1.5;
+
+} */
 
 svg.menu > g.center:hover > circle {
-
-    cursor: pointer;
-
-    fill:rgb(0, 0, 0);
-    fill-opacity: 0.15;
-
-    stroke: rgb(255, 255, 255);
-    stroke-opacity: 0.45;
-    stroke-width: 0.5;
-
+    fill:#5177aa;
+    fill-opacity: 0.3;
 }
 
-svg.menu > g.center > circle {
-
+/* svg.menu > g.center:hover > circle {
     cursor: pointer;
-
-    fill:rgb(0, 0, 0);
-    fill-opacity: 0.4;
-
-    stroke: rgb(255, 255, 255);
+    fill: #000000;
+    fill-opacity: 0.15;
+    stroke: #5177aa;
     stroke-opacity: 0.45;
-    stroke-width: 0.5;
+    stroke-width: 1.5;
 
+} */
+
+svg.menu > g.center > circle {
+    cursor: pointer;
+    fill: #000000;
+    fill-opacity: 0.4;
+    stroke: #5177aa;
+    stroke-opacity: 0.45;
+    stroke-width: 1.5;
 
 }
 
@@ -124,3 +133,4 @@ svg.menu > g.center > use {
     cursor: pointer;
     fill: white;
 }
+

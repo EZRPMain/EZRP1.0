@@ -1,3 +1,6 @@
+Framework = exports['qb-core']
+Inv = exports['lj-inventory']
+
 Config = {}
 
 Config.BossModel = "u_m_y_party_01"
@@ -24,7 +27,7 @@ Config.RepairPriceMultiplier = 1.0
 
 Config.VehicleSpawn = vector4(535.3, 95.58, 96.32, 159.15)
 
-Config.FuelScript = 'ps-fuel'
+Config.FuelScript = 'LegacyFuel'
 
 Config.JobLocs = { -- Random delivery houses.
     vector3(224.11, 513.52, 140.92),

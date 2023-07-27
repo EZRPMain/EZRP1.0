@@ -30,6 +30,7 @@ RegisterNetEvent('ez-usables:client:MaskOn', function(item)
         flags = 49,
     }, {}, {}, function() -- Done
         SetPedComponentVariation(ped, 1, item.info.drawableId, item.info.textureId)
+        print(item.name)
         TriggerServerEvent("ez-usables:server:RemoveMaskItem", item)
     end, function() -- Cancel
 

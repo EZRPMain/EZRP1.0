@@ -29,5 +29,5 @@ RegisterNetEvent('ez-usables:server:RemoveMaskItem', function(item)
     local Player = Framework:GetPlayer(source)
 
     Player.Functions.RemoveItem(item.name, 1, item.slot)
-    TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem(item), "remove")
+    TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem(item.name), "remove")
 end)

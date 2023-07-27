@@ -15,6 +15,12 @@ local isHotbar = false
 local WeaponAttachments = {}
 local showBlur = true
 
+function MaxWeight(amount)
+    Config.MaxInventoryWeight = amount
+end
+exports("MaxWeight", MaxWeight)
+
+
 local function HasItem(items, amount)
     local isTable = type(items) == 'table'
     local isArray = isTable and table.type(items) == 'array' or false

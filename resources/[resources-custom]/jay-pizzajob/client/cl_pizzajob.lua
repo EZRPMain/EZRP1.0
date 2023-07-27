@@ -1,4 +1,3 @@
-local QBCore = exports['qb-core']:GetCoreObject()
 local Hired = false
 local HasPizza = false
 local DeliveriesCount = 0
@@ -62,7 +61,7 @@ end
 
 AddEventHandler('onResourceStart', function(resource)
     if GetCurrentResourceName() == resource then
-        PlayerJob = QBCore.Functions.GetPlayerData().job
+        PlayerJob = Framework:GetPlayerData().job
         ClockInPed()
     end
 end)
@@ -105,13 +104,13 @@ end)
 
 function PullOutVehicle()
     if ownsVan then
-        QBCore.Functions.Notify("You already have a work vehicle! Go and collect it or end your job.", "error")
+        Framework:Notify("You already have a work vehicle! Go and collect it or end your job.", "error")
     else
         local coords = Config.VehicleSpawn
         local veh = Config.Vehicle[math.random(#Config.Vehicle)]
         local livery = Config.Livery[veh]
         print(veh)
-        QBCore.Functions.SpawnVehicle(veh, function(pizzaCar)
+        Framework:SpawnVehicle(veh, function(pizzaCar)
             SetVehicleNumberPlateText(pizzaCar, "PIZZA"..tostring(math.random(1000, 9999)))
             SetVehicleColours(pizzaCar, 111, 111)
             SetVehicleDirtLevel(pizzaCar, 1)
@@ -154,7 +153,7 @@ RegisterNetEvent('jay-pizza:client:deliverPizza', function()
     if HasPizza and Hired and not PizzaDelivered then
         TriggerEvent('animations:client:EmoteCommandStart', {"knock"})
         PizzaDelivered = true
-        QBCore.Functions.Progressbar("knock", "Delivering pizza", 7000, false, false, {
+        Framework:Progressbar("knock", "Delivering pizza", 7000, false, false, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,
@@ -172,13 +171,13 @@ RegisterNetEvent('jay-pizza:client:deliverPizza', function()
             Wait(1000)
             ClearPedSecondaryTask(PlayerPedId())
             TriggerEvent('qb-phone:client:CustomNotification', 'PIZZA THIS', "Pizza Delivered. Please wait for your next delivery!", 'fas fa-pizza-slice', '#FF0000', 8000)
-            -- QBCore.Functions.Notify("Pizza Delivered. Please wait for your next delivery!", "success") 
+            -- Framework:Notify("Pizza Delivered. Please wait for your next delivery!", "success") 
             SetTimeout(5000, function()    
                 NextDelivery()
             end)
         end)
     else
-        QBCore.Functions.Notify("You need the pizza from the car dummy.", "error") 
+        Framework:Notify("You need the pizza from the car dummy.", "error") 
     end
 end)
 
@@ -206,7 +205,7 @@ function TakePizza()
                     TaskPlayAnim(player, ad, "idle", 3.0, -8, -1, 63, 0, 0, 0, 0 )
                     HasPizza = true
                 else
-                    QBCore.Functions.Notify("You're not close enough to the customer's house!", "error")
+                    Framework:Notify("You're not close enough to the customer's house!", "error")
                 end
             end
         end
@@ -232,7 +231,7 @@ function NextDelivery()
         EndTextCommandSetBlipName(JobBlip)
         exports['qb-target']:AddCircleZone("deliverZone", vector3(newDelivery.x, newDelivery.y, newDelivery.z), 1.3,{ name = "deliverZone", debugPoly = false, useZ=true, }, { options = { { type = "client", event = "jay-pizza:client:deliverPizza", icon = "fa-solid fa-pizza-slice", label = "Deliver Pizza"}, }, distance = 1.5 })
         activeOrder = true
-        -- QBCore.Functions.Notify("You have a new delivery!", "success")
+        -- Framework:Notify("You have a new delivery!", "success")
         TriggerEvent('qb-phone:client:CustomNotification', 'PIZZA THIS', "You have a new delivery!", 'fas fa-pizza-slice', '#FF0000', 8000)
     end
 end
@@ -240,7 +239,7 @@ end
 RegisterNetEvent('jay-pizza:client:finishWork', function()
     local ped = PlayerPedId()
     local pos = GetEntityCoords(ped)
-    local veh = QBCore.Functions.GetClosestVehicle()
+    local veh = Framework:GetClosestVehicle()
     local finishspot = vector3(Config.BossCoords.x, Config.BossCoords.y, Config.BossCoords.z)
     if #(pos - finishspot) < 10.0 then
         if Hired then
@@ -251,7 +250,7 @@ RegisterNetEvent('jay-pizza:client:finishWork', function()
                 local repairCost = math.ceil(Config.BaseRepairPrice + ((1000 - vehicleHealth) * Config.RepairPriceMultiplier))
                 -- print(repairCost)
                 TriggerServerEvent("pizzajob:ReturnStickynote", GetVehicleNumberPlateText(veh))
-                QBCore.Functions.DeleteVehicle(veh)
+                Framework:DeleteVehicle(veh)
                 RemoveBlip(JobBlip)
                 
                 Hired = false
@@ -261,11 +260,11 @@ RegisterNetEvent('jay-pizza:client:finishWork', function()
                 if DeliveriesCount > 0 then
                     TriggerServerEvent('jay-pizza:server:Payment', DeliveriesCount, repairCost)
                 else
-                    QBCore.Functions.Notify("You didn't complete any deliveries so you weren't paid.", "error")
+                    Framework:Notify("You didn't complete any deliveries so you weren't paid.", "error")
                 end
                 DeliveriesCount = 0
             else
-                QBCore.Functions.Notify("You must return your work vehicle to get paid.", "error")
+                Framework:Notify("You must return your work vehicle to get paid.", "error")
                 return
             end
         end
