@@ -1,30 +1,25 @@
-local isDebug = true
 local buffName = "strength"
 
-local pedBuffs = {
-    [`pw_andreas`] = 100,
-}
-
-local inventorySize = 120000
+local inventorySize = 250000
 local function SetStrength(buff) -- 0-100
     local display = true
     if buff == 0 then 
         display = false
-        exports['lj-inventory']:MaxWeight(inventorySize)
+        Inventory:MaxWeight(inventorySize)
         TriggerEvent('hud:client:BuffEffect', {
             display = false,
             buffName = buffName,
         })
     elseif buff <= 100 then
-        local workPls = buff*1.2
+        local workPls = buff*2.5
         local thisBig = workPls *1000
         local newInv = thisBig + inventorySize
-        exports['lj-inventory']:MaxWeight(newInv)
+        Inventory:MaxWeight(newInv)
         TriggerEvent('hud:client:BuffEffect', {
             buffName = buffName,
             display = display,
             iconName = "dumbbell",
-            iconColor = "#ffffff",
+            iconColor = "#FFD700",
             progressColor = "#FFD700",
             progressValue = buff,
         })
@@ -40,22 +35,31 @@ end)
 -- Ped Buff Check
 CreateThread(function()
     local cached_pedId = PlayerPedId()
+    local ped = GetEntityModel(cached_pedId)
+    if Shared.PedBuffs[ped] then
+        SetStrength(Shared.PedBuffs[ped])
+    end
     while true do
         if cached_pedId ~= PlayerPedId() then
             cached_pedId = PlayerPedId()
             local ped = GetEntityModel(cached_pedId)
-            if pedBuffs[ped] then
-                SetStrength(pedBuffs[ped])
+            if Shared.PedBuffs[ped] then
+                SetStrength(Shared.PedBuffs[ped])
             end
         end
         Wait(5000)
     end
 end)
 
-if isDebug then
+if Shared.Debug then
+    TriggerEvent('hud:client:BuffEffect', {
+        display = false,
+        buffName = buffName,
+    })    
+
     RegisterCommand("setstrength", function(s,args)
         if not args[1] then return end
         local buffAmt = tonumber(args[1])
         SetStrength(buffAmt)
-    end, isDebug)
+    end, Shared.Debug)
 end
