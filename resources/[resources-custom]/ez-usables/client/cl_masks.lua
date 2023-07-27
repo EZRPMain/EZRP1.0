@@ -1,5 +1,3 @@
-local Framework = exports['qb-core']
-
 RegisterCommand("mask", function()
     TriggerEvent("ez-usables:client:ToggleMask")
 end, false)

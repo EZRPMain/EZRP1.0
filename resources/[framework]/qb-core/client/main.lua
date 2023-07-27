@@ -49,5 +49,5 @@ exports('GetModule', GetModule)
 -- Export added for all functions
 -- Example:
 --[[
-    local QBCore = exports['qb-core']
+    local Framework = exports['qb-core']
 ]]
