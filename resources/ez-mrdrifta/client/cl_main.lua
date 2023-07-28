@@ -1,4 +1,4 @@
--- Main Framework Shits
+-- Main Framework
 local DriftMode = {}
 
 local isDev = false
@@ -34,23 +34,26 @@ RegisterNetEvent("ez-drift:client:ToggleDrift", function()
     local ped = PlayerPedId()
     local veh = GetVehiclePedIsUsing(ped)
     local isDrift = GetDriftTyresEnabled(veh)
-
     --tier check
     if DoesEntityExist(veh) then
         local Class = Manager:GetVehicleTier(veh)
-        if veh ~= 0 and Config.Tiers[Class] then
-            if GetEntitySpeed(veh) > 1.0 then 
-                Framework:Notify("You need to be parked to do this", "error")
-            else
-                SetVehicleEngineOn(veh, false, false, true)
-                if isDrift then 
-                    Framework:Notify("Drift Mode: On")
-                    ToggleDrift(vehicle, false)
+        if Config.Tiers[Class] then
+            if veh ~= 0 then
+                if GetEntitySpeed(veh) > 1.0 then 
+                    Framework:Notify("You need to be parked to do this", "error")
                 else
-                    Framework:Notify("Drift Mode: Off")
-                    ToggleDrift(vehicle, false)
+                    SetVehicleEngineOn(veh, false, false, true)
+                    if isDrift then 
+                        Framework:Notify("Drift Mode: On")
+                        ToggleDrift(vehicle, false)
+                    else
+                        Framework:Notify("Drift Mode: Off")
+                        ToggleDrift(vehicle, false)
+                    end
                 end
             end
+        else
+            Framework:Notify("Your vehicle is not the correct class", "error")
         end
     end
 end)
