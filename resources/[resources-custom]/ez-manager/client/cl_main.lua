@@ -1,13 +1,3 @@
-function GetVehiclePlate(vehicle)
-	if not DoesEntityExist(vehicle) then
-		return ""
-	end
-
-	local plate = GetVehicleNumberPlateText(vehicle)
-
-	return string.gsub(plate, "%s+", "")
-end
-
 function GetVehicleTier(vehicle)
 	if not DoesEntityExist(vehicle) then
 		return
@@ -85,20 +75,8 @@ function GetVehicleTier(vehicle)
 	return vehClass, perfRating
 end
 
-function GetVehicleAfterMarket(vehicle, type)
-	if type then
-		return nil
-	else
-		return {}
-	end
-end
-
-
 RegisterCommand("tier", function()
     local class,rating = GetVehicleTier(GetVehiclePedIsIn(PlayerPedId(), false))
     Framework:Notify(("Class: %s | Rating: %s"):format(class,rating))
 end)
-
-exports("GetVehiclePlate", GetVehiclePlate)
 exports("GetVehicleTier", GetVehicleTier)
-exports("GetVehicleAfterMarket", GetVehicleAfterMarket)

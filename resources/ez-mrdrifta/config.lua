@@ -1,4 +1,5 @@
 Framework = exports['qb-core']
+Manager = exports['ez-manager']
 Config = Config or {}
 
 Config.OldSync = false

@@ -14,7 +14,6 @@ RegisterNetEvent("ez-drift:client:sync", function(plate) -- old fashioned way (b
     DriftMode[plate] = true
 end)
 
-
 local function ToggleDrift(vehicle, boolean, plate)
     if not plate then plate = Framework:GetPlate(vehicle) end
     Framework:Progressbar("driftmode", "Toggling Drift Mode", Config.ActivateTime, false, true, {
@@ -31,11 +30,15 @@ local function ToggleDrift(vehicle, boolean, plate)
 	end, 'fas fa-microchip')
 end
 
-
 RegisterNetEvent("ez-drift:client:ToggleDrift", function()
     local ped = PlayerPedId()
     local veh = GetVehiclePedIsUsing(ped)
     local isDrift = GetDriftTyresEnabled(veh)
-    if vehicle ~= 0
+    if DoesEntityExist(veh) and veh ~= 0 then
+
+    end
 end)
 
+RegisterNetEvent("ez-drift:client:ShitBox", function()
+    print("i hate you bro")
+end)
