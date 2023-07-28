@@ -10,8 +10,8 @@ AddStateBagChangeHandler('DriftMode', nil, function(bagName, key, value)
     print(bagName, key, value)
 end)
 
-RegisterNetEvent("ez-drift:client:sync", function(plate) -- old fashioned way (bad but keeping for support)
-    DriftMode[plate] = true
+RegisterNetEvent("ez-drift:client:sync", function(plate, boolean) -- old fashioned way (bad but keeping for support)
+    DriftMode[plate] = boolean
 end)
 
 local function ToggleDrift(vehicle, boolean, plate)
@@ -24,7 +24,7 @@ local function ToggleDrift(vehicle, boolean, plate)
 	}, {}, {}, {}, function()
         SetDriftTyresEnabled(vehicle, boolean)
         SetVehicleEngineOn(vehicle, true, false)
-        TriggerServerEvent("ez-drift:server:sync", plate)
+        TriggerServerEvent("ez-drift:server:sync", plate, boolean)
 	end, function() -- Cancel
 		-- Framework:Notify()
 	end, 'fas fa-microchip')
@@ -57,6 +57,15 @@ RegisterNetEvent("ez-drift:client:ToggleDrift", function()
         end
     end
 end)
+
+-- Keybind shit
+RegisterCommand("+mrdrifta", function()
+    TriggerEvent("ez-drift:client:ToggleDrift")
+end)
+RegisterCommand("-mrdrifta", function()
+
+end)
+Keybinds:AddKeyMapping("Vehicle", "+mrdrifta", "-mrdrifta", "Toggle Drift Mode")
 
 RegisterNetEvent("ez-drift:client:ShitBox", function()
     print("i hate you bro")
