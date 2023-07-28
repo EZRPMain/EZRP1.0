@@ -10,7 +10,3 @@ Config.Tiers = {
     ["S"] = true,
     ["A"] = true,
 }
-
-Config.Notify = function(...)
-    Framework:Notify(...)
-end
