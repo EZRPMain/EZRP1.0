@@ -12,7 +12,7 @@ end)
 
 if Config.UseItem then 
     -- Inventory:CreateUsableItem
-    Framework:CreateUseableItem("driftchip", function(source, item)
+    Framework:CreateUseableItem(Config.Item, function(source, item)
         local source = source
         local ped = GetPlayerPed(source)
         local veh = GetVehiclePedIsIn(ped, false)

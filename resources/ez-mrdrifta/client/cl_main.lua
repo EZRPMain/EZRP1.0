@@ -7,7 +7,8 @@ RegisterNetEvent("cl_DevMode", function(boolean)
 end)
 
 AddStateBagChangeHandler('DriftMode', nil, function(bagName, key, value)
-    print(bagName, key, value)
+    print(bagName, key, value) 
+    -- This will just print until I do the global State Bag
 end)
 
 RegisterNetEvent("ez-drift:client:sync", function(plate, boolean) -- old fashioned way (bad but keeping for support)
@@ -58,14 +59,25 @@ RegisterNetEvent("ez-drift:client:ToggleDrift", function()
     end
 end)
 
--- Keybind shit
-RegisterCommand("+mrdrifta", function()
-    TriggerEvent("ez-drift:client:ToggleDrift")
-end)
-RegisterCommand("-mrdrifta", function()
+-- Keybinds
+if Config.Keybind.UseBind then
+    RegisterCommand("+mrdrifta", function()
+        if Config.Keybind.RequireItem then 
+            if Framework:HasItem(Config.Item) then
+                TriggerEvent("ez-drift:client:ToggleDrift")
+            else 
+                Framework:Notify("You are missing a drift chip")
+            end
+        else 
+            TriggerEvent("ez-drift:client:ToggleDrift")
+        end
+        -- TriggerEvent("ez-drift:client:ToggleDrift")
+    end)
+    RegisterCommand("-mrdrifta", function()
 
-end)
-Keybinds:AddKeyMapping("Vehicle", "+mrdrifta", "-mrdrifta", "Toggle Drift Mode")
+    end)
+    Keybinds:AddKeyMapping("Vehicle", "+mrdrifta", "-mrdrifta", "Toggle Drift Mode")
+end
 
 RegisterNetEvent("ez-drift:client:ShitBox", function()
     print("i hate you bro")
