@@ -19,26 +19,26 @@ AddEventHandler('qb-cookies:client:pickpurplecookies', function()
   end
 end)
 
-RegisterNetEvent('qb-cookies:client:pickthinmintcookies')
-AddEventHandler('qb-cookies:client:pickthinmintcookies', function()
-  local playerPed = PlayerPedId()
-  if Framework:GetPlayerData().job.onduty then
-    TaskStartScenarioInPlace(playerPed, 'world_human_gardener_plant')
-    Framework:Progressbar("search_register", "Picking Thin Mint Cookies Marijuana..", 5500, false, true, {
-      disableMovement = true,
-      disableCarMovement = true,
-      disableMouse = false,
-      disableCombat = true,
-    }, {}, {}, {}, function()
-      ClearPedTasks(GetPlayerPed(-1))
-      TriggerServerEvent('qb-cookies:server:ThinMintCookiesPick')
-    end, function()
-      ClearPedTasks(GetPlayerPed(-1))
-    end)
-  else
-    Framework:Notify("You must be Clocked into work", "error")
-  end
-end)
+-- RegisterNetEvent('qb-cookies:client:pickthinmintcookies')
+-- AddEventHandler('qb-cookies:client:pickthinmintcookies', function()
+--   local playerPed = PlayerPedId()
+--   if Framework:GetPlayerData().job.onduty then
+--     TaskStartScenarioInPlace(playerPed, 'world_human_gardener_plant')
+--     Framework:Progressbar("search_register", "Picking Thin Mint Cookies Marijuana..", 5500, false, true, {
+--       disableMovement = true,
+--       disableCarMovement = true,
+--       disableMouse = false,
+--       disableCombat = true,
+--     }, {}, {}, {}, function()
+--       ClearPedTasks(GetPlayerPed(-1))
+--       TriggerServerEvent('qb-cookies:server:ThinMintCookiesPick')
+--     end, function()
+--       ClearPedTasks(GetPlayerPed(-1))
+--     end)
+--   else
+--     Framework:Notify("You must be Clocked into work", "error")
+--   end
+-- end)
 
 RegisterNetEvent('qb-cookies:client:pickpinkcookies')
 AddEventHandler('qb-cookies:client:pickpinkcookies', function()
@@ -630,14 +630,14 @@ AddEventHandler('CookiesMenu', function()
               event = ""
            }
         },
-        {
-          id = 17,
-          header = "| ThinMintCookiesBlunt |",
-          txt = "$100",
-          params = {
-              event = ""
-          }
-      },
+      --   {
+      --     id = 17,
+      --     header = "| ThinMintCookiesBlunt |",
+      --     txt = "$100",
+      --     params = {
+      --         event = ""
+      --     }
+      -- },
       {
           id = 18,
           header = "| PinkCookiesBlunt |",
@@ -689,14 +689,14 @@ AddEventHandler('craftjoint', function()
                 event = "qb-cookies:trigger:PurpleCookies"
             }
         },
-            {
-            id = 3,
-            header = "Thin Mint Cookies Blunt",
-            txt = "1x Thin Mint Cookies 8th | 1x Backwoood",
-            params = {
-                event = "qb-cookies:trigger:ThinMintCookies"
-            }
-        },
+        --     {
+        --     id = 3,
+        --     header = "Thin Mint Cookies Blunt",
+        --     txt = "1x Thin Mint Cookies 8th | 1x Backwoood",
+        --     params = {
+        --         event = "qb-cookies:trigger:ThinMintCookies"
+        --     }
+        -- },
         {
             id = 4,
             header = "Pink Cookies Blunt",
@@ -1010,26 +1010,26 @@ Citizen.CreateThread(function()
        })
 end)
 
-Citizen.CreateThread(function()
-  exports['qb-target']:AddBoxZone("ThinMintCookiesPick", vector3(-929.5, -1188.34, -0.88), 3.3, 0.5, {
-      name="ThinMintCookiesPick",
-      heading=30.0,
-      debugPoly=false,
-      minZ=-2.08,
-      maxZ=-0.08,
-    },{
-      options = {
-              {
-                type = "client",
-                event = "qb-cookies:client:pickthinmintcookies",
-                icon = "fas fa-seedling",
-                label = "Pick ThinMintCookies Plant",
-                job = "cookies",
-              },
-           },
-      distance = 4.0
-       })
-end)
+-- Citizen.CreateThread(function()
+--   exports['qb-target']:AddBoxZone("ThinMintCookiesPick", vector3(-929.5, -1188.34, -0.88), 3.3, 0.5, {
+--       name="ThinMintCookiesPick",
+--       heading=30.0,
+--       debugPoly=false,
+--       minZ=-2.08,
+--       maxZ=-0.08,
+--     },{
+--       options = {
+--               {
+--                 type = "client",
+--                 event = "qb-cookies:client:pickthinmintcookies",
+--                 icon = "fas fa-seedling",
+--                 label = "Pick ThinMintCookies Plant",
+--                 job = "cookies",
+--               },
+--            },
+--       distance = 4.0
+--        })
+-- end)
 
 Citizen.CreateThread(function()
   exports['qb-target']:AddBoxZone("PinkCookiesPick", vector3(-931.66, -1189.33, -0.88), 4.1, 0.9, {
@@ -1507,39 +1507,39 @@ end)
 
 ------------- Thin Mint Cookies -------------
 
-RegisterNetEvent("qb-cookies:trigger:ThinMintCookies")
-AddEventHandler("qb-cookies:trigger:ThinMintCookies", function()
-  if Framework:GetPlayerData().job.onduty then
-    	-- Framework:TriggerCallback('qb-cookies:server:getitems:thinmintcookies8th', function(HasItem)  
-      local HasItem = Inventory:HasItem({"backwood", "thinmintcookies8th"})  
-    		if HasItem then
-          RequestAnimationDict("anim@amb@business@weed@weed_inspecting_high_dry@")
-          TaskPlayAnim(PlayerPedId(), "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector" ,1.0, 1.0, -1, 16, 1, true, true, true)
-          Framework:Progressbar("search_register", "Rolling Up Thin Mint Cookies..", 7500, false, true, {
-              disableMovement = true,
-              disableCarMovement = false,
-              disableMouse = false,
-              disableCombat = true,
-            }, {}, {}, {}, function()
-              TriggerEvent('inventory:client:set:busy', false)
-              TriggerServerEvent('cookies:ByeItem', "backwood", 1)
-              TriggerServerEvent('cookies:ByeItem', "thinmintcookies8th", 1)
-              TriggerServerEvent('cookies:WagwanItem', "thinmintcookiesblunt", 1)
-              StopAnimTask(PlayerPedId(), "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector", 1.0)
-              Framework:Notify("Rolled Up Thin Mint Cookies Blunt.", "success")
-          end, function()
-            TriggerEvent('inventory:client:busy:status', false)
-            Framework:Notify("Cancelled..", "error")
-              StopAnimTask(PlayerPedId(), "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector", 1.0)
-          end)
-      else
-          Framework:Notify('You do not have the required items!', "error")
-          end
-    -- end)
-      else 
-        Framework:Notify("You must be Clocked into work", "error")
-    end
-end)
+-- RegisterNetEvent("qb-cookies:trigger:ThinMintCookies")
+-- AddEventHandler("qb-cookies:trigger:ThinMintCookies", function()
+--   if Framework:GetPlayerData().job.onduty then
+--     	-- Framework:TriggerCallback('qb-cookies:server:getitems:thinmintcookies8th', function(HasItem)  
+--       local HasItem = Inventory:HasItem({"backwood", "thinmintcookies8th"})  
+--     		if HasItem then
+--           RequestAnimationDict("anim@amb@business@weed@weed_inspecting_high_dry@")
+--           TaskPlayAnim(PlayerPedId(), "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector" ,1.0, 1.0, -1, 16, 1, true, true, true)
+--           Framework:Progressbar("search_register", "Rolling Up Thin Mint Cookies..", 7500, false, true, {
+--               disableMovement = true,
+--               disableCarMovement = false,
+--               disableMouse = false,
+--               disableCombat = true,
+--             }, {}, {}, {}, function()
+--               TriggerEvent('inventory:client:set:busy', false)
+--               TriggerServerEvent('cookies:ByeItem', "backwood", 1)
+--               TriggerServerEvent('cookies:ByeItem', "thinmintcookies8th", 1)
+--               TriggerServerEvent('cookies:WagwanItem', "thinmintcookiesblunt", 1)
+--               StopAnimTask(PlayerPedId(), "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector", 1.0)
+--               Framework:Notify("Rolled Up Thin Mint Cookies Blunt.", "success")
+--           end, function()
+--             TriggerEvent('inventory:client:busy:status', false)
+--             Framework:Notify("Cancelled..", "error")
+--               StopAnimTask(PlayerPedId(), "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector", 1.0)
+--           end)
+--       else
+--           Framework:Notify('You do not have the required items!', "error")
+--           end
+--     -- end)
+--       else 
+--         Framework:Notify("You must be Clocked into work", "error")
+--     end
+-- end)
 
 ------------- Pink Cookies -------------
 

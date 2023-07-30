@@ -205,19 +205,19 @@ end)
 --##############################################################################################################--
 --##############################################################################################################--
 
-RegisterServerEvent('qb-cookies:server:ThinMintCookiesPick')
-AddEventHandler('qb-cookies:server:ThinMintCookiesPick', function(Area, Coral, Bool)
-    local src = source
-    local Player = Framework:GetPlayer(src)
-    local random = math.random(1,10)
-    if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
-   else
-            Player.Functions.AddItem("thinmintcookies8th", 1)
-            TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("thinmintcookies8th"), "add")
-    end
-end)
+-- RegisterServerEvent('qb-cookies:server:ThinMintCookiesPick')
+-- AddEventHandler('qb-cookies:server:ThinMintCookiesPick', function(Area, Coral, Bool)
+--     local src = source
+--     local Player = Framework:GetPlayer(src)
+--     local random = math.random(1,10)
+--     if random <= 5 then
+--         Player.Functions.AddItem("weedseed", 1)
+--         TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+--    else
+--             Player.Functions.AddItem("thinmintcookies8th", 1)
+--             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("thinmintcookies8th"), "add")
+--     end
+-- end)
 
 --##############################################################################################################--
 --##############################################################################################################--
@@ -331,17 +331,17 @@ end)
 --##############################################################################################################--
 --##############################################################################################################--
 
-Framework:CreateCallback('qb-cookies:server:getitems:thinmintcookies8th', function(source, cb)
-    local src = source
-    local Player = Framework:GetPlayer(src)
-    local rolling = Player.Functions.GetItemByName("backwood")
-    local thinmintcookies8th = Player.Functions.GetItemByName("thinmintcookies8th")
-    if rolling ~= nil and thinmintcookies8th ~= nil then
-        cb(true)
-    else
-        cb(false)
-    end
-end)
+-- Framework:CreateCallback('qb-cookies:server:getitems:thinmintcookies8th', function(source, cb)
+--     local src = source
+--     local Player = Framework:GetPlayer(src)
+--     local rolling = Player.Functions.GetItemByName("backwood")
+--     local thinmintcookies8th = Player.Functions.GetItemByName("thinmintcookies8th")
+--     if rolling ~= nil and thinmintcookies8th ~= nil then
+--         cb(true)
+--     else
+--         cb(false)
+--     end
+-- end)
 
 --##############################################################################################################--
 --##############################################################################################################--
