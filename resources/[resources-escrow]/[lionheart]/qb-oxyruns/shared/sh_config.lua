@@ -1,6 +1,6 @@
 Config = {}
 
-Config.StartLocation = vector4(238.48, -27.92, 69.9, 72.99) -- Start location for oxy run
+Config.StartLocation = vector4(-884.48, -328.79, 38.98, 169.2) -- Start location for oxy run
 Config.RunAmount = math.random(7, 10) -- How many drop-offs the player can make each run.
 Config.StartOxyPayment = 1000 -- How much you pay at the start to start the run
 
