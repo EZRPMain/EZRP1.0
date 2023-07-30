@@ -10,8 +10,8 @@ AddEventHandler('qb-cookies:server:GorillaGluePick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("gorrilaglue8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("gorrilaglue8th"), "add")
@@ -24,8 +24,8 @@ AddEventHandler('qb-cookies:server:PurpleCookiesPick', function(Area, Coral, Boo
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("purplecookiepunch8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("purplecookiepunch8th"), "add")
@@ -38,8 +38,8 @@ AddEventHandler('qb-cookies:server:BackPackBoyzPick', function(Area, Coral, Bool
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("backpackboyz8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("backpackboyz8th"), "add")
@@ -52,8 +52,8 @@ AddEventHandler('qb-cookies:server:ItalianIcePick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("italianice8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("italianice8th"), "add")
@@ -66,8 +66,8 @@ AddEventHandler('qb-cookies:server:BlackCheryGelatoPick', function(Area, Coral, 
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("blackcherrygelato8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("blackcherrygelato8th"), "add")
@@ -80,8 +80,8 @@ AddEventHandler('qb-cookies:server:PeanutButterBreathPick', function(Area, Coral
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("peanutbutterbreath8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("peanutbutterbreath8th"), "add")
@@ -94,8 +94,8 @@ AddEventHandler('qb-cookies:server:PoundCakePick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("poundcake8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("poundcake8th"), "add")
@@ -108,8 +108,8 @@ AddEventHandler('qb-cookies:server:JefeOgPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("jefeog8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("jefeog8th"), "add")
@@ -122,8 +122,8 @@ AddEventHandler('qb-cookies:server:ThraxOgPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("thraxog8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("thraxog8th"), "add")
@@ -136,8 +136,8 @@ AddEventHandler('qb-cookies:server:SharklatoPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("sharklato8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("sharklato8th"), "add")
@@ -150,8 +150,8 @@ AddEventHandler('qb-cookies:server:LemonPeperPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("lemonpeper8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("lemonpeper8th"), "add")
@@ -164,8 +164,8 @@ AddEventHandler('qb-cookies:server:WhiteRuntzPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("whiteruntz8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("whiteruntz8th"), "add")
@@ -178,8 +178,8 @@ AddEventHandler('qb-cookies:server:SnowMontanaPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("snowmontana8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("snowmontana8th"), "add")
@@ -192,8 +192,8 @@ AddEventHandler('qb-cookies:server:SorbertPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("sorbert8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("sorbert8th"), "add")
@@ -211,8 +211,8 @@ end)
 --     local Player = Framework:GetPlayer(src)
 --     local random = math.random(1,10)
 --     if random <= 5 then
---         Player.Functions.AddItem("weedseed", 1)
---         TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+--         Player.Functions.AddItem("weedplant_seedm", 1)
+--         TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
 --    else
 --             Player.Functions.AddItem("thinmintcookies8th", 1)
 --             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("thinmintcookies8th"), "add")
@@ -230,8 +230,8 @@ AddEventHandler('qb-cookies:server:PinkCookiesPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("pinkcookies8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("pinkcookies8th"), "add")
@@ -249,8 +249,8 @@ AddEventHandler('qb-cookies:server:LemonCookiesPick', function(Area, Coral, Bool
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
     else
             Player.Functions.AddItem("lemoncookies8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("lemoncookies8th"), "add")
@@ -263,8 +263,8 @@ AddEventHandler('qb-cookies:server:GaryPaytonPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
     else
             Player.Functions.AddItem("garypayton8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("garypayton8th"), "add")
@@ -282,8 +282,8 @@ AddEventHandler('qb-cookies:server:CerealMilkPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
     else
             Player.Functions.AddItem("cerealmilk8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("cerealmilk8th"), "add")
@@ -301,8 +301,8 @@ AddEventHandler('qb-cookies:server:CakeMixPick', function(Area, Coral, Bool)
     local Player = Framework:GetPlayer(src)
     local random = math.random(1,10)
     if random <= 5 then
-        Player.Functions.AddItem("weedseed", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedseed"), "add")
+        Player.Functions.AddItem("weedplant_seedm", 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("weedplant_seedm"), "add")
    else
             Player.Functions.AddItem("cakemix8th", 1)
             TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("cakemix8th"), "add")
