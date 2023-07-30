@@ -3,12 +3,21 @@ Config = {}
 -- NPC Vehicle Lock States
 Config.LockNPCDrivingCars = true -- Lock state for NPC cars being driven by NPCs [true = locked, false = unlocked]
 Config.LockNPCParkedCars = true -- Lock state for NPC parked cars [true = locked, false = unlocked]
-Config.UseKeyfob = false -- you can set this true if you dont need ui
 -- Lockpick Settings
 Config.RemoveLockpickNormal = 0.5 -- Chance to remove lockpick on fail
 Config.RemoveLockpickAdvanced = 0.2 -- Chance to remove advanced lockpick on fail
 Config.LockPickDoorEvent = function() -- This function is called when a player attempts to lock pick a vehicle
-    TriggerEvent('qb-lockpick:client:openLockpick', LockpickFinishCallback)
+    -- TriggerEvent('qb-lockpick:client:openLockpick', LockpickFinishCallback)
+    local dict = "missheistfbisetup1"
+    local Player = PlayerPedId()
+    while (not HasAnimDictLoaded(dict)) do
+        RequestAnimDict(dict)
+        Citizen.Wait(1)
+    end
+    TaskPlayAnim(Player, "missheistfbisetup1", "hassle_intro_loop_f", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
+
+    exports['ps-ui']:Circle(LockpickFinishCallback, math.random(3,8), 13)
+
 end
 
 -- Carjack Settings
@@ -44,16 +53,16 @@ Config.SharedKeys = { -- Share keys amongst employees. Employees can lock/unlock
     ['police'] = { -- Job name
         requireOnduty = false,
         vehicles = {
-	    'police', -- Vehicle model
-	    'police2', -- Vehicle model
-	}
+            'police', -- Vehicle model
+            'police2', -- Vehicle model
+	    }
     },
 
     ['mechanic'] = {
         requireOnduty = false,
         vehicles = {
             'towtruck',
-	}
+	    }
     }
 }
 

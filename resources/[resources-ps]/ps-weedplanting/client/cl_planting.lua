@@ -584,6 +584,15 @@ end)
 
 --- Threads
 
+local function GetPlantData(entity)
+    local p = promise.new()
+    local netId = NetworkGetNetworkIdFromEntity(entity)
+    QBCore.Functions.TriggerCallback('ps-weedplanting:server:GetPlantData', function(result)
+        p:resolve(result)
+    end, netId)
+    return Citizen.Await(p)
+end
+
 CreateThread(function()
     exports['qb-target']:AddTargetModel(Shared.WeedProps, {
         options = {
@@ -591,7 +600,10 @@ CreateThread(function()
                 type = 'client',
                 event = 'ps-weedplanting:client:CheckPlant',
                 icon = 'fas fa-cannabis',
-                label = _U('check_plant')
+                label = _U('check_plant'),
+                canInteract = function(entity)
+                    return GetPlantData(enitty)
+                end
             }
         },
         distance = 1.5, 
