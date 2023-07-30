@@ -6,7 +6,7 @@
 	<Item>
       <modelName>cullinan</modelName>
       <txdName>cullinan</txdName>
-      <handlingId>RADI</handlingId>
+      <handlingId>cullinan</handlingId>
       <gameName>CULLINAN</gameName>
       <vehicleMakeName>ROLLSROYCE</vehicleMakeName>
       <expressionDictName>null</expressionDictName>
@@ -15,7 +15,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash>RADI</audioNameHash>
+      <audioNameHash>npcul</audioNameHash>
       <layout>LAYOUT_STD_HIGHWINDOW</layout>
       <coverBoundOffsets>RADI_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>

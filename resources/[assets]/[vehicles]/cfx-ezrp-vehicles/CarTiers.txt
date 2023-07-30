@@ -1,7 +1,7 @@
 Car Tiers:
 
 610lb - 150 (S+)
-a6 - 100 (B)
+a6 - 126 (A)
 ae86 - 110 (A)
 ben17 - 120 (S)
 blista2 - 98 (B)

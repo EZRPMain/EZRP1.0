@@ -3,7 +3,7 @@
 <CVehicleModelInfoVariation>
   <variationData>
   <Item>
-    <modelName>CULLINAN</modelName>
+    <modelName>cullinan</modelName>
       <colors>
         <Item>
           <indices content="char_array">
