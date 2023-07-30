@@ -1,12 +1,12 @@
 RegisterNetEvent('cookies:ByeItem', function(itemName, amount, slot)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local Player = Framework:GetPlayer(src)
     Player.Functions.RemoveItem(itemName, amount, slot)
 end)
 
 RegisterNetEvent('cookies:WagwanItem', function(itemName, amount, slot, info)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local Player = Framework:GetPlayer(src)
     Player.Functions.AddItem(itemName, amount, slot, info)
 end)
 
