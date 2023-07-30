@@ -475,32 +475,32 @@ end)
 
 ------------- Context -------------
 
-RegisterNetEvent("ClockInCookies")
-AddEventHandler('ClockInCookie', function()
-  TriggerEvent('qb-menu:client:openMenu', {
-        {
-            id = 1,
-            header = "| Cookies |",
-            txt = ""
-        },
-        {
-            id = 2,
-            header = "| Signing On/Off Duty |",
-            txt = "| Use this to sign in/off |",
-            params = {
-                event = "ClockInCookies"
-            }
-        },
-        -- {
-        --     id = 3,
-        --     header = "| Boss Menu |",
-        --     txt = "| Boss Options |",
-        --     params = {
-        --         event = "qb-cookies:openbossmenu"
-        --     }
-        -- },
-    })
-end)
+-- RegisterNetEvent("ClockInCookies")
+-- AddEventHandler('ClockInCookie', function()
+--   TriggerEvent('qb-menu:client:openMenu', {
+--         {
+--             id = 1,
+--             header = "| Cookies |",
+--             txt = ""
+--         },
+--         {
+--             id = 2,
+--             header = "| Signing On/Off Duty |",
+--             txt = "| Use this to sign in/off |",
+--             params = {
+--                 event = "ClockInCookies"
+--             }
+--         },
+--         {
+--             id = 3,
+--             header = "| Boss Menu |",
+--             txt = "| Boss Options |",
+--             params = {
+--                 event = "qb-cookies:openbossmenu"
+--             }
+--         },
+--     })
+-- end)
 
 RegisterNetEvent('CookiesMenu')
 AddEventHandler('CookiesMenu', function()
