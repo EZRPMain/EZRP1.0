@@ -458,6 +458,26 @@ QBShared.Jobs = {
             },
         },
     },
+
+    ["cookies"] = {
+		label = "Cookies Weed Shop",
+		defaultDuty = true,
+		grades = {
+            ['0'] = {
+                name = "Employee",
+                payment = 75
+            },
+			['1'] = {
+                name = "Manager",
+                payment = 150
+            },
+			['2'] = {
+                name = "Boss",
+				isboss = true,
+                payment = 250
+            },
+        },
+	},
 }
 
 exports("GetSharedJobs", function()

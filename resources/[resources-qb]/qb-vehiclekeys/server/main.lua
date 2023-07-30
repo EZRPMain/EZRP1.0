@@ -42,7 +42,7 @@ RegisterNetEvent('qb-vehiclekeys:server:breakLockpick', function(itemName)
     if not Player then return end
     if not (itemName == "lockpick" or itemName == "advancedlockpick") then return end
     if Player.Functions.RemoveItem(itemName, 1) then
-            TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items[itemName], "remove")
+            TriggerClientEvent("inventory:client:ItemBox", source, Framework:GetSharedItem(itemName), "remove")
     end
 end)
 
@@ -103,12 +103,12 @@ function HasKeys(id, plate)
     return false
 end
 
-QBCore.Commands.Add("givekeys", Lang:t("addcom.givekeys"), {{name = Lang:t("addcom.givekeys_id"), help = Lang:t("addcom.givekeys_id_help")}}, false, function(source, args)
+Framework:Add("givekeys", Lang:t("addcom.givekeys"), {{name = Lang:t("addcom.givekeys_id"), help = Lang:t("addcom.givekeys_id_help")}}, false, function(source, args)
 	local src = source
     TriggerClientEvent('qb-vehiclekeys:client:GiveKeys', src, tonumber(args[1]))
 end)
 
-QBCore.Commands.Add("addkeys", Lang:t("addcom.addkeys"), {{name = Lang:t("addcom.addkeys_id"), help = Lang:t("addcom.addkeys_id_help")}, {name = Lang:t("addcom.addkeys_plate"), help = Lang:t("addcom.addkeys_plate_help")}}, true, function(source, args)
+Framework:Add("addkeys", Lang:t("addcom.addkeys"), {{name = Lang:t("addcom.addkeys_id"), help = Lang:t("addcom.addkeys_id_help")}, {name = Lang:t("addcom.addkeys_plate"), help = Lang:t("addcom.addkeys_plate_help")}}, true, function(source, args)
 	local src = source
     if not args[1] or not args[2] then
         TriggerClientEvent('QBCore:Notify', src, Lang:t("notify.fpid"))
@@ -117,7 +117,7 @@ QBCore.Commands.Add("addkeys", Lang:t("addcom.addkeys"), {{name = Lang:t("addcom
     GiveKeys(tonumber(args[1]), args[2])
 end, 'admin')
 
-QBCore.Commands.Add("removekeys", Lang:t("addcom.rkeys"), {{name = Lang:t("addcom.rkeys_id"), help = Lang:t("addcom.rkeys_id_help")}, {name = Lang:t("addcom.rkeys_plate"), help = Lang:t("addcom.rkeys_plate_help")}}, true, function(source, args)
+Framework:Add("removekeys", Lang:t("addcom.rkeys"), {{name = Lang:t("addcom.rkeys_id"), help = Lang:t("addcom.rkeys_id_help")}, {name = Lang:t("addcom.rkeys_plate"), help = Lang:t("addcom.rkeys_plate_help")}}, true, function(source, args)
 	local src = source
     if not args[1] or not args[2] then
         TriggerClientEvent('QBCore:Notify', src, Lang:t("notify.fpid"))
