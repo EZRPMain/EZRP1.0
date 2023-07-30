@@ -14,7 +14,7 @@ Config.OxyChance = 45 -- %Chance to receive oxy
 Config.OxyItem = 'oxy'
 
 Config.RareLoot = 3 -- %Chance to receive a rare loot item
-Config.RareLootItem = 'water_bottle' -- Rare loot item
+Config.RareLootItem = {'snspistol_part_1', 'snspistol_part_2', 'snspistol_part_3'} -- Rare loot item
 
 Config.Locations = { -- Drop-off locations
     vector4(74.5, -762.17, 31.68, 160.98),

@@ -1,7 +1,8 @@
 -----------------------
 ----   Variables   ----
 -----------------------
-local QBCore = exports['qb-core']:GetCoreObject()
+local Framework = exports['qb-core']
+-- local QBCore = exports['qb-core']:GetCoreObject()
 local VehicleList = {}
 
 -----------------------
@@ -37,7 +38,7 @@ RegisterNetEvent('qb-vehiclekeys:server:AcquireVehicleKeys', function(plate)
 end)
 
 RegisterNetEvent('qb-vehiclekeys:server:breakLockpick', function(itemName)
-    local Player = QBCore.Functions.GetPlayer(source)
+    local Player = Framework:GetPlayer(source)
     if not Player then return end
     if not (itemName == "lockpick" or itemName == "advancedlockpick") then return end
     if Player.Functions.RemoveItem(itemName, 1) then
@@ -49,8 +50,8 @@ RegisterNetEvent('qb-vehiclekeys:server:setVehLockState', function(vehNetId, sta
     SetVehicleDoorsLocked(NetworkGetEntityFromNetworkId(vehNetId), state)
 end)
 
-QBCore.Functions.CreateCallback('qb-vehiclekeys:server:GetVehicleKeys', function(source, cb)
-    local Player = QBCore.Functions.GetPlayer(source)
+Framework:CreateCallback('qb-vehiclekeys:server:GetVehicleKeys', function(source, cb)
+    local Player = Framework:GetPlayer(source)
     if not Player then return end
     local citizenid = Player.PlayerData.citizenid
     local keysList = {}
@@ -62,7 +63,7 @@ QBCore.Functions.CreateCallback('qb-vehiclekeys:server:GetVehicleKeys', function
     cb(keysList)
 end)
 
-QBCore.Functions.CreateCallback('qb-vehiclekeys:server:checkPlayerOwned', function(_, cb, plate)
+Framework:CreateCallback('qb-vehiclekeys:server:checkPlayerOwned', function(_, cb, plate)
     local playerOwned = false
     if VehicleList[plate] then
         playerOwned = true
@@ -75,7 +76,7 @@ end)
 -----------------------
 
 function GiveKeys(id, plate)
-    local citizenid = QBCore.Functions.GetPlayer(id).PlayerData.citizenid
+    local citizenid = Framework:GetPlayer(id).PlayerData.citizenid
 
     if not VehicleList[plate] then VehicleList[plate] = {} end
     VehicleList[plate][citizenid] = true
@@ -85,7 +86,7 @@ function GiveKeys(id, plate)
 end
 
 function RemoveKeys(id, plate)
-    local citizenid = QBCore.Functions.GetPlayer(id).PlayerData.citizenid
+    local citizenid = Framework:GetPlayer(id).PlayerData.citizenid
 
     if VehicleList[plate] and VehicleList[plate][citizenid] then
         VehicleList[plate][citizenid] = nil
@@ -95,7 +96,7 @@ function RemoveKeys(id, plate)
 end
 
 function HasKeys(id, plate)
-    local citizenid = QBCore.Functions.GetPlayer(id).PlayerData.citizenid
+    local citizenid = Framework:GetPlayer(id).PlayerData.citizenid
     if VehicleList[plate] and VehicleList[plate][citizenid] then
         return true
     end

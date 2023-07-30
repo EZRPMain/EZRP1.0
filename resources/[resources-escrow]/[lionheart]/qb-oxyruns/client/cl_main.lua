@@ -24,8 +24,8 @@ local peds = {
 
 --- This function can be used to trigger your desired dispatch alerts
 local AlertCops = function()
-	--exports['qb-dispatch']:DrugSale() -- Project-SLoth qb-dispatch
-	TriggerServerEvent('police:server:policeAlert', 'Suspicious Hand-off') -- Regular qbcore
+	exports['ps-dispatch']:DrugSale() -- Project-SLoth qb-dispatch
+	-- TriggerServerEvent('police:server:policeAlert', 'Suspicious Hand-off') -- Regular qbcore
 end
 
 --- Creates a drop off blip at a given coordinate

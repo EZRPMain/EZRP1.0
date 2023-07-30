@@ -56,8 +56,9 @@ RegisterNetEvent('qb-oxyruns:server:Reward', function()
         -- Rare loot
         local rareLoot = math.random(100)
         if rareLoot <= Config.RareLoot then
-            Player.Functions.AddItem(Config.RareLootItem, 1, false)
-            TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Config.RareLootItem], "add", 1)
+            local random = math.random(#Config.RareLootItem)
+            Player.Functions.AddItem(Config.RareLootItem[random], 1, false)
+            TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Config.RareLootItem[random]], "add", 1)
         end
     end
 end)
