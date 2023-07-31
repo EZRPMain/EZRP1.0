@@ -3,7 +3,7 @@
 <CHandlingDataMgr>
   <HandlingData>
     <Item type="CHandlingData">
-      <handlingName>ALFMITO</handlingName>
+      <handlingName>cullinan</handlingName>
 	  <fMass value="2440.000000"/>
 <fInitialDragCoeff value="5.373000"/>
 <fDownforceModifier value="1.160000"/>
@@ -11,36 +11,36 @@
 <vecCentreOfMassOffset x="0.000000" y="-0.030000" z="0.000000"/>
 <vecInertiaMultiplier x="1.220000" y="1.020000" z="1.490000"/>
 <fDriveBiasFront value="0.000000"/>
-<nInitialDriveGears value="7"/>
-<fInitialDriveForce value="0.220228"/>
-<fDriveInertia value="0.996000"/>
-<fClutchChangeRateScaleUpShift value="1.900000"/>
-<fClutchChangeRateScaleDownShift value="1.900000"/>
-<fInitialDriveMaxFlatVel value="260.600006"/>
-<fBrakeForce value="0.204000"/>
-<fBrakeBiasFront value="0.651400"/>
-<fHandBrakeForce value="0.650000"/>
+<nInitialDriveGears value="6"/>
+<fInitialDriveForce value="0.620228"/>
+<fDriveInertia value="1.306000"/>
+<fClutchChangeRateScaleUpShift value="3.900000"/>
+<fClutchChangeRateScaleDownShift value="2.900000"/>
+<fInitialDriveMaxFlatVel value="110.600006"/>
+<fBrakeForce value="0.604000"/>
+<fBrakeBiasFront value="0.551400"/>
+<fHandBrakeForce value="1.650000"/>
 <fSteeringLock value="42.799870"/>
-<fTractionCurveMax value="1.860000"/>
-<fTractionCurveMin value="1.608000"/>
+<fTractionCurveMax value="2.350000" />
+<fTractionCurveMin value="1.920000" />
 <fTractionCurveLateral value="16.600000"/>
 <fTractionSpringDeltaMax value="0.142000"/>
 <fLowSpeedTractionLossMult value="0.322000"/>
 <fCamberStiffnesss value="0.000000"/>
-<fTractionBiasFront value="0.483139"/>
+<fTractionBiasFront value="0.5"/>
 <fTractionLossMult value="1.220000"/>
 <fSuspensionForce value="2.145700"/>
 <fSuspensionCompDamp value="1.000013"/>
 <fSuspensionReboundDamp value="1.000005"/>
 <fSuspensionUpperLimit value="0.124000"/>
 <fSuspensionLowerLimit value="-0.131000"/>
-<fSuspensionRaise value="0.000000"/>
+<fSuspensionRaise value="0.0"/>
 <fSuspensionBiasFront value="0.473000"/>
 <fAntiRollBarForce value="0.000000"/>
 <fAntiRollBarBiasFront value="0.500000"/>
 <fRollCentreHeightFront value="0.354000"/>
 <fRollCentreHeightRear value="0.352000"/>
-<fCollisionDamageMult value="0.700000"/>
+<fCollisionDamageMult value="0.00000"/>
 <fWeaponDamageMult value="0.500000"/>
 <fDeformationDamageMult value="0.500000"/>
 <fEngineDamageMult value="1.300000"/>
@@ -50,9 +50,9 @@
 <fSeatOffsetDistY value="-0.175000"/>
 <fSeatOffsetDistZ value="0.000000"/>
 <nMonetaryValue value="105000"/>
-<strModelFlags>00440010</strModelFlags>
-<strHandlingFlags>00820100</strHandlingFlags>
-<strDamageFlags>00000000</strDamageFlags>
+<strModelFlags>440010</strModelFlags>
+<strHandlingFlags>20002</strHandlingFlags>
+<strDamageFlags>0</strDamageFlags>
 <AIHandling>SPORTS_CAR</AIHandling>
       <SubHandlingData>
         <Item type="CCarHandlingData">
