@@ -21,8 +21,47 @@ Shared.RepLevel = {
     [200] = "X", -- IF X VEHICLE DRIVES AROUND WITH ARMED DRIVER + VEHICLE TRACKER
 }
 
+Shared.Vehicles = {
+    ["D"] = {
+        "emperor",
+        "tornado",
+        "tornado2",
+        "tornado5",
+        "minivan",
+        "minivan2",
+        "speedo",
+        "journey",
+        "journey2",
+        "regina",
+        "surge",
+        "ingot",
+        "dilettante",
+        "weevil",
+        "winky",
+        "rumpo",
+    },
+    ["C"] = {
+
+    },
+    ["M"] = {
+
+    },
+    ["B"] = {
+
+    },
+    ["A"] = {
+
+    },
+    ["S"] = {
+
+    },
+    ["X"] = {
+
+    }
+}
+
 Shared.Locations = {
-    ["D"] = {-- TIER 
+    ["D"] = {
         vector4(-1044.2, -1572.53, 4.35, 46.84),
         vector4(165.91, -1858.63, 23.51, 157.11),
         vector4(-1326.41, -1027.42, 7.05, 102.05),
@@ -53,6 +92,9 @@ Shared.Locations = {
     ["C"] = {
 
     },
+    ["M"] = {
+
+    },
     ["B"] = {
 
     },
@@ -60,6 +102,9 @@ Shared.Locations = {
 
     },
     ["S"] = {
+
+    },
+    ["X"] = {
 
     }
 }
