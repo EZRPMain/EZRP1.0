@@ -608,6 +608,11 @@ QBShared.Items = {
 	["blackcherrygelatoblunt"] 				= {["name"] = "blackcherrygelatoblunt", 			    	        ["label"] = "BlackCherryGelatoBlunt", 			    ["weight"] = 0, 		["type"] = "item", 		["image"] = "images/blackcherrygelatoblunt.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "weedbag"},
     ["backwood"] 				            = {["name"] = "backwood", 			            ["label"] = "Backwood", 			    ["weight"] = 0, 		["type"] = "item", 		["image"] = "images/backwood.png", 		            ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "BackWood"},
 
+    -- METH RUNS
+    ["securitycase"] =        {["name"] = "securitycase",       ["label"] = "Security Case",        ["weight"] = 1000, ["type"] = "item", ["image"] = "images/securitycase.png", ["unique"] = true, ["useable"] = false, ['shouldClose'] = false, ["combinable"] = nil, ["description"] = "Security case with a timer lock"},
+    ["meth_cured"] =          {["name"] = "meth_cured",         ["label"] = "Ice",                  ["weight"] = 100, ["type"] = "item", ["image"] = "images/meth_cured.png", ["unique"] = false, ["useable"] = false, ['shouldClose'] = false, ["combinable"] = nil, ["description"] = "Crystal meth"},
+    ["casekey"] =             {["name"] = "casekey",            ["label"] = "Case Key",             ["weight"] = 0, ["type"] = "item", ["image"] = "images/key1.png", ["unique"] = true, ["useable"] = false, ['shouldClose'] = false, ["combinable"] = nil, ["description"] = "Key for a case"},
+
 }
 
 exports("GetSharedItems", function()
