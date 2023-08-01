@@ -17,6 +17,9 @@ end)
 RegisterNetEvent('ps-walks:walkpause', function()
 	walkpause = not walkpause
 end)
+RegisterNetEvent('ps-walks:BETTERWALKPAUSEBCTHEDUMBCUNTTHATDIDTHISOINEISSTUPID', function(bool)
+    walkpause = bool
+end)
 
 AddEventHandler('onResourceStart', function(resourceName)
     if GetCurrentResourceName() ~= resourceName then return end

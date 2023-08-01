@@ -118,6 +118,7 @@ NormalWalk = function()
 	SetPedCanPlayAmbientBaseAnims(PlayerInfo.playerPed, true)
 	ResetPedWeaponMovementClipset(PlayerInfo.playerPed)
 	Crouched = false
+	TriggerEvent("ps-walks:BETTERWALKPAUSEBCTHEDUMBCUNTTHATDIDTHISOINEISSTUPID", Crouched)
 end
 
 SetupCrouch = function()
@@ -145,6 +146,7 @@ CrouchPlayer = function()
 	SetPedStrafeClipset(PlayerInfo.playerPed, 'move_ped_crouched_strafing') -- it force be on third person if not player will freeze but this func make player can shoot with good anim on crouch if someone know how to fix this make request :D
 	SetWeaponAnimationOverride(PlayerInfo.playerPed, "Ballistic")
 	Crouched = true
+	TriggerEvent("ps-walks:BETTERWALKPAUSEBCTHEDUMBCUNTTHATDIDTHISOINEISSTUPID", Crouched)
 	Aimed = false
 end
 
