@@ -52,7 +52,7 @@ Citizen.CreateThread(function()
 		if not inUse then
 			if dist <= 2.0 then
 				sleep = 5
-				DrawText3D(coord.x, coord.y, coord.z, 'Press ~g~[ E ]~w~ to rent a Plane for 2000')
+				DrawText3D(coord.x, coord.y, coord.z, 'Press ~b~[ E ]~w~ to rent a Plane for 2000')
 				if IsControlJustPressed(1, 51) then
 					Framework:TriggerCallback('coke:pay', function(success)
 						if success then
@@ -221,7 +221,7 @@ function delivery()
 			if disttocoord <= 30 then
 				RemoveBlip(blip)
 				SetBlipRoute(blip, false)
-				DrawText3D(location.delivery.x,location.delivery.y,location.delivery.z-1, 'Press ~g~[ E ]~w~ to pick up the delivery')
+				DrawText3D(location.delivery.x,location.delivery.y,location.delivery.z-1, 'Press ~b~[ E ]~w~ to pick up the delivery')
 				if IsControlJustPressed(1, 51) then
 					delivering = false
 
@@ -276,7 +276,7 @@ function final()
 			if IsPedInAnyPlane(PlayerPedId()) and disttocoord <= 10 then
 				RemoveBlip(blip)
 				SetBlipRoute(blip, false)
-				DrawText3D(location.hangar.x,location.hangar.y,location.hangar.z-1, 'Press [E] to park the plane.')
+				DrawText3D(location.hangar.x,location.hangar.y,location.hangar.z-1, 'Press ~b~[ E ]~w~ to park the plane.')
 				DrawMarker(27, location.hangar.x,location.hangar.y,location.hangar.z-0.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0, 2.0, 3, 252, 152, 100, false, true, 2, false, false, false, false)
 				if IsControlJustPressed(1, 51) then
 					hangar = false
@@ -323,7 +323,7 @@ Citizen.CreateThread(function()
 		local dist = #(vector3(playercoords.x,playercoords.y,playercoords.z)-vector3(process.x,process.y,process.z))
 		if dist <= 3 and not isProcessing then
 			sleep = 5
-			DrawText3D(process.x, process.y, process.z, 'Press [ E ] to begin breaking down the cocaine')
+			DrawText3D(process.x, process.y, process.z, 'Press ~b~[ E ]~w~ to begin breaking down the cocaine')
 			if IsControlJustPressed(1, 51) then		
 				isProcessing = true
 				Framework:TriggerCallback('QBCore:HasItem', function(result)

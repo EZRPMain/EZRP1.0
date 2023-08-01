@@ -1,5 +1,5 @@
-local hiddenprocess = vector3(2431.57,4971.2,42.35) -- Change this to whatever location you want. This is server side to prevent people from dumping the coords
-local hiddenstart = vector3(2122.2004394531,4784.7919921875,40.970275878906) -- Change this to whatever location you want. This is server side to prevent people from dumping the coords
+local hiddenprocess = vector3(1100.53, -313.58, 59.36) -- Change this to whatever location you want. This is server side to prevent people from dumping the coords
+local hiddenstart = vector3(2122.2004394531, 4784.7919921875, 40.970275878906) -- Change this to whatever location you want. This is server side to prevent people from dumping the coords
 
 RegisterNetEvent('coke:updateTable')
 AddEventHandler('coke:updateTable', function(bool)
