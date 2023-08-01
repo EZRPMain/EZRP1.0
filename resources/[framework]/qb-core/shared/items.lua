@@ -612,7 +612,9 @@ QBShared.Items = {
     ["securitycase"] =        {["name"] = "securitycase",       ["label"] = "Security Case",        ["weight"] = 1000, ["type"] = "item", ["image"] = "images/securitycase.png", ["unique"] = true, ["useable"] = false, ['shouldClose'] = false, ["combinable"] = nil, ["description"] = "Security case with a timer lock"},
     ["meth_cured"] =          {["name"] = "meth_cured",         ["label"] = "Ice",                  ["weight"] = 100, ["type"] = "item", ["image"] = "images/meth_cured.png", ["unique"] = false, ["useable"] = false, ['shouldClose'] = false, ["combinable"] = nil, ["description"] = "Crystal meth"},
     ["casekey"] =             {["name"] = "casekey",            ["label"] = "Case Key",             ["weight"] = 0, ["type"] = "item", ["image"] = "images/key1.png", ["unique"] = true, ["useable"] = false, ['shouldClose'] = false, ["combinable"] = nil, ["description"] = "Key for a case"},
-
+    
+    -- Drift Chip
+    ["driftchip"] =             {["name"] = "driftchip",            ["label"] = "Drift Chip",             ["weight"] = 0, ["type"] = "item", ["image"] = "images/laptop.png", ["unique"] = true, ["useable"] = true, ['shouldClose'] = false, ["combinable"] = nil, ["description"] = "A Device to alter vehicle modes"},
 }
 
 exports("GetSharedItems", function()

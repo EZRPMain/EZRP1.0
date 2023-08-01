@@ -46,10 +46,14 @@ RegisterNetEvent("ez-drift:client:ToggleDrift", function()
                     SetVehicleEngineOn(veh, false, false, true)
                     if isDrift then 
                         Framework:Notify("Drift Mode: On")
-                        ToggleDrift(vehicle, false)
+                        ToggleDrift(vehicle, true)
+                        print(class)
+                        print("^ Veh class ^")
                     else
                         Framework:Notify("Drift Mode: Off")
                         ToggleDrift(vehicle, false)
+                        print(class)
+                        print("^ Veh class ^")
                     end
                 end
             end
