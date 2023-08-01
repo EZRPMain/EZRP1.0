@@ -222,3 +222,27 @@ local function SignRobbery()
         job = {"LEO", "police"} -- type or jobs that will get the alerts
     })
 end exports('SignRobbery', SignRobbery)
+
+local function BankTruck()
+    local currentPos = GetEntityCoords(PlayerPedId())
+    local locationInfo = getStreetandZone(currentPos)
+    local gender = GetPedGender()
+    TriggerServerEvent("dispatch:server:notify",{
+        dispatchcodename = "banktruck", -- has to match the codes in sv_dispatchcodes.lua so that it generates the right blip
+        dispatchCode = "10-31",
+        firstStreet = locationInfo,
+        gender = gender,
+        model = nil,
+        plate = nil,
+        priority = 2, -- priority
+        firstColor = nil,
+        automaticGunfire = false,
+        origin = {
+            x = currentPos.x,
+            y = currentPos.y,
+            z = currentPos.z
+        },
+        dispatchMessage = 'Banktruck robbery in progress', -- message
+        job = {"LEO", "police"} -- type or jobs that will get the alerts
+    })
+end exports('BankTruck', BankTruck)
