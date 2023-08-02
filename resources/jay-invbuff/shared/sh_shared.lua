@@ -1,6 +1,10 @@
 Shared = {}
 Shared.Debug = true
 
+Shared.Lang = {
+    ["cannotdothat"] = "You cannot do that",
+}
+
 -- Notify Functions
 if IsDuplicityVersion() then
     Shared.Notify = function(source, message, type, time)

@@ -24,7 +24,7 @@ local function SetStrength(buff) -- 0-100
             progressValue = buff,
         })
     else
-        TriggerEvent("QBCore:Notify", "cant do that u retard", 'error')
+        Config.Notify(Shared.Lang["cannotdothat"], 'error')
     end
 end
 
