@@ -38,15 +38,6 @@ local dropPoints = {
 	-- {1022.0564575195,-3095.892578125,-38.999855041504},
 	-- {1022.1699829102,-3106.6181640625,-38.999855041504},
 }
-
--- RegisterCommand("cheat", function()
---     TriggerServerEvent('ez-recycle:GetReward',"recyclablematerial", 1)
--- end)
-
-RegisterNetEvent('missionSystem:updatePoints')
-AddEventHandler('missionSystem:updatePoints', function(result)
-	RecyclePoints = result
-end)
 -----------------------------
 -- Metal Harvest
 -----------------------------
@@ -140,7 +131,10 @@ Citizen.CreateThread(function()
 				if GetDistanceBetweenCoords(PlayerPos, v[1],v[2],v[3], true) <= 2 then
 					if not v.used and not isRunningCrate then
 						v.used = true
-						TriggerServerEvent('missionSystem:UpdateClients',RecyclePoints,k)
+						CreateThread(function()
+							Wait(Config.RecycleTime * (60*1000))
+							v.used = false
+						end)
 						runRecycle()
 					end
 				end
