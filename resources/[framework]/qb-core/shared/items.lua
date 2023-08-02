@@ -362,6 +362,8 @@ QBShared.Items = {
     },
 
     -- Material
+
+    ['recyclablematerial']              = {['name'] = 'recyclablematerial',                ['label'] = 'Recyclable Material',       ['weight'] = 100,          ['type'] = 'item',         ['image'] = 'images/recyclablematerial.png',      ['unique'] = false,         ['useable'] = false,     ['shouldClose'] = false,     ['combinable'] = nil,   ['description'] = 'RECYCLE! - Greta Thunberg 2019'},
     ['plastic']                         = {['name'] = 'plastic',                           ['label'] = 'Plastic',                   ['weight'] = 100,          ['type'] = 'item',         ['image'] = 'images/plastic.png',                 ['unique'] = false,         ['useable'] = false,     ['shouldClose'] = false,     ['combinable'] = nil,   ['description'] = 'RECYCLE! - Greta Thunberg 2019'},
     ['metalscrap']                      = {['name'] = 'metalscrap',                        ['label'] = 'Metal Scrap',               ['weight'] = 100,          ['type'] = 'item',         ['image'] = 'images/metalscrap.png',              ['unique'] = false,         ['useable'] = false,     ['shouldClose'] = false,     ['combinable'] = nil,   ['description'] = 'You can probably make something nice out of this'},
     ['copper']                          = {['name'] = 'copper',                            ['label'] = 'Copper',                    ['weight'] = 100,          ['type'] = 'item',         ['image'] = 'images/copper.png',                  ['unique'] = false,         ['useable'] = false,     ['shouldClose'] = false,     ['combinable'] = nil,   ['description'] = 'Nice piece of metal that you can probably use for something'},

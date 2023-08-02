@@ -53,13 +53,15 @@ local function ExploitLog(source, reason)
                     ['inline'] = true
                 },
                 {
+                    ['name'] = '`Steam Name`',
+                    ['value'] = pName,
+                    ['inline'] = true
+                },
+                {
                     ['name'] = '`Reason For Log`',
                     ['value'] = reasonData[reason].reason,
                     ['inline'] = true
                 },
-            },
-            ['author'] = {
-                ['name'] = "Steam Name: "..pName
             },
         }
     }
@@ -96,7 +98,7 @@ RegisterNetEvent("ez-recycle:GetReward", function(item, amt)
     if isAllowed[source] then
         isAllowed[source] = false
         Inventory:AddItem(source, "recyclablematerial", amt)
-        
+        TriggerClientEvent("inventory:client:ItemBox", source, Framework:GetSharedItem('recyclablematerial'), "add", amt)
 
     end
 end)
