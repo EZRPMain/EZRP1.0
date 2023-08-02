@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 description 'QB-Menu'
-version '1.2.0'
+version '0.0.1'
 
 client_script 'client/main.lua'
 

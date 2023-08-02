@@ -54,7 +54,7 @@ body::-webkit-scrollbar {
     width: auto;
     max-width: 45%;
     height: 10%;
-    background: #000000cc;
+    background: #273141;
     color: white;
     margin: auto;
     position: relative;
@@ -65,9 +65,7 @@ body::-webkit-scrollbar {
     border-radius: 0.15rem;
     display: flex;
     flex-direction: column;
-    border: 3px solid #5177aa;
-    border-radius: 10px;
-    /* box-shadow: 0rem 0rem 0.5rem 0.05rem #000000; */
+    box-shadow: 0rem 0rem 0.5rem 0.05rem #000000;
     cursor: pointer;
 }
 
@@ -79,14 +77,14 @@ body::-webkit-scrollbar {
 }
 
 .button:hover {
-    background-color: #356192;
+    background-color: #2d5172;
 }
 
 .title {
     width: auto;
     max-width: 45%;
     height: 10%;
-    background: #000000cc;
+    background: #273141;
     color: white;
     margin: auto;
     position: relative;
@@ -97,9 +95,7 @@ body::-webkit-scrollbar {
     border-radius: 0.15rem;
     display: flex;
     flex-direction: column;
-  border: 3px solid #5177aa;
-    border-radius: 10px;
-/*     box-shadow: 0rem 0rem 0.5rem 0.05rem #000000; */
+    box-shadow: 0rem 0rem 0.5rem 0.05rem #000000;
 }
 
 .title > div.header {
@@ -107,7 +103,7 @@ body::-webkit-scrollbar {
 }
 
 .disabled {
-    background: rgba(102, 102, 102, 0.9) !important;
+    background: #878789 !important;
     cursor: default;
 }
 
@@ -130,4 +126,3 @@ div > .header {
     font-weight: 400;
     overflow: hidden;
 }
-
