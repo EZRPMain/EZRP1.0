@@ -1,6 +1,17 @@
 Shared = {}
 Shared.Debug = true
 
+-- Notify Functions
+if IsDuplicityVersion() then
+    Shared.Notify = function(source, message, type, time)
+        TriggerClientEvent('QBCore:Notify', source, message, type, time)
+    end
+else
+    Shared.Notify = function(message, type, time)
+        TriggerEvent('QBCore:Notify', message, type, time)
+    end
+end
+
 -- No Ox Support Yet
 
 Shared.Inventory = "lj-inventory" -- "lj-inventory", "qb-inventory", "ps-inventory"
@@ -8,7 +19,7 @@ Inventory = exports[Shared.Inventory]
 
 Shared.PedBuffs = {
     [`ig_stix`] = 100,
-    [`ig_oozi`] = 100,
+    [`ig_oozi`] = 25,
 }
 
 Shared.DependencyList = {
