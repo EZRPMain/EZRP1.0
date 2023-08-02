@@ -172,3 +172,64 @@ function DrawText3Ds(x,y,z, text)
 end
 
 
+
+
+
+RegisterNetEvent("ez-recycle:openRecycle", function()
+	local ped = PlayerPedId()
+	local coords = GetEntityCoords(ped)
+	local dist = #(coords - vector3(982.4, -2278.42, 30.51))
+	if dist > 5 then return end
+
+	local menuData = {
+		{
+            header = "Recyclables Trader",
+            isMenuHeader = true,
+        },
+	}
+	for i = 1, #Config.Recyclables do 
+		local item = Config.Recyclables[i]
+		menuData[#menuData+1] = {
+			header = Framework:GetSharedItem(item).label,
+			txt = "",
+			params = {
+				event = "ez-recycle:openInput",
+				args = {
+					item = item,
+				}
+			}
+		}
+	end
+
+
+	exports['qb-menu']:openMenu(menuData)
+end)
+
+RegisterNetEvent("ez-recycle:openInput", function(data)
+
+	local item = data.item
+
+	local dialog = exports['qb-input']:ShowInput({
+        header = "Trade Amount",
+        submitText = "Trade",
+        inputs = {
+            {
+                text = "Amount (#)",
+                name = "amount",
+                type = "number",
+                isRequired = true, 
+                -- default = "CID-1234", -- Default text option, this is optional
+            },
+		},
+	})
+	
+	if dialog ~= nil then
+		local amount = tonumber(dialog.amount)
+		if Inventory:HasItem("recyclablematerial", amount) then
+			TriggerServerEvent("ez-recycle:trade",  item, amount)
+		else
+			Framework:Notify("You don't have enough recycables", "error")
+		end
+	end
+
+end)

@@ -15,18 +15,17 @@ local reasonData = {
     },
 }
 
-
 local function BanPlayer(source, reason)
-    MySQL.insert('INSERT INTO bans (name, license, discord, ip, reason, expire, bannedby) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-        GetPlayerName(source),
-        Framework:GetIdentifier(source, 'license'),
-        Framework:GetIdentifier(source, 'discord'),
-        Framework:GetIdentifier(source, 'ip'),
-        reason,
-        2147483647,
-        'ez-recycle'
-    })
-    DropPlayer(source, 'You were permanently banned by the server for: Exploiting')
+    -- MySQL.insert('INSERT INTO bans (name, license, discord, ip, reason, expire, bannedby) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+    --     GetPlayerName(source),
+    --     Framework:GetIdentifier(source, 'license'),
+    --     Framework:GetIdentifier(source, 'discord'),
+    --     Framework:GetIdentifier(source, 'ip'),
+    --     reason,
+    --     2147483647,
+    --     'ez-recycle'
+    -- })
+    -- DropPlayer(source, 'You were permanently banned by the server for: Exploiting')
 end
 
 local function ExploitLog(source, reason)
@@ -74,6 +73,19 @@ local function ExploitLog(source, reason)
     end
 end
 
+local ItemChecks = {}
+CreateThread(function()
+	for i = 1, #Config.Recyclables do 
+		local item = Config.Recyclables[i]
+		ItemChecks[item] = true
+	end
+end)
+
+local function ItemCheck(item)
+    return ItemChecks[item]
+end
+
+
 RegisterNetEvent("40g9usdroib903ti4j4oigb", function()
     local source = source
     isAllowed[source] = true
@@ -100,5 +112,21 @@ RegisterNetEvent("ez-recycle:GetReward", function(item, amt)
         Inventory:AddItem(source, "recyclablematerial", amt)
         TriggerClientEvent("inventory:client:ItemBox", source, Framework:GetSharedItem('recyclablematerial'), "add", amt)
 
+    end
+end)
+
+RegisterNetEvent("ez-recycle:trade", function(item, amount)
+    local source = source
+    if not ItemCheck(item) then 
+        ExploitLog(source, "item")
+        return
+    end
+
+    if Inventory:RemoveItem(source, "recyclablematerial", amount) then
+        TriggerClientEvent("inventory:client:ItemBox", source, Framework:GetSharedItem('recyclablematerial'), "remove", amount)
+        Inventory:AddItem(source, item, amount)
+        TriggerClientEvent("inventory:client:ItemBox", source, Framework:GetSharedItem(item), "add", amount)
+    else
+        TriggerClientEvent("QBCore:Notify", "Not enough recycables", "error")
     end
 end)
