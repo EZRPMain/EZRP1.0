@@ -13,6 +13,7 @@ end)
 
 RegisterNetEvent("ez-drift:client:sync", function(plate, boolean) -- old fashioned way (bad but keeping for support)
     DriftMode[plate] = boolean
+    -- SetDriftTyresEnabled(vehicle, boolean)
 end)
 
 local function ToggleDrift(vehicle, boolean, plate)
@@ -24,6 +25,9 @@ local function ToggleDrift(vehicle, boolean, plate)
 		disableCombat = true,
 	}, {}, {}, {}, function()
         SetDriftTyresEnabled(vehicle, boolean)
+        print(vehicle, boolean)
+        local isDrift = GetDriftTyresEnabled(vehicle)
+        print(isDrift)
         SetVehicleEngineOn(vehicle, true, false)
         TriggerServerEvent("ez-drift:server:sync", plate, boolean)
 	end, function() -- Cancel
@@ -44,15 +48,15 @@ RegisterNetEvent("ez-drift:client:ToggleDrift", function()
                     Framework:Notify("You need to be parked to do this", "error")
                 else
                     SetVehicleEngineOn(veh, false, false, true)
-                    if isDrift then 
+                    if not isDrift then 
                         Framework:Notify("Drift Mode: On")
-                        ToggleDrift(vehicle, true)
-                        print(class)
+                        ToggleDrift(veh, true)
+                        print(Class)
                         print("^ Veh class ^")
                     else
                         Framework:Notify("Drift Mode: Off")
-                        ToggleDrift(vehicle, false)
-                        print(class)
+                        ToggleDrift(veh, false)
+                        print(Class)
                         print("^ Veh class ^")
                     end
                 end
