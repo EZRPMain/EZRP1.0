@@ -34,7 +34,7 @@ const OpenMenu = (data) => {
                 form.push(renderCheckboxInput(item));
                 break;
             default:
-                form.push(`<div class="label">${item.text}</div>`);
+                form.push(`<div>${item.text}</div>`);
         }
     });
     form.push(
@@ -46,18 +46,19 @@ const OpenMenu = (data) => {
     $(".main-wrapper").html(form.join(" "));
 
     $("#qb-input-form").on("change", function (event) {
-        if( $(event.target).attr("type") == 'checkbox' ) {
-            const value = $(event.target).is(":checked") ? "true" : "false";
-            formInputs[$(event.target).attr("value")] = value;
-        }else{
-            formInputs[$(event.target).attr("name")] = $(event.target).val();
-        }
+        formInputs[$(event.target).attr("name")] = $(event.target).val();
     });
 
     $("#qb-input-form").on("submit", async function (event) {
         if (event != null) {
             event.preventDefault();
         }
+        let formData = $("#qb-input-form").serializeArray();
+
+        formData.forEach((item, index) => {
+            formInputs[item.name] = item.value;
+        });
+
         await $.post(
             `https://${GetParentResourceName()}/buttonSubmit`,
             JSON.stringify({ data: formInputs })
@@ -114,7 +115,7 @@ const renderRadioInput = (item) => {
 
 const renderCheckboxInput = (item) => {
     const { options, name, text } = item;
-
+    formInputs[name] = options[0].value;
 
     let div = `<div class="form-input-group"> <div class="form-group-title">${text}</div>`;
     div += '<div class="input-group-chk">';
@@ -151,15 +152,6 @@ const CloseMenu = () => {
     formInputs = {};
 };
 
-const SetStyle = (style) => {
-    var stylesheet = $("<link>", {
-        rel: "stylesheet",
-        type: "text/css",
-        href: `./styles/${style}.css`
-    });
-    stylesheet.appendTo("head");
-};
-
 const CancelMenu = () => {
     $.post(`https://${GetParentResourceName()}/closeMenu`);
     return CloseMenu();
@@ -170,8 +162,6 @@ window.addEventListener("message", (event) => {
     const info = data.data;
     const action = data.action;
     switch (action) {
-        case "SET_STYLE":
-            return SetStyle(info);
         case "OPEN_MENU":
             return OpenMenu(info);
         case "CLOSE_MENU":
