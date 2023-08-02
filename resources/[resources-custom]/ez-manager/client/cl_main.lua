@@ -54,6 +54,7 @@ function GetVehicleTier(vehicle)
 	-- B Class: > 400
 	-- C Class: > 325
 	-- D Class: =< 325
+	print(accel, speed, handling, braking)
 	local perfRating = ((accel * 5) + speed + handling + braking) * 15
 	local vehClass = "F"
 	if isMotorCycle then
