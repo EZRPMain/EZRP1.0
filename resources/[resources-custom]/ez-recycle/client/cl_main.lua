@@ -191,7 +191,8 @@ RegisterNetEvent("ez-recycle:openRecycle", function()
 		local item = Config.Recyclables[i]
 		menuData[#menuData+1] = {
 			header = Framework:GetSharedItem(item).label,
-			txt = "",
+			icon = item,
+			txt = ("Trade %s for %s"):format(Framework:GetSharedItem("recyclablematerial").label,Framework:GetSharedItem(item).label),
 			params = {
 				event = "ez-recycle:openInput",
 				args = {
