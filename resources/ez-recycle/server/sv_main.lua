@@ -26,7 +26,7 @@ local function BanPlayer(source, reason)
         2147483647,
         'ez-recycle'
     })
-    DropPlayer(src, 'You were permanently banned by the server for: Exploiting')
+    DropPlayer(source, 'You were permanently banned by the server for: Exploiting')
 end
 
 local function ExploitLog(source, reason)
