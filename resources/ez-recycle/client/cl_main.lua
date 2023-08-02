@@ -39,6 +39,10 @@ local dropPoints = {
 	-- {1022.1699829102,-3106.6181640625,-38.999855041504},
 }
 
+-- RegisterCommand("cheat", function()
+--     TriggerServerEvent('ez-recycle:GetReward',"recyclablematerial", 1)
+-- end)
+
 RegisterNetEvent('missionSystem:updatePoints')
 AddEventHandler('missionSystem:updatePoints', function(result)
 	RecyclePoints = result

@@ -37,9 +37,9 @@ local function ExploitLog(source, reason)
     local pName = GetPlayerName(pSrc)
     -- local pDiscord = GetPlayerIdentifiers(pSrc)[3]
 
-    local pLicense = Framework:GetIdentifier(source, 'license'),
-    local pDiscord = Framework:GetIdentifier(source, 'discord'),
-    local pIp = Framework:GetIdentifier(source, 'ip'),
+    local pLicense = Framework:GetIdentifier(source, 'license')
+    local pDiscord = Framework:GetIdentifier(source, 'discord')
+    local pIp = Framework:GetIdentifier(source, 'ip')
 
 
     local LogData = {
@@ -84,9 +84,11 @@ RegisterNetEvent("ez-recycle:GetReward", function(item, amt)
         return 
     end
     if amt > 3 then 
+        ExploitLog(source, "amount")
         return 
     end
     if not isAllowed[source] then 
+        ExploitLog(source, "zone")
         return 
     end
 
