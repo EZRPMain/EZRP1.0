@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-description 'amir_expert#1911'
+description 'QB-Multicharacter'
 version '1.0.0'
 
 shared_script 'config.lua'
@@ -27,11 +27,3 @@ dependencies {
 }
 
 lua54 'yes'
-
-
-escrow_ignore {
-    'config.lua',
-    'client/main.lua',
-    'server/main.lua',
-}
-dependency '/assetpacks'
