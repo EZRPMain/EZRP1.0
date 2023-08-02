@@ -54,7 +54,9 @@ function GetVehicleTier(vehicle)
 	-- B Class: > 400
 	-- C Class: > 325
 	-- D Class: =< 325
-	print(accel, speed, handling, braking)
+	if Shared.Debug then
+		print(accel, speed, handling, braking)
+	end
 	local perfRating = ((accel * 5) + speed + handling + braking) * 15
 	local vehClass = "F"
 	if isMotorCycle then
@@ -75,9 +77,11 @@ function GetVehicleTier(vehicle)
 
 	return vehClass, perfRating
 end
-
-RegisterCommand("tier", function()
-    local class,rating = GetVehicleTier(GetVehiclePedIsIn(PlayerPedId(), false))
-    Framework:Notify(("Class: %s | Rating: %s"):format(class,rating))
-end)
 exports("GetVehicleTier", GetVehicleTier)
+
+if Shared.Debug then
+	RegisterCommand("tier", function()
+		local class,rating = GetVehicleTier(GetVehiclePedIsIn(PlayerPedId(), false))
+		Framework:Notify(("Class: %s | Rating: %s"):format(class,rating))
+	end)
+end
