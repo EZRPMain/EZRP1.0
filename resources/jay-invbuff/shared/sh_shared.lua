@@ -7,10 +7,8 @@ Shared.Inventory = "lj-inventory" -- "lj-inventory", "qb-inventory", "ps-invento
 Inventory = exports[Shared.Inventory]
 
 Shared.PedBuffs = {
-    [`pw_andreas`] = 100,
-    [`pw_jiwon`] = 100,
-    [`ig_tommyt`] = 75,
-    [`ig_deanquincy`] = 75,
+    [`ig_stix`] = 100,
+    [`ig_oozi`] = 100,
 }
 
 Shared.DependencyList = {
@@ -25,7 +23,7 @@ CreateThread(function()
         end
     end
     print("Passed Dependency Check")
-    if not IsDuplicityVersion() and Inventory:MaxWeight then 
-        print("Passed Export Check")
-    end
+    -- if not IsDuplicityVersion() then 
+    --     print("Passed Export Check")
+    -- end
 end)

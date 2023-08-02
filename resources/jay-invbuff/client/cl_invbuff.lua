@@ -1,6 +1,6 @@
 local buffName = "strength"
 
-local inventorySize = 250000
+local inventorySize = 120000
 local function SetStrength(buff) -- 0-100
     local display = true
     if buff == 0 then 
@@ -11,7 +11,7 @@ local function SetStrength(buff) -- 0-100
             buffName = buffName,
         })
     elseif buff <= 100 then
-        local workPls = buff*2.5
+        local workPls = buff*(inventorySize/100000)
         local thisBig = workPls *1000
         local newInv = thisBig + inventorySize
         Inventory:MaxWeight(newInv)
@@ -31,6 +31,7 @@ end
 RegisterNetEvent("jay-invbuff:client:RecieveStrength", function(buffAmt)
     SetStrength(buffAmt)
 end)
+exports("SetStrength", SetStrength)
 
 -- Ped Buff Check
 CreateThread(function()
