@@ -58,11 +58,11 @@ CreateThread(function ()
         distance = 1.5
     })
     if Shared.WeedLab.EnableTp then
-        exports['qb-target']:AddBoxZone('weedlab-enter', vector3(-66.95, -1311.66, 29.27), 1.5, 0.5, {
+        exports['qb-target']:AddBoxZone('weedlab-enter', vector3(-338.52, -2444.93, 7.292), 1.5, 0.5, {
             name = 'weedlab-enter',
-            heading = 90,
-            minZ = 29.27 - 2,
-            maxZ = 29.27 + 2,
+            heading = 140,
+            minZ = 7.292 - 2,
+            maxZ = 7.292 + 2,
             debugPoly = Shared.Debug,
         }, {
             options = {
@@ -124,8 +124,8 @@ RegisterNetEvent('ps-weedplanting:client:ExitLab', function()
     end
     local ped = PlayerPedId()    
     openHouseAnim()
-    SetEntityCoords(ped, -66.95, -1312.37, 29.28)
-    SetEntityHeading(ped, 180.95)
+    SetEntityCoords(ped, -338.71, -2444.63, 7.3)
+    SetEntityHeading(ped, 51.56)
 end)
 
 RegisterNetEvent('ps-weedplanting:client:ProcessBranch', function()
