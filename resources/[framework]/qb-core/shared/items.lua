@@ -617,6 +617,21 @@ QBShared.Items = {
     
     -- Drift Chip
     ["driftchip"] =             {["name"] = "driftchip",            ["label"] = "Drift Chip",             ["weight"] = 0, ["type"] = "item", ["image"] = "images/laptop.png", ["unique"] = true, ["useable"] = true, ['shouldClose'] = false, ["combinable"] = nil, ["description"] = "A Device to alter vehicle modes"},
+
+
+    ['fishingrod'] 					 = {['name'] = 'fishingrod', 					['label'] = 'Fishing Rod', 				['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/fishingrod.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,		['combinable'] = nil,   ['description'] = 'With this I can catch the fish..'},
+    ['fishingbait'] 				 = {['name'] = 'fishingbait', 					['label'] = 'Fishing Bait', 			['weight'] = 50, 		['type'] = 'item', 		['image'] = 'images/fishingbait.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'With this I can lure the fishessss..'},
+    ['catfish'] 			 		 = {['name'] = 'catfish', 						['label'] = 'Catfish', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/catfish.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['fish'] 						 = {['name'] = 'fish', 							['label'] = 'Fish', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/fish.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['fish2'] 						 = {['name'] = 'fish2', 						['label'] = 'Fish', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/fish2.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['goldfish'] 					 = {['name'] = 'goldfish', 						['label'] = 'Goldfish', 				['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/goldfish.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['largemouthbass'] 				 = {['name'] = 'largemouthbass', 				['label'] = 'Largemouth Bass', 			['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/largemouthbass.png', 		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['redfish'] 					 = {['name'] = 'redfish', 						['label'] = 'Redfish', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/redfish.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['salmon'] 						 = {['name'] = 'salmon', 						['label'] = 'Salmon', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/salmon.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['stingray'] 					 = {['name'] = 'stingray', 						['label'] = 'Stingray', 				['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/stingray.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['stripedbass'] 				 = {['name'] = 'stripedbass', 					['label'] = 'Striped Bass', 			['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/stripedbass.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['whale'] 			 			 = {['name'] = 'whale', 						['label'] = 'Whale', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/whale.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+    ['whale2'] 						 = {['name'] = 'whale2', 						['label'] = 'Whale', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'images/whale2.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
 }
 
 exports("GetSharedItems", function()
