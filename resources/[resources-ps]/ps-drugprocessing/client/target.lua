@@ -326,7 +326,7 @@ CreateThread(function()
 		heading = 355.0,
 		debugPoly = false,
 		minZ = 167.312,
-		maxZ = 168.512,
+		maxZ = 169.512,
 	},{
 	    options = {
 			{
