@@ -172,8 +172,8 @@ Config.Peds["boatgear5"] = {
 Config.Peds["fishingsell"] = {
     id = 'fishingsell',
     position = {
-        coords = vector3(-1816.406, -1193.334, 13.305),
-        heading = 100.0,
+        coords = vector3(-1816.406, -1193.334, 13.305),         -- Regular/Exotic Fish Sells
+		heading = 325.172,
     },
     pedType = 0,
     model = 's_m_y_busboy_01',
@@ -191,7 +191,7 @@ Config.Peds["fishingsell"] = {
                 icon = "fa fa-fish",
                 label = "Sell Exotic Fish",
                 canInteract = function()
-                    return Framework:HasItem("pearlscard")
+                    return Inventory:HasItem("pearlscard")
                 end
             },
         },
