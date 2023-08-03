@@ -1,29 +1,29 @@
 local PedSpawned = {}
 local EntityExports = {}
 local BusinessPeds = {
-	["catcafe"] = {
-		{ coords = vector4(-577.14, -1069.22, 21.99, 0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 1.2 },
-		{ coords = vector4(-583.32, -1069.32, 21.99, 90.0),  animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 1.2},
-		{ coords = vector4(-576.49, -1054.94, 21.42, 350.0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
-		{ coords = vector4(-582.07, -1055.92, 21.43, 250.0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
-		{ coords = vector4(-595.29, -1055.54, 21.43, 180.0), animDict = "creatures@cat@amb@world_cat_sleeping_ledge@base", animName = "base", target = false, frozen = true, ped = `a_c_cat_01`, dist = 2},
-		{ coords = vector4(-571.65, -1057.26, 21.54, 90.0), animDict = "creatures@cat@move", animName = "gallop", frozen = true, ped = `a_c_cat_01`},
+	-- ["catcafe"] = {
+	-- 	{ coords = vector4(-577.14, -1069.22, 21.99, 0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 1.2 },
+	-- 	{ coords = vector4(-583.32, -1069.32, 21.99, 90.0),  animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 1.2},
+	-- 	{ coords = vector4(-576.49, -1054.94, 21.42, 350.0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-582.07, -1055.92, 21.43, 250.0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-595.29, -1055.54, 21.43, 180.0), animDict = "creatures@cat@amb@world_cat_sleeping_ledge@base", animName = "base", target = false, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-571.65, -1057.26, 21.54, 90.0), animDict = "creatures@cat@move", animName = "gallop", frozen = true, ped = `a_c_cat_01`},
 
-		{ coords = vector4(-584.33, -1062.76, 22.40, 223.0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
-		{ coords = vector4(-575.53, -1049.41, 22.53, 90.0),  animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
-		{ coords = vector4(-584.71, -1054.55, 22.33, 280.0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
-		{ coords = vector4(-586.85, -1064.68, 22.35, 0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-584.33, -1062.76, 22.40, 223.0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-575.53, -1049.41, 22.53, 90.0),  animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-584.71, -1054.55, 22.33, 280.0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-586.85, -1064.68, 22.35, 0), animDict = "creatures@cat@amb@world_cat_sleeping_ground@base", animName = "base", target = true, frozen = true, ped = `a_c_cat_01`, dist = 2},
 
-		{ coords = vector4(-576.78, -1057.52, 24.15, 0.0), animDict = "creatures@cat@amb@world_cat_sleeping_ledge@base", animName = "base", target = false, frozen = true, ped = `a_c_cat_01`, dist = 2},
-		{ coords = vector4(-583.55, -1048.88, 24.50, 240.0), animDict = "creatures@cat@amb@world_cat_sleeping_ledge@base", animName = "base", target = false, frozen = true, ped = `a_c_cat_01`, dist = 2},
-		{ coords = vector4(-587.4, -1059.6, 22.3, 180.0), animDict = "creatures@cat@amb@world_cat_sleeping_ledge@base", animName = "base", target = false, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-576.78, -1057.52, 24.15, 0.0), animDict = "creatures@cat@amb@world_cat_sleeping_ledge@base", animName = "base", target = false, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-583.55, -1048.88, 24.50, 240.0), animDict = "creatures@cat@amb@world_cat_sleeping_ledge@base", animName = "base", target = false, frozen = true, ped = `a_c_cat_01`, dist = 2},
+	-- 	{ coords = vector4(-587.4, -1059.6, 22.3, 180.0), animDict = "creatures@cat@amb@world_cat_sleeping_ledge@base", animName = "base", target = false, frozen = true, ped = `a_c_cat_01`, dist = 2},
 
-		{ coords = vector4(-573.78, -1052.5, 22.40, 90.0), wander = true, ped = `a_c_cat_01` },
-		{ coords = vector4(-582.57, -1059.72, 22.40, 180.0), wander = true, ped = `a_c_cat_01` },
-		{ coords = vector4(-582.35, -1050.91, 22.40, 180.0), wander = true, ped = `a_c_cat_01` },
-		{ coords = vector4(-585.55, -1067.99, 22.40, 0.0), wander = true, ped = `a_c_cat_01` },
-		{ coords = vector4(-578.73, -1051.92, 22.40, 180.0), wander = true, ped = `a_c_cat_01` },
-	},
+	-- 	{ coords = vector4(-573.78, -1052.5, 22.40, 90.0), wander = true, ped = `a_c_cat_01` },
+	-- 	{ coords = vector4(-582.57, -1059.72, 22.40, 180.0), wander = true, ped = `a_c_cat_01` },
+	-- 	{ coords = vector4(-582.35, -1050.91, 22.40, 180.0), wander = true, ped = `a_c_cat_01` },
+	-- 	{ coords = vector4(-585.55, -1067.99, 22.40, 0.0), wander = true, ped = `a_c_cat_01` },
+	-- 	{ coords = vector4(-578.73, -1051.92, 22.40, 180.0), wander = true, ped = `a_c_cat_01` },
+	-- },
 	["vu"] = {
 		{ coords = vector4(112.78, -1283.24, 27.88, 318.1), animDict = "mini@strip_club@private_dance@idle", animName = "priv_dance_idle", frozen = true, ped = `a_f_y_topless_01`},
 		{ coords = vector4(115.75, -1286.86, 27.88, 248.86), animDict = "mini@strip_club@private_dance@part2", animName = "priv_dance_p2", frozen = true, ped = `a_f_y_topless_01`},

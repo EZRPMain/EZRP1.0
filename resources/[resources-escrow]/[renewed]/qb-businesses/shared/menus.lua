@@ -6,7 +6,7 @@ Config.CuttingBoard = {
 
 Config.EnableDJ = true
 Config.DjBooths = {
-    ["henhouse"] = {coords = vector3(-311.2, 6265.2, 32.06), pSize = 0.35, playing = false, radius = 10},
+    -- ["henhouse"] = {coords = vector3(-311.2, 6265.2, 32.06), pSize = 0.35, playing = false, radius = 10},
     ["vu"] = {coords = vector3(120.0, -1281.73, 29.49), pSize = 0.35, playing = false, radius = 20, play = vector3(113.36, -1286.83, 31.22)},
     ["cayo"] = {coords = vector3(4893.45, -4905.94, 3.49), pSize = 0.35, playing = false, radius = 10},
 }
