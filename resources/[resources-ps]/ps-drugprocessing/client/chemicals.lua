@@ -3,6 +3,36 @@ local inChemicalField = false
 local SpawnedChemicals = 0
 local Chemicals = {}
 
+local created_object = nil
+
+AddEventHandler('onResourceStop', function(resourceName)
+	if (GetCurrentResourceName() ~= resourceName) then
+	  return
+	end
+	DeleteEntity(created_object)
+end)
+
+CreateThread(function()
+	local chemTable = `v_ret_ml_tableb`
+	local chemTableCoords = vector4(1004.52, -1211.83, 25.29, 178.77)
+	RequestModel(chemTable)
+	local iter_for_request = 1
+	while not HasModelLoaded(chemTable) and iter_for_request < 5 do
+		Wait(500)                
+		iter_for_request = iter_for_request + 1
+	end
+	if not HasModelLoaded(chemTable) then
+		SetModelAsNoLongerNeeded(chemTable)
+	else
+		local ped = PlayerPedId()
+		created_object = CreateObjectNoOffset(chemTable, chemTableCoords.x, chemTableCoords.y, chemTableCoords.z - 1, 1, 0, 1)
+		PlaceObjectOnGroundProperly(created_object)
+		SetEntityHeading(created_object, chemTableCoords.w)
+		FreezeEntityPosition(created_object, true)
+		SetModelAsNoLongerNeeded(chemTable)
+	end
+end)
+
 -- Chemical Menu Trigger & Menu Button Triggers --
 local function createChemicalMenu()
     local chemMenu = {

@@ -25,7 +25,7 @@ Config.CircleZones = {
 	
 	ChemicalsField = {coords = vector3(2831.6, 1524.88, 24.57), name = ('Chemicals'), radius = 100.0},
 	--vector3(1601.48, 3588.58, 38.77)
-	ChemicalsConvertionMenu = {coords = vector3(3536.71, 3662.63, 28.12), name = ('Chemicals Process'), radius = 100.0},   -- NEED TO DO THIS
+	ChemicalsConvertionMenu = {coords = vector3(1004.52, -1211.83, 25.29), name = ('Chemicals Process'), radius = 100.0},   -- NEED TO DO THIS
 
 	CokeField = {coords = vector3(4744.3, -4388.62, 8.21), name = ('Coke'), radius = 100.0},
 	CokeProcessing = {coords = vector3(1087.14, -3195.31, -38.99), name = ('Coke Process'), radius = 20.0}, 

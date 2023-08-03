@@ -64,12 +64,12 @@ end)
 
 CreateThread(function()
     -- NEED TO DO THIS
-    exports["qb-target"]:AddBoxZone("chemmenu", vector3(3535.66, 3661.69, 28.12), 1.65, 2.4, {
+    exports["qb-target"]:AddBoxZone("chemmenu", vector3(1004.52, -1211.83, 25.29), 1.65, 2.4, {
         name = "chemmenu",
-        heading = 350.0,
+        heading = 180.0,
         debugPoly = false,
-        minZ = 27.52,
-        maxZ = 29.12,
+        minZ = 25.29-1,
+        maxZ = 25.29+1,
     }, {
         options = {
             {
