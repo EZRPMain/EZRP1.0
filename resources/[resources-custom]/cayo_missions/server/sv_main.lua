@@ -11,7 +11,7 @@ RegisterNetEvent("server:Reward", function(quest)
             local dist = #(pos - vector3(4863.24, -4633.92, 14.29))
             if dist > 10 then print(("Player (%s) %s is probably cheating"):format(source, GetPlayerName(source))) return end
             local RandomRewards = {
-                "randomitem",
+                "pearlscard",
                 "randomitem2",
                 "randomitem3",
             }

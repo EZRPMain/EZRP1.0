@@ -380,7 +380,7 @@ RegisterNetEvent('ez-fishing:client:ReturnBoat', function(args)
 	end
 end)
 
-RegisterNetEvent('ez-fishing:client:rentaBoat', function(args)
+RegisterNetEvent('ez-fishing:client:rentaBoat', function(args) -- Need rewrite
 	local args = tonumber(args)
 	local chance = math.random(1, 20)
 

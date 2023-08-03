@@ -10,12 +10,12 @@ Config.Peds["boatgear1"] = {
     distance = 50.0,
     target = {
         options = {
-            -- {
-            --     event = "ez-fishing:client:BoatMenu",
-            --     icon = "fas fa-anchor",
-            --     label = "Boat Rental",
-            --     location = 1 --LaPuerta
-            -- },
+            {
+                event = "ez-fishing:client:BoatMenu",
+                icon = "fas fa-anchor",
+                label = "Boat Rental",
+                location = 1 --LaPuerta
+            },
             {
                 event = "ez-fishing:client:buyFishingGear",
                 icon = "fas fa-fish",
@@ -44,12 +44,12 @@ Config.Peds["boatgear2"] = {
     distance = 50.0,
     target = {
         options = {
-            -- {
-            --     event = "ez-fishing:client:BoatMenu",
-            --     icon = "fas fa-anchor",
-            --     label = "Boat Rental",
-            --     location = 2 --PaletoCove
-            -- },
+            {
+                event = "ez-fishing:client:BoatMenu",
+                icon = "fas fa-anchor",
+                label = "Boat Rental",
+                location = 2 --PaletoCove
+            },
             {
                 event = "ez-fishing:client:buyFishingGear",
                 icon = "fas fa-fish",
@@ -78,12 +78,12 @@ Config.Peds["boatgear3"] = {
     distance = 50.0,
     target = {
         options = {
-            -- {
-            --     event = "ez-fishing:client:BoatMenu",
-            --     icon = "fas fa-anchor",
-            --     label = "Boat Rental",
-            --     location = 3 --ElGordo
-            -- },
+            {
+                event = "ez-fishing:client:BoatMenu",
+                icon = "fas fa-anchor",
+                label = "Boat Rental",
+                location = 3 --ElGordo
+            },
             {
                 event = "ez-fishing:client:buyFishingGear",
                 icon = "fas fa-fish",
@@ -112,12 +112,12 @@ Config.Peds["boatgear4"] = {
     distance = 50.0,
     target = {
         options = {
-            -- {
-            --     event = "ez-fishing:client:BoatMenu",
-            --     icon = "fas fa-anchor",
-            --     label = "Boat Rental",
-            --     location = 4 --ActDam
-            -- },
+            {
+                event = "ez-fishing:client:BoatMenu",
+                icon = "fas fa-anchor",
+                label = "Boat Rental",
+                location = 4 --ActDam
+            },
             {
                 event = "ez-fishing:client:buyFishingGear",
                 icon = "fas fa-fish",
@@ -146,12 +146,12 @@ Config.Peds["boatgear5"] = {
     distance = 50.0,
     target = {
         options = {
-            -- {
-            --     event = "ez-fishing:client:BoatMenu",
-            --     icon = "fas fa-anchor",
-            --     label = "Boat Rental",
-            --     location = 5 --AlamoSea
-            -- },
+            {
+                event = "ez-fishing:client:BoatMenu",
+                icon = "fas fa-anchor",
+                label = "Boat Rental",
+                location = 5 --AlamoSea
+            },
             {
                 event = "ez-fishing:client:buyFishingGear",
                 icon = "fas fa-fish",
