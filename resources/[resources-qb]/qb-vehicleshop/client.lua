@@ -237,14 +237,14 @@ function createFreeUseShop(shopShape, name)
                             icon = "fa-solid fa-circle-info",
                             header = getVehBrand():upper() .. ' ' .. getVehName():upper() .. ' - $' .. getVehPrice(),
                         },
-                        {
-                            header = Lang:t('menus.test_header'),
-                            txt = Lang:t('menus.freeuse_test_txt'),
-                            icon = "fa-solid fa-car-on",
-                            params = {
-                                event = 'qb-vehicleshop:client:TestDrive',
-                            }
-                        },
+                        -- {
+                        --     header = Lang:t('menus.test_header'),
+                        --     txt = Lang:t('menus.freeuse_test_txt'),
+                        --     icon = "fa-solid fa-car-on",
+                        --     params = {
+                        --         event = 'qb-vehicleshop:client:TestDrive',
+                        --     }
+                        -- },
                         {
                             header = Lang:t('menus.freeuse_buy_header'),
                             txt = Lang:t('menus.freeuse_buy_txt'),
@@ -257,18 +257,18 @@ function createFreeUseShop(shopShape, name)
                                 }
                             }
                         },
-                        {
-                            header = Lang:t('menus.finance_header'),
-                            txt = Lang:t('menus.freeuse_finance_txt'),
-                            icon = "fa-solid fa-coins",
-                            params = {
-                                event = 'qb-vehicleshop:client:openFinance',
-                                args = {
-                                    price = getVehPrice(),
-                                    buyVehicle = Config.Shops[insideShop]["ShowroomVehicles"][ClosestVehicle].chosenVehicle
-                                }
-                            }
-                        },
+                        -- {
+                        --     header = Lang:t('menus.finance_header'),
+                        --     txt = Lang:t('menus.freeuse_finance_txt'),
+                        --     icon = "fa-solid fa-coins",
+                        --     params = {
+                        --         event = 'qb-vehicleshop:client:openFinance',
+                        --         args = {
+                        --             price = getVehPrice(),
+                        --             buyVehicle = Config.Shops[insideShop]["ShowroomVehicles"][ClosestVehicle].chosenVehicle
+                        --         }
+                        --     }
+                        -- },
                         {
                             header = Lang:t('menus.swap_header'),
                             txt = Lang:t('menus.swap_txt'),

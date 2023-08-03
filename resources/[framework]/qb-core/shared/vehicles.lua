@@ -4535,6 +4535,16 @@ QBShared.Vehicles = {
         ['hash'] = `tropic2`,
         ['shop'] = 'boats',
     },
+    ['smallboat'] = {
+        ['name'] = 'Small Boat',
+        ['brand'] = 'Tinny',
+        ['model'] = 'smallboat',
+        ['price'] = 5000,
+        ['category'] = 'boats',
+        ['categoryLabel'] = 'Boats',
+        ['hash'] = `smallboat`,
+        ['shop'] = 'smallboats',
+    },
     ['dinghy'] = {
         ['name'] = 'Dinghy 2-Seater',
         ['brand'] = 'Nagasaki',

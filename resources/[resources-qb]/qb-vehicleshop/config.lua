@@ -140,8 +140,41 @@ Config.Shops = {
             },
         }
     }, -- Add your next table under this comma
-    ['boats'] = {
+    -- vector4(-1525.11, 1487.43, 109.65, 165.81)
+    ['smallboats'] = {
         ['Type'] = 'free-use', -- no player interaction is required to purchase a vehicle
+        ['Zone'] = {
+            ['Shape'] = {--polygon that surrounds the shop
+                vector2(-1518.97, 1493.09),
+                vector2(-1520.87, 1483.89),
+                vector2(-1533.22, 1485.78),
+                vector2(-1524.41, 1493.87)
+            },
+            ['minZ'] = 107.65, -- min height of the shop zone
+            ['maxZ'] = 113.65, -- max height of the shop zone
+            ['size'] = 6.2 -- size of the vehicles zones
+        },
+        ['Job'] = 'none', -- Name of job or none
+        ['ShopLabel'] = 'Marina Shop', -- Blip name
+        ['showBlip'] = true, -- true or false
+        ['blipSprite'] = 410, -- Blip sprite
+        ['blipColor'] = 3, -- Blip color
+        ['TestDriveTimeLimit'] = 1.5, -- Time in minutes until the vehicle gets deleted
+        ['Location'] = vector3(-738.25, -1334.38, 1.6), -- Blip Location
+        ['ReturnLocation'] = vector3(-714.34, -1343.31, 0.0), -- Location to return vehicle, only enables if the vehicleshop has a job owned
+        ['VehicleSpawn'] = vector4(-727.87, -1353.1, -0.17, 137.09), -- Spawn location when vehicle is bought
+        ['TestDriveSpawn'] = vector4(-722.23, -1351.98, 0.14, 135.33), -- Spawn location for test drive
+        ['ShowroomVehicles'] = {
+            [1] = {
+                coords = vector4(-1525.11, 1487.43, 109.65, 165.81), -- where the vehicle will spawn on display
+                defaultVehicle = 'smallboat', -- Default display vehicle
+                chosenVehicle = 'smallboat' -- Same as default but is dynamically changed when swapping vehicles
+            },
+        },
+    },
+
+    ['boats'] = {
+        ['Type'] = 'managed', -- no player interaction is required to purchase a vehicle
         ['Zone'] = {
             ['Shape'] = {--polygon that surrounds the shop
                 vector2(-729.39, -1315.84),
@@ -153,7 +186,7 @@ Config.Shops = {
             ['maxZ'] = 5.0, -- max height of the shop zone
             ['size'] = 6.2 -- size of the vehicles zones
         },
-        ['Job'] = 'none', -- Name of job or none
+        ['Job'] = 'boatdealer', -- Name of job or none
         ['ShopLabel'] = 'Marina Shop', -- Blip name
         ['showBlip'] = true, -- true or false
         ['blipSprite'] = 410, -- Blip sprite
