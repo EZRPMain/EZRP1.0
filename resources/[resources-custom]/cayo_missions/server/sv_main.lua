@@ -12,8 +12,9 @@ RegisterNetEvent("server:Reward", function(quest)
             if dist > 10 then print(("Player (%s) %s is probably cheating"):format(source, GetPlayerName(source))) return end
             local RandomRewards = {
                 "pearlscard",
-                "randomitem2",
-                "randomitem3",
+                "crackbaggy",
+                "xtcbaggy",
+                "xtcbaggy",
             }
             local RandomReward = RandomRewards[math.random(#RandomRewards)]
             Player.Functions.AddItem(RandomReward)
