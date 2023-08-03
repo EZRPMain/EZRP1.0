@@ -290,7 +290,7 @@ exports('GiveBlueprint', GiveBlueprint)
 --   COMMANDS
 --------------------
 
-QBCore.Commands.Add("keepcrafting", "increase exp of crafting for a player", {
+QBCore.Commands.Add("craftrep", "increase exp of crafting for a player", {
      {
           name = "cid",
           help = "player id"
