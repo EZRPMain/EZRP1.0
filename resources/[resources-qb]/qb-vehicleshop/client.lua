@@ -331,18 +331,18 @@ function createManagedShop(shopShape, name)
                                 }
                             }
                         },
-                        {
-                            header = Lang:t('menus.finance_header'),
-                            txt = Lang:t('menus.managed_finance_txt'),
-                            icon = "fa-solid fa-coins",
-                            params = {
-                                event = 'qb-vehicleshop:client:openCustomFinance',
-                                args = {
-                                    price = getVehPrice(),
-                                    vehicle = Config.Shops[insideShop]["ShowroomVehicles"][ClosestVehicle].chosenVehicle
-                                }
-                            }
-                        },
+                        -- {
+                        --     header = Lang:t('menus.finance_header'),
+                        --     txt = Lang:t('menus.managed_finance_txt'),
+                        --     icon = "fa-solid fa-coins",
+                        --     params = {
+                        --         event = 'qb-vehicleshop:client:openCustomFinance',
+                        --         args = {
+                        --             price = getVehPrice(),
+                        --             vehicle = Config.Shops[insideShop]["ShowroomVehicles"][ClosestVehicle].chosenVehicle
+                        --         }
+                        --     }
+                        -- },
                         {
                             header = Lang:t('menus.swap_header'),
                             txt = Lang:t('menus.swap_txt'),

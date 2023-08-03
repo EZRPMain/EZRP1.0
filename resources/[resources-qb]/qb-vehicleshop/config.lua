@@ -155,15 +155,15 @@ Config.Shops = {
             ['size'] = 6.2 -- size of the vehicles zones
         },
         ['Job'] = 'none', -- Name of job or none
-        ['ShopLabel'] = 'Marina Shop', -- Blip name
+        ['ShopLabel'] = 'Small Boats', -- Blip name
         ['showBlip'] = true, -- true or false
         ['blipSprite'] = 410, -- Blip sprite
         ['blipColor'] = 3, -- Blip color
         ['TestDriveTimeLimit'] = 1.5, -- Time in minutes until the vehicle gets deleted
-        ['Location'] = vector3(-738.25, -1334.38, 1.6), -- Blip Location
-        ['ReturnLocation'] = vector3(-714.34, -1343.31, 0.0), -- Location to return vehicle, only enables if the vehicleshop has a job owned
-        ['VehicleSpawn'] = vector4(-727.87, -1353.1, -0.17, 137.09), -- Spawn location when vehicle is bought
-        ['TestDriveSpawn'] = vector4(-722.23, -1351.98, 0.14, 135.33), -- Spawn location for test drive
+        ['Location'] = vector3(-1522.21, 1491.45, 111.65), -- Blip Location
+        ['ReturnLocation'] = vector3(-1522.94, 1501.87, 109.27), -- Location to return vehicle, only enables if the vehicleshop has a job owned
+        ['VehicleSpawn'] = vector4(-1532.33, 1485.6, 109.65, 348.46), -- Spawn location when vehicle is bought
+        ['TestDriveSpawn'] = vector4(-1532.33, 1485.6, 109.65, 348.46), -- Spawn location for test drive
         ['ShowroomVehicles'] = {
             [1] = {
                 coords = vector4(-1525.11, 1487.43, 109.65, 165.81), -- where the vehicle will spawn on display
@@ -220,7 +220,7 @@ Config.Shops = {
         },
     },
     ['air'] = {
-        ['Type'] = 'free-use', -- no player interaction is required to purchase a vehicle
+        ['Type'] = 'managed', -- no player interaction is required to purchase a vehicle
         ['Zone'] = {
             ['Shape'] = {--polygon that surrounds the shop
                 vector2(-1607.58, -3141.7),
@@ -232,7 +232,7 @@ Config.Shops = {
             ['maxZ'] = 16.99, -- max height of the shop zone
             ['size'] = 7.0, -- size of the vehicles zones
         },
-        ['Job'] = 'none', -- Name of job or none
+        ['Job'] = 'airdealer', -- Name of job or none
         ['ShopLabel'] = 'Air Shop', -- Blip name
         ['showBlip'] = true, -- true or false
         ['blipSprite'] = 251, -- Blip sprite
