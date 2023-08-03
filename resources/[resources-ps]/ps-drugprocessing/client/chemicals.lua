@@ -37,7 +37,7 @@ end)
 local function createChemicalMenu()
     local chemMenu = {
         {
-            isHeader = true,
+            isMenuHeader = true,
             header = Lang:t("menu.chemMenuHeader")
         },
         {
