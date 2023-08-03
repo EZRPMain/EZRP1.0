@@ -17,7 +17,7 @@ Shared.BranchItem = 'weedplant_branch'
 Shared.WeedItem = 'weedplant_weed'
 Shared.PackedWeedItem = 'weedplant_packedweed'
 Shared.SusPackageItem = 'weedplant_package'
-Shared.LabkeyItem = 'keya' -- Key required to enter the weed lab
+Shared.LabkeyItem = 'weedkey' -- Key required to enter the weed lab
 
 --- Weed Processing | Weed-Lab
 Shared.WeedLab = {

@@ -102,7 +102,11 @@ local props = {
 	["pack1"]                     = { carry = true,   model = "prop_cs_box_clothes",   bone = 28422, x = 0.01,  y = -0.02, z = -0.14, xr = 0.0, yr = 0.0,   zr = 0.0,    blockAttack = true, blockCar = true, blockRun = true},
   	["pack2"]                     = { carry = true,   model = "prop_cs_cardbox_01",    bone = 28422, x = 0.01,  y = -0.02, z = -0.12, xr = 0.0, yr = 0.0,   zr = 0.0,    blockAttack = true, blockCar = true, blockRun = true},
   	["pack3"]                     = { carry = true,   model = "prop_hat_box_06",       bone = 28422, x = 0.01,  y = -0.02, z = -0.17, xr = 0.0, yr = 0.0,   zr = -90.0,  blockAttack = true, blockCar = true, blockRun = true},
-
+	
+	["cardoor"]                     = { carry = true,   model = "prop_car_door_01",   bone = 60309, x = 0.025,  y = 0.00, z = 0.355, xr = 0.0, yr = 470.0,   zr = 60.0,    blockAttack = true, blockCar = true, blockRun = true},
+  	["rubmonitor"]                     = { carry = true,   model = "prop_cs_cardbox_01",    bone = 28422, x = 0.01,  y = -0.02, z = -0.12, xr = 0.0, yr = 0.0,   zr = 0.0,    blockAttack = true, blockCar = true, blockRun = true},
+  	["carseat"]                     = { carry = true,   model = "prop_hat_box_06",       bone = 28422, x = 0.01,  y = -0.02, z = -0.17, xr = 0.0, yr = 0.0,   zr = -90.0,  blockAttack = true, blockCar = true, blockRun = true},
+	["rubtyre"]                     = { carry = true,   model = "prop_hat_box_06",       bone = 28422, x = 0.01,  y = -0.02, z = -0.17, xr = 0.0, yr = 0.0,   zr = -90.0,  blockAttack = true, blockCar = true, blockRun = true},
 }
 
 local items_attatched = {}
