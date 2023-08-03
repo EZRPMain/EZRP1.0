@@ -8,7 +8,7 @@ local Blueprints = {
                 rotation = vector3(45.0, 0.0, 0.0)
             },
             level = 5,
-            hide_until_reaches_level = true,
+            hide_until_reaches_level = false,
             job = {
                 allowed_list = {},
                 allowed_grades = {}

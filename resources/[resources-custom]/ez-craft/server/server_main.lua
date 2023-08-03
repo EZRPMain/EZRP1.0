@@ -60,7 +60,7 @@ end
 
 local function remove_item(src, Player, name, amount)
      Player.Functions.RemoveItem(name, amount)
-     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[name], "remove")
+     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[name], "remove", amount)
 end
 
 local function is_job_allowed(Player, data, type)
@@ -199,7 +199,7 @@ local function StartCraftProcess(src, data)
           increase_exp(Player, item_config.crafting.exp_per_craft)
 
           Player.Functions.AddItem(item_name, item_config.crafting.amount)
-          TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item_name], "add")
+          TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item_name], "add", item_config.crafting.amount)
           TriggerClientEvent('QBCore:Notify', src, Lang:t('success.successful_crafting'), 'success')
      end)
 end
@@ -278,7 +278,7 @@ local function GiveBlueprint(src, blueprint_name)
      if not blueprint then return false end
      temp = GetBlueprint(blueprint_name)
      local label = temp and temp.item_settings.label or QBCore.Shared.Items[blueprint_name].name
-     return exports['qb-inventory']:AddItem(src, 'blueprint_document', 1, false, {
+     return exports['lj-inventory']:AddItem(src, 'blueprint_document', 1, false, {
           blueprint = blueprint_name,
           blueprint_id = RandomID(7),
           blueprint_label = label

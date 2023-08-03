@@ -147,7 +147,7 @@ end
 RegisterNetEvent('ez-craft:client:start_crafting', function(data, item_config)
      local plyped = PlayerPedId()
 
-     TriggerEvent('animations:client:EmoteCommandStart', { "mechanic4" })
+     TriggerEvent('animations:client:EmoteCommandStart', { "mechanic" })
      makeEntityFaceCoord(plyped, Workbench.coords)
      QBCore.Functions.Progressbar("keep_Crafting", "Crafting ", item_config.crafting.duration * 1000, false, false, {
           disableMovement = true,
