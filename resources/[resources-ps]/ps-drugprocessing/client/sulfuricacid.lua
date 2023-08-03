@@ -39,12 +39,12 @@ local function GenerateSulfuricAcidCoords()
 		local weedCoordX, weedCoordY
 
 		math.randomseed(GetGameTimer())
-		local modX = math.random(-7, 7)
+		local modX = math.random(-25, 25)
 
 		Wait(100)
 
 		math.randomseed(GetGameTimer())
-		local modY = math.random(-7, 7)
+		local modY = math.random(-25, 25)
 
 		weedCoordX = Config.CircleZones.SulfuricAcidFarm.coords.x + modX
 		weedCoordY = Config.CircleZones.SulfuricAcidFarm.coords.y + modY

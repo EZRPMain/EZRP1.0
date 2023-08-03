@@ -101,7 +101,7 @@ local Translations = {
         hydrochloricacid = "Pick up hydrochloric acid drum",
     },
     drawtext = {
-        process_lsd = "~g~E~w~ - Process LSD",
+        process_lsd = "~b~[ E ]~w~  Process LSD",
     },
 }
 

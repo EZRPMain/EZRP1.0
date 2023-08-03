@@ -123,15 +123,15 @@ RegisterNetEvent('ps-drugprocessing:ProcessPoppy', function()
 	end
 end)
 
-RegisterNetEvent("ps-drugprocessing:processHeroin",function()
-	QBCore.Functions.TriggerCallback('ps-drugprocessing:validate_items', function(result)
-		if result.ret then
-			ProcessHeroin()
-		else
-			QBCore.Functions.Notify(Lang:t("error.no_item", {item = result.item}))
-		end
-	end, {poppyresin = Config.HeroinProcessing.Poppy})
-end)
+-- RegisterNetEvent("ps-drugprocessing:processHeroin",function()
+-- 	QBCore.Functions.TriggerCallback('ps-drugprocessing:validate_items', function(result)
+-- 		if result.ret then
+-- 			ProcessHeroin()
+-- 		else
+-- 			QBCore.Functions.Notify(Lang:t("error.no_item", {item = result.item}))
+-- 		end
+-- 	end, {poppyresin = Config.HeroinProcessing.Poppy})
+-- end)
 
 
 RegisterNetEvent("ps-drugprocessing:pickHeroin", function()

@@ -39,12 +39,12 @@ local function GenerateSodiumHydroxideCoords()
 		local weed3CoordX, weed3CoordY
 
 		math.randomseed(GetGameTimer())
-		local modX3 = math.random(-7, 7)
+		local modX3 = math.random(-25, 25)
 
 		Wait(100)
 
 		math.randomseed(GetGameTimer())
-		local modY3 = math.random(-7, 7)
+		local modY3 = math.random(-25, 25)
 
 		weed3CoordX = Config.CircleZones.SodiumHydroxideFarm.coords.x + modX3
 		weed3CoordY = Config.CircleZones.SodiumHydroxideFarm.coords.y + modY3

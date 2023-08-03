@@ -63,6 +63,7 @@ CreateThread(function()
 end)
 
 CreateThread(function()
+    -- NEED TO DO THIS
     exports["qb-target"]:AddBoxZone("chemmenu", vector3(3535.66, 3661.69, 28.12), 1.65, 2.4, {
         name = "chemmenu",
         heading = 350.0,
@@ -286,29 +287,29 @@ CreateThread(function()
         MinZ = 167.312,
         MaxZ = 168.512,
     ]]
-    exports["qb-target"]:AddBoxZone("heroinproces", vector3(1665.439, -49.688, 167.912), 2.3, 1.1, {
-        name = "heroinproces",
-        heading = 355.0,
-        debugPoly = false,
-        minZ = 167.312,
-        maxZ = 168.512,
-    }, {
-        options = {
-            {
-                type = "client",
-                event = "ps-drugprocessing:processHeroin",
-                icon = "fas fa-envira",
-                label = Lang:t("target.heroinproces"),
-            },
-        },
-        distance = 3.5
-    })
-    exports['qb-target']:AddBoxZone("thychloride", vector3(-679.77, 5800.7, 17.33), 1, 1, {
+    -- exports["qb-target"]:AddBoxZone("heroinproces", vector3(1665.439, -49.688, 167.912), 2.3, 1.1, {
+    --     name = "heroinproces",
+    --     heading = 355.0,
+    --     debugPoly = false,
+    --     minZ = 167.312,
+    --     maxZ = 168.512,
+    -- }, {
+    --     options = {
+    --         {
+    --             type = "client",
+    --             event = "ps-drugprocessing:processHeroin",
+    --             icon = "fas fa-envira",
+    --             label = Lang:t("target.heroinproces"),
+    --         },
+    --     },
+    --     distance = 3.5
+    -- })
+    exports['qb-target']:AddBoxZone("thychloride", vector3(1532.11, 1728.06, 109.92), 1, 1, {
 		name="thychloride",
-		heading=340.0,
+		heading=280.0,
 		debugPoly=false,
-		minZ = 14.33,
-		maxZ = 18.33,
+		minZ = 109.33-2,
+		maxZ = 109.33+2,
 	},{
 	   options = {
 			{
@@ -320,12 +321,12 @@ CreateThread(function()
 		},
 	distance = 2.5
 	})
-    exports['qb-target']:AddBoxZone("heroinproc", vector3(1413.7, -2041.77, 52.0), 1, 1, {
+    exports['qb-target']:AddBoxZone("heroinproc", vector3(1665.439, -49.688, 167.912), 2.3, 1.1, {
 		name="heroinproc",
-		heading=352.15,
-		debugPoly=false,
-		minZ = 51.00,
-		maxZ = 53.00,
+		heading = 355.0,
+		debugPoly = false,
+		minZ = 167.312,
+		maxZ = 168.512,
 	},{
 	    options = {
 			{

@@ -86,12 +86,12 @@ local function GeneratechemicalsCoords()
 		local chemicalsCoordX, chemicalsCoordY
 
 		math.randomseed(GetGameTimer())
-		local modX = math.random(-20, 20)
+		local modX = math.random(-30, 30)
 
 		Wait(100)
 
 		math.randomseed(GetGameTimer())
-		local modY = math.random(-20, 20)
+		local modY = math.random(-30, 30)
 
 		chemicalsCoordX = Config.CircleZones.ChemicalsField.coords.x + modX
 		chemicalsCoordY = Config.CircleZones.ChemicalsField.coords.y + modY
