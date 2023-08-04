@@ -1,46 +1,83 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 CreateThread(function()
-    exports['qb-target']:SpawnPed({
-        model = 'a_m_m_hillbilly_02',
-        coords = vector4(1754.04, -1648.61, 112.65, 257.68), 
-        spawnNow = true,
-        minusOne = true, 
-        freeze = true, 
-        invincible = true, 
-        blockevents = true,
-        target = { 
-            options = {
-                {
-					type = "client",
-					event = "ps-drugprocessing:EnterLab",
-					icon = "fas fa-atom",
-					label = Lang:t("target.talk_to_walter"),
-                }
-            },
-          distance = 2.5,
+    -- exports['qb-target']:SpawnPed({
+    --     model = 'a_m_m_hillbilly_02',
+    --     coords = vector4(1754.04, -1648.61, 112.65, 257.68), 
+    --     spawnNow = true,
+    --     minusOne = true, 
+    --     freeze = true, 
+    --     invincible = true, 
+    --     blockevents = true,
+    --     target = { 
+    --         options = {
+    --             {
+	-- 				type = "client",
+	-- 				event = "ps-drugprocessing:EnterLab",
+	-- 				icon = "fas fa-atom",
+    --                 label = "Enter Lab",
+    --             }
+    --         },
+    --       distance = 2.5,
+    --     },
+    -- })
+
+    exports['qb-target']:AddBoxZone("methlab", vector3(1753.59, -1649.267, 112.951), 1.7, 0.7, {
+        name = "methlab",
+        heading = 10.0,
+        debugPoly = false,
+        minZ = 111.651,
+        maxZ = 114.251,
+    }, {
+        options = {
+            {
+                type = "client",
+                event = "ps-drugprocessing:EnterLab",
+                icon = "fas fa-atom",
+                label = "Enter Lab",
+            }
         },
+        distance = 2.5,
     })
-    exports['qb-target']:SpawnPed({
-        model = 'a_m_m_mlcrisis_01',
-        coords = vector4(5001.01, -5213.07, 2.5, 185.78), 
-        minusOne = true, 
-        spawnNow = true,
-        freeze = true, 
-        invincible = true, 
-        blockevents = true,
-        target = { 
-            options = {
-                {
-					type = "client",
-					event = "ps-drugprocessing:EnterCWarehouse",
-					icon = "fas fa-key",
-					label = Lang:t("target.talk_to_draco"),
-                }
+
+    exports['qb-target']:AddBoxZone("cokelab", vector3(5000.09, -5213.24, 2.508), 1.7, 0.4, {
+        name = "cokelab",
+        heading = 310.0,
+        debugPoly = false,
+        minZ = 1.208,
+        maxZ = 3.808,
+    }, {
+        options = {
+            {
+                type = "client",
+                event = "ps-drugprocessing:EnterCWarehouse",
+                icon = "fas fa-key",
+                label = "Enter Lab",
             },
-          distance = 2.5,
         },
+        distance = 2.5
     })
+
+    -- exports['qb-target']:SpawnPed({
+    --     model = 'a_m_m_mlcrisis_01',
+    --     coords = vector4(5001.01, -5213.07, 2.5, 185.78), 
+    --     minusOne = true, 
+    --     spawnNow = true,
+    --     freeze = true, 
+    --     invincible = true, 
+    --     blockevents = true,
+    --     target = { 
+    --         options = {
+    --             {
+	-- 				type = "client",
+	-- 				event = "ps-drugprocessing:EnterCWarehouse",
+	-- 				icon = "fas fa-key",
+	-- 				label = Lang:t("target.talk_to_draco"),
+    --             }
+    --         },
+    --       distance = 2.5,
+    --     },
+    -- })
     -- exports['qb-target']:SpawnPed({
     --     model = 'mp_f_weed_01',
     --     coords = vector4(102.07, 175.08, 104.59, 159.91),
