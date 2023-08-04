@@ -57,6 +57,7 @@ Citizen.CreateThread(function()
     EndTextCommandSetBlipName(gblip)
 end)
 
+local isTextDrawn = false
 Citizen.CreateThread(function()
     while true do
         local player = PlayerPedId()
@@ -81,15 +82,29 @@ Citizen.CreateThread(function()
                 if doordistance <= 2.0 then
                     if pinkcage[j].locked and currentmotel == j then 
                         closestroom = j
-                        Framework:DrawText("[Room: "..j.."] - [E] - Locked")
+                        if not isTextDrawn then 
+                            print("test")
+                            isTextDrawn = true
+                            Framework:DrawText("[Room: "..j.."] - [E] - Locked")
+                        end
                     elseif not pinkcage[j].locked and currentmotel == j then 
-                        Framework:DrawText("[Room: "..j.."] - [E] - Unlocked")
-
+                        if not isTextDrawn then 
+                            print("test2")
+                            isTextDrawn = true
+                            Framework:DrawText("[Room: "..j.."] - [E] - Unlocked")
+                        end
                     elseif pinkcage[j].locked and currentmotel ~= j then
-                        Framework:DrawText("[Room: "..j.."] - Closed")
-
+                        if not isTextDrawn then 
+                            print("test3")
+                            isTextDrawn = true
+                            Framework:DrawText("[Room: "..j.."] - Closed")
+                        end
                     elseif not pinkcage[j].locked and currentmotel ~= j then
-                        Framework:DrawText("[Room: "..j.."] - Open")
+                        if not isTextDrawn then 
+                            print("test4")
+                            isTextDrawn = true
+                            Framework:DrawText("[Room: "..j.."] - Open")
+                        end
                     end
                     if (doordistance <= 1.5 and currentmotel == j) then
                         if IsControlJustReleased(0, 38) then
@@ -100,7 +115,10 @@ Citizen.CreateThread(function()
                     end
                     if (doordistance <= 1.5) then
                     else
-                        Framework:HideText()
+                        if isTextDrawn then 
+                            isTextDrawn = false
+                            Framework:HideText()
+                        end
 
                     end
 
