@@ -248,7 +248,7 @@ Citizen.CreateThread(function()
 
 								if math.abs(vehOff.x) < (trailerData.width)/2 and math.abs(vehOff.y)+trailerData.loffset < (trailerData.length/2)+trailerData.loffset then
 									
-
+									print("anl")
 									AttachEntityToEntity(
 										vehicle,
 										trailer,

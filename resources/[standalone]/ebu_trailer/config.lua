@@ -619,5 +619,5 @@ Config.Trailers = {
         width = 2.8,
         length = 12.0,
         loffset = -1.0
-    }
+    },
 }
