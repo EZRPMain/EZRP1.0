@@ -13,7 +13,7 @@ end
 vehicles = {
     ["dinghy"] = {20, 0.0, -2.0, 0.08, 0.0, 0.0, 0.0, false, false, true, false, 20, true},
     ["predator"] = {20, 0.0, -1.6, 0.50, 0.0, 0.0, 0.0, false, false, true, false, 20, true},
-    ["smallboat"] = {20, 0.0, -1.6, 0.00, 0.0, 0.0, 0.0, false, false, true, false, 20, true},
+    ["smallboat"] = {20, 0.0, -1.6, 0.10, 0.0, 0.0, 0.0, false, false, true, false, 20, true},
 }
 
 trailers = {
