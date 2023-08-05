@@ -11,11 +11,11 @@ RegisterNetEvent("ez-knit:CreateMask", function(input)
     end 
 end)
 
-RegisterNetEvent("ez-knit:FAILED", function()
+RegisterNetEvent("ez-knit:FAILED", function(amt)
     local source = source
     local Player = Framework:GetPlayer(source)
     if Player then 
-        Player.Functions.RemoveItem("cloth", 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("cloth"), "remove", 1)
+        Player.Functions.RemoveItem("cloth", amt)
+        TriggerClientEvent('inventory:client:ItemBox', source, Framework:GetSharedItem("cloth"), "remove", amt)
     end 
 end)
