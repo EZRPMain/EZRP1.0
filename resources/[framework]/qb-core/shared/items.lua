@@ -1,4 +1,11 @@
 QBShared = QBShared or {}
+
+-- I Want the inventory to handle this data in the future....
+
+-- RegisterNetEvent("Framework:LoadItems", function(table)
+--     QBShared.Items = table
+-- end)
+
 QBShared.Items = {
     -- WEAPONS
     -- Custom Weapons
@@ -576,6 +583,10 @@ QBShared.Items = {
 
     -- clothing shits
     ['mask']  = {['name'] = 'mask', ['label'] = 'Mask',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/mask.png',  ['unique'] = true,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
+    ['cloth']  = {['name'] = 'cloth', ['label'] = 'Cloth',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/cloth.png',  ['unique'] = true,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
+    ['dirtycloth']  = {['name'] = 'dirtycloth', ['label'] = 'Dirty Rag',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/dirtycloth.png',  ['unique'] = true,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
+
+    -- Cloth
 
 
     -- cookies
@@ -674,7 +685,6 @@ QBShared.Items = {
     ['methkey'] 					 = {['name'] = 'methkey', 						['label'] = 'Key A', 				    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/keya.png', 			    ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'Random Key, with "Walter" Engraved on the Back...'},
     ['cocainekey'] 					 = {['name'] = 'cocainekey', 					['label'] = 'Key B', 				    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/keyb.png', 			    ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'Random Key, with a "Razorblade" Engraved on the Back...'},
     ['weedkey'] 					 = {['name'] = 'weedkey', 						['label'] = 'Key C', 				    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/keyc.png', 			    ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'Random Key, with a "Seed" Engraved on the Back...'},
-    
 }
 
 exports("GetSharedItems", function()
