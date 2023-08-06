@@ -149,12 +149,29 @@ RegisterNUICallback('cDataPed', function(nData, cb)
             model = model ~= nil and tonumber(model) or false
             if model ~= nil then
                 CreateThread(function()
+
+                    RequestModel(`mp_m_freemode_01`)
+                    while not HasModelLoaded(`mp_m_freemode_01`) do
+                        Wait(0)
+                    end
+
+                    -- jay fix for fuck model time
+
                     RequestModel(model)
                     while not HasModelLoaded(model) do
                         Wait(0)
                     end
-                    charPed = CreatePed(2, model, Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, false, true)
-					TaskStartScenarioAtPosition(charPed, 'PROP_HUMAN_SEAT_BENCH', Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, 0, false, true)
+
+                    SetPlayerModel(PlayerId(), model)
+
+                    -- jay fix the fuck model time
+
+                    charPed = CreatePed(2, `mp_m_freemode_01`, Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, false, true)
+					charPed = ClonePedToTarget(PlayerPedId(), charPed)
+
+                    -- jay fix the fuck model time
+
+                    TaskStartScenarioAtPosition(charPed, 'PROP_HUMAN_SEAT_BENCH', Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, 0, false, true)
                     SetPedComponentVariation(charPed, 0, 0, 0, 2)
                     FreezeEntityPosition(charPed, false)
                     SetEntityInvincible(charPed, true)
