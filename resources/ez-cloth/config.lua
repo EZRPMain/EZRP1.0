@@ -17,4 +17,15 @@ Config.Options = {
             }
         }
     },
+    {
+        header = "Hat",
+        txt = "1x Cloth",
+        params = {
+            event = "ez-knit:CreateClothe",
+            args = {
+                item = "hat",
+                clothAmt = 1,
+            }
+        }
+    },
 }
