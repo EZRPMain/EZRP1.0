@@ -23,3 +23,9 @@ RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)
         exports['qb-core']:HideText()
     end
 end)
+
+
+-- NUI Callback
+RegisterCommand("SetPedFace", function()
+
+end)

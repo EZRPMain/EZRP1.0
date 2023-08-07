@@ -149,26 +149,13 @@ RegisterNUICallback('cDataPed', function(nData, cb)
             model = model ~= nil and tonumber(model) or false
             if model ~= nil then
                 CreateThread(function()
-
-                    RequestModel(`mp_m_freemode_01`)
-                    while not HasModelLoaded(`mp_m_freemode_01`) do
-                        Wait(0)
-                    end
-
-                    -- jay fix for fuck model time
-
+                    -- jay fix the fuck model time
                     RequestModel(model)
                     while not HasModelLoaded(model) do
                         Wait(0)
                     end
-
                     SetPlayerModel(PlayerId(), model)
-
-                    -- jay fix the fuck model time
-
-                    charPed = CreatePed(2, `mp_m_freemode_01`, Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, false, true)
-					charPed = ClonePedToTarget(PlayerPedId(), charPed)
-
+                    charPed = ClonePed(PlayerPedId(), false, true, false)
                     -- jay fix the fuck model time
 
                     TaskStartScenarioAtPosition(charPed, 'PROP_HUMAN_SEAT_BENCH', Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, 0, false, true)

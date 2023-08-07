@@ -583,8 +583,9 @@ QBShared.Items = {
 
     -- clothing shits
     ['mask']  = {['name'] = 'mask', ['label'] = 'Mask',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/mask.png',  ['unique'] = true,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
-    ['cloth']  = {['name'] = 'cloth', ['label'] = 'Cloth',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/cloth.png',  ['unique'] = true,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
-    ['dirtycloth']  = {['name'] = 'dirtycloth', ['label'] = 'Dirty Rag',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/dirtycloth.png',  ['unique'] = true,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
+    ['hat']  = {['name'] = 'hat', ['label'] = 'Hat',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/hat.png',  ['unique'] = true,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
+    ['cloth']  = {['name'] = 'cloth', ['label'] = 'Cloth',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/cloth.png',  ['unique'] = false,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = ''},
+    ['dirtycloth']  = {['name'] = 'dirtycloth', ['label'] = 'Dirty Rag',  ['weight'] = 1,  ['type'] = 'item',  ['image'] = 'images/dirtycloth.png',  ['unique'] = false,  ['useable'] = true,  ['shouldClose'] = true,  ['combinable'] = nil, 	['description'] = 'Some homeless guy used this to wipe his ass crack'},
 
     -- Cloth
 

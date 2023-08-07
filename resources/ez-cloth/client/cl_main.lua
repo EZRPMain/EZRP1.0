@@ -35,16 +35,6 @@ RegisterNetEvent("ez-knit:openMenu", function()
             header = "Clothe Options",
             isMenuHeader = true, -- Set to true to make a nonclickable title
         },
-        -- {
-        --     header = "Mask",
-        --     txt = "Create mask",
-        --     params = {
-        --         event = "ez-knit:CreateClothe",
-        --         args = {
-        --             number = 1,
-        --         }
-        --     }
-        -- },
     }
 
 
@@ -62,11 +52,11 @@ RegisterNetEvent("ez-knit:CreateClothe", function(data)
     if hasItem then
         TriggerEvent('animations:client:EmoteCommandStart', {"think"})
         local input = exports['qb-input']:ShowInput({
-            header = "Mask Options",
+            header = "Clothe Options",
             submitText = "Create",
             inputs = {
                 {
-                    text = "Mask ID (#)",
+                    text = "Clothe ID (#)",
                     name = "drawableId",
                     type = "number",
                     isRequired = true, 
