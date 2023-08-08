@@ -689,6 +689,12 @@ QBShared.Items = {
 
     --prospecitng
     ['detector']                   = {['name'] = 'detector',          ['label'] = 'Detector',          ['weight'] = 100,       ['type'] = 'item',    ['image'] = 'images/detector.png',        ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description']  = 'Go find some things'},
+
+    -- ATM Robbery
+    
+	['towingrope'] 				 	 = {['name'] = 'towingrope', 			  		['label'] = 'Towing Rope', 				['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/expert_towingrope.png', 	['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Towing Rope'},
+
+	['atmobject'] 				 	 = {['name'] = 'atmobject', 			  		['label'] = 'ATM', 						['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/expert_atmobj.png', 		['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'ATM'},
 }
 
 exports("GetSharedItems", function()
