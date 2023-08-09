@@ -58,6 +58,7 @@ local function DropPackage()
 end
 
 local function GetCheckItem()
+	if GetResourceState('lj-inventory') == 'missing' then return end
 	-- QBCore.Functions.TriggerCallback('ExpertCheckItem:HasItem', function(result)
 	local result = exports['lj-inventory']:HasItem(Config.ATMItemName)
 	if result then
@@ -376,12 +377,15 @@ RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
 	DropPackage()
 end)
 RegisterNetEvent('QBCore:Client:SetPlayerData', function(val)
+	Wait(1000)
 	GetCheckItem()
 end)
 RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
+	Wait(1000)
 	GetCheckItem()
 end)
 RegisterNetEvent('qb-atmrobbery:client:UpdateEmote', function(val)
+	Wait(1000)
 	GetCheckItem()
 end)
 RegisterNetEvent('police:SetCopCount', function(amount)
