@@ -943,7 +943,7 @@ QBShared.Vehicles = {
         ['category'] = 'motorcycles',
         ['categoryLabel'] = 'Motorcycles',
         ['hash'] = `manchez2`,
-        ['shop'] = 'pdm',
+        ['shop'] = {'pdm', 'cayocars'},
     },
     ['shinobi'] = {        --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Shinobi',
@@ -1625,7 +1625,7 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Off Road',
         ['model'] = 'bfinjection',
         ['hash'] = `bfinjection`,
-        ['shop'] = 'pdm',
+        ['shop'] =  {'pdm', 'cayocars'},
     },
     ['bifta'] = {
         ['name'] = 'Bifta',
@@ -1677,16 +1677,16 @@ QBShared.Vehicles = {
         ['hash'] = `blazer4`,
         ['shop'] = 'pdm',
     },
-    ['blazer5'] = {
-        ['name'] = 'Blazer Aqua',
-        ['brand'] = 'Nagasaki',
-        ['model'] = 'blazer5',
-        ['price'] = 40000,
-        ['category'] = 'offroad',
-        ['categoryLabel'] = 'Off Road',
-        ['hash'] = `blazer5`,
-        ['shop'] = 'pdm',
-    },
+    -- ['blazer5'] = {
+    --     ['name'] = 'Blazer Aqua',
+    --     ['brand'] = 'Nagasaki',
+    --     ['model'] = 'blazer5',
+    --     ['price'] = 40000,
+    --     ['category'] = 'offroad',
+    --     ['categoryLabel'] = 'Off Road',
+    --     ['hash'] = `blazer5`,
+    --     ['shop'] = 'pdm',
+    -- },
     ['brawler'] = {
         ['name'] = 'Brawler',
         ['brand'] = 'Annis',
@@ -1697,16 +1697,16 @@ QBShared.Vehicles = {
         ['hash'] = `brawler`,
         ['shop'] = 'pdm',
     },
-    ['caracara'] = {
-        ['name'] = 'Caracara',
-        ['brand'] = 'Vapid',
-        ['model'] = 'caracara',
-        ['price'] = 60000,
-        ['category'] = 'offroad',
-        ['categoryLabel'] = 'Off Road',
-        ['hash'] = `caracara`,
-        ['shop'] = 'pdm',
-    },
+    -- ['caracara'] = {
+    --     ['name'] = 'Caracara',
+    --     ['brand'] = 'Vapid',
+    --     ['model'] = 'caracara',
+    --     ['price'] = 60000,
+    --     ['category'] = 'offroad',
+    --     ['categoryLabel'] = 'Off Road',
+    --     ['hash'] = `caracara`,
+    --     ['shop'] = 'pdm',
+    -- },
     ['caracara2'] = {                            --DLC
         ['name'] = 'Caracara 4x4',
         ['brand'] = 'Vapid',
@@ -1735,7 +1735,7 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Off Road',
         ['model'] = 'dune',
         ['hash'] = `dune`,
-        ['shop'] = 'pdm',
+        ['shop'] =  {'pdm', 'cayocars'},
     },
     ['everon'] = {
         ['name'] = 'Everon',
@@ -1775,7 +1775,7 @@ QBShared.Vehicles = {
         ['category'] = 'offroad',
         ['categoryLabel'] = 'Off Road',
         ['hash'] = `kalahari`,
-        ['shop'] = 'pdm',
+        ['shop'] =  {'pdm', 'cayocars'},
     },
     ['kamacho'] = {
         ['name'] = 'Kamacho',
@@ -1815,7 +1815,7 @@ QBShared.Vehicles = {
         ['category'] = 'offroad',
         ['categoryLabel'] = 'Off Road',
         ['hash'] = `rancherxl`,
-        ['shop'] = 'pdm',
+        ['shop'] =  {'pdm', 'cayocars'},
     },
     ['rebel2'] = {
         ['name'] = 'Rebel',
@@ -1885,7 +1885,7 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Off Road',
         ['model'] = 'vagrant',
         ['hash'] = `vagrant`,
-        ['shop'] = 'pdm',
+        ['shop'] = {'pdm', 'cayocars'},
     },
     ['verus'] = {
         ['name'] = 'Verus',
@@ -1895,7 +1895,7 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Off Road',
         ['model'] = 'verus',
         ['hash'] = `verus`,
-        ['shop'] = 'pdm',
+        ['shop'] = {'pdm', 'cayocars'},
     },
     ['winky'] = {
         ['name'] = 'Winky',
@@ -1905,7 +1905,7 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Off Road',
         ['model'] = 'winky',
         ['hash'] = `winky`,
-        ['shop'] = {'pdm', 'cayocars'}
+        ['shop'] = {'pdm', 'cayocars'},
     },
     --- SUVs
     ['baller'] = {
