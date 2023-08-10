@@ -1905,7 +1905,7 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Off Road',
         ['model'] = 'winky',
         ['hash'] = `winky`,
-        ['shop'] = 'pdm',
+        ['shop'] = {'pdm', 'cayocars'}
     },
     --- SUVs
     ['baller'] = {
@@ -3441,16 +3441,16 @@ QBShared.Vehicles = {
         ['hash'] = `cheetah2`,
         ['shop'] = 'luxury',
     },
-    ['deluxo'] = {
-        ['name'] = 'Deluxo',
-        ['brand'] = 'Imponte',
-        ['model'] = 'deluxo',
-        ['price'] = 55000,
-        ['category'] = 'sportsclassics',
-        ['categoryLabel'] = 'Sports Classics',
-        ['hash'] = `deluxo`,
-        ['shop'] = 'pdm',
-    },
+    -- ['deluxo'] = {
+    --     ['name'] = 'Deluxo',
+    --     ['brand'] = 'Imponte',
+    --     ['model'] = 'deluxo',
+    --     ['price'] = 55000,
+    --     ['category'] = 'sportsclassics',
+    --     ['categoryLabel'] = 'Sports Classics',
+    --     ['hash'] = `deluxo`,
+    --     ['shop'] = 'pdm',
+    -- },
     ['dynasty'] = {                            --DLC
         ['name'] = 'Dynasty',
         ['brand'] = 'Weeny',
@@ -5257,16 +5257,16 @@ QBShared.Vehicles = {
         ['hash'] = `boxville4`,
         ['shop'] = 'truck',
     },
-    ['boxville5'] = {
-        ['name'] = 'Armored Boxville',
-        ['brand'] = 'Brute',
-        ['model'] = 'boxville5',
-        ['price'] = 45000,
-        ['category'] = 'vans',
-        ["categoryLabel"] = 'Vans',
-        ['hash'] = `boxville5`,
-        ['shop'] = 'truck',
-    },
+    -- ['boxville5'] = {
+    --     ['name'] = 'Armored Boxville',
+    --     ['brand'] = 'Brute',
+    --     ['model'] = 'boxville5',
+    --     ['price'] = 45000,
+    --     ['category'] = 'vans',
+    --     ["categoryLabel"] = 'Vans',
+    --     ['hash'] = `boxville5`,
+    --     ['shop'] = 'truck',
+    -- },
     ['pony'] = {
         ['name'] = 'Pony',
         ['brand'] = 'Brute',

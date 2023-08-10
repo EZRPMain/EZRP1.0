@@ -441,5 +441,19 @@ Config.Garages = {
         ["type"] = "public",                --public, job, gang, depot
         ["vehicle"] = "rig"                 --car, air, sea, rig
     },
+    -- Custom
+
+    ["cayogarage"] = {
+        ["label"] = "Cayo Perico Parking",
+        ["takeVehicle"] = vector3(4430.95, -4479.62, 4.33),
+        ["spawnPoint"] = vector4(4419.16, -4474.6, 3.79, 204.05),
+        ["putVehicle"] = vector4(4416.36, -4468.31, 3.79, 204.05),
+        ["showBlip"] = true,
+        ["blipName"] = "Public Parking",
+        ["blipNumber"] = 357,
+        ["blipColor"] = 3,
+        ["type"] = "public",                --public, job, gang, depot
+        ["vehicle"] = "car"                 --car, air, sea, rig
+    },
 }
 Config.HouseGarages = {}

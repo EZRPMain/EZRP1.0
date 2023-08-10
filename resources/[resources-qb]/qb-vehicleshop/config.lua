@@ -315,4 +315,41 @@ Config.Shops = {
             },
         },
     },
+
+    ['cayocars'] = {
+        ['Type'] = 'free-use', -- no player interaction is required to purchase a car
+        ['Zone'] = {
+            ['Shape'] = {--polygon that surrounds the shop
+                vector2(4473.9, -4467.27),
+                vector2(4460.45, -4472.68),
+                vector2(4453.55, -4453.02),
+                vector2(4465.73, -4446.55),
+            },
+            ['minZ'] = 0.0, -- min height of the shop zone
+            ['maxZ'] = 10.0, -- max height of the shop zone
+            ['size'] = 2.75 -- size of the vehicles zones
+        },
+        ['Job'] = 'none', -- Name of job or none
+        ['ShopLabel'] = 'Cayo Perico Autos', -- Blip name
+        ['showBlip'] = true, -- true or false
+        ['blipSprite'] = 326, -- Blip sprite
+        ['blipColor'] = 3, -- Blip color
+        ['TestDriveTimeLimit'] = 0.5, -- Time in minutes until the vehicle gets deleted
+        ['Location'] = vector3(4465.78, -4460.0, 4.15), -- Blip Location
+        ['ReturnLocation'] = vector4(4463.34, -4459.85, 3.51, 201.61), -- Location to return vehicle, only enables if the vehicleshop has a job owned
+        ['VehicleSpawn'] = vector4(4463.34, -4459.85, 3.51, 201.61), -- Spawn location when vehicle is bought
+        ['TestDriveSpawn'] = vector4(4463.34, -4459.85, 3.51, 201.61), -- Spawn location for test drive
+        ['ShowroomVehicles'] = {
+            [1] = {
+                coords = vector4(4467.97, -4457.87, 3.5, 192.84), -- where the vehicle will spawn on display
+                defaultVehicle = 'winky', -- Default display vehicle
+                chosenVehicle = 'winky', -- Same as default but is dynamically changed when swapping vehicles
+            },
+            [2] = {
+                coords = vector4(4469.66, -4463.21, 3.66, 186.19),
+                defaultVehicle = 'winky',
+                chosenVehicle = 'winky'
+            },
+        },
+    },
 }
