@@ -18,7 +18,20 @@ Config.Tables = {
     [15] = { coords = vector3(-1181.2, -896.87, 13.89), business = "burgershot"},
     [16] = { coords = vector3(-1178.27, -894.94, 13.89), business = "burgershot"},
 
+    -- hookies counter 
+    [17] = { coords = vector3(-2186.398, 4285.925, 49.377), business = "hookies"},
+    [18] = { coords = vector3(-2185.077, 4287.874, 49.577), business = "hookies"},
+    [19] = { coords = vector3(-2183.675, 4289.675, 49.577), business = "hookies"},
+    -- hookies tables
+    [20] = { coords = vector3(-2188.458, 4293.143, 49.177), business = "hookies"},
+    [21] = { coords = vector3(-2186.57, 4296.402, 49.177), business = "hookies"},
+    [22] = { coords = vector3(-2183.286, 4294.415, 49.177), business = "hookies"},
+    [23] = { coords = vector3(-2181.06, 4298.512, 49.177), business = "hookies"},
+    [24] = { coords = vector3(-2177.46, 4296.419, 49.177), business = "hookies"},
+    [25] = { coords = vector3(-2178.426, 4291.84, 49.477), business = "hookies"},
+    [26] = { coords = vector3(-2178.426, 4291.84, 49.477), business = "hookies"},
 }
+
 
 Config.StaffStashes = {
        -- burgershot
