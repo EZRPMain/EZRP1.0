@@ -26,7 +26,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     border: 3px solid #5177aa;
-    border-radius: 15px;
+    /* border-radius: 15px; */
 }
 
 .progress-labels {
