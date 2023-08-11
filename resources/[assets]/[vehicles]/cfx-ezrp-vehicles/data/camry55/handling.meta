@@ -4,7 +4,7 @@
   <HandlingData>
      <Item type="CHandlingData">
       <handlingName>CAMRY55</handlingName>
-      <fMass value="50.000000" />
+      <fMass value="1500.000000" />
       <fInitialDragCoeff value="8.000000" />
       <fPercentSubmerged value="85.000000" />
       <vecCentreOfMassOffset x="0.000000" y="0.000000" z="0.000000" />
