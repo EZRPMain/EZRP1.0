@@ -16,7 +16,7 @@ body {
 .progress-container {
     display: none;
     z-index: 5;
-    color: #5177aa;
+    color: #ffffff;
     font-family: 'Poppins', sans-serif;
     width: 15%;
     position: fixed;
