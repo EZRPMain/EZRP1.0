@@ -216,6 +216,13 @@ Config.Blips = { -- https://wiki.rage.mp/index.php?title=Blips
         blipScale = 0.8, -- Blip scale
         color = 2 -- Blip color
     },
+    [6] = {
+        label = "Hookies", -- Blip name
+        coords = vector3(vector3(-2184.93, 4293.24, 49.18)), -- Blip location
+        blip = 96, -- Blip icon
+        blipScale = 0.8, -- Blip scale
+        color = 2 -- Blip color
+    },
 }
 
 Config.BusinessManager = {
@@ -268,6 +275,14 @@ Config.BusinessManager = {
         label = Lang:t('target.manager_menu'), -- This is the manager_menu under the locales
         icon = "fa-solid fa-laptop", -- This is the favicon Icon I use 6.0 beta so if you need to change it do it here.
         job = {["taco"] = 3, ["taco"] = 2}, -- Which job and grade should have access to change and access menu?
+        type = {Food = true, Drink = true} -- Type of items the business is authorized to sell
+    },
+    ["hookies"] = {
+        coords = vector3(-2186.398, 4283.682, 49.777), --[vector4(-2186.398, 4283.682, 49.777, 330.0)]--)), -- Coords of the place where buisnesses can create and manage menu items
+        polysize = 1.00, -- How big is the Sphere?
+        label = Lang:t('target.manager_menu'), -- This is the manager_menu under the locales
+        icon = "fa-solid fa-laptop", -- This is the favicon Icon I use 6.0 beta so if you need to change it do it here.
+        job = {["hookies"] = 3}, -- Which job and grade should have access to change and access menu?
         type = {Food = true, Drink = true} -- Type of items the business is authorized to sell
     }
 }
@@ -383,7 +398,13 @@ Config.Stations = {
         ["Stove"] = { coords = vector3(10.831, -1598.917, 29.476), pSize = 0.60, name = "Stove", job = { ["taco"] = 0}, icon = "fa-solid fa-circle", emote = "bbq" },
         --vector3(13.71, -1595.695, 29.478) --[vector4(13.71, -1595.695, 29.478, 320.0)]--
         ["Drinks"] = { coords = vector3(13.71, -1595.695, 29.478), pSize = 0.52, name = "Drinks", job = { ["taco"] = 0 }, icon = "fa-solid fa-circle", emote = "dispenser" },
-    }
+    },
+    ["hookies"] = {
+        ["Grill"] = { coords = vector3(-2177.522, 4278.104, 49.177), pSize = 0.60, name = "Grill", job = { ["hookies"] = 0}, icon = "fa-solid fa-circle", emote = "bbq" },
+        ["Frier"] = { coords = vector3(-2176.943, 4279.879, 49.177), pSize = 0.70, name = "Frier", job = { ["hookies"] = 0}, icon = "fa-solid fa-circle", emote = "uncuff" },
+        ["Assembly Line"] = { coords = vector3(-2179.432, 4278.861, 49.177), pSize = 0.5, name = "Assembly Line", job = { ["hookies"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
+        ["Drinks"] = { coords = vector3(-2182.108, 4288.364, 49.777), pSize = 0.5, name = "Drinks", job = { ["hookies"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
+    },
 }
 
 Config.Registers = {
@@ -413,6 +434,11 @@ Config.Registers = {
     taco = {
         --vector3(9.767, -1605.582, 29.671) --[vector4(9.767, -1605.582, 29.671, 320.0)]--
         [1] = { coords = vector3(9.767, -1605.582, 29.671), polysize = 0.25, icon = "fa-solid fa-circle" }
+    },
+    hookies = {
+        [1] = { coords = vector3(-2186.285, 4285.029, 49.677), polysize = 0.25, icon = "fa-solid fa-circle" },
+        [2] = { coords = vector3(-2185.284, 4287.131, 49.677), polysize = 0.25, icon = "fa-solid fa-circle" },
+        [3] = { coords = vector3(-2184.384, 4289.133, 49.677), polysize = 0.25, icon = "fa-solid fa-circle" },
     }
 }
 
@@ -429,6 +455,8 @@ Config.CuttingBoardCoords = {
     [5] =  { coords = vector3(1982.438, 3049.556, 47.215), job = "yellowjack", polysize = 0.45, icon = "fa-solid fa-circle" }, --vector3(1982.438, 3049.556, 47.215) --[vector4(1982.438, 3049.556, 47.215, 333.5)]--
     -- taco job
     [6]  = { coords = vector3(15.735, -1597.48, 29.378), job = "taco", polysize = 0.45, icon = "fa-solid fa-circle" },
+    -- hookies
+    [7]  = { coords = vector3(-2177.391, 4278.807, 49.177), job = "hookies", polysize = 0.45, icon = "fa-solid fa-circle" },
 }
 
 Config.HandWash = {
@@ -444,6 +472,8 @@ Config.HandWash = {
     -- Taco
     [6] = {coords = vector3(12.032, -1597.534, 29.377), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
     [7] = {coords = vector3(18.476, -1605.793, 29.291), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
+    -- hookies 
+    [5] = {coords = vector3(-2176.791, 4285.113, 49.177), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
 }
 
 Config.BusinessZone = {
@@ -527,5 +557,16 @@ Config.BusinessZone = {
         },
         minz = 25.0,
         maxz = 35.0
+    },
+    [6] = {
+        label = "hookies",
+        zones = {
+            vector2(-2209.44, 4278.29),
+            vector2(-2183.68, 4264.72),
+            vector2(-2167.44, 4292.96),
+            vector2(-2195.38, 4311.11),
+        },
+        minz = 44.0,
+        maxz = 55.0,
     },
 }

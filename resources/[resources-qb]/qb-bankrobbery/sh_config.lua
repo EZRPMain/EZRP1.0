@@ -22,54 +22,6 @@ Config.PowerStations = {
         coords = vector3(2835.24, 1505.68, 24.72),
         hit = false
     },
-    [2] = {
-        coords = vector3(2811.76, 1500.6, 24.72),
-        hit = false
-    },
-    [3] = {
-        coords = vector3(2137.73, 1949.62, 93.78),
-        hit = false
-    },
-    [4] = {
-        coords = vector3(708.92, 117.49, 80.95),
-        hit = false
-    },
-    [5] = {
-        coords = vector3(670.23, 128.14, 80.95),
-        hit = false
-    },
-    [6] = {
-        coords = vector3(692.17, 160.28, 80.94),
-        hit = false
-    },
-    [7] = {
-        coords = vector3(2459.16, 1460.94, 36.2),
-        hit = false
-    },
-    [8] = {
-        coords = vector3(2280.45, 2964.83, 46.75),
-        hit = false
-    },
-    [9] = {
-        coords = vector3(2059.68, 3683.8, 34.58),
-        hit = false
-    },
-    [10] = {
-        coords = vector3(2589.5, 5057.38, 44.91),
-        hit = false
-    },
-    [11] = {
-        coords = vector3(1343.61, 6388.13, 33.4),
-        hit = false
-    },
-    [12] = {
-        coords = vector3(236.61, 6406.1, 31.83),
-        hit = false
-    },
-    [13] = {
-        coords = vector3(-293.1, 6023.54, 31.54),
-        hit = false
-    }
 }
 
 Config.SmallBanks = {
