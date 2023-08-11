@@ -222,7 +222,7 @@ Config.BlacklistedVehs = {
 }
 
 Config.BlacklistedWeapons = {
-    [`WEAPON_RAILGUN`] = true,
+    [`WEAPON_RAILGUN`] = false,
 }
 
 Config.BlacklistedPeds = {
