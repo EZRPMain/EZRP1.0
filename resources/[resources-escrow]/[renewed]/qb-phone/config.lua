@@ -38,7 +38,7 @@ Config.MailDuration = 72 -- How many hours to load Mails (72 will load the past 
 
 Config.RepeatTimeout = 4000
 Config.CallRepeats = 10
-Config.AllowWalking = false -- Allow walking and driving with phone out
+Config.AllowWalking = true -- Allow walking and driving with phone out
 
 
 Config.PhoneApplications = {
@@ -112,7 +112,7 @@ Config.PhoneApplications = {
         color = "#009ee5",
         color2 = "#87d9e7",
         icon = "fas fa-envelope",
-        tooltipText = "Mail",
+        tooltipText = "EMails",
         style = "font-size: 3vh";
         job = false,
         blockedjobs = {},
@@ -329,7 +329,7 @@ Config.PhoneApplications = {
         color = "#008FFF",
         color2 = "#008FFF",
         icon = "fas fa-camera",
-        tooltipText = "camera",
+        tooltipText = "Camera",
         tooltipPos = "top",
         style = "padding-right: .08vh; font-size: 3.3vh";
         job = false,
@@ -350,17 +350,17 @@ Config.PhoneApplications = {
         slot = 25,
         Alerts = 0,
     },
-    ["meos"] = {
-        app = "meos",
-        color = "#004682",
-        color2 = "#00325c",
-        icon = "fas fa-ad",
-        tooltipText = "MDT",
-        job = "police",
-        blockedjobs = {},
-        slot = 26,
-        Alerts = 0,
-    },
+    -- ["meos"] = {
+    --     app = "meos",
+    --     color = "#004682",
+    --     color2 = "#00325c",
+    --     icon = "fas fa-ad",
+    --     tooltipText = "MDT",
+    --     job = "police",
+    --     blockedjobs = {},
+    --     slot = 26,
+    --     Alerts = 0,
+    -- },
 }
 
 Config.MaxSlots = 28
