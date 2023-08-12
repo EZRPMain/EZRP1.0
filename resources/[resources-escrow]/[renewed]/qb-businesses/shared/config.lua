@@ -221,7 +221,7 @@ Config.Blips = { -- https://wiki.rage.mp/index.php?title=Blips
         coords = vector3(vector3(-2184.93, 4293.24, 49.18)), -- Blip location
         blip = 96, -- Blip icon
         blipScale = 0.8, -- Blip scale
-        color = 2 -- Blip color
+        color = 18 -- Blip color
     },
 }
 
