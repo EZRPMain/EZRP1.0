@@ -18,6 +18,6 @@ BBBankingCore['config'] = {
     ['nui'] = {
         ['enableCustomColor']       = true,  -- Do not touch for now
         ['customColor']             = 'blue',  -- Available - [lightblue, red, green, yellow, blue]
-        ['logo']                    = 'https://cdn.discordapp.com/attachments/1139799273077223556/1139806151911952475/image.png' -- Bank logo [818x482 recommended]
+        ['logo']                    = 'https://cdn.discordapp.com/attachments/745183708298084379/1139807745718095952/banking.png' -- Bank logo [818x482 recommended]
     }
 }
