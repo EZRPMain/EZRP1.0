@@ -1,38 +1,70 @@
 Car Tiers:
 
-610lb - 150 (S+)
-a6 - 126 (A)
-ae86 - 110 (A)
-ben17 - 120 (S)
-blista2 - 98 (B)
-bmw1 - 85 (C)
-camry55 - 97 (B)
-crownvic2011 - 96 (B)
-cullinan - 95 (B)
-draftgpr - 135 (S)
-2F2FGTS - 127 (A)
-FNFLAN - 140 (S)
-2F2FMK4 - 143 (S)
-FF4WRX - 112 (A)
-FNFMK4 - 137 (S)
-2F2FMLE7 - 139 (S)
-FNF4R34 - 113 (A)
-2F2FGTR34 - 138 (S)
-FNFRX7 - 123 (S)
-FNFMITS - 132 (S)
-ferio - 106 (A)
-fk8 - 117 (A)
-gtr -  122 (A)
-lc200 - 104 (B)
-m5f90 - 126 (S)
-mgt - (S)
-nc1 - 113 (A)
-oracle - (B)
-prius - (D)
-r8hycade - (S)
-ruiner6str - (DRIFT)
-sentinel - (B)
-sjdodge - (A)
-skyline - (A)
-stratumc - (A)
-yosemite6str - (DRIFT)
+------ X Tier ----			---- Drift ----				---- Moto ----
+					 		 yosemite6str 
+
+
+------ S Tier ----
+610lb    (S+)
+ben17    (S)
+draftgpr (S)
+FNFLAN   (S)
+2F2FMK4  (S)
+FNFMK4   (S)
+Jugular  (S)
+FNFMK4   (S)
+2F2FMLE7 (S)
+2F2FGTR34(S)
+FNFRX7   (S)
+FNFMITS  (S)
+m5f90    (S)
+mgt      (S)
+komoda   (S)
+r8hycade (S)
+
+------ A Tier ----
+a6       (A)
+ae86     (A)
+2F2FGTS  (A)
+FF4WRX   (A)
+FNF4R34  (A)
+ferio    (A)
+fk8      (A)
+gtr      (A)
+nc1      (A)
+nebula   (A)
+sjdodge  (A)
+skyline  (A)
+stratumc (A)
+vstr 	 (A)
+gauntlet3(A)
+gauntlet4(A)
+nebula	 (A) --- Fix Steering Lock
+ruiner6str(A) --- Need to fix gears 
+paragon  (A)
+paragon2 (A) --- Armored with Pews
+rebla    (A)
+
+------ B Tier ----
+blista2       (B)
+camry55       (B)
+crownvic2011  (B)
+cullinan      (B)
+lc200         (B)
+oracle	      (B)
+sentinel      (B)
+hellion	      (B)
+imorgon       (A) <--- Change to B
+novak 	      (B)
+retinue       (B)
+
+------ C Tier ----
+bmw1 (C)
+
+------ D Tier ----
+prius   (D)
+dynasty (D)
+
+
+
+-------- Rating needed --------
