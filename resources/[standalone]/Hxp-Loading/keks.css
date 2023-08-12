@@ -1,0 +1,180 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.backdrop
+{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    background-image: url(loadscreen.jpg);
+    background-size: 100% 100%;
+}
+
+.bottom
+{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#gradient
+{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 25%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+@font-face {
+    font-family: 'BankGothic';
+    src: url('bankgothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2 {
+  position: relative;
+  background: transparent;
+  z-index: 0;
+}
+/* add a single stroke */
+h1:before, h2:before {
+  content: attr(title);
+  position: absolute;
+  -webkit-text-stroke: 0.1em #000;
+  left: 0;
+  z-index: -1;
+}
+
+
+.letni
+{
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 10%;
+
+    z-index: 5;
+
+    color: #fff;
+
+    font-family: "Segoe UI";
+}
+.letni img{
+    width: 11%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.letni p
+{
+    font-size: 22px;
+
+    margin-left: 3px;
+
+    margin-top: 0px;
+}
+
+.letni h2, .letni h3
+{
+    font-family: BankGothic;
+
+    text-transform: uppercase;
+
+    font-size: 50px;
+
+    margin: 0px;
+
+    display: inline-block;
+}
+
+.top
+{
+    color: #fff;
+
+    position: absolute;
+    top: 7%;
+    left: 5%;
+    right: 5%;
+}
+
+.top h1
+{
+    font-family: BankGothic;
+    font-size: 60px;
+
+    margin: 0px;
+}
+
+.top h2
+{
+    font-family: BankGothic;
+    font-size: 40px;
+
+    margin: 0px;
+
+    color: #ddd;
+}
+
+.loadbar
+{
+    width: 90%;
+    background-color: #1b53ebbb;
+    box-shadow: 0px 0px 19px 0px #002fff;
+    border-radius: 10px;
+    height: 20px;
+    margin-left: 2px;
+    margin-right: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.thingy
+{
+    width: 1%;
+    background-color: #002fff;
+    height: 20px;
+    position: absolute;
+    left: 10%;
+}
+.content{
+position: fixed;
+    z-index: 999999;
+    left: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%);
+}
+.content h1{
+    font-family: 'Mr Dafoe', cursive;
+    font-size: 72px;
+    text-shadow: 0px 2px 5px #002fff;
+    line-height: .80em;
+    font-weight: 400;
+    text-align: center;
+    padding: 20px 0;
+    margin: 150px 0 0 -260px;
+    text-align: center;
+}
+
+.content p {
+font-family: 'Mr Dafoe', cursive;
+    letter-spacing: 4px;
+    text-align: center;
+    font-size: 50px;
+    line-height: 0.2;
+    margin: 0;
+    margin-left: 40px;
+}
