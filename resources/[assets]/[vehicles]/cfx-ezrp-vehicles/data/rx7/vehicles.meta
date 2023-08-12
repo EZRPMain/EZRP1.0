@@ -15,14 +15,9 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-<<<<<<< Updated upstream
-      <audioNameHash>cw2019</audioNameHash>
+      <audioNameHash>supercar_8_us_v8</audioNameHash>
         <layout>LAYOUT_LOW</layout>
       <!-- <layout>LAYOUT_LOW_RHD</layout> -->
-=======
-      <audioNameHash>supercar_8_us_v8</audioNameHash>
-      <layout>LAYOUT_LOW_RHD</layout>
->>>>>>> Stashed changes
       <coverBoundOffsets>BLISTA_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
       <scenarioLayout />

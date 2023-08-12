@@ -224,6 +224,7 @@ data_file 'AUDIO_GAMEDATA' 'audioconfig/emsroamer_game.dat'
 data_file 'AUDIO_GAMEDATA' 'audioconfig/emsroamer_game.dat'
 data_file 'AUDIO_SOUNDDATA' 'audioconfig/nachoamb_game.dat'
 data_file 'AUDIO_WAVEPACK' 'sfx/dlc_tamustanggt50p'
+data_file 'AUDIO_WAVEPACK' 'sfx/dlc_supercar_8_us_v8'
 
 client_script {
     'vehicle_names.lua'
