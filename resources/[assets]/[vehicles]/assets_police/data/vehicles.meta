@@ -3,10 +3,10 @@
   <residentTxd>vehshare</residentTxd>
   <residentAnims />
   <InitDatas>
- <Item>
+   <Item>
       <modelName>sotaurus</modelName>
       <txdName>sotaurus</txdName>
-      <handlingId>sotaurus</handlingId>
+      <handlingId>POLICE3</handlingId>
       <gameName>Sheriff</gameName>
       <vehicleMakeName />
       <expressionDictName>null</expressionDictName>
@@ -125,7 +125,7 @@
 	 <Item>
       <modelName>socharger</modelName>
       <txdName>socharger</txdName>
-      <handlingId>socharger</handlingId>
+      <handlingId>POLICE2</handlingId>
       <gameName>Sheriff</gameName>
       <vehicleMakeName />
       <expressionDictName>null</expressionDictName>
