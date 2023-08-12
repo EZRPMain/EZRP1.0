@@ -14,7 +14,7 @@
 ## You CAN edit the following:
 endpoint_add_tcp "0.0.0.0:30120"
 endpoint_add_udp "0.0.0.0:30120"
-sv_maxclients 48
+sv_maxclients 5
 set steam_webApiKey "none"
 sets tags "custom, framework"
 
@@ -71,11 +71,21 @@ ensure [resources-escrow]
 ensure [standalone]
 ensure [assets]
 
+## Dev
+ensure Project
 
+## CHAT GPT
+set openai_api_key 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
 
 ## Permissions ##
 add_ace group.admin command allow # allow all commands
 add_principal identifier.fivem:1078858 group.admin #J_ayy
+add_principal identifier.discord:465687734959210496 group.admin #J_ayy
+add_principal identifier.discord:285096083280101377 group.admin # Ordinary
+add_principal identifier.discord:838244767275941909 group.admin # RINEY
+
+## --- Remove on permissions on live server --- ##
+add_principal identifier.discord:622455288905203722 group.admin # TILLS
 
 # Resources
 add_ace resource.qb-core command allow # Allow qb-core to execute commands
