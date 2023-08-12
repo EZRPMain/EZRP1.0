@@ -11,8 +11,8 @@
 const LanguageLocaleCode = "en";
 
 // PUBLIC VALUES
-const FiveMServerName = "My FiveM Server";
-const DiscordInviteLink = "https://discord.gg/fivem";
+const FiveMServerName = "Eazy RP";
+const DiscordInviteLink = "https://discord.gg/ezrp";
 const FiveMServerIP = "127.0.0.1";
 
 // This spams the console, only enable for testing if needed
@@ -26,14 +26,14 @@ const DebugLogs = false;
 const EnableDiscordBot = true;
 
 // DISCORD BOT
-const DiscordBotToken = "ODQzNjI3MDQ5ODcyMzkyMTky.GlpIrA.DYTuvk2bFef1LnkTeJkmbe_8_P8PytMvB0zDbM";
+const DiscordBotToken = "MTEyOTg4NjQyNjU0NTI2MjYwMg.GWv9_7.9zn5VESmPIQRJSyIRuCUuBVYbUVSnEUfU371ek";
 const DiscordGuildId = "1053842293456642098";
 
 // STAFF CHAT
 const EnableStaffChatForwarding = false;
-const DiscordStaffChannelId = "000000000000000000";
+const DiscordStaffChannelId = "1104050677560393753";
 const AdditionalStaffChatRoleIds = [
-    // "000000000000000",
+    "1133379820240240710",
 ];
 
 // WHITELISTING / ALLOWLISTING

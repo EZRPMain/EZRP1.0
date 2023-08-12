@@ -20,7 +20,7 @@ module.exports = {
         }
         if (client.config.EnableBotStatusMessages && client.config.BotStatusMessages) statusUpdater(client);
         client.utils.log.info(`Logged in as ${client.user.tag}`);
-        client.utils.log.info("Enjoying zdiscord? Consider supporting it at patreon.com/zfbx or paypal.me/zfbx <3");
+        client.utils.log.info("Ez Bot making skills");
         emit("zdiscord:ready");
     },
 };
