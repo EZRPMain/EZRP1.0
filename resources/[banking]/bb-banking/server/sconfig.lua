@@ -13,7 +13,7 @@ BBBankingCore['config'] = {
     ['ATMDaily']            = 3600000, -- Time to reset ATM Withdraw daily limit [Default 1 Hour]
     ['ATMDailyLimit']       = 3000, -- Max withdraw amount for each session
     ['cryptoPresentage']    = 1, -- Determines the presentage of the real BTC price [Exapmle - If BTC is 60k atm and you set it to 0.5, crypto will be 30K on your server][Min 0.1]
-    ['webhooksURL']        = "https://canary.discord.com/api/webhooks/830649480897888317/v7jr1nahcYRHacENNFsNZM5Vo0e89vEtk2NaT4B2OYOPzxDl51lk2UevViElBvuzHmfa", -- Webhooks URL for logs
+    ['webhooksURL']        = "https://discord.com/api/webhooks/1139799290429055056/50Z-Fz5EVfvjmv-U7RsUE3BVfF3lzjgzFPOyy9hWw5MOKXtYhcvw1grDfgK0-Y0k4lPt", -- Webhooks URL for logs
 
     ['nui'] = {
         ['enableCustomColor']       = true,  -- Do not touch for now
