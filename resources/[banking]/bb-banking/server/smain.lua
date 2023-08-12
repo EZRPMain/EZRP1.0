@@ -781,9 +781,9 @@ function Embed(src, event, content, color)
             ["title"] = event,
             ["description"] = content,
             ["footer"] = {
-                ["text"] = "barbaroNN's Scripts :: https://discord.gg/MunpyUPmxx",
+                ["text"] = "Fuck ya ma",
             },
         }
     }
-    PerformHttpRequest(BBBankingCore['config']['webhooksURL'], function(err, text, headers) end, 'POST', json.encode({username = 'BB-BossMenu', embeds = embed}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest(BBBankingCore['config']['webhooksURL'], function(err, text, headers) end, 'POST', json.encode({username = 'Eazy Banker', embeds = embed}), { ['Content-Type'] = 'application/json' })
 end
