@@ -1,7 +1,7 @@
 Car Tiers:
 
 ------ X Tier ----			---- Drift ----				---- Moto ----
-victor (X)					 		 yosemite6str 
+victor (X)					 yosemite6str 
 							 yosemite2
 
 ------ S Tier ----
@@ -22,6 +22,8 @@ mgt      (S)
 komoda   (S)
 r8hycade (S)
 sugoi    (S)
+rmodmustang (S)
+mgt 	(S)
 
 ------ A Tier ----
 a6       (A)
@@ -50,6 +52,7 @@ vagrant  (A)
 zion3	 (A)
 drafter  (A)
 avent	 (A)
+
 ------ B Tier ----
 blista2       (B)
 camry55       (B)
@@ -74,3 +77,7 @@ dynasty (D)
 
 
 -------- Rating needed --------
+supra19
+675lt
+m4g82mp
+rx7
