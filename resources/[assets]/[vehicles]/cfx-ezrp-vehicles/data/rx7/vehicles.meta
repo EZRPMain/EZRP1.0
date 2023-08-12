@@ -16,7 +16,8 @@
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
       <audioNameHash>cw2019</audioNameHash>
-      <layout>LAYOUT_LOW_RHD</layout>
+        <layout>LAYOUT_LOW</layout>
+      <!-- <layout>LAYOUT_LOW_RHD</layout> -->
       <coverBoundOffsets>BLISTA_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
       <scenarioLayout />
