@@ -73,11 +73,11 @@ function LoadDebtJob(data){
     if(data) {
         Object.keys(data).map(function(element, index){
             if (element === 'assets'){
-                $(".debts-list").append(`<h1 style="font-size: 1.6vh; padding-left: 0.8vh; padding-bottom: 0.3vh; color:#fff; margin-top:0; width:100%; display:block;">Asset Fees</h1>`);
+                $(".debts-list").append(`<h1 style="font-size: 1.6vh; padding-left: 0.8vh; padding-bottom: 0.3vh; color:#fff; margin-top:0; width:100%; display:block;">Ez Asset Fees</h1>`);
             }else if (element === 'loan'){
-                $(".debts-list").append(`<h1 style="font-size: 1.6vh; padding-left: 0.8vh; padding-bottom: 0.3vh; color:#fff; margin-top:0; width:100%; display:block;">Loan Payment</h1>`);
+                $(".debts-list").append(`<h1 style="font-size: 1.6vh; padding-left: 0.8vh; padding-bottom: 0.3vh; color:#fff; margin-top:0; width:100%; display:block;">Ez Loan Payment</h1>`);
             }else if (element === 'fine'){
-                $(".debts-list").append(`<h1 style="font-size: 1.6vh; padding-left: 0.8vh; padding-bottom: 0.3vh; color:#fff; margin-top:0; width:100%; display:block;">Bill Payments</h1>`);
+                $(".debts-list").append(`<h1 style="font-size: 1.6vh; padding-left: 0.8vh; padding-bottom: 0.3vh; color:#fff; margin-top:0; width:100%; display:block;">Fleeca Bill Payments</h1>`);
             }
             Object.keys(data[element]).map(function(element2, _){
                 if (element === 'assets'){
