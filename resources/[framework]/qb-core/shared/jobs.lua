@@ -478,6 +478,44 @@ QBShared.Jobs = {
             },
         },
 	},
+    ["hookies"] = {
+		label = "Hookies Diner",
+		defaultDuty = true,
+		grades = {
+            ['0'] = {
+                name = "Employee",
+                payment = 75
+            },
+			['1'] = {
+                name = "Manager",
+                payment = 150
+            },
+			['2'] = {
+                name = "Bossman",
+				isboss = true,
+                payment = 250
+            },
+        },
+	},
+    ["Pegasus"] = {
+		label = "Pegasus Inc.",
+		defaultDuty = true,
+		grades = {
+            ['0'] = {
+                name = "Employee",
+                payment = 75
+            },
+			['1'] = {
+                name = "Manager",
+                payment = 150
+            },
+			['2'] = {
+                name = "Bigman",
+				isboss = true,
+                payment = 250
+            },
+        },
+	},
 }
 
 exports("GetSharedJobs", function()
