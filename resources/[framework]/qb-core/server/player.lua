@@ -294,6 +294,9 @@ function QBCore.Player.CreatePlayer(PlayerData, Offline) -- WIP
         amount = tonumber(amount)
         self.PlayerData.metadata['jobrep'][self.PlayerData.job.name] = self.PlayerData.metadata['jobrep'][self.PlayerData.job.name] + amount
         self.Functions.UpdatePlayerData()
+
+        exports['bb-banking']:RegisterNewAction(self.PlayerData.source, moneytype, 'deposit', amount, (reason ~= nil and reason or 'Unknown'))
+
     end
 
     function self.Functions.AddMoney(moneytype, amount, reason)
@@ -333,6 +336,8 @@ function QBCore.Player.CreatePlayer(PlayerData, Offline) -- WIP
             end
         end
         self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype] - amount
+        
+        exports['bb-banking']:RegisterNewAction(self.PlayerData.source, moneytype, 'withdraw', amount, (reason ~= nil and reason or 'Unknown'))
 
         if not self.Offline then
             self.Functions.UpdatePlayerData()
@@ -368,6 +373,8 @@ function QBCore.Player.CreatePlayer(PlayerData, Offline) -- WIP
             TriggerClientEvent('QBCore:Client:OnMoneyChange', self.PlayerData.source, moneytype, amount, "set", reason)
             TriggerEvent('QBCore:Server:OnMoneyChange', self.PlayerData.source, moneytype, amount, "set", reason)
         end
+
+        exports['bb-banking']:RegisterNewAction(self.PlayerData.source, moneytype, 'reset', amount, (reason ~= nil and reason or 'Unknown'))
 
         return true
     end
