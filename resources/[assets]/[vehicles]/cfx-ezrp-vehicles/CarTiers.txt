@@ -1,8 +1,8 @@
 Car Tiers:
 
 ------ X Tier ----			---- Drift ----				---- Moto ----
-					 		 yosemite6str 
-
+victor (X)					 		 yosemite6str 
+							 yosemite2
 
 ------ S Tier ----
 610lb    (S+)
@@ -21,6 +21,7 @@ m5f90    (S)
 mgt      (S)
 komoda   (S)
 r8hycade (S)
+sugoi    (S)
 
 ------ A Tier ----
 a6       (A)
@@ -39,12 +40,16 @@ stratumc (A)
 vstr 	 (A)
 gauntlet3(A)
 gauntlet4(A)
-nebula	 (A) --- Fix Steering Lock
-ruiner6str(A) --- Need to fix gears 
+nebula	 (A) <--- Fix Steering Lock
+ruiner6str(A) <--- Need to fix gears 
 paragon  (A)
 paragon2 (A) --- Armored with Pews
 rebla    (A)
-
+sultan2  (A)
+vagrant  (A)
+zion3	 (A)
+drafter  (A)
+avent	 (A)
 ------ B Tier ----
 blista2       (B)
 camry55       (B)
@@ -57,6 +62,7 @@ hellion	      (B)
 imorgon       (A) <--- Change to B
 novak 	      (B)
 retinue       (B)
+retinue2      (B) --- is More drifty
 
 ------ C Tier ----
 bmw1 (C)
