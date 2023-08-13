@@ -215,7 +215,7 @@ body {
 .phone-application-container {
     display: none;
     position: absolute;
-    top: 10%;
+    top: -10%;
     height: 93%;
     width: 100%;
     background-color: rgb(65, 65, 65);
