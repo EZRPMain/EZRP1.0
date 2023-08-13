@@ -28,7 +28,7 @@ client_script {
 }
 
 data_file 'AUDIO_GAMEDATA' 'audioconfig/polbuffalo4_game.dat'
-\data_file 'AUDIO_GAMEDATA' 'audioconfig/polcaracara_game.dat'
+data_file 'AUDIO_GAMEDATA' 'audioconfig/polcaracara_game.dat'
 data_file 'AUDIO_GAMEDATA' 'audioconfig/polcomet_game.dat'
 data_file 'AUDIO_GAMEDATA' 'audioconfig/tamustanggt50_game.dat'
 data_file 'AUDIO_SOUNDDATA' 'audioconfig/tamustanggt50_sounds.dat'
