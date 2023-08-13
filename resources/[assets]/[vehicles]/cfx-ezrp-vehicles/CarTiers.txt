@@ -53,6 +53,7 @@ zion3	 (A)
 drafter  (A)
 avent	 (A)
 22g63    (A)
+rx7	 (A)
 
 ------ B Tier ----
 blista2       (B)
@@ -81,4 +82,4 @@ dynasty (D)
 supra19
 675lt
 m4g82mp
-rx7
+
