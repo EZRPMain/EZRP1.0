@@ -615,7 +615,7 @@ QB.Phone.Functions.LoadPhoneData = function(data) {
     QB.Phone.Functions.LoadContacts(data.PhoneData.Contacts);
     QB.Phone.Functions.SetupApplications(data);
 
-    $("#player-id").html("<span>" + "# " + data.PlayerId + "</span>")
+    $("#player-id").html("<span>" + "#" + data.PlayerId + "</span>")
 }
 
 QB.Phone.Functions.UpdateTime = function(data) {
