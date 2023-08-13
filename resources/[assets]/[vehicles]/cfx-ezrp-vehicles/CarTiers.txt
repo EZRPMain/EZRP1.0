@@ -24,6 +24,7 @@ r8hycade (S)
 sugoi    (S)
 rmodmustang (S)
 mgt 	(S)
+675lt (S)
 
 ------ A Tier ----
 a6       (A)
@@ -79,7 +80,7 @@ dynasty (D)
 
 
 -------- Rating needed --------
-675lt
+
 m4g82mp
 f1 vehicles (MAXXX(X)XXX)
 super vehicles
