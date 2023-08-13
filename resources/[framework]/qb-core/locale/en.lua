@@ -5,9 +5,9 @@ local Translations = {
         missing_args = 'Not every argument has been entered (x, y, z)',
         missing_args2 = 'All arguments must be filled out!',
         no_access = 'No access to this command',
-        company_too_poor = 'Your employer is broke',
+        company_too_poor = 'Your employer doesn\'t have the sufficent funds',
         item_not_exist = 'Item does not exist',
-        too_heavy = 'Inventory too full',
+        too_heavy = 'Pockets too full',
         location_not_exist = 'Location does not exist',
         duplicate_license = 'Duplicate Rockstar License Found',
         no_valid_license  = 'No Valid Rockstar License Found',
@@ -112,7 +112,7 @@ local Translations = {
         },
         ooc = { help = 'OOC Chat Message' },
         me = {
-            help = 'Show local message',
+            help = 'Show a local message',
             params = {
                 message = { name = 'message', help = 'Message to send' }
             },
