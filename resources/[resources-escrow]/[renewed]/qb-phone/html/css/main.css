@@ -214,13 +214,12 @@ body {
 
 .phone-application-container {
     display: none;
-    position: fixed;
-    top: 0%;
+    position: absolute;
+    top: 8%;
     height: 93%;
     width: 100%;
     background-color: rgb(65, 65, 65);
     z-index: 100;
-    padding-top:0px;
 }
 
 .phone-footer {
@@ -266,8 +265,8 @@ body {
 
 .phone-applications {
     position: relative;
-    height: 101%;
-    width: 104%;
+    height: 97%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.05);
 }
 
