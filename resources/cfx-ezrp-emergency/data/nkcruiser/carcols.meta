@@ -1,0 +1,1608 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<CVehicleModelInfoVarGlobal>
+    <Kits>
+      <Item>
+        <kitName>1335_nkcruiser_modkit</kitName>
+        <id value="1335" />
+        <kitType>MKT_SPECIAL</kitType>
+        <visibleMods>
+          <!-- CallSign 0 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a0</modelName>
+            <modShopLabel>NK_A0</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 1 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a1</modelName>
+            <modShopLabel>NK_A1</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 2 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a2</modelName>
+            <modShopLabel>NK_A2</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 3 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a3</modelName>
+            <modShopLabel>NK_A3</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 4 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a4</modelName>
+            <modShopLabel>NK_A4</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 5 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a5</modelName>
+            <modShopLabel>NK_A5</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 6 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a6</modelName>
+            <modShopLabel>NK_A6</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 7 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a7</modelName>
+            <modShopLabel>NK_A7</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 8 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a8</modelName>
+            <modShopLabel>NK_A8</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 9 Left -->
+          <Item>
+            <modelName>nkcruiser_csign_a9</modelName>
+            <modShopLabel>NK_A9</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_L</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+           <!-- CallSign 0 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b0</modelName>
+            <modShopLabel>NK_B0</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 1 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b1</modelName>
+            <modShopLabel>NK_B1</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 2 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b2</modelName>
+            <modShopLabel>NK_B2</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 3 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b3</modelName>
+            <modShopLabel>NK_B3</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 4 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b4</modelName>
+            <modShopLabel>NK_B4</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 5 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b5</modelName>
+            <modShopLabel>NK_B5</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 6 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b6</modelName>
+            <modShopLabel>NK_B6</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 7 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b7</modelName>
+            <modShopLabel>NK_B7</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 8 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b8</modelName>
+            <modShopLabel>NK_B8</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 9 Center -->
+          <Item>
+            <modelName>nkcruiser_csign_b9</modelName>
+            <modShopLabel>NK_B9</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_WING_R</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 0 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c0</modelName>
+            <modShopLabel>NK_C0</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 1 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c1</modelName>
+            <modShopLabel>NK_C1</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 2 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c2</modelName>
+            <modShopLabel>NK_C2</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 3 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c3</modelName>
+            <modShopLabel>NK_C3</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 4 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c4</modelName>
+            <modShopLabel>NK_C4</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 5 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c5</modelName>
+            <modShopLabel>NK_C5</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 6 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c6</modelName>
+            <modShopLabel>NK_C6</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 7 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c7</modelName>
+            <modShopLabel>NK_C7</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 8 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c8</modelName>
+            <modShopLabel>NK_C8</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- CallSign 9 Right -->
+          <Item>
+            <modelName>nkcruiser_csign_c9</modelName>
+            <modShopLabel>NK_C9</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_ROOF</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Ram 1 -->
+          <Item>
+            <modelName>nkcruiser_ram_1a</modelName>
+            <modShopLabel>NK_RAM_1A</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_BUMPER_F</type>
+            <bone>bumper_f</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Ram 1 -->
+          <Item>
+            <modelName>nkcruiser_ram_1b</modelName>
+            <modShopLabel>NK_RAM_1B</modShopLabel>
+            <linkedModels>
+             <Item>nkcruiser_ram_1a</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_BUMPER_F</type>
+            <bone>bumper_f</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Ram 2 -->
+          <Item>
+            <modelName>nkcruiser_ram_2</modelName>
+            <modShopLabel>NK_RAM_2</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_BUMPER_F</type>
+            <bone>bumper_f</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Laptop -->
+          <Item>
+            <modelName>nkcruiser_laptop</modelName>
+            <modShopLabel>NK_LAPTOP</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_CHASSIS</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Antenna ballmount -->
+          <Item>
+            <modelName>nkantennas_ballmount</modelName>
+            <modShopLabel>NK_BALLM</modShopLabel>
+            <linkedModels>
+              <Item>nkantennas_ballmountbobble</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_CHASSIS3</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Antenna FRONT GPS 1A -->
+          <Item>
+            <modelName>nkantennas_gps_1a</modelName>
+            <modShopLabel>NKA_GPS_1A</modShopLabel>
+            <linkedModels>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_CHASSIS5</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Antenna FRONT GPS 1b -->
+          <Item>
+            <modelName>nkantennas_gps_1a</modelName>
+            <modShopLabel>NKA_GPS_1A</modShopLabel>
+            <linkedModels>
+              <Item>nkantennas_gps_1b</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_CHASSIS5</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Antenna section 1a -->
+          <Item>
+            <modelName>nkantennas_section_1a</modelName>
+            <modShopLabel>NKA_SEC_1A</modShopLabel>
+            <linkedModels>
+              <Item>nkantennas_section_1b</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_CHASSIS4</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Antenna section 1a -->
+          <Item>
+            <modelName>nkantennas_section_1a</modelName>
+            <modShopLabel>NKA_SEC_1A</modShopLabel>
+            <linkedModels>
+              <Item>nkantennas_section_2a</Item>
+              <Item>nkantennas_section_2b</Item>
+              <Item>nkantennas_section_3a</Item>
+              <Item>nkantennas_section_3b</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_CHASSIS4</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Antenna section 1a -->
+          <Item>
+            <modelName>nkantennas_boot_1a</modelName>
+            <modShopLabel>NKA_BOOT_1A</modShopLabel>
+            <linkedModels>
+              <Item>nkantennas_boot_1b</Item>
+              <Item>nkantennas_boot_2a</Item>
+              <Item>nkantennas_boot_2b</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_TRUNK</type>
+            <bone>boot</bone>
+            <collisionBone>boot</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <Item>
+            <modelName>NK_NULL</modelName>
+            <modShopLabel>NK_NULL</modShopLabel>
+            <linkedModels />
+            <turnOffBones>
+              <Item>misc_l</Item>
+            </turnOffBones>
+            <type>VMT_INTERIOR5</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <Item>
+            <modelName>nkcruiser_trunksupplies_1a</modelName>
+            <modShopLabel>NK_TRSUPP_1A</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_INTERIOR3</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <Item>
+            <modelName>nkcruiser_trunksupplies_1a</modelName>
+            <modShopLabel>NK_TRSUPP_1A</modShopLabel>
+            <linkedModels>
+              <Item>nkcruiser_trunksupplies_1b</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_INTERIOR3</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <Item>
+            <modelName>nkcruiser_trunksupplies_1a</modelName>
+            <modShopLabel>NK_TRSUPP_1A</modShopLabel>
+            <linkedModels>
+              <Item>nkcruiser_trunksupplies_1b</Item>
+              <Item>nkcruiser_trunksupplies_1c</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_INTERIOR3</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <Item>
+            <modelName>nkcruiser_trunksupplies_1a</modelName>
+            <modShopLabel>NK_TRSUPP_1A</modShopLabel>
+            <linkedModels>
+              <Item>nkcruiser_trunksupplies_1b</Item>
+              <Item>nkcruiser_trunksupplies_1c</Item>
+              <Item>nkcruiser_trunksupplies_1d</Item>
+            </linkedModels>
+            <turnOffBones />
+            <type>VMT_INTERIOR3</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- nkcage -->
+          <Item>
+            <modelName>nkk9_cage_1c</modelName>
+            <modShopLabel>NK_CAGE1C</modShopLabel>
+            <linkedModels>
+              <Item>nkk9_cage_1a</Item>
+              <Item>nkk9_cage_1b</Item>
+            </linkedModels>
+            <turnOffBones>
+              <Item>misc_i</Item>            
+              <Item>misc_k</Item>
+              <Item>misc_h</Item>              
+            </turnOffBones>
+            <type>VMT_SEATS</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Plate 1 -->
+          <Item>
+            <modelName>nkcruiser_plate_1</modelName>
+            <modShopLabel>NK_PLATE_1</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_PLTHOLDER</type>
+            <bone>bumper_f</bone>
+            <collisionBone>bumper_f</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Police Livery -->
+          <Item>
+            <modelName>nkcruiser_livery1</modelName>
+            <modShopLabel>NK_LIVERY1</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_LIVERY_MOD</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+          <!-- Police K9 Livery -->
+          <Item>
+            <modelName>nkcruiser_livery2</modelName>
+            <modShopLabel>NK_LIVERY2</modShopLabel>
+            <linkedModels />
+            <turnOffBones />
+            <type>VMT_LIVERY_MOD</type>
+            <bone>chassis</bone>
+            <collisionBone>chassis</collisionBone>
+            <cameraPos>VMCP_DEFAULT</cameraPos>
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <turnOffExtra value="false" />
+            <disableBonnetCamera value="false" />
+            <allowBonnetSlide value="true" />
+          </Item>
+        </visibleMods>
+        <linkMods>
+          <Item>
+            <modelName>nkantennas_section_1b</modelName>
+            <bone>chassis</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkantennas_section_2a</modelName>
+            <bone>chassis</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkantennas_section_2b</modelName>
+            <bone>bobble_hand</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkantennas_section_3a</modelName>
+            <bone>chassis</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkantennas_section_3b</modelName>
+            <bone>miscwobble_1</bone>
+            <turnOffExtra value="false" />
+          </Item>
+
+          <Item>
+            <modelName>nkantennas_boot_1b</modelName>
+            <bone>miscwobble_3</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkantennas_boot_2a</modelName>
+            <bone>boot</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkantennas_boot_2b</modelName>
+            <bone>miscwobble_2</bone>
+            <turnOffExtra value="false" />
+          </Item>
+
+
+          <Item>
+            <modelName>nkcruiser_ram_1a</modelName>
+            <bone>bumper_f</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkantennas_ballmountbobble</modelName>
+            <bone>bobble_head</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkantennas_gps_1b</modelName>
+            <bone>chassis</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkk9_cage_1a</modelName>
+            <bone>door_dside_r</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkk9_cage_1b</modelName>
+            <bone>door_pside_r</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkcruiser_trunksupplies_1b</modelName>
+            <bone>chassis</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkcruiser_trunksupplies_1c</modelName>
+            <bone>chassis</bone>
+            <turnOffExtra value="false" />
+          </Item>
+          <Item>
+            <modelName>nkcruiser_trunksupplies_1d</modelName>
+            <bone>chassis</bone>
+            <turnOffExtra value="false" />
+          </Item>
+        </linkMods>
+        <statMods>
+          <Item>
+            <identifier />
+            <modifier value="25" />
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <type>VMT_ENGINE</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="50" />
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <type>VMT_ENGINE</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="75" />
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <type>VMT_ENGINE</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="100" />
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <type>VMT_ENGINE</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="25" />
+            <audioApply value="1.000000" />
+            <weight value="5" />
+            <type>VMT_BRAKES</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="50" />
+            <audioApply value="1.000000" />
+            <weight value="5" />
+            <type>VMT_BRAKES</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="100" />
+            <audioApply value="1.000000" />
+            <weight value="5" />
+            <type>VMT_BRAKES</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="25" />
+            <audioApply value="1.000000" />
+            <weight value="5" />
+            <type>VMT_GEARBOX</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="50" />
+            <audioApply value="1.000000" />
+            <weight value="5" />
+            <type>VMT_GEARBOX</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="100" />
+            <audioApply value="1.000000" />
+            <weight value="5" />
+            <type>VMT_GEARBOX</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="150" />
+            <audioApply value="1.000000" />
+            <weight value="5" />
+            <type>VMT_GEARBOX</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="20" />
+            <audioApply value="1.000000" />
+            <weight value="0" />
+            <type>VMT_ARMOUR</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="40" />
+            <audioApply value="1.000000" />
+            <weight value="10" />
+            <type>VMT_ARMOUR</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="60" />
+            <audioApply value="1.000000" />
+            <weight value="20" />
+            <type>VMT_ARMOUR</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="80" />
+            <audioApply value="1.000000" />
+            <weight value="30" />
+            <type>VMT_ARMOUR</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="100" />
+            <audioApply value="1.000000" />
+            <weight value="40" />
+            <type>VMT_ARMOUR</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="4" />
+            <audioApply value="1.000000" />
+            <weight value="0" />
+            <type>VMT_SUSPENSION</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="8" />
+            <audioApply value="1.000000" />
+            <weight value="0" />
+            <type>VMT_SUSPENSION</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="12" />
+            <audioApply value="1.000000" />
+            <weight value="0" />
+            <type>VMT_SUSPENSION</type>
+          </Item>
+          <Item>
+            <identifier />
+            <modifier value="16" />
+            <audioApply value="1.000000" />
+            <weight value="0" />
+            <type>VMT_SUSPENSION</type>
+          </Item>
+        </statMods>
+      </Item>
+    </Kits>
+  <Lights>
+  </Lights>
+  <Sirens>
+    <!-- NKCRUISER -->
+   <Item>
+      <id value="1335"/>
+      <name>nkcruiser</name>
+      <timeMultiplier value="1.00000000"/>
+      <lightFalloffMax value="10.00000000"/>
+      <lightFalloffExponent value="10.00000000"/>
+      <lightInnerConeAngle value="2.29061000"/>
+      <lightOuterConeAngle value="70.00000000"/>
+      <lightOffset value="0.00000000"/>
+      <textureName>VehicleLight_sirenlight</textureName>
+      <sequencerBpm value="220"/>
+      <leftHeadLight>
+        <sequencer value="2863311530"/>
+      </leftHeadLight>
+      <rightHeadLight>
+        <sequencer value="1431655765"/>
+      </rightHeadLight>
+      <leftTailLight>
+        <sequencer value="1431655765"/>
+      </leftTailLight>
+      <rightTailLight>
+        <sequencer value="2863311530"/>
+      </rightTailLight>
+      <leftHeadLightMultiples value="1"/>
+      <rightHeadLightMultiples value="1"/>
+      <leftTailLightMultiples value="2"/>
+      <rightTailLightMultiples value="2"/>
+      <useRealLights value="true"/>
+      <sirens>
+        <!-- Siren 1 -->
+        <Item>
+          <rotation>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="1.57079600"/>
+            <start value="4.71238900"/>
+            <speed value="1.00000000"/>
+            <sequencer value="1431655765"/>
+            <multiples value="2"/>
+            <direction value="true"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.20000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFFFF0300"/>
+          <intensity value="0.50000000"/>
+          <lightGroup value="0"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="true"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 2 -->
+        <Item>
+          <rotation>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="2863486250"/>
+            <multiples value="2"/>
+            <direction value="true"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.20000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFFFF0300"/>
+          <intensity value="0.50000000"/>
+          <lightGroup value="0"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 3 -->
+        <Item>
+          <rotation>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="3.14159300"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="1431655723"/>
+            <multiples value="2"/>
+            <direction value="true"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.20000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFFFF0300"/>
+          <intensity value="0.50000000"/>
+          <lightGroup value="0"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 4 -->
+        <Item>
+          <rotation>
+            <delta value="-0.01000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="3.14159300"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="2863311541"/>
+            <multiples value="2"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFF000AFF"/>
+          <intensity value="1.00000000"/>
+          <lightGroup value="1"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 5 -->
+        <Item>
+          <rotation>
+            <delta value="-0.01000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="1432005205"/>
+            <multiples value="2"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFF000AFF"/>
+          <intensity value="1.00000000"/>
+          <lightGroup value="1"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 6 -->
+        <Item>
+          <rotation>
+            <delta value="-0.01000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="4.71238900"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="2863311530"/>
+            <multiples value="2"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFF000AFF"/>
+          <intensity value="1.00000000"/>
+          <lightGroup value="1"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="true"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 7 -->
+        <Item>
+          <rotation>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="1431655765"/>
+            <multiples value="3"/>
+            <direction value="true"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFFFF0300"/>
+          <intensity value="0.50000000"/>
+          <lightGroup value="0"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 8 -->
+        <Item>
+          <rotation>
+            <delta value="-0.01000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="2863311530"/>
+            <multiples value="3"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFF000AFF"/>
+          <intensity value="1.00000000"/>
+          <lightGroup value="1"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 9 -->
+        <Item>
+          <rotation>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="2863311530"/>
+            <multiples value="2"/>
+            <direction value="true"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFFFF0300"/>
+          <intensity value="0.50000000"/>
+          <lightGroup value="0"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 10 -->
+        <Item>
+          <rotation>
+            <delta value="-0.01000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="1431655765"/>
+            <multiples value="2"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFF000AFF"/>
+          <intensity value="1.00000000"/>
+          <lightGroup value="1"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 11 -->
+        <Item>
+          <rotation>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="3.14159300"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="1431666005"/>
+            <multiples value="2"/>
+            <direction value="true"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.20000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFFFF0300"/>
+          <intensity value="0.50000000"/>
+          <lightGroup value="0"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 12 -->
+        <Item>
+          <rotation>
+            <delta value="0.00000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="3.14159300"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="2863311530"/>
+            <multiples value="2"/>
+            <direction value="true"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFFFF0300"/>
+          <intensity value="0.50000000"/>
+          <lightGroup value="0"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 13 -->
+        <Item>
+          <rotation>
+            <delta value="-0.01000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="3.09400900"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="2863311530"/>
+            <multiples value="2"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFF000AFF"/>
+          <intensity value="1.00000000"/>
+          <lightGroup value="1"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+        <!-- Siren 14 -->
+        <Item>
+          <rotation>
+            <delta value="-0.01000000"/>
+            <start value="0.00000000"/>
+            <speed value="3.00000000"/>
+            <sequencer value="4294967295"/>
+            <multiples value="1"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </rotation>
+          <flashiness>
+            <delta value="3.14159300"/>
+            <start value="0.00000000"/>
+            <speed value="0.00000000"/>
+            <sequencer value="1431655765"/>
+            <multiples value="2"/>
+            <direction value="false"/>
+            <syncToBpm value="true"/>
+          </flashiness>
+          <corona>
+            <intensity value="50.00000000"/>
+            <size value="1.10000000"/>
+            <pull value="0.15000000"/>
+            <faceCamera value="false"/>
+          </corona>
+          <color value="0xFF0A0AFF"/>
+          <intensity value="1.00000000"/>
+          <lightGroup value="1"/>
+          <rotate value="false"/>
+          <scale value="true"/>
+          <scaleFactor value="2"/>
+          <flash value="true"/>
+          <light value="false"/>
+          <spotLight value="true"/>
+          <castShadows value="false"/>
+        </Item>
+      </sirens>
+    </Item>
+ </Sirens>
+</CVehicleModelInfoVarGlobal>
