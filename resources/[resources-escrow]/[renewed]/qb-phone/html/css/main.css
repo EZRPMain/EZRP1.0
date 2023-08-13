@@ -155,7 +155,7 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     overflow: hidden;
-    background-image: url('../img/backgrounds/default-qbcore.png');
+    background-image: url('../img/default-qbcore.png');
 }
 
 .phone-header {
