@@ -2,11 +2,11 @@ Config = {}
 
 
 ------------------------------MAIN ---------
-Config.Framework = "esx" -- newqb, oldqb, esx
-Config.NewESX = true
+Config.Framework = "newqb" -- newqb, oldqb, esx
+Config.NewESX = false
 Config.Mysql = 'oxmysql' --  ghmattimysql -- mysql-async -- oxmysql
-Config.Command = 'report'
-Config.AdminCommand = 'adminreport'
+Config.Command = 'reportp'
+Config.AdminCommand = 'adminreports'
 Config.Adminimage = "https://cdn.discordapp.com/attachments/983471660684423240/1013925346640416768/asistan.png"
 Config.Playerimage = "https://cdn.discordapp.com/attachments/998616334239797338/1014523331153756210/Mask_group_1.png"
 
@@ -16,8 +16,8 @@ Config.Admin = { -- Admins Manual
    -- https://cdn.discordapp.com/attachments/983471660684423240/1014580268197228715/unknown.png
    --Type whatever it says in the users section
    -- 'YVF83936',
-   -- 'steam:11000010affb348'
-   --'steam:1100001158a2a55'
+   'discord:465687734959210496',
+   'discord:285096083280101377',
    'OLF77889',
 }
 
