@@ -216,7 +216,7 @@ body {
     display: none;
     position: absolute;
     top: 8%;
-    height: 9%;
+    height: 93%;
     width: 100%;
     background-color: rgb(65, 65, 65);
     z-index: 100;
@@ -265,7 +265,7 @@ body {
 
 .phone-applications {
     position: relative;
-    height: 97%;
+    height: 9%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.05);
 }
