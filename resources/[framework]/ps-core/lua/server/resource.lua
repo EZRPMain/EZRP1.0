@@ -34,7 +34,7 @@ function PSCore.Resource.CheckForUpdates(name)
                     local release = json.decode(resultData)
                     promise:resolve(release.tag_name) -- Resolve the promise with the latest release version
                 else
-                    error("Failed to fetch latest release for resource: " .. resource)
+                    -- error("Failed to fetch latest release for resource: " .. resource)
                 end
             end, "GET", "", {
                 ["Accept"] = "application/vnd.github.v3+json"

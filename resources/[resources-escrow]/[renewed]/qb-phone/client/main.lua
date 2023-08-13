@@ -235,13 +235,27 @@ local function OpenPhone()
             CallData = PhoneData.CallData,
             PlayerData = PhoneData.PlayerData,
             hasVPN = hasVPN,
+            hasDongle = hasDongle,
         })
         PhoneData.isOpen = true
         if Config.AllowWalking then
+        local ped = GetPlayerPed(-1)
         SetNuiFocusKeepInput(true)
         CreateThread(function()
             while PhoneData.isOpen do
                 DisableDisplayControlActions()
+                DisableControlAction(0, 263, true) -- disable melee
+                DisableControlAction(0, 264, true) -- disable melee
+                DisableControlAction(0, 257, true) -- disable melee
+                DisableControlAction(0, 140, true) -- disable melee
+                DisableControlAction(0, 141, true) -- disable melee
+                DisableControlAction(0, 142, true) -- disable melee
+                DisableControlAction(0, 143, true) -- disable melee
+                DisableControlAction(0, 245, true) -- disable chat
+                DisableControlAction(0,25,true) -- disable aim
+                DisableControlAction(0,47,true) -- disable weapon
+                DisableControlAction(0,58,true) -- disable weapon
+                RemoveAllPedWeapons(ped, true) -- Puts gun away
                 Wait(1)
             end
         end)
@@ -839,6 +853,35 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     LoadPhone()
 end)
 
+RegisterNetEvent('phone:client:InstallApplication', function(app, cb)
+    local ApplicationData = Config.StoreApps[app]
+    TriggerServerEvent('qb-phone:server:InstallApplication', ApplicationData)
+end)
+
+RegisterNetEvent("phone:client:hasUsb")
+AddEventHandler("phone:client:hasUsb", function()
+	local ped = PlayerPedId()
+QBCore.Functions.TriggerCallback('qb-phone:hasRacingUsb', function(hasItems)
+	if hasItems then
+        		TriggerEvent('phone:client:InstallApplication', 'racing')
+    	else
+        		QBCore.Functions.TriggerCallback('qb-phone:server:GetPhoneData', function(pData)
+           			PlayerJob = QBCore.Functions.GetPlayerData().job
+            		PhoneData.PlayerData = QBCore.Functions.GetPlayerData()
+            		local PhoneMeta = PhoneData.PlayerData.metadata["phone"]
+            		PhoneData.MetaData = PhoneMeta
+    
+            		if pData.InstalledApps ~= nil and next(pData.InstalledApps) ~= nil then
+               			for k, v in pairs(pData.InstalledApps) do
+                    			TriggerServerEvent('qb-phone:server:RemoveInstallation', v.app)
+                    			Config.PhoneApplications['racing'] = nil
+                			end
+            		end
+       		end)
+  	end
+  end)
+end)
+
 RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
     FullyLoaded = false
     PlayerData = {}
@@ -877,11 +920,6 @@ RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
         JobData = JobInfo,
         applications = Config.PhoneApplications
     })
-end)
-
-RegisterNetEvent('qb-phone:client:clearAppAlerts', function()
-    Config.PhoneApplications["phone"].Alerts = 0
-    SendNUIMessage({ action = "RefreshAppAlerts", AppData = Config.PhoneApplications })
 end)
 
 AddEventHandler('onResourceStart', function(resource)
