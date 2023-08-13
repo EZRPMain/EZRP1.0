@@ -13,7 +13,7 @@ local function Thermite(cb, time, gridsize, wrong)
     if not open then
         p = promise.new()
         if time == nil then time = 10 end
-        if gridsize == nil then gridsize = 6 end
+        if gridsize == nil then gridsize = 4 end
         if wrong == nil then wrong = 3 end
         open = true
         SendNUIMessage({
