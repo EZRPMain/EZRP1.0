@@ -106,6 +106,14 @@ Config.Products = {
             type = "item",
             slot = 12,
         },
+        [13] = {
+            name = "phone",
+            price = 500,
+            amount = 5000,
+            info = {},
+            type = "item",
+            slot = 13,
+        },
     },
     ["liquor"] = {
         [1] = {
@@ -175,14 +183,14 @@ Config.Products = {
             type = "item",
             slot = 5,
         },
-        [6] = {
-            name = "phone",
-            price = 850,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 6,
-        },
+        --[6] = {
+        --    name = "phone",
+          --  price = 850,
+            --amount = 50,
+            --info = {},
+            --type = "item",
+            --slot = 6,
+        --},
         [7] = {
             name = "radio",
             price = 250,
