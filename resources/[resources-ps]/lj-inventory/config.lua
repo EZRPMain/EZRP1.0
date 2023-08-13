@@ -348,7 +348,6 @@ BackEngineVehicles = {
     [`zentorno`] = true,
     [`reaper`] = true,
     [`comet2`] = true,
-    [`comet3`] = true,
     [`jester`] = true,
     [`jester2`] = true,
     [`cheetah`] = true,
@@ -375,9 +374,10 @@ BackEngineVehicles = {
     [`stingergt`] = true,
     [`surfer`] = true,
     [`surfer2`] = true,
-    [`gp1`] = true,
-    [`autarch`] = true,
-    [`tyrant`] = true
+    [`comet3`] = true,
+	[`polcomet`] = true,
+	[`610lb`] = true,
+	[`r8hycade`] = true,
 }
 
 Config.MaximumAmmoValues = {
