@@ -377,7 +377,8 @@ function GetVehicle()
     while vehicle == 0 do
         vehicle = Framework:GetClosestVehicle()
         if #(pos - GetEntityCoords(vehicle)) > 8 then
-            Framework:Notify(Lang:t("notify.vehclose"), "error")
+            -- Framework:Notify(Lang:t("notify.vehclose"), "error")
+            print("Not Close Enough to vehicle!!!!!")
             return
         end
     end
@@ -385,6 +386,7 @@ function GetVehicle()
     if not IsEntityAVehicle(vehicle) then vehicle = nil end
     return vehicle
 end
+
 function AreKeysJobShared(veh)
     local vehName = GetDisplayNameFromVehicleModel(GetEntityModel(veh))
     local vehPlate = Framework:GetPlate(veh)

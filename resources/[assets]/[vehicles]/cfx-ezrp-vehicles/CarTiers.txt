@@ -55,6 +55,7 @@ drafter  (A)
 avent	 (A)
 22g63    (A)
 rx7	 	 (A)
+m4g82mp	 (A)
 
 ------ B Tier ----
 blista2       (B)
@@ -81,7 +82,7 @@ dynasty (D)
 
 -------- Rating needed --------
 
-m4g82mp
+tempesta 
 f1 vehicles (MAXXX(X)XXX)
 super vehicles
 some sports that are not there ^^

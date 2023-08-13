@@ -34,6 +34,10 @@ BackEngineVehicles = {
     [`surfer`] = true,
     [`surfer2`] = true,
     [`comet3`] = true,
+	[`polcomet`] = true,
+	[`610lb`] = true,
+	[`r8hycade`] = true,
+	
 }
 
 -- Configuration:
