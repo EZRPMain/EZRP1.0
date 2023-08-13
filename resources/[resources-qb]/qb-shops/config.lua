@@ -1,7 +1,7 @@
 Config = {}
 Config.UseTruckerJob = false -- true = The shops stock is based on when truckers refill it | false = shop inventory never runs out
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
-Config.FirearmsLicenseCheck = false -- Whether a arms dealer checks for a firearms license
+Config.FirearmsLicenseCheck = true -- Whether a arms dealer checks for a firearms license
 Config.ShopsInvJsonFile = './json/shops-inventory.json' -- json file location
 Config.SellCasinoChips = {
     coords = vector4(950.37, 34.72, 71.87, 33.82),
@@ -566,6 +566,21 @@ Config.Locations = {
     ["247supermarket9"] = {
         ["label"] = "24/7 Supermarket",
         ["coords"] = vector4(372.66, 326.98, 103.57, 253.73),
+        ["ped"] = 'mp_m_shopkeep_01',
+        ["scenario"] = "WORLD_HUMAN_STAND_MOBILE",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-shopping-basket",
+        ["targetLabel"] = "Open Shop",
+        ["products"] = Config.Products["normal"],
+        ["showblip"] = true,
+        ["blipsprite"] = 52,
+        ["blipscale"] = 0.6,
+        ["blipcolor"] = 0,
+        ["delivery"] = vector4(379.97, 357.3, 102.56, 26.42)
+    },
+    ["247supermarket10"] = {
+        ["label"] = "24/7 Supermarket",
+        ["coords"] = vector4(239.6, -898.67, 29.62, 342.4),
         ["ped"] = 'mp_m_shopkeep_01',
         ["scenario"] = "WORLD_HUMAN_STAND_MOBILE",
         ["radius"] = 1.5,
