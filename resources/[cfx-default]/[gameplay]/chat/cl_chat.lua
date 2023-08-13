@@ -114,6 +114,55 @@ RegisterNUICallback('chatResult', function(data, cb)
   cb('ok')
 end)
 
+local function stringSplit(inputstr, sep)
+  if sep == nil then
+    sep = "%s"
+  end
+  local t={}
+  for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+    table.insert(t, str)
+  end
+  return t
+end
+local function stringJoin(tbl)
+  local str = tbl[1]
+  for k, v in pairs(tbl) do
+    if k ~= 1 then
+      str = str .. " " .. v
+    end
+  end
+  return str
+end
+RegisterNUICallback('chatResult', function(data, cb)
+  chatInputActive = false
+  SetNuiFocus(false)
+
+  if not data.canceled then
+    local id = PlayerId()
+
+    --deprecated
+    local r, g, b = 0, 0x99, 255
+
+    local message = data.message
+    if string.sub(message, 1, 1) ~= "/" then
+        message = "/" .. message
+    end
+    local args = stringSplit(message, " ")
+    local cmd = args[1]
+    cmd = string.lower(cmd)
+    args[1] = cmd
+    message = stringJoin(args)
+
+    if message:sub(1, 1) == '/' or message:sub(1, 1) == '' then
+      ExecuteCommand(message:sub(2))
+    else
+      TriggerServerEvent('_chat:messageEntered', GetPlayerName(id), { r, g, b }, message, data.mode)
+    end
+  end
+
+  cb('ok')
+end)
+
 local function refreshCommands()
   if GetRegisteredCommands then
     local registeredCommands = GetRegisteredCommands()
