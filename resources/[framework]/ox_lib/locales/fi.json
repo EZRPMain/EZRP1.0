@@ -6,9 +6,9 @@
     "confirm": "Vahvista",
     "more": "Lisää..."
   },
-  "txadmin_announcement": "Ilmoitus palvelimen ylläpitäjältä %s",
-  "txadmin_dm": "Sait viestin henkilöltä %s",
-  "txadmin_warn": "Sinua on varoitettu henkilön %s toimesta",
-  "txadmin_warn_content": "%s  \nTunniste: %s",
-  "txadmin_scheduledrestart": "Ajoitettu uudelleenkäynnistyminen"
+  "txadmin_announcement": "State announcement by the government",
+  "txadmin_dm": "Direct Message from angles",
+  "txadmin_warn": "You have been warned by an angels",
+  "txadmin_warn_content": "%s  \nAction ID: %s",
+  "txadmin_scheduledrestart": "Tunami imminent"
 }
