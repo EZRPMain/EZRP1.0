@@ -532,7 +532,7 @@ body {
     position: relative;
     font-size: 5vh;
     padding-right: 4vh;
-	color: rgb(142, 224, 116, 0.5);
+	color: rgb(0, 102, 255);
     padding-bottom: 4vh;
 
 }
@@ -543,7 +543,7 @@ body {
 
     padding-right: 2vh;
     padding-bottom: 4vh;
-    color: rgb(245, 161, 91);
+    color: rgb(0, 102, 255);
 }
 
 .character-btn {
@@ -1292,7 +1292,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .RegisterRed {
-    background: #f5a15b;
+    background: #f5655b;
     transition: 0.25s;
 }
 
@@ -1333,7 +1333,7 @@ input[type="date"]::-webkit-clear-button {
 
 .SelectChar-DeleteChar {
     /* background: #f5a15b; */
-    background: #c27e47;
+    background: #ff0000;
     box-shadow: 1px 1px 6px rgba(5, 5, 5, 0.152);
     transition: 0.25s;
 }
