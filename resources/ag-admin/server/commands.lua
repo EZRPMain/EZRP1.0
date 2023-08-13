@@ -200,13 +200,13 @@ QBCore.Commands.Add("spawnobject", Lang:t("commands.spawn_object"), {{name = "ob
     TriggerClientEvent("Admin:Client:SpawnObject", src, object)
 end, "admin")
 
-QBCore.Commands.Add("revive", Lang:t("commands.revive_target"), {{name = "id", help = "Target ID"}}, false, function(source, args)
+QBCore.Commands.Add("reviveid", Lang:t("commands.revive_target"), {{name = "id", help = "Target ID"}}, false, function(source, args)
     local src = source
     local target = args[1]
     TriggerEvent("Admin:Server:ReviveTarget", target)
 end, "admin")
 
-QBCore.Commands.Add("revive-r", Lang:t("commands.revive_radius"), {}, false, function(source)
+QBCore.Commands.Add("revive", Lang:t("commands.revive_radius"), {}, false, function(source)
     local src = source
     TriggerEvent("Admin:Server:ReviveRadius", src)
 end, "admin")
