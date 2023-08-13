@@ -56,12 +56,12 @@ Config.Discord = {
     ["MaxPlayers"] = 48, -- Maximum amount of players
     ["Buttons"] = {
         {
-            text = 'First Button!',
-            url = 'fivem://connect/localhost:30120'
+            text = 'Discord',
+            url = 'discord.gg/ePxWrZ9JsP'
         },
         {
-            text = 'Second Button!',
-            url = 'fivem://connect/localhost:30120'
+            text = 'Join Ezrp!',
+            url = 'https://eazy-website.bubbleapps.io/version-test/home_screen'
         }
     }
 }
@@ -172,30 +172,17 @@ Config.BlacklistedScenarios = {
 }
 
 Config.BlacklistedVehs = {
-    [`SHAMAL`] = true,
-    [`LUXOR`] = true,
-    [`LUXOR2`] = true,
     [`JET`] = true,
     [`LAZER`] = true,
     [`BUZZARD`] = true,
     [`BUZZARD2`] = true,
     [`ANNIHILATOR`] = true,
     [`SAVAGE`] = true,
-    [`TITAN`] = true,
     [`RHINO`] = true,
-    [`FIRETRUK`] = true,
-    [`MULE`] = true,
-    [`MAVERICK`] = true,
-    [`BLIMP`] = true,
-    [`AIRTUG`] = true,
-    [`CAMPER`] = true,
     [`HYDRA`] = true,
     [`OPPRESSOR`] = true,
     [`technical3`] = true,
     [`insurgent3`] = true,
-    [`apc`] = true,
-    [`tampa3`] = true,
-    [`trailersmall2`] = true,
     [`halftrack`] = true,
     [`hunter`] = true,
     [`vigilante`] = true,
@@ -203,7 +190,6 @@ Config.BlacklistedVehs = {
     [`barrage`] = true,
     [`khanjali`] = true,
     [`caracara`] = true,
-    [`blimp3`] = true,
     [`menacer`] = true,
     [`oppressor2`] = true,
     [`scramjet`] = true,
@@ -214,11 +200,8 @@ Config.BlacklistedVehs = {
     [`scarab`] = true,
     [`scarab2`] = true,
     [`scarab3`] = true,
-    [`rrocket`] = true,
-    [`ruiner2`] = true,
     [`deluxo`] = true,
     [`cargoplane2`] = true,
-    [`voltic2`] = true,
 }
 
 Config.BlacklistedWeapons = {
@@ -226,12 +209,7 @@ Config.BlacklistedWeapons = {
 }
 
 Config.BlacklistedPeds = {
-    [`s_m_y_ranger_01`] = true,
-    [`s_m_y_sheriff_01`] = true,
-    [`s_m_y_cop_01`] = true,
-    [`s_f_y_sheriff_01`] = true,
-    [`s_f_y_cop_01`] = true,
-    [`s_m_y_hwaycop_01`] = true,
+    [`s_m_y_ranger_01`] = false,
 }
 
 Config.HolsterVariant = {130,122,3,6,8}
