@@ -1,7 +1,7 @@
 Citizen.CreateThread(function()
 	AddTextEntryByHash(`POLVIGERO2`, "Vigero ZX Police")
-	AddTextEntryByHash(`POLVIGR2_LIV_1`. "Police Livery")
-	AddTextEntryByHash(`POLVIGR2_LIV_2`. "Highway Patrol Livery")
+	AddTextEntryByHash(`POLVIGR2_LIV_1`, "Police Livery")
+	AddTextEntryByHash(`POLVIGR2_LIV_2`, "Highway Patrol Livery")
 
 	AddTextEntryByHash(`POLICE_ANTENNA`, "Antenna")
 
