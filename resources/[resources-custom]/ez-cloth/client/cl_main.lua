@@ -1,5 +1,5 @@
-local interiorId = GetInteriorAtCoords(vector3(716.26, -964.86, 30.4))
 CreateThread(function()
+    local interiorId = GetInteriorAtCoords(vector3(716.26, -964.86, 30.4))
     exports['qb-target']:AddTargetModel(262461191, {
         options = {
             {
@@ -96,10 +96,11 @@ RegisterNetEvent("ez-knit:CreateClothe", function(data)
                         }, {}, {}, {}, function() -- Done
                             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
                             TriggerServerEvent("ez-knit:CreateClothe", data.item, input)
+                            TriggerServerEvent("ez-knit:RemoveCloth", data.clothAmt)
                         end)
             
                     else
-                        TriggerServerEvent("ez-knit:FAILED", data.clothAmt)
+                        TriggerServerEvent("ez-knit:RemoveCloth", data.clothAmt)
                     end
                 end, 1, math.random(4,7)) -- NumberOfCircles, MS
 
