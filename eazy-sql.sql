@@ -132,6 +132,51 @@ CREATE TABLE IF NOT EXISTS `bans` (
 
 -- Dumping data for table ezfw.bans: ~0 rows (approximately)
 
+-- Dumping structure for table ezfw.bbanking_accounts
+CREATE TABLE IF NOT EXISTS `bbanking_accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `identifier` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  UNIQUE KEY `id` (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table ezfw.bbanking_accounts: ~0 rows (approximately)
+INSERT IGNORE INTO `bbanking_accounts` (`id`, `identifier`, `type`, `amount`) VALUES
+	(17, 'US05QBCore5392494060', 'crypto', 0);
+
+-- Dumping structure for table ezfw.bbanking_cards
+CREATE TABLE IF NOT EXISTS `bbanking_cards` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `identifier` varchar(50) DEFAULT NULL,
+  `holder` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `number` varchar(50) DEFAULT NULL,
+  `pin` varchar(50) DEFAULT NULL,
+  `hold` int(11) DEFAULT 0,
+  `data` text DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table ezfw.bbanking_cards: ~0 rows (approximately)
+
+-- Dumping structure for table ezfw.bbanking_statements
+CREATE TABLE IF NOT EXISTS `bbanking_statements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `iban` varchar(50) NOT NULL DEFAULT '0',
+  `from` varchar(50) NOT NULL DEFAULT '0',
+  `source` varchar(50) NOT NULL DEFAULT '0',
+  `type` varchar(50) NOT NULL DEFAULT '0',
+  `amount` int(11) NOT NULL DEFAULT 0,
+  `reason` varchar(50) NOT NULL DEFAULT '0',
+  `time` text DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=647 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table ezfw.bbanking_statements: ~0 rows (approximately)
+INSERT IGNORE INTO `bbanking_statements` (`id`, `iban`, `from`, `source`, `type`, `amount`, `reason`, `time`) VALUES
+	(646, 'US05QBCore5392494060', 'GOVERMENT_PAYOUT', 'account', 'deposit', 4000, 'New account', '1691930283');
+
 -- Dumping structure for table ezfw.business_data
 CREATE TABLE IF NOT EXISTS `business_data` (
   `id` varchar(50) NOT NULL,
@@ -620,11 +665,11 @@ CREATE TABLE IF NOT EXISTS `players` (
   KEY `id` (`id`),
   KEY `last_updated` (`last_updated`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=1307 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1325 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ezfw.players: ~2 rows (approximately)
 INSERT IGNORE INTO `players` (`id`, `citizenid`, `cid`, `license`, `name`, `money`, `charinfo`, `job`, `gang`, `position`, `metadata`, `inventory`, `last_updated`) VALUES
-	(1, 'CWP72955', 1, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'Jay', '{"payslip":2130,"bank":999999998680660,"crypto":0,"cash":9876340}', '{"birthdate":"1993-11-25","phone":"6665010077","account":"US05QBCore5392494060","cid":1,"backstory":"placeholder backstory","firstname":"Angus","nationality":"Australia","gender":0,"lastname":"Beef"}', '{"isboss":false,"name":"unemployed","onduty":true,"grade":{"level":0,"name":"Freelancer"},"label":"Civilian","payment":10,"type":"none"}', '{"grade":{"level":0,"name":"none"},"label":"No Gang Affiliaton","isboss":false,"name":"none"}', '{"x":4471.21337890625,"y":-4464.9228515625,"z":4.240966796875}', '{"hunger":70.59999999999998,"attachmentcraftingrep":0,"jobrep":{"tow":0,"trucker":0,"hotdog":0,"taxi":0},"phone":[],"inside":{"apartment":[]},"tracker":false,"isdead":false,"callsign":"NO CALLSIGN","fitbit":[],"commandbinds":[],"fingerprint":"XM774I16RRz1009","criminalrecord":{"hasRecord":false},"craftingrep":150,"ishandcuffed":false,"inlaststand":false,"phonedata":{"SerialNumber":54687142,"InstalledApps":[]},"walletid":"QB-43772046","dealerrep":0,"boostingrep":0,"armor":0,"licences":{"business":false,"driver":true,"weapon":false},"bloodtype":"A-","thirst":73.40000000000002,"jailitems":[],"stress":6,"status":[],"delivery":0,"crypto":{"lme":0,"xcoin":0,"shung":0,"gne":0},"injail":0}', '[{"name":"weapon_glock18c","type":"weapon","slot":1,"info":{"ammo":90,"quality":88.74999999999958,"serie":"48ThU2Oo159IUXG"},"amount":1},{"name":"poppyresin","type":"item","slot":2,"info":[],"amount":2},{"name":"anchor","type":"item","slot":3,"info":[],"amount":1},{"name":"weapon_petrolcan","type":"weapon","slot":4,"info":{"quality":100,"serie":"15zAK1gw085RhFf"},"amount":1},{"name":"weapon_bread","type":"weapon","slot":7,"info":{"ammo":0,"quality":100,"serie":"46uSW8Fp202xBoj"},"amount":1},{"name":"phone","type":"item","slot":9,"info":[],"amount":1},{"name":"dirtycloth","type":"item","slot":10,"info":[],"amount":1},{"name":"detector","type":"item","slot":13,"info":[],"amount":1},{"name":"security_card_04","type":"item","slot":14,"info":[],"amount":1},{"name":"methkey","type":"item","slot":15,"info":[],"amount":1},{"name":"advancedlockpick","type":"item","slot":19,"info":[],"amount":1}]', '2023-08-10 12:40:02'),
+	(1, 'CWP72955', 1, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'Jay', '{"cash":9876340,"payslip":2200,"bank":999999998677960,"crypto":0}', '{"birthdate":"1993-11-25","gender":0,"backstory":"placeholder backstory","cid":1,"phone":"6665010077","firstname":"Angus","lastname":"Beef","nationality":"Australia","account":"US05QBCore5392494060"}', '{"payment":10,"isboss":false,"onduty":true,"label":"Civilian","type":"none","name":"unemployed","grade":{"name":"Freelancer","level":0}}', '{"label":"No Gang Affiliaton","isboss":false,"name":"none","grade":{"name":"none","level":0}}', '{"x":1192.4307861328126,"y":524.953857421875,"z":82.6431884765625}', '{"attachmentcraftingrep":0,"thirst":84.80000000000001,"armor":0,"ishandcuffed":false,"phonedata":{"InstalledApps":[],"SerialNumber":54687142},"criminalrecord":{"hasRecord":false},"phone":[],"walletid":"QB-43772046","crypto":{"gne":0,"shung":0,"xcoin":0,"lme":0},"isdead":false,"tracker":false,"callsign":"NO CALLSIGN","stress":29,"jailitems":[],"fitbit":[],"bloodtype":"A-","jobrep":{"hotdog":0,"taxi":0,"tow":0,"trucker":0},"delivery":0,"inside":{"apartment":[]},"hunger":83.19999999999999,"dealerrep":0,"injail":0,"boostingrep":0,"fingerprint":"XM774I16RRz1009","licences":{"driver":true,"business":false,"weapon":false},"commandbinds":[],"status":[],"inlaststand":false,"craftingrep":150}', '[{"amount":1,"info":{"ammo":72,"serie":"48ThU2Oo159IUXG","quality":87.39999999999952},"slot":1,"name":"weapon_glock18c","type":"weapon"},{"amount":2,"info":[],"slot":2,"name":"poppyresin","type":"item"},{"amount":1,"info":[],"slot":3,"name":"anchor","type":"item"},{"amount":1,"info":{"quality":100,"serie":"15zAK1gw085RhFf"},"slot":4,"name":"weapon_petrolcan","type":"weapon"},{"amount":1,"info":{"ammo":0,"serie":"46uSW8Fp202xBoj","quality":100},"slot":7,"name":"weapon_bread","type":"weapon"},{"amount":1,"info":[],"slot":9,"name":"phone","type":"item"},{"amount":1,"info":[],"slot":10,"name":"dirtycloth","type":"item"},{"amount":1,"info":[],"slot":13,"name":"detector","type":"item"},{"amount":1,"info":[],"slot":14,"name":"security_card_04","type":"item"},{"amount":1,"info":[],"slot":15,"name":"methkey","type":"item"},{"amount":1,"info":[],"slot":19,"name":"advancedlockpick","type":"item"}]', '2023-08-13 12:38:42'),
 	(455, 'IQU46439', 5, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'Jay', '{"crypto":0,"bank":329483904700604,"payslip":3200,"cash":329484504968365}', '{"lastname":"test","gender":0,"firstname":"test","nationality":"bobursuncle","birthdate":"2000-02-03","cid":"5","phone":"6449338333","backstory":"placeholder backstory","account":"US05QBCore5906148294"}', '{"payment":10,"name":"unemployed","label":"Civilian","isboss":false,"grade":{"name":"Freelancer","level":0},"type":"none","onduty":true}', '{"isboss":false,"grade":{"name":"none","level":0},"name":"none","label":"No Gang Affiliaton"}', '{"x":1024.193359375,"y":6499.96484375,"z":20.98974609375}', '{"crypto":{"lme":0,"shung":0,"gne":0,"xcoin":0},"isdead":false,"criminalrecord":{"hasRecord":false},"thirst":96.2,"inlaststand":false,"fingerprint":"TL261Q21FjO8480","callsign":"NO CALLSIGN","attachmentcraftingrep":0,"jobrep":{"taxi":0,"tow":0,"hotdog":0,"trucker":0},"walletid":"QB-61930889","inside":{"apartment":[]},"jailitems":[],"phonedata":{"SerialNumber":99865129,"InstalledApps":[]},"tracker":false,"delivery":0,"commandbinds":[],"fitbit":[],"dealerrep":0,"hunger":95.8,"stress":10,"bloodtype":"O+","injail":0,"ishandcuffed":false,"licences":{"weapon":false,"driver":true,"business":false},"craftingrep":0,"status":[],"phone":[],"armor":0}', '[{"name":"weapon_snspistol","slot":1,"type":"weapon","amount":1,"info":{"quality":67.14999999999876,"serie":"55MIb6CR670IHEY","ammo":82}},{"name":"phone","slot":2,"type":"item","amount":1,"info":[]},{"name":"weapon_aks74","slot":3,"type":"weapon","amount":1,"info":{"quality":82.74999999999935,"serie":"83Epj8FN938wUnA","ammo":62}},{"name":"security_card_02","slot":6,"type":"item","amount":1,"info":[]},{"name":"cokebaggy","slot":7,"type":"item","amount":4,"info":[]},{"name":"cash_roll","slot":8,"type":"item","amount":3129,"info":[]},{"name":"advancedlockpick","slot":12,"type":"item","amount":25,"info":[]},{"name":"heavyarmor","slot":13,"type":"item","amount":3,"info":[]},{"name":"casekey","slot":16,"type":"item","amount":1,"info":[]}]', '2023-08-02 07:33:29');
 
 -- Dumping structure for table ezfw.playerskins
@@ -701,12 +746,7 @@ CREATE TABLE IF NOT EXISTS `player_mails` (
   KEY `citizenid` (`citizenid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ezfw.player_mails: ~4 rows (approximately)
-INSERT IGNORE INTO `player_mails` (`id`, `citizenid`, `sender`, `subject`, `message`, `read`, `mailid`, `date`, `button`) VALUES
-	(54, 'CWP72955', 'Nathaniel', 'Vehicle Located', 'Yo<br><br> One of my scouters found a<br><b>r32<br><br>I sent you the cars approximate location to your GPS go find it.<br><br><b>Nathaniel</b>', 0, 266902, '2023-08-09 03:08:49', NULL),
-	(55, 'CWP72955', 'Nathaniel', 'Vehicle Located', 'Yo<br><br> One of my scouters found a<br><b>r33hr<br><br>I sent you the cars approximate location to your GPS go find it.<br><br><b>Nathaniel</b>', 0, 937263, '2023-08-09 03:13:37', NULL),
-	(56, 'CWP72955', 'Nathaniel', 'Vehicle Located', 'Yo<br><br> One of my scouters found a<br><b>razor<br><br>I sent you the cars approximate location to your GPS go find it.<br><br><b>Nathaniel</b>', 0, 661300, '2023-08-09 03:15:40', NULL),
-	(57, 'CWP72955', 'Nathaniel', 'Vehicle Located', 'Yo<br><br> One of my scouters found a<br><b>pulsarhr<br><br>I sent you the cars approximate location to your GPS go find it.<br><br><b>Nathaniel</b>', 0, 190808, '2023-08-09 03:18:17', NULL);
+-- Dumping data for table ezfw.player_mails: ~0 rows (approximately)
 
 -- Dumping structure for table ezfw.player_outfits
 CREATE TABLE IF NOT EXISTS `player_outfits` (
