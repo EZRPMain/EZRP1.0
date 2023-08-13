@@ -214,7 +214,7 @@ body {
 
 .phone-application-container {
     display: none;
-    position: absolute;
+    position: relative;
     top: 8%;
     height: 93%;
     width: 100%;
