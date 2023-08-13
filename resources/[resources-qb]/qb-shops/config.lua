@@ -674,6 +674,21 @@ Config.Locations = {
         ["blipcolor"] = 0,
         ["delivery"] = vector4(1702.68, 4917.28, 42.22, 139.27)
     },
+    ["ltdgasoline6"] = {
+        ["label"] = "LTD Gasoline",
+        ["coords"] = vector4(-2071.28, -333.14, 13.32, 0.58),
+        ["ped"] = 'mp_m_shopkeep_01',
+        ["scenario"] = "WORLD_HUMAN_STAND_MOBILE",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-shopping-basket",
+        ["targetLabel"] = "Open Shop",
+        ["products"] = Config.Products["normal"],
+        ["showblip"] = true,
+        ["blipsprite"] = 52,
+        ["blipscale"] = 0.6,
+        ["blipcolor"] = 0,
+        ["delivery"] = vector4(1702.68, 4917.28, 42.22, 139.27)
+    },
 
     -- Rob's Liquor Locations
     ["robsliquor"] = {
