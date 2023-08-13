@@ -6,7 +6,7 @@
    <Item>
       <modelName>sotaurus</modelName>
       <txdName>sotaurus</txdName>
-      <handlingId>POLICE3</handlingId>
+      <handlingId>sotaurus</handlingId>
       <gameName>Sheriff</gameName>
       <vehicleMakeName />
       <expressionDictName>null</expressionDictName>
@@ -125,7 +125,7 @@
 	 <Item>
       <modelName>socharger</modelName>
       <txdName>socharger</txdName>
-      <handlingId>POLICE2</handlingId>
+      <handlingId>socharger</handlingId>
       <gameName>Sheriff</gameName>
       <vehicleMakeName />
       <expressionDictName>null</expressionDictName>
