@@ -5,6 +5,19 @@ Inventory  = exports['lj-inventory']
 
 Config = Config or {}
 
+Config.Peds = {
+    [`mp_m_freemode_01`] = {
+        ["mask"] = {
+            defaultNoMask = 0, -- ??
+        },
+    },
+    [`papag`] = {
+        ["mask"] = {
+            defaultNoMask = 4,
+        },
+    },
+}
+
 Config.Options = {
     {
         header = "Mask",

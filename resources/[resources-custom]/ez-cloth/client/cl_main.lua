@@ -1,5 +1,7 @@
 CreateThread(function()
-    local interiorId = GetInteriorAtCoords(vector3(716.26, -964.86, 30.4))
+    -- local interiorId = GetInteriorAtCoords(vector3(716.26, -964.86, 30.4))
+    -- print(interiorId)
+    local interiorId = 92674
     exports['qb-target']:AddTargetModel(262461191, {
         options = {
             {
@@ -7,6 +9,7 @@ CreateThread(function()
                 icon = "fas fa-circle",
                 label = "Create Clothes",
                 canInteract = function(entity)
+                    
                     local entityCoords = GetEntityCoords(entity)
                     local entityInterior = GetInteriorAtCoords(entityCoords)
                     if entityInterior == interiorId then return true end
