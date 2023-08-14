@@ -1,0 +1,77 @@
+<script lang="ts">
+	import { ReceiveNUI } from '@utils/ReceiveNUI'
+	import { debugData } from '@utils/debugData'
+	import { browserMode, visibility, ACTIONS, ACTIONSBUTTONS, RESOURCES, RESOURCESBUTTONS, PLAYERS, PLAYERSBUTTONS, VEHICLES, Message, Messages, SERVERMETRICS } from '@store/stores'
+
+	function copyToClipboard(str) {
+		const el = document.createElement('textarea');
+		el.value = str;
+		document.body.appendChild(el);
+		el.select();
+		document.execCommand('copy');
+		document.body.removeChild(el);
+	}
+
+	debugData([
+		{
+			action: 'setVisible',
+			data: true,
+		},
+	])
+
+	debugData([
+		{
+			action: 'setBrowserMode',
+			data: true
+		},
+	])
+
+	function browserHideAndShow(e: KeyboardEvent) {
+		if (e.key === '=') {
+			$visibility = true
+		}
+	}
+
+	ReceiveNUI('setBrowserMode', (data: boolean) => {
+		browserMode.set(data)
+		console.log('browser mode enabled')
+		if (data) {
+			window.addEventListener('keydown', browserHideAndShow)
+		} else {
+			window.removeEventListener('keydown', browserHideAndShow)
+		}
+	})
+
+	ReceiveNUI('setActionData', (data: any) => {
+		ACTIONS.set(data)
+		ACTIONSBUTTONS.set($ACTIONS[0])
+	})
+
+	ReceiveNUI('setResourceData', (data: any) => {
+		data.sort((a, b) => a.name.localeCompare(b.name))
+		RESOURCES.set(data)
+		RESOURCESBUTTONS.set($RESOURCES[0])
+	})
+
+	ReceiveNUI('setPlayersData', (data: any) => {
+		PLAYERS.set(data)
+		PLAYERSBUTTONS.set($PLAYERS[0])
+	})
+
+	ReceiveNUI('CopyCoordinatesToClipboard', (data: any) => {
+		copyToClipboard(data);
+	})
+
+	ReceiveNUI('setVehicles', (data: any) => {
+		VEHICLES.set(data)
+	})
+
+	ReceiveNUI('setMetrics', (data: any) => {
+		SERVERMETRICS.set(data)
+	})
+
+	ReceiveNUI('setMessages', (data: any) => {
+		Message.set(data)
+		Messages.set($Message[0])
+	});
+</script>
