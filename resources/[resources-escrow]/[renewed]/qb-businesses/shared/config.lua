@@ -227,7 +227,7 @@ Config.Blips = { -- https://wiki.rage.mp/index.php?title=Blips
 
 Config.BusinessManager = {
     ["burgershot"] = {
-        coords = vector3(vector3(-1200.53, -902.65, 13.89)), -- Coords of the place where buisnesses can create and manage menu items
+        coords = vector3(-1200.53, -902.65, 13.89), -- Coords of the place where buisnesses can create and manage menu items
         polysize = 1.00, -- How big is the Sphere?
         label = Lang:t('target.manager_menu'), -- This is the manager_menu under the locales
         icon = "fa-solid fa-laptop", -- This is the favicon Icon I use 6.0 beta so if you need to change it do it here.
@@ -278,11 +278,11 @@ Config.BusinessManager = {
         type = {Food = true, Drink = true} -- Type of items the business is authorized to sell
     },
     ["hookies"] = {
-        coords = vector3(-2186.398, 4283.682, 49.777), --[vector4(-2186.398, 4283.682, 49.777, 330.0)]--)), -- Coords of the place where buisnesses can create and manage menu items
+        coords = vector3(-2186.398, 4283.682, 49.777),  -- Coords of the place where buisnesses can create and manage menu items
         polysize = 1.00, -- How big is the Sphere?
         label = Lang:t('target.manager_menu'), -- This is the manager_menu under the locales
         icon = "fa-solid fa-laptop", -- This is the favicon Icon I use 6.0 beta so if you need to change it do it here.
-        job = {["hookies"] = 3}, -- Which job and grade should have access to change and access menu?
+        job = {["hookies"] = 2}, -- Which job and grade should have access to change and access menu?
         type = {Food = true, Drink = true} -- Type of items the business is authorized to sell
     }
 }
