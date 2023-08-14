@@ -703,9 +703,9 @@ QBShared.Items = {
     -- Humane Labs Heist
     ['blowtorch'] 				 	 = {['name'] = 'blowtorch', 			  		['label'] = 'A Large Blow Torch', 		['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/blowtorch.png', 		    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A BlowTorch'},
     ['diving_tank'] 				 = {['name'] = 'Diving Tank', 			  		['label'] = 'A Heavy Diving Tank', 		['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/divingtank.png', 		    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Heavy Diving Tank Use For Swimming'},
-    ['hacking_device'] 				 = {['name'] = 'hacking_device', 			  	['label'] = 'Hacking Device', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/hackingdevice.png', 	    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A hacking device to hack things'},
+    ['hacking_device'] 				 = {['name'] = 'hacking_device', 			  	['label'] = 'Hacking laptop', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/hackingdevice.png', 	    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A hacking device to hack things'},
     ['dna_sample'] 				 	 = {['name'] = 'dna_sample', 			  		['label'] = 'Sample Of DNA', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/dnasample.png', 		    ['unique'] = true, 		['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A Sample of someones DNA'},
-    ['ai_usb'] 				 	     = {['name'] = 'ai_usb', 			  		    ['label'] = 'AI USB Drive', 		     ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/blowtorch.png', 		    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Usb with uknown contents'},
+    ['ai_usb'] 				 	     = {['name'] = 'ai_usb', 			  		    ['label'] = 'AI USB Drive', 		     ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/usbdrive.png', 		    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Usb with uknown contents'},
 }
 
 exports("GetSharedItems", function()
