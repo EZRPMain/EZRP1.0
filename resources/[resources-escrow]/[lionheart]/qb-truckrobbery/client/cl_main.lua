@@ -78,7 +78,7 @@ RegisterNetEvent('qb-truckrobbery:client:ThermiteTruck', function(veh)
                     else
                         ThermiteTruckFailed()
                     end
-                 end, 12, 8, 3) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlock
+                 end, 12, 6, 4) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlock
 
                 -- exports["memorygame"]:thermiteminigame(Config.Minigame.correctBlocks, Config.Minigame.incorrectBlocks, Config.Minigame.timetoShow, Config.Minigame.timetoLose,
                 --     function() -- success
