@@ -709,8 +709,8 @@ QBShared.Items = {
 
     -- Books
 
-    ['tourism_guide']                 = {['name'] = 'tourism_guide',                        ['label'] = 'Book 1',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'book.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 1'},
-    ['pacific_blueprint']                 = {['name'] = 'pacific_blueprint',                ['label'] = 'Book 1',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'book.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 2'},
+    ['pacific_blueprint']             = {['name'] = 'pacific_blueprint',                    ['label'] = 'Book 2',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'book.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 2'},
+    ['tourism_guide']                 = {['name'] = 'tourism_guide',                        ['label'] = 'Book 1',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'book1.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 1'},
 }
 
 exports("GetSharedItems", function()
