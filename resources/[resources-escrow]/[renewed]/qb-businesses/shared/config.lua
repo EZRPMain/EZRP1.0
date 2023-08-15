@@ -447,16 +447,15 @@ Config.CuttingBoardCoords = {
     -- burgershot
     [1]  = { coords = vector3(-1194.01, -900.6, 13.89), job = "burgershot", polysize = 0.45, icon = "fa-solid fa-circle" },
     -- VU
-    [2]  = { coords = vector3(130.29, -1281.31, 29.43), job = "vu", polysize = 0.45, icon = "fa-solid fa-circle" },
-    [3]  = { coords = vector3(135.32, -1289.97, 29.27), job = "vu", polysize = 0.45, icon = "fa-solid fa-circle" },
+    [2]  = { coords = vector3(131.216, -1290.776, 29.27), job = "vu", polysize = 0.45, icon = "fa-solid fa-circle" },
     --Pops Diner
-    [4] = { coords = vector3(1587.15, 6459.29, 26.16), job = "popsdiner", polysize = 0.45, icon = "fa-solid fa-circle" },
+    [3] = { coords = vector3(1587.15, 6459.29, 26.16), job = "popsdiner", polysize = 0.45, icon = "fa-solid fa-circle" },
     --Yellowjack
-    [5] =  { coords = vector3(1982.438, 3049.556, 47.215), job = "yellowjack", polysize = 0.45, icon = "fa-solid fa-circle" }, --vector3(1982.438, 3049.556, 47.215) --[vector4(1982.438, 3049.556, 47.215, 333.5)]--
+    [4] =  { coords = vector3(1982.438, 3049.556, 47.215), job = "yellowjack", polysize = 0.45, icon = "fa-solid fa-circle" }, --vector3(1982.438, 3049.556, 47.215) --[vector4(1982.438, 3049.556, 47.215, 333.5)]--
     -- taco job
-    [6]  = { coords = vector3(15.735, -1597.48, 29.378), job = "taco", polysize = 0.45, icon = "fa-solid fa-circle" },
+    [5]  = { coords = vector3(15.735, -1597.48, 29.378), job = "taco", polysize = 0.45, icon = "fa-solid fa-circle" },
     -- hookies
-    [7]  = { coords = vector3(-2177.391, 4278.807, 49.177), job = "hookies", polysize = 0.45, icon = "fa-solid fa-circle" },
+    [6]  = { coords = vector3(-2177.391, 4278.807, 49.177), job = "hookies", polysize = 0.45, icon = "fa-solid fa-circle" },
 }
 
 Config.HandWash = {
