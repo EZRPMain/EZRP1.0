@@ -9,7 +9,7 @@ Config.DoorList['BCSO-Front Door'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 29.999992370605,
 }
@@ -23,7 +23,7 @@ Config.DoorList['BCSO-Garage 1'] = {
     distance = 3,
     doorType = 'garage',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 300.29483032227,
 }
@@ -37,7 +37,7 @@ Config.DoorList['BCSO-Garage 2'] = {
     distance = 3,
     doorType = 'garage',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 300.41970825195,
 }
@@ -51,7 +51,7 @@ Config.DoorList['BCSO-Garage 3'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 300.0,
 }
@@ -65,7 +65,7 @@ Config.DoorList['BCSO-Cell 1'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 29.999992370605,
 }
@@ -79,7 +79,7 @@ Config.DoorList['BCSO-Cell 2'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 29.999992370605,
 }
@@ -93,7 +93,7 @@ Config.DoorList['BCSO-Cell 3'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 300.00003051758,
 }
@@ -107,7 +107,7 @@ Config.DoorList['BCSO-BACKDOOR'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 29.999992370605,
 }
@@ -121,7 +121,7 @@ Config.DoorList['BCSO-interagte'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 120.00000762939,
 }
@@ -135,7 +135,7 @@ Config.DoorList['BCSO-stairwell'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 300.0,
 }
@@ -149,7 +149,7 @@ Config.DoorList['BCSO-lobbydoor'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 210.0,
 }
@@ -163,7 +163,7 @@ Config.DoorList['BCSO-cellentrance'] = {
     distance = 2,
     doorType = 'door',
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     objYaw = 210.0,
 }
