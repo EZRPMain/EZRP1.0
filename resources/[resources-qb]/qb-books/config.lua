@@ -24,7 +24,7 @@ Config.Books = {
             ['height'] = 600, --page image height
         },
     },
-    ['pacific_blueprints'] = {
+    ['pacific_blueprint'] = {
         ['pages'] = {
             { pageName = "cover", type = 'hard', source = 'local' }, --Front Cover
             { pageName = "1", type = 'hard', source = 'local' }, --Inside Front Cover
