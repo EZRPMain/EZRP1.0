@@ -18,7 +18,7 @@ Config.Books = {
             { pageName = "6", type = 'hard', source = 'local' }, --Inside Rear Cover
             { pageName = "backcover", type = 'hard', source = 'local' }, --Rear Cover
         },
-        ['prop'] = 'book', --ex. book, map
+        ['prop'] = 'prop_novel_01', --ex. prop_novel_01, prop_tourist_map_01
         ['size'] = {
             ['width'] = 800, --page image width
             ['height'] = 600, --page image height
@@ -33,7 +33,7 @@ Config.Books = {
             { pageName = "4", type = 'hard', source = 'local' }, --Inside Rear Cover
             { pageName = "backcover", type = 'hard', source = 'local' }, --Rear Cover
         },
-        ['prop'] = 'book', --ex. book, map
+        ['prop'] = 'prop_novel_01', --ex. prop_novel_01, prop_tourist_map_01
         ['size'] = {
             ['width'] = 800, --page image width
             ['height'] = 600, --page image height

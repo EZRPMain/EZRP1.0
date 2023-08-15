@@ -9,16 +9,9 @@ end
 
 local function HandleProp(action, ped, ped_coords, bookName, prop)
     if action == 'add' then
-        local propName = nil
-        if Config.Books[bookName]["prop"] == 'book' then
-            propName = `prop_novel_01`
-            bookProp = CreateObject(propName, ped_coords.x, ped_coords.y, ped_coords.z,  true,  true, true) 
-            AttachEntityToEntity(bookProp, ped, GetPedBoneIndex(ped, 6286), 0.15, 0.03, -0.065, 0.0, 180.0, 90.0, true, true, false, true, 1, true)
-        elseif Config.Books[bookName]["prop"] == 'map' then
-            propName = `prop_tourist_map_01`
-            bookProp = CreateObject(propName, ped_coords.x, ped_coords.y, ped_coords.z,  true,  true, true) 
-            AttachEntityToEntity(bookProp, ped, GetPedBoneIndex(ped, 28422), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
-        end
+        propname = Config.Books
+        bookprop = CreateObject(propName, ped_coords.x, ped_coords.y, ped_coords.z, true, true, true)
+        AttachEntityToEntity(bookProp, ped, GetPedBoneIndex(ped, 6286), 0.15, 0.03, -0.065, 0.0, 180.0, 90.0, true, true, false, true, 1, true)
         SetModelAsNoLongerNeeded(propName)
         PlayAnimation('cellphone@', 'cellphone_text_read_base', 10000)
     elseif action == 'remove' then
