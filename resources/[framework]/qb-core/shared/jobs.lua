@@ -660,6 +660,42 @@ QBShared.Jobs = {
             },
         },
 	},
+    ["LSMayor"] = {
+		label = "LSMayor",
+		defaultDuty = true,
+		grades = {
+            ['0'] = {
+                name = "Media Counsil",
+                payment = 760
+            },
+            ['1'] = {
+                name = "Judge",
+                payment = 1200
+            },
+            ['2'] = {
+                name = "Justice",
+                payment = 1000
+            },
+            ['3'] = {
+                name = "Chief Justice",
+                payment = 1000
+            },
+			['4'] = {
+                name = "Deputy Mayor",
+                payment = 1000
+            },
+			['5'] = {
+                name = "Mayor",
+				isboss = true,
+                payment = 3500
+            },
+            ['6'] = {
+                name = "Senator",
+				isboss = true,
+                payment = 3500
+            },
+        },
+	},
 }
 
 exports("GetSharedJobs", function()
