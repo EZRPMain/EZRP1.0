@@ -13,3 +13,17 @@ Config.DoorList['LSPD-Lobby right'] = {
     distance = 2,
     doorLabel = 'Lobby Right',
 }
+
+-- Lobby Left created by Rinehart
+Config.DoorList['LSPD-Lobby Left'] = {
+    locked = false,
+    objYaw = 0.0,
+    objName = -1406685646,
+    fixText = false,
+    objCoords = vec3(440.520081, -977.601074, 30.823193),
+    doorRate = 1.0,
+    doorType = 'door',
+    authorizedJobs = { ['police'] = 0 },
+    distance = 2,
+    doorLabel = 'Lobby left',
+}
