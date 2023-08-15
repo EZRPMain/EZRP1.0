@@ -231,7 +231,7 @@ Citizen.CreateThread(function()
 						DrawMarker(0, limitF, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.1, 0.1, 0.1, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 80, false, false, 2, nil, nil, false)
 						DrawMarker(0, limitB, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.1, 0.1, 0.1, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 80, false, false, 2, nil, nil, false)
 					end
-
+						print(GetEntitySpeed(vehicle))
 					if GetEntitySpeed(vehicle) < 0.01 and not IsEntityAttached(vehicle) then
 						
 						Citizen.CreateThread(function()
