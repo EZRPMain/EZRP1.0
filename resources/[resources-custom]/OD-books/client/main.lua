@@ -1,5 +1,10 @@
 local bookProp = nil
 
+RegisterCommand("fixnui", function()
+    SetNuiFocus(false, false)
+    show = false
+end, false)
+
 local function PlayAnimation(dict, name, duration)
     RequestAnimDict(dict)
     while not HasAnimDictLoaded(dict) do Wait(0) end
@@ -39,6 +44,19 @@ RegisterNetEvent('qb-books:client:OpenBook', function(bookName)
     local ped = PlayerPedId()
     local ped_coords = GetEntityCoords(ped)
     HandleProp('add', ped, ped_coords, bookName)
+    DisableControlAction(0, 263, true) -- disable melee
+    DisableControlAction(0, 264, true) -- disable melee
+    DisableControlAction(0, 257, true) -- disable melee
+    DisableControlAction(0, 140, true) -- disable melee
+    DisableControlAction(0, 141, true) -- disable melee
+    DisableControlAction(0, 142, true) -- disable melee
+    DisableControlAction(0, 143, true) -- disable melee
+    DisableControlAction(0, 245, true) -- disable chat
+    DisableControlAction(0,25,true) -- disable aim
+    DisableControlAction(0,47,true) -- disable weapon
+    DisableControlAction(0,58,true) -- disable weapon
+    RemoveAllPedWeapons(ped, true) -- Puts gun away
+    DisableControlAction(0, 245, true) -- disable chat
     SetNuiFocus(true,true)
     SendNUIMessage({
         show = true,
