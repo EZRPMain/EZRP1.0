@@ -2,7 +2,10 @@ local bookProp = nil
 
 RegisterCommand("fixnui", function()
     SetNuiFocus(false, false)
-    show = false
+    SendNUIMessage({
+        show = false
+    })
+    ClearPedSecondaryTask(ped)
 end, false)
 
 local function PlayAnimation(dict, name, duration)
