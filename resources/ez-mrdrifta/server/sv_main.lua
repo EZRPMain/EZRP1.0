@@ -1,13 +1,7 @@
 local DriftMode = {}
-GlobalState.DriftMode = {}
-
 RegisterNetEvent("ez-drift:server:sync", function(plate, boolean)
-    if Config.OldSync then
-        DriftMode[plate] = boolean
-        TriggerClientEvent("ez-drift:client:sync", -1, plate) -- Old Method
-        return
-    end
-    GlobalState.DriftMode[plate] = boolean
+    DriftMode[plate] = boolean
+    TriggerClientEvent("ez-drift:client:sync", -1, plate) -- Old Method
 end)
 
 if Config.UseItem then 

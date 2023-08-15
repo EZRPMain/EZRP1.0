@@ -13,11 +13,10 @@ Config.Keybind = {
     RequireItem = false,
 }
 
-Config.OldSync = false
-
 Config.ActivateTime = 2000
 
 Config.Tiers = {
+    ["X"] = true,
     ["S"] = true,
     ["A"] = true,
 }
