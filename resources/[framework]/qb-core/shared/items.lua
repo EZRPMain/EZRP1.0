@@ -706,6 +706,11 @@ QBShared.Items = {
     ['hacking_device'] 				 = {['name'] = 'hacking_device', 			  	['label'] = 'Hacking laptop', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/hackingdevice.png', 	    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A hacking device to hack things'},
     ['dna_sample'] 				 	 = {['name'] = 'dna_sample', 			  		['label'] = 'Sample Of DNA', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/dnasample.png', 		    ['unique'] = true, 		['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A Sample of someones DNA'},
     ['ai_usb'] 				 	     = {['name'] = 'ai_usb', 			  		    ['label'] = 'AI USB Drive', 		     ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/usbdrive.png', 		        ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Usb with uknown contents'},
+
+    -- Books
+
+    ['tourism_guide']                 = {['name'] = 'tourism_guide',                        ['label'] = 'Book 1',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'book.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 1'},
+    ['pacific_blueprint']                 = {['name'] = 'pacific_blueprint',                ['label'] = 'Book 1',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'book.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 2'},
 }
 
 exports("GetSharedItems", function()
