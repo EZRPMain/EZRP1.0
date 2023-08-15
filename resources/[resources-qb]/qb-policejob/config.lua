@@ -19,6 +19,7 @@ Config.Locations = {
     ["duty"] = {
         [1] = vector3(440.085, -974.924, 30.689),
         [2] = vector3(-449.811, 6012.909, 31.815),
+        [3] = vector3(-1852.75, 3686.65, 34.39), --bcso
     },
     ["vehicle"] = {
         [1] = vector4(448.159, -1017.41, 28.562, 90.654),
@@ -38,6 +39,7 @@ Config.Locations = {
     },
     ["armory"] = {
         [1] = vector3(462.23, -981.12, 30.68),
+        [2] = vector3(1860.46, 3692.07, 34.22), --bcso
     },
     ["trash"] = {
         [1] = vector3(439.0907, -976.746, 30.776),
@@ -54,6 +56,7 @@ Config.Locations = {
         [1] = {label = "Police Station", coords = vector4(428.23, -984.28, 29.76, 3.5)},
         [2] = {label = "Prison", coords = vector4(1845.903, 2585.873, 45.672, 272.249)},
         [3] = {label = "Police Station Paleto", coords = vector4(-451.55, 6014.25, 31.716, 223.81)},
+        [4] = {label = "Blaine County Sheriffs Department", coords = vector4(1852.7, 3686.66, 34.22, 35.53)},
     },
 }
 
