@@ -42,8 +42,12 @@ RegisterNUICallback('PostNewTweet', function(data, cb)
         type = data.type,
         url = URL,
         showAnonymous = data.anonymous
+        
     }
-
+    if string.match(TweetMessage.message, "nigga") then
+        return
+        
+    end
     TriggerServerEvent('qb-phone:server:UpdateTweets', TweetMessage)
     cb("ok")
 end)
