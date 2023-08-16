@@ -46,6 +46,11 @@ function QBCore.Player.GetOfflinePlayer(citizenid)
             PlayerData.position = json.decode(PlayerData.position)
             PlayerData.metadata = json.decode(PlayerData.metadata)
             PlayerData.charinfo = json.decode(PlayerData.charinfo)
+            PlayerData.metadata['carboostrep'] = PlayerData.metadata['carboostrep'] or 0
+            PlayerData.metadata['laptop'] = PlayerData.metadata['laptop'] or {
+                background = 'default',
+                darkfont = false,
+            }
             if PlayerData.gang then
                 PlayerData.gang = json.decode(PlayerData.gang)
             else

@@ -13,3 +13,17 @@ Config.DoorList['Vespucci-back gate'] = {
     doorRate = 1.0,
     doorType = 'double',
 }
+
+-- top back door created by Rinehart
+Config.DoorList['Vespucci-top back door'] = {
+    doors = {
+        {objName = -2023754432, objYaw = 310.0, objCoords = vec3(-1096.500977, -856.303589, 15.180880)},
+        {objName = -2023754432, objYaw = 129.99998474121, objCoords = vec3(-1094.832153, -858.292419, 15.180880)}
+    },
+    doorLabel = 'top back door',
+    locked = false,
+    authorizedJobs = { ['police'] = 0 },
+    distance = 2,
+    doorRate = 1.0,
+    doorType = 'double',
+}
