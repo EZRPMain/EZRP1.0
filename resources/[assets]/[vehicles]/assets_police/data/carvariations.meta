@@ -197,5 +197,44 @@
       <lightSettings value="1" />
       <sirenSettings value="619" />
    </Item>
+   <Item>
+      <modelName>sscvpi</modelName>
+      <colors>
+        <Item>
+          <indices content="char_array">
+            111
+			0
+			0
+			1
+			0
+			135
+          </indices>
+          <liveries>
+            <Item value="false" />
+            <Item value="false" />
+            <Item value="false" />
+            <Item value="false" />
+            <Item value="false" />
+            <Item value="false" />
+            <Item value="false" />
+            <Item value="false" />
+          </liveries>
+        </Item>
+      </colors>
+      <kits>
+        <Item>630_sscvpi_modkit</Item>
+      </kits>
+      <windowsWithExposedEdges />
+      <plateProbabilities>
+        <Probabilities>
+          <Item>
+            <Name>Police guv plate</Name>
+            <Value value="100" />
+          </Item>
+        </Probabilities>
+      </plateProbabilities>
+      <lightSettings value="1" />
+      <sirenSettings value="629" />
+   </Item>
   </variationData>
 </CVehicleModelInfoVariation>
