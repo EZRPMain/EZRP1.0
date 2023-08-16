@@ -592,6 +592,15 @@ Config.Actions = {
         type = "client",
         perms = "mod",
     },
+    {
+        label = "Set Model",
+        perms = "mod",
+        dropdown = {
+            { label = "Model",    InputType = "input" },
+            { label = "Set Model", InputType = "button", type = "client", event = "ps-adminmenu:client:SetModel" },
+       },
+        
+    },
 }
 
 function ConfigInvInvalid()

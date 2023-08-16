@@ -1184,6 +1184,27 @@ RegisterNetEvent('ps-adminmenu:client:setInfiniteAmmo', function()
     QBCore.Functions.Notify('InfiniteAmmo Toggled', 'success', 7500)
 end)
 
+
+-- Set Model
+RegisterNetEvent('ps-adminmenu:client:SetModel', function(inputData)
+    local ped = PlayerPedId()
+    local model = GetHashKey(inputData["Model"])
+    SetEntityInvincible(ped, true)
+
+    if IsModelInCdimage(model) and IsModelValid(model) then
+        LoadPlayerModel(model)
+        SetPlayerModel(PlayerId(), model)
+
+        if isPedAllowedRandom(skin) then
+            SetPedRandomComponentVariation(ped, true)
+        end
+
+        SetModelAsNoLongerNeeded(model)
+    end
+    SetEntityInvincible(ped, false)
+end)
+
+
 AddEventHandler('onResourceStop', function(resourceName)
     if resourceName == ResourceName then
         FreezeEntityPosition(NoClipEntity, false)
