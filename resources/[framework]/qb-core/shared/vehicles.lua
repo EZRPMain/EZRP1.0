@@ -5788,7 +5788,6 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Compacts', 
         ['hash'] = 'fnfrx7', 
         ['shop'] = 'pdm', 
-        ["tier"] = "D"
     }, 
     ['gtr'] = {
         ['name'] = 'gtr', 
@@ -5799,7 +5798,6 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Compacts', 
         ['hash'] = 'gtr', 
         ['shop'] = 'pdm', 
-        ["tier"] = "D"
     }, 
     ['hoverboard'] = {
         ['name'] = 'hoverboard',
@@ -5820,7 +5818,6 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Compacts', 
         ['hash'] = 'lc200', 
         ['shop'] = 'pdm', 
-        ["tier"] = "D"
     }, 
     ['m5f90'] = {
         ['name'] = 'm5f90', 
