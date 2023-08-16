@@ -66,6 +66,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
         PlayerData.source = source
         PlayerData.license = PlayerData.license or QBCore.Functions.GetIdentifier(source, 'license')
         PlayerData.name = GetPlayerName(source)
+
         Offline = false
     end
 
@@ -117,6 +118,12 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.metadata['fingerprint'] = PlayerData.metadata['fingerprint'] or QBCore.Player.CreateFingerId()
     PlayerData.metadata['walletid'] = PlayerData.metadata['walletid'] or QBCore.Player.CreateWalletId()
     PlayerData.metadata['delivery'] = PlayerData.metadata['delivery'] or 0
+    PlayerData.metadata['carboostclass'] = PlayerData.metadata['carboostclass'] or 'D'
+    PlayerData.metadata['carboostrep'] = PlayerData.metadata['carboostrep'] or 0
+    PlayerData.metadata['laptopdata'] = PlayerData.metadata['laptopdata'] or {
+        wallpaper = 'default',
+        apps = {}
+    }
     PlayerData.metadata['crypto'] = PlayerData.metadata['crypto'] or {
         ["shung"] = 0,
         ["gne"] = 0,

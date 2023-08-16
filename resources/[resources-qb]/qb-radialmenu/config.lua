@@ -72,6 +72,14 @@ Config.MenuItems = {
                         type = 'client',
                         event = 'police:client:RobPlayer',
                         shouldClose = true
+                    }, 
+                    {
+                        id = 'checkvin',
+                        title = 'Check VIN',
+                        icon = 'search',
+                        type = 'client',
+                        event = 'jl-carboost:client:checkvin',
+                        shouldClose = true
                     }, {
                         id = 'escort',
                         title = 'Kidnap',
