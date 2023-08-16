@@ -7,7 +7,7 @@ Config.DoorList['LSIA-main roof'] = {
         {objName = 228129219, objYaw = 149.99998474121, objCoords = vec3(-1105.169800, -2814.542969, 45.079865)}
     },
     doorLabel = 'main roof',
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
     doorRate = 1.0,
@@ -21,7 +21,7 @@ Config.DoorList['LSIA-main'] = {
         {objName = -1959463130, objYaw = 330.0, objCoords = vec3(-1148.726807, -2809.062012, 34.807800)}
     },
     doorLabel = 'main',
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
     doorRate = 1.0,
@@ -35,7 +35,7 @@ Config.DoorList['LSIA-back main'] = {
         {objName = 1683288312, objYaw = 330.0, objCoords = vec3(-1589.998535, -3229.409668, 26.585619)}
     },
     doorLabel = 'back main',
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
     doorRate = 1.0,
@@ -49,7 +49,7 @@ Config.DoorList['LSIA-main 2'] = {
         {objName = -368889192, objYaw = 330.0, objCoords = vec3(-1046.137207, -2868.317383, 34.807800)}
     },
     doorLabel = 'main 2',
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
     doorRate = 1.0,
@@ -63,7 +63,7 @@ Config.DoorList['LSIA-main roof 2'] = {
         {objName = -278381330, objYaw = 149.99998474121, objCoords = vec3(-1037.490601, -2853.638916, 45.079987)}
     },
     doorLabel = 'main roof 2',
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
     doorRate = 1.0,
@@ -77,7 +77,7 @@ Config.DoorList['LSIA-hanger back'] = {
     doorRate = 1.0,
     fixText = false,
     distance = 2,
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     doorLabel = 'hanger back',
     doorType = 'door',
@@ -91,7 +91,7 @@ Config.DoorList['LSIA-hanger front'] = {
     doorRate = 1.0,
     fixText = false,
     distance = 2,
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     doorLabel = 'hanger front',
     doorType = 'door',

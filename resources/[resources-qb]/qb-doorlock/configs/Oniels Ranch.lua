@@ -11,7 +11,7 @@ Config.DoorList['Oniels Ranch-front'] = {
     doorLabel = 'front',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
-    locked = false,
+    locked = true,
 }
 
 -- back created by Rinehart
@@ -25,7 +25,7 @@ Config.DoorList['Oniels Ranch-back'] = {
     doorLabel = 'back',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
-    locked = false,
+    locked = true,
 }
 
 -- back 2 created by Rinehart
@@ -39,14 +39,14 @@ Config.DoorList['Oniels Ranch-back 2'] = {
     doorLabel = 'back 2',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
-    locked = false,
+    locked = true,
 }
 
 -- balcony 1 created by Rinehart
 Config.DoorList['Oniels Ranch-balcony 1'] = {
     distance = 2,
     doorType = 'double',
-    locked = false,
+    locked = true,
     doorLabel = 'balcony 1',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
@@ -60,7 +60,7 @@ Config.DoorList['Oniels Ranch-balcony 1'] = {
 Config.DoorList['Oniels Ranch-balcony 2'] = {
     distance = 2,
     doorType = 'double',
-    locked = false,
+    locked = true,
     doorLabel = 'balcony 2',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
@@ -74,7 +74,7 @@ Config.DoorList['Oniels Ranch-balcony 2'] = {
 Config.DoorList['Oniels Ranch-balcony 3'] = {
     distance = 2,
     doorType = 'double',
-    locked = false,
+    locked = true,
     doorLabel = 'balcony 3',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
@@ -88,7 +88,7 @@ Config.DoorList['Oniels Ranch-balcony 3'] = {
 Config.DoorList['Oniels Ranch-balcony 4'] = {
     distance = 2,
     doorType = 'double',
-    locked = false,
+    locked = true,
     doorLabel = 'balcony 4',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,

@@ -218,7 +218,14 @@ Config.Blips = { -- https://wiki.rage.mp/index.php?title=Blips
     },
     [6] = {
         label = "Hookies", -- Blip name
-        coords = vector3(vector3(-2184.93, 4293.24, 49.18)), -- Blip location
+        coords = vector3(-2184.93, 4293.24, 49.18), -- Blip location
+        blip = 96, -- Blip icon
+        blipScale = 0.8, -- Blip scale
+        color = 18 -- Blip color
+    },
+    [6] = {
+        label = "Bay View", -- Blip name
+        coords = vector3(-691.77, 5799.53, 17.33), -- Blip location
         blip = 96, -- Blip icon
         blipScale = 0.8, -- Blip scale
         color = 18 -- Blip color
@@ -283,6 +290,14 @@ Config.BusinessManager = {
         label = Lang:t('target.manager_menu'), -- This is the manager_menu under the locales
         icon = "fa-solid fa-laptop", -- This is the favicon Icon I use 6.0 beta so if you need to change it do it here.
         job = {["hookies"] = 2}, -- Which job and grade should have access to change and access menu?
+        type = {Food = true, Drink = true} -- Type of items the business is authorized to sell
+    },
+    ["bayview"] = {
+        coords = vector3(-688.422, 5795.903, 17.631),  -- Coords of the place where buisnesses can create and manage menu items
+        polysize = 1.00, -- How big is the Sphere?
+        label = Lang:t('target.manager_menu'), -- This is the manager_menu under the locales
+        icon = "fa-solid fa-laptop", -- This is the favicon Icon I use 6.0 beta so if you need to change it do it here.
+        job = {["bayviews"] = 2}, -- Which job and grade should have access to change and access menu?
         type = {Food = true, Drink = true} -- Type of items the business is authorized to sell
     }
 }
@@ -405,6 +420,11 @@ Config.Stations = {
         ["Assembly Line"] = { coords = vector3(-2179.432, 4278.861, 49.177), pSize = 0.5, name = "Assembly Line", job = { ["hookies"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
         ["Drinks"] = { coords = vector3(-2182.108, 4288.364, 49.777), pSize = 0.5, name = "Drinks", job = { ["hookies"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
     },
+    ["bayview"] = {
+        ["Stove"] = { coords = vector3(-694.112, 5792.153, 17.331), pSize = 0.60, name = "Grill", job = { ["bayview"] = 0}, icon = "fa-solid fa-circle", emote = "bbq" },
+        ["Assembly Line"] = { coords = vector3(-691.142, 5793.571, 17.531), pSize = 0.5, name = "Assembly Line", job = { ["bayview"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
+        ["Drinks"] = { coords = vector3(-692.342, 5794.472, 17.531), pSize = 0.5, name = "Drinks", job = { ["bayview"] = 0}, icon = "fa-solid fa-circle", emote = "mechanic4" },
+    },
 }
 
 Config.Registers = {
@@ -439,6 +459,9 @@ Config.Registers = {
         [1] = { coords = vector3(-2186.285, 4285.029, 49.677), polysize = 0.25, icon = "fa-solid fa-circle" },
         [2] = { coords = vector3(-2185.284, 4287.131, 49.677), polysize = 0.25, icon = "fa-solid fa-circle" },
         [3] = { coords = vector3(-2184.384, 4289.133, 49.677), polysize = 0.25, icon = "fa-solid fa-circle" },
+    },
+    bayview = {
+        [1] = { coords = vector3(-687.716, 5799.709, 17.631), polysize = 0.25, icon = "fa-solid fa-circle" },
     }
 }
 
@@ -456,6 +479,8 @@ Config.CuttingBoardCoords = {
     [5]  = { coords = vector3(15.735, -1597.48, 29.378), job = "taco", polysize = 0.45, icon = "fa-solid fa-circle" },
     -- hookies
     [6]  = { coords = vector3(-2177.391, 4278.807, 49.177), job = "hookies", polysize = 0.45, icon = "fa-solid fa-circle" },
+    -- bayview
+    [7]  = { coords = vector3(-694.808, 5790.74, 17.401), job = "hookies", polysize = 0.45, icon = "fa-solid fa-circle" },
 }
 
 Config.HandWash = {
@@ -473,6 +498,8 @@ Config.HandWash = {
     [7] = {coords = vector3(18.476, -1605.793, 29.291), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
     -- hookies 
     [5] = {coords = vector3(-2176.791, 4285.113, 49.177), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" },
+    -- bayview
+    [5] = {coords = vector3(-693.588, 5793.293, 17.401), polysize = 0.5, icon = "fa-solid fa-hands-bubbles" }, 
 }
 
 Config.BusinessZone = {

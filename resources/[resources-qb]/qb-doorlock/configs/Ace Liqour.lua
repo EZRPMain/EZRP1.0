@@ -4,7 +4,7 @@
 Config.DoorList['Ace Liqour-Front'] = {
     distance = 2,
     doorType = 'double',
-    locked = false,
+    locked = true,
     doorLabel = 'front',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
@@ -25,7 +25,7 @@ Config.DoorList['Ace Liqour-counter'] = {
     doorLabel = 'counter',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
-    locked = false,
+    locked = true,
 }
 
 -- back 1 created by Rinehart
@@ -39,7 +39,7 @@ Config.DoorList['Ace Liqour-back 1'] = {
     doorLabel = 'back 1',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
-    locked = false,
+    locked = true,
 }
 
 -- back 2 created by Rinehart
@@ -53,5 +53,5 @@ Config.DoorList['Ace Liqour-back 2'] = {
     doorLabel = 'back 2',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
-    locked = false,
+    locked = true,
 }

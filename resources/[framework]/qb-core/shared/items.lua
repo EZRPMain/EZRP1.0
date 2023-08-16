@@ -706,8 +706,7 @@ QBShared.Items = {
     ['hacking_device'] 				 = {['name'] = 'hacking_device', 			  	['label'] = 'Hacking laptop', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/hackingdevice.png', 	    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A hacking device to hack things'},
     ['dna_sample'] 				 	 = {['name'] = 'dna_sample', 			  		['label'] = 'Sample Of DNA', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/dnasample.png', 		    ['unique'] = true, 		['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A Sample of someones DNA'},
     ['ai_usb'] 				 	     = {['name'] = 'ai_usb', 			  		    ['label'] = 'AI USB Drive', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/usbdrive.png', 		        ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Usb with uknown contents'},
-    ['fake_plate']             = {['name'] = 'fake_plate',                          ['label'] = 'Fake Plates',              ['weight'] = 10,        ['type'] = 'item',      ['image'] = 'images/fake_plate.png',            ['unique'] = true,      ['useable'] = true,     ['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'READ IT EEEDOOT'},
-
+    ['fake_plate']					 = {['name'] = 'fake_plate',					['label'] = "Plate Number",				['weight'] = 500,		['type'] = 'item',		['image'] = 'fake_plate.png',			['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "A fake plate?"},
 
     -- Books
 

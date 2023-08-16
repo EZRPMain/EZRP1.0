@@ -4,7 +4,7 @@
 Config.DoorList['Ecstacy Island-Bedroom'] = {
     objYaw = 0.0,
     doorLabel = 'Bedroom',
-    locked = false,
+    locked = true,
     distance = 2,
     doorType = 'door',
     doorRate = 1.0,
@@ -18,7 +18,7 @@ Config.DoorList['Ecstacy Island-Bedroom'] = {
 Config.DoorList['Ecstacy Island-Front'] = {
     doorRate = 1.0,
     authorizedGangs = { ['cartel'] = 0 },
-    locked = false,
+    locked = true,
     doors = {
         {objName = -415922858, objYaw = 90.11026763916, objCoords = vec3(-5862.479980, 1152.380005, 8.450000)},
         {objName = 116180164, objYaw = 89.955116271973, objCoords = vec3(-5862.479980, 1150.229980, 8.450000)}

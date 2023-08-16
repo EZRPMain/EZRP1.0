@@ -7,7 +7,7 @@ Config.DoorList['Power Plant-Front'] = {
     doorRate = 1.0,
     fixText = false,
     distance = 2,
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     doorLabel = 'Front',
     doorType = 'door',

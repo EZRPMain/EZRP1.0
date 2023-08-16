@@ -7,7 +7,7 @@ Config.DoorList['FZAFB-Tower front'] = {
         {objName = 1248599813, objYaw = 59.999992370605, objCoords = vec3(-2342.230957, 3267.623535, 32.959984)}
     },
     doorLabel = 'tower front',
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
     doorRate = 1.0,

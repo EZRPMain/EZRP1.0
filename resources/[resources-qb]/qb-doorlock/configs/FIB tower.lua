@@ -4,7 +4,7 @@
 Config.DoorList['FIB tower-Door one top'] = {
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
-    locked = false,
+    locked = true,
     doorType = 'double',
     doors = {
         {objName = -2051651622, objYaw = 159.99993896484, objCoords = vec3(116.698227, -735.320496, 258.302277)},
@@ -18,7 +18,7 @@ Config.DoorList['FIB tower-Door one top'] = {
 Config.DoorList['FIB tower-front door 1'] = {
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
-    locked = false,
+    locked = true,
     doorType = 'double',
     doors = {
         {objName = -90456267, objYaw = 84.050018310547, objCoords = vec3(105.760674, -746.645996, 46.182655)},
