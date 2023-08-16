@@ -10,6 +10,20 @@ Config.DoorList['GSF-Franklins garage'] = {
     objYaw = 0.0,
     fixText = false,
     doorRate = 1.0,
-    distance = 2,
+    distance = 6,
     doorLabel = 'Franklins Garage',
+}
+
+-- Franklins front created by Rinehart
+Config.DoorList['GSF-Franklins front'] = {
+    authorizedGangs = { ['families'] = 0 },
+    distance = 2,
+    objName = 520341586,
+    doorType = 'door',
+    objYaw = 180.49996948242,
+    objCoords = vec3(-14.868921, -1441.182129, 31.193226),
+    locked = false,
+    doorLabel = 'Franklins front',
+    doorRate = 1.0,
+    fixText = false,
 }

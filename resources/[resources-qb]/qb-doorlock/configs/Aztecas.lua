@@ -166,3 +166,17 @@ Config.DoorList['Aztecas-Bay'] = {
     doorRate = 1.0,
     objYaw = 265.00003051758,
 }
+
+-- Lesters created by Rinehart
+Config.DoorList['Aztecas-Lesters'] = {
+    authorizedGangs = { ['aztecas'] = 0 },
+    objYaw = 25.000045776367,
+    objName = 1145337974,
+    doorRate = 1.0,
+    fixText = false,
+    locked = false,
+    doorType = 'door',
+    distance = 2,
+    doorLabel = 'Lesters',
+    objCoords = vec3(1273.815552, -1720.696899, 54.921429),
+}

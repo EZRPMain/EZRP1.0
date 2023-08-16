@@ -197,17 +197,6 @@ QBShared.Jobs = {
             },
         },
 	},
-	['judge'] = {
-		label = 'Honorary',
-		defaultDuty = true,
-		offDutyPay = false,
-		grades = {
-            ['0'] = {
-                name = 'Judge',
-                payment = 100
-            },
-        },
-	},
 	['lawyer'] = {
 		label = 'Law Firm',
 		defaultDuty = true,
@@ -637,7 +626,7 @@ QBShared.Jobs = {
             },
         },
     },
-    ["Pegasus"] = {
+    ["pegasus"] = {
 		label = "Pegasus Inc.",
 		defaultDuty = true,
 		grades = {
@@ -661,7 +650,7 @@ QBShared.Jobs = {
         },
 	},
     ["LSMayor"] = {
-		label = "LSMayor",
+		label = "Los Santos Mayors Office",
 		defaultDuty = true,
 		grades = {
             ['0'] = {

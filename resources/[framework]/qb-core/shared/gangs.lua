@@ -134,8 +134,8 @@ QBShared.Gangs = {
             },
         },
 	},
-    ['Pegasus'] = {
-		label = 'Pegasus',
+    ['pegasus'] = {
+		label = 'pegasus',
 		grades = {
             ['0'] = {
                 name = 'Recruit'
