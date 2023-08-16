@@ -297,6 +297,45 @@ Config.Items = {
             slot = 25,
             authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
         },
+        [7] = {
+            name = "pistol_ammo",
+            price = 12,
+            amount = 10,
+          --  info = {
+           --     attachments = {
+            --        {component = "COMPONENT_AT_SCOPE_LARGE", label = "Scope"},
+           --     }
+           -- },
+            type = "item",
+            slot = 7,
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
+        },
+        [8] = {
+            name = "rifle_ammo",
+            price = 12,
+            amount = 10,
+          --  info = {
+           --     attachments = {
+            --        {component = "COMPONENT_AT_SCOPE_LARGE", label = "Scope"},
+           --     }
+           -- },
+            type = "item",
+            slot = 8,
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
+        },
+        [9] = {
+            name = "smg_ammo",
+            price = 12,
+            amount = 10,
+          --  info = {
+           --     attachments = {
+            --        {component = "COMPONENT_AT_SCOPE_LARGE", label = "Scope"},
+           --     }
+           -- },
+            type = "item",
+            slot = 9,
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
+        },
     }
 }
 
