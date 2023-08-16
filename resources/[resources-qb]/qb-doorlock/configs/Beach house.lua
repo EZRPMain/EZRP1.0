@@ -7,7 +7,7 @@ Config.DoorList['Beach house-Front door'] = {
     doorRate = 1.0,
     fixText = false,
     distance = 2,
-    locked = false,
+    locked = true,
     authorizedJobs = { ['realestate'] = 0 },
     doorLabel = 'Front door',
     doorType = 'door',

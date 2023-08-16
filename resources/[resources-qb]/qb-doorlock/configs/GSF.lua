@@ -4,7 +4,7 @@
 Config.DoorList['GSF-Franklins garage'] = {
     doorType = 'garage',
     objName = 703855057,
-    locked = false,
+    locked = true,
     authorizedGangs = { ['families'] = 0 },
     objCoords = vec3(-25.278400, -1431.061279, 30.839554),
     objYaw = 0.0,
@@ -22,7 +22,7 @@ Config.DoorList['GSF-Franklins front'] = {
     doorType = 'door',
     objYaw = 180.49996948242,
     objCoords = vec3(-14.868921, -1441.182129, 31.193226),
-    locked = false,
+    locked = true,
     doorLabel = 'Franklins front',
     doorRate = 1.0,
     fixText = false,

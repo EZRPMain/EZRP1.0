@@ -11,7 +11,7 @@ Config.DoorList['Trevors trailer-Garage'] = {
     doorLabel = 'garage',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
-    locked = false,
+    locked = true,
 }
 
 -- front created by Rinehart
@@ -25,5 +25,5 @@ Config.DoorList['Trevors trailer-front'] = {
     doorLabel = 'front',
     authorizedJobs = { ['realestate'] = 0 },
     doorRate = 1.0,
-    locked = false,
+    locked = true,
 }

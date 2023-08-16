@@ -7,7 +7,7 @@ Config.DoorList['Yellow Jack-front'] = {
     doorRate = 1.0,
     fixText = false,
     distance = 2,
-    locked = false,
+    locked = true,
     authorizedJobs = { ['yellowjack'] = 0 },
     doorLabel = 'front',
     doorType = 'door',

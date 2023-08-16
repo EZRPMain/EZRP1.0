@@ -7,7 +7,7 @@ Config.DoorList['Vespucci-back gate'] = {
         {objName = -1368913668, objYaw = 30.298583984375, objCoords = vec3(-1063.635620, -880.708923, 6.214558)}
     },
     doorLabel = 'back gate',
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     distance = 6,
     doorRate = 1.0,
@@ -21,7 +21,7 @@ Config.DoorList['Vespucci-top back door'] = {
         {objName = -2023754432, objYaw = 129.99998474121, objCoords = vec3(-1094.832153, -858.292419, 15.180880)}
     },
     doorLabel = 'top back door',
-    locked = false,
+    locked = true,
     authorizedJobs = { ['police'] = 0 },
     distance = 2,
     doorRate = 1.0,

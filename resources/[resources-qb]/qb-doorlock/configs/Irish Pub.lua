@@ -2,7 +2,7 @@
 
 -- Garage created by Rinehart
 Config.DoorList['Irish Pub-Garage'] = {
-    locked = false,
+    locked = true,
     objYaw = 330.0,
     doorRate = 1.0,
     doorType = 'garage',
@@ -16,7 +16,7 @@ Config.DoorList['Irish Pub-Garage'] = {
 
 -- kitchen created by Rinehart
 Config.DoorList['Irish Pub-kitchen'] = {
-    locked = false,
+    locked = true,
     objYaw = 240.00001525879,
     doorRate = 1.0,
     doorType = 'door',
@@ -30,7 +30,7 @@ Config.DoorList['Irish Pub-kitchen'] = {
 
 -- front created by Rinehart
 Config.DoorList['Irish Pub-front'] = {
-    locked = false,
+    locked = true,
     objYaw = 14.999977111816,
     doorRate = 1.0,
     doorType = 'door',
