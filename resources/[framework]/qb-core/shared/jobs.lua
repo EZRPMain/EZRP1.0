@@ -649,7 +649,7 @@ QBShared.Jobs = {
             },
         },
 	},
-    ["LSMayor"] = {
+    ["mayor"] = {
 		label = "Los Santos Mayors Office",
 		defaultDuty = true,
 		grades = {
