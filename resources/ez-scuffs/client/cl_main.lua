@@ -9,7 +9,7 @@ RegisterNetEvent("scuff-fix", function()
                 Wait(0)
                 timeout = timeout + 1
                 SetEntityCoords(ped, coords)
-            until timeout > = 1000
+            until timeout >= 1000
             timeout = 0
         end)
         -- SetEntityCoords(ped, coords)
