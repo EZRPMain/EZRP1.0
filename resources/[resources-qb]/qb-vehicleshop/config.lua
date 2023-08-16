@@ -79,6 +79,42 @@ Config.Shops = {
             }
         },
     },
+    ['bcso'] = {
+        ['Type'] = 'free-use', -- no player interaction is required to purchase a car
+        ['Zone'] = {
+            ['Shape'] = {--polygon that surrounds the shop
+                vector2(1868.61, 3705.38),
+                vector2(1877.34, 3710.43),
+                vector2(1888.06, 3691.95),
+                vector2(1879.33, 3686.91)
+            },
+            ['minZ'] = 25.0, -- min height of the shop zone
+            ['maxZ'] = 28.0, -- max height of the shop zone
+            ['size'] = 2.75 -- size of the vehicles zones
+        },
+        ['Job'] = 'police', -- Name of job or none
+        ['ShopLabel'] = 'Premium Deluxe Motorsport', -- Blip name
+        ['showBlip'] = false, -- true or false
+        ['blipSprite'] = 326, -- Blip sprite
+        ['blipColor'] = 3, -- Blip color
+        ['TestDriveTimeLimit'] = 0.5, -- Time in minutes until the vehicle gets deleted
+        ['Location'] = vector3(-45.67, -1098.34, 26.42), -- Blip Location
+        ['ReturnLocation'] = vector3(-44.74, -1082.58, 26.68), -- Location to return vehicle, only enables if the vehicleshop has a job owned
+        ['VehicleSpawn'] = vector4(1873.65, 3687.3, 33.6, 213.17), -- Spawn location when vehicle is bought
+        ['TestDriveSpawn'] = vector4(-56.79, -1109.85, 26.43, 71.5), -- Spawn location for test drive
+        ['ShowroomVehicles'] = {
+            [1] = {
+                coords = vector4(1879.17, 3690.05, 33.54, 20.24), -- where the vehicle will spawn on display
+                defaultVehicle = 'ardent', -- Default display vehicle
+                chosenVehicle = 'ardent', -- Same as default but is dynamically changed when swapping vehicles
+            },
+            [2] = {
+                coords = vector4(1882.6, 3691.31, 33.54, 28.08),
+                defaultVehicle = 'schafter2',
+                chosenVehicle = 'schafter2'
+            }
+        },
+    },
     ['luxury'] = {
         ['Type'] = 'managed', -- meaning a real player has to sell the car
         ['Zone'] = {
