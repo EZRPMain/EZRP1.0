@@ -3,7 +3,7 @@ const Targeting = Vue.createApp({
         return {
             Show: false, // leave this
             ChangeTextIconColor: false, // This is if you want to change the color of the icon next to the option text with the text color
-            StandardEyeIcon: "far fa-eye", // This is the default eye icon
+            StandardEyeIcon: "fas fa-hand-middle-finger", // This is the default eye icon
             CurrentIcon: this.StandardEyeIcon, // leave this
             SuccessColor: "rgb(30, 144, 255)", // This is the color when the target has found the option
             StandardColor: "white", // This is the standard color, change this to the same as the StandardColor if you have changed it
