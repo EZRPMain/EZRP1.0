@@ -700,17 +700,19 @@ QBShared.Items = {
 	['towingrope'] 				 	 = {['name'] = 'towingrope', 			  		['label'] = 'Towing Rope', 				['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/expert_towingrope.png', 	['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Towing Rope'},
 	['atmobject'] 				 	 = {['name'] = 'atmobject', 			  		['label'] = 'ATM', 						['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/expert_atmobj.png', 		['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'ATM'},
 
-    -- Humane Labs Heist n Boosting
+    -- Heists n Boosting
     ['blowtorch'] 				 	 = {['name'] = 'blowtorch', 			  		['label'] = 'A Large Blow Torch', 		['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/blowtorch.png', 		    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A BlowTorch'},
     ['diving_tank'] 				 = {['name'] = 'Diving Tank', 			  		['label'] = 'A Heavy Diving Tank', 		['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/divingtank.png', 		    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Heavy Diving Tank Use For Swimming'},
     ['hacking_device'] 				 = {['name'] = 'hacking_device', 			  	['label'] = 'Hacking laptop', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/hackingdevice.png', 	    ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A hacking device to hack things'},
     ['dna_sample'] 				 	 = {['name'] = 'dna_sample', 			  		['label'] = 'Sample Of DNA', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/dnasample.png', 		    ['unique'] = true, 		['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A Sample of someones DNA'},
-    ['ai_usb'] 				 	     = {['name'] = 'ai_usb', 			  		    ['label'] = 'AI USB Drive', 		     ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/usbdrive.png', 		        ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Usb with uknown contents'},
+    ['ai_usb'] 				 	     = {['name'] = 'ai_usb', 			  		    ['label'] = 'AI USB Drive', 		    ['weight'] = 200, 		['type'] = 'item', 		['image'] = 'images/usbdrive.png', 		        ['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Usb with uknown contents'},
+    ['fake_plate']             = {['name'] = 'fake_plate',                          ['label'] = 'Fake Plates',              ['weight'] = 10,        ['type'] = 'item',      ['image'] = 'images/fake_plate.png',            ['unique'] = true,      ['useable'] = true,     ['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'READ IT EEEDOOT'},
+
 
     -- Books
 
-    ['pacific_blueprint']             = {['name'] = 'pacific_blueprint',                    ['label'] = 'Book 2',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'book.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 2'},
-    ['tourism_guide']                 = {['name'] = 'tourism_guide',                        ['label'] = 'Book 1',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'book1.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 1'},
+    ['pacific_blueprint']             = {['name'] = 'pacific_blueprint',                    ['label'] = 'Book 2',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'images/book.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 2'},
+    ['tourism_guide']                 = {['name'] = 'tourism_guide',                        ['label'] = 'Book 1',         ['weight'] = 10,         ['type'] = 'item',         ['image'] = 'images/book1.png',         ['unique'] = true,             ['useable'] = true,     ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'A book 1'},
 }
 
 exports("GetSharedItems", function()
