@@ -15718,7 +15718,7 @@
         <Item type="NULL" />
       </SubHandlingData>
     </Item>
-    <Item type="CHandlingData">
+    <!-- <Item type="CHandlingData">
       <handlingName>STALION2</handlingName>
       <fMass value="1650.000000" />
       <fInitialDragCoeff value="9.100000" />
@@ -15778,7 +15778,7 @@
         <Item type="NULL" />
         <Item type="NULL" />
       </SubHandlingData>
-    </Item>
+    </Item> -->
 	<Item type="CHandlingData">
       <handlingName>INSURGENT</handlingName>
       <fMass value="8600.000000" />
