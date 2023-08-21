@@ -16,7 +16,7 @@ CreateThread(function()
     while true do
         Wait(100)
         ped = PlayerPedId()
-        if IsPedSwimmingUnderWater(ped) then
+        if IsPedSwimmingUnderWater(ped) or IsPedInAnyHeli(ped) or IsPedInAnyPlane(ped) then
             if not inWater then
                 EnableSubmix()
                 inWater = true
@@ -29,3 +29,6 @@ CreateThread(function()
         end
     end
 end)
+
+-- CreateThread(function()
+-- )
