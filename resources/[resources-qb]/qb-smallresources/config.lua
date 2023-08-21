@@ -172,13 +172,9 @@ Config.BlacklistedScenarios = {
 }
 
 Config.BlacklistedVehs = {
-    [`JET`] = true,
-    [`LAZER`] = true,
     [`BUZZARD`] = true,
-    [`BUZZARD2`] = true,
     [`ANNIHILATOR`] = true,
     [`SAVAGE`] = true,
-    [`RHINO`] = true,
     [`HYDRA`] = true,
     [`OPPRESSOR`] = true,
     [`technical3`] = true,
@@ -193,7 +189,7 @@ Config.BlacklistedVehs = {
     [`menacer`] = true,
     [`oppressor2`] = true,
     [`scramjet`] = true,
-    [`strikeforce`] = true,
+    [`strikeforce`] = false,
     [`cerberus`] = true,
     [`cerberus2`] = true,
     [`cerberus3`] = true,
@@ -201,7 +197,6 @@ Config.BlacklistedVehs = {
     [`scarab2`] = true,
     [`scarab3`] = true,
     [`deluxo`] = true,
-    [`cargoplane2`] = true,
 }
 
 Config.BlacklistedWeapons = {

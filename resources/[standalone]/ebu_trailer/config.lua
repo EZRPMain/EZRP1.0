@@ -620,4 +620,42 @@ Config.Trailers = {
         length = 12.0,
         loffset = -1.0
     },
+    {
+        model = 'titan',
+        
+        hasRamp = false,
+        unloadPos = {vector3(0.0, -6.0, -0.3)},
+        rampPos = {vector3(-1.8, -5.5, -0.6), vector3(1.8, -5.5, -0.6)},
+        isRampExtra = false,
+        rampDoorNum = 5,
+        doorwithRamp = false,
+        rampextraNum = -1,
+        doorwithRampNums = {},
+        closeTrunk = false,
+        hasDoors = false,
+        
+        
+        width = 2.8,
+        length = 12.0,
+        loffset = -1.0
+    },
+    {
+        model = 'avenger',
+        
+        hasRamp = false,
+        unloadPos = {vector3(0.0, -6.0, -0.3)},
+        rampPos = {vector3(-1.8, -5.5, -0.6), vector3(1.8, -5.5, -0.6)},
+        isRampExtra = false,
+        rampDoorNum = 5,
+        doorwithRamp = false,
+        rampextraNum = -1,
+        doorwithRampNums = {},
+        closeTrunk = false,
+        hasDoors = false,
+        
+        
+        width = 2.8,
+        length = 12.0,
+        loffset = -1.0
+    },
 }
