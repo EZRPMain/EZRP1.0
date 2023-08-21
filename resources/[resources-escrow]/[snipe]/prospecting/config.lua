@@ -22,7 +22,7 @@ Config.DetectorItem = "detector"
 
 Config.Zones = {
     [1] = {coords = vector3(1429.933, 1222.926, 110.88), data = "loc1", zoneSize = 100, zoneLocations = 200},
-    [2] = {coords = vector3(1615.378, 2095.902, 85.007), data = "loc2", zoneSize = 100, zoneLocations = 100},
+    [2] = {coords = vector3(2871.82, 4636.94, 48.7), data = "loc2", zoneSize = 97, zoneLocations = 100},
 }
 
 Config.DefaultItems = {

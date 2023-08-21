@@ -99,6 +99,15 @@ Config.Elevators = {
 			},
 		},
 	},
+
+	islandbunker = {	
+		{
+			coords = vector3(4058.02, -2202.63, 9.948), heading = 149.62, level = "N/a", label = "Pry the hatch open and climb up",   
+		},
+		{
+			coords = vector3(896.394, -3245.823, -97.544), heading = 146.72, level = "N/a", label = "Pry the hatch open and climb down",
+		},
+	},
 	
 	VPDMainElevator = {	
 		{
