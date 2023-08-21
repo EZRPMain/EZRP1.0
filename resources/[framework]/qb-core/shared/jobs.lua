@@ -515,7 +515,7 @@ QBShared.Jobs = {
         },
     },
     ['tequilala'] = {
-        label = 'tequilala',
+        label = 'Tequilala',
         defaultDuty = false,
         grades = {
             ['0'] = {
@@ -543,7 +543,7 @@ QBShared.Jobs = {
         },
     },
     ['popsdiner'] = {
-        label = 'popsdiner',
+        label = 'Pops Diner',
         defaultDuty = false,
         grades = {
             ['0'] = {
@@ -571,7 +571,7 @@ QBShared.Jobs = {
         },
     },
     ['yellowjack'] = {
-        label = 'yellowjack',
+        label = 'Yellow Jack',
         defaultDuty = false,
         grades = {
             ['0'] = {
@@ -599,7 +599,7 @@ QBShared.Jobs = {
         },
     },
     ['taco'] = {
-        label = 'taco',
+        label = 'Taco Farmer',
         defaultDuty = false,
         grades = {
             ['0'] = {
