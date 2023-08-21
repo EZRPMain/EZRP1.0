@@ -9,7 +9,7 @@ Config.DoorList['LSC LSIA-Garage'] = {
     objName = -550347177,
     authorizedJobs = { ['mechanic'] = 0 },
     fixText = false,
-    locked = false,
+    locked = true,
     distance = 7,
     objYaw = 135.00006103516,
 }

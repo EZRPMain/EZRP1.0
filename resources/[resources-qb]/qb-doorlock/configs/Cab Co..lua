@@ -65,7 +65,7 @@ Config.DoorList['Cab Co.-Froont right'] = {
     distance = 2,
     doorType = 'double',
     doorLabel = 'Front right',
-    locked = false,
+    locked = true,
     doorRate = 1.0,
     authorizedJobs = { ['taxi'] = 0 },
 }

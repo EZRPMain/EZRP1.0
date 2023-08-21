@@ -9,7 +9,7 @@ Config.DoorList['Tuner Shop-Bay 1'] = {
     objName = -456733639,
     authorizedJobs = { ['tunershop'] = 0 },
     fixText = false,
-    locked = false,
+    locked = true,
     distance = 5,
     objYaw = 89.999961853027,
 }
@@ -23,7 +23,7 @@ Config.DoorList['Tuner Shop-Bay 2'] = {
     objName = -456733639,
     authorizedJobs = { ['tunershop'] = 0 },
     fixText = false,
-    locked = false,
+    locked = true,
     distance = 5,
     objYaw = 89.999961853027,
 }
@@ -37,7 +37,7 @@ Config.DoorList['Tuner Shop-side'] = {
     objName = -2023754432,
     authorizedJobs = { ['tunershop'] = 0 },
     fixText = false,
-    locked = false,
+    locked = true,
     distance = 2,
     objYaw = 270.00003051758,
 }
@@ -51,7 +51,7 @@ Config.DoorList['Tuner Shop-Boss'] = {
     objName = -1229046235,
     authorizedJobs = { ['tunershop'] = 0 },
     fixText = false,
-    locked = false,
+    locked = true,
     distance = 2,
     objYaw = 89.999977111816,
 }
