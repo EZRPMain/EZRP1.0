@@ -211,7 +211,7 @@ Config.DoorList = {
 	{
 		textCoords = vec3(434.81, -981.93, 30.89),
 		authorizedJobs = { 'police' },
-		locked = false,
+		locked = true,
 		pickable = false,
 		distance = 2.5,
 		doors = {
@@ -397,7 +397,7 @@ Config.DoorList = {
 	{
 		textCoords = vec3(455.86, -981.31, 26.86),
 		authorizedJobs = { 'police' },
-		locked = false,
+		locked = true,
 		pickable = false,
 		distance = 2.5,
 		doors = {
@@ -859,7 +859,7 @@ Config.DoorList = {
 		objCoords  = vec3(1845.198, 2585.24, 46.09929),
 		textCoords = vec3(1845.198, 2585.24, 46.09929),
 		authorizedJobs = { 'police' },
-		locked = false,
+		locked = true,
 		pickable = false,
 		distance = 1.5
 	},
