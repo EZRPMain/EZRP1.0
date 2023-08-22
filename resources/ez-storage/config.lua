@@ -7,7 +7,7 @@ end
 
 Shared.Storages = {
     ["Garage1"] = {
-        coords = vector3(-1706.692, -733.426, 10.841)
+        coords = vector3(-1706.692, -733.426, 10.841),
         length = 7.4, 
         width = 8.2, 
         data = {
