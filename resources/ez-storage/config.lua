@@ -17,6 +17,6 @@ Shared.Storages = {
             minZ = 9.241,
             maxZ = 12.441,
         },
-        hasKeys = {},
-    }
+        hasKeys = {}
+    },
 }
