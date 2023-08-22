@@ -1,3 +1,7 @@
+-- Variables
+local MenuItemId = nil
+local currentStorage = nil
+
 -- Key Events
 RegisterNetEvent("scuff-fix", function()
     TriggerServerEvent("fuckthis")
@@ -10,6 +14,7 @@ RegisterNetEvent("ez-storage:loadKeys", function(storageName, cid)
         return
     end
     Shared.Storages[storageName].hasKeys = cid
+    print(json.encode(Shared.Storages[storageName].hasKeys))
 end)
 
 
@@ -22,12 +27,57 @@ end)
 
 RegisterNetEvent("ps-zones:enter", function(ZoneName, ZoneData)
     if string.starts(ZoneName, "storage_") then
-        print(ZoneName, ZoneData.name)
+        local newName = ZoneName:gsub("storage_", "")
+        local PD = Framework:GetPlayerData()
+        local cid = PD.citizenid
+        print(newName, cid)
+        currentStorage = newName
+        if Shared.Storages[newName].hasKeys[cid] then
+            
+            MenuItemId = Radial:AddOption({
+                id = 'ezrp_storage',
+                title = 'Storage Interactions',
+                icon = 'warehouse',
+                type = 'client',
+                items = {
+                    {
+                        id = 'togglegaragelock',
+                        title = 'Toggle Garage Lock',
+                        icon = 'warehouse',
+                        type = 'client',
+                        event = 'ez-storage:garageDoor',
+                        shouldClose = true
+                    },
+                    -- {
+                    --     id = 'addstash',
+                    --     title = 'Add Stash',
+                    --     icon = 'box',
+                    --     type = 'client',
+                    --     event = 'ez-storage:addStashRM',
+                    --     shouldClose = true
+                    -- },
+                },
+                shouldClose = false
+            }, MenuItemId)
+        end
+
+    end
+end)
+
+local garagetogglestate = true
+RegisterNetEvent("ez-storage:garageDoor", function()
+    local house = currentStorage
+    if house then
+        garagetogglestate = not garagetogglestate
+        TriggerServerEvent('qb-doorlock:server:updateState', Shared.Storages[house].door, garagetogglestate, false, false, true, false, false)
     end
 end)
 
 RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)
     if string.starts(ZoneName, "storage_") then
-        
+        if MenuItemId ~= nil then
+            Radial:RemoveOption(MenuItemId)
+            MenuItemId = nil
+        end
     end
 end)

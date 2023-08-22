@@ -5,6 +5,7 @@ function string.starts(String,Start)
     return string.sub(String,1,string.len(Start))==Start 
 end
 
+Shared = Shared or {}
 Shared.Storages = {
     ["Garage1"] = {
         coords = vector3(-1706.692, -733.426, 10.841),
@@ -17,6 +18,8 @@ Shared.Storages = {
             minZ = 9.241,
             maxZ = 12.441,
         },
+        door = "BeachStorage-Garage 1",
+        owner = nil,
         hasKeys = {}
     },
 }
