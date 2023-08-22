@@ -22,25 +22,98 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Recruit',
-                payment = 50
-            },
-			['1'] = {
-                name = 'Officer',
-                payment = 75
-            },
-			['2'] = {
-                name = 'Sergeant',
+                name = 'Cadets',
                 payment = 100
             },
+			['1'] = {
+                name = 'Officers',
+                payment = 175
+            },
+			['2'] = {
+                name = 'Supervisiors',
+                payment = 1000
+            },
 			['3'] = {
-                name = 'Lieutenant',
-                payment = 125
+                name = 'Comamand',
+                payment = 1025
             },
 			['4'] = {
+                name = 'High-Command',
+				isboss = true,
+                payment = 1500
+            },
+            ['5'] = {
                 name = 'Chief',
 				isboss = true,
-                payment = 150
+                payment = 2500
+            },
+        },
+	},
+    ['state'] = {
+		label = 'San Andreas State Troopers',
+        type = "leo",
+		defaultDuty = true,
+		offDutyPay = false,
+		grades = {
+            ['0'] = {
+                name = 'Cadets',
+                payment = 100
+            },
+			['1'] = {
+                name = 'Troopers',
+                payment = 175
+            },
+			['2'] = {
+                name = 'Supervisiors',
+                payment = 1000
+            },
+			['3'] = {
+                name = 'Command',
+                payment = 1025
+            },
+			['4'] = {
+                name = 'High-Command',
+				isboss = true,
+                payment = 1500
+            },
+            ['5'] = {
+                name = 'Colonel',
+				isboss = true,
+                payment = 2500
+            },
+        },
+	},
+    ['bcso'] = {
+		label = 'Blane County Sheriffs Office',
+        type = "leo",
+		defaultDuty = true,
+		offDutyPay = false,
+		grades = {
+            ['0'] = {
+                name = 'Cadets',
+                payment = 100
+            },
+			['1'] = {
+                name = 'Deputy',
+                payment = 175
+            },
+			['2'] = {
+                name = 'Supervisiors',
+                payment = 1000
+            },
+			['3'] = {
+                name = 'Command',
+                payment = 1025
+            },
+			['4'] = {
+                name = 'High-Command',
+				isboss = true,
+                payment = 1500
+            },
+            ['5'] = {
+                name = 'Sherrif',
+				isboss = true,
+                payment = 2500
             },
         },
 	},

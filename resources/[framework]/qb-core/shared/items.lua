@@ -795,7 +795,11 @@ QBShared.Items = {
     ["trashbin"] 			         = {["name"] = "trashbin", 			            ["label"] = "Trash Bin", 			    ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/trashbin.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Trash bin", ['model'] = "prop_cs_bin_01_skinned", ['isFrozen'] = false},
     ["lawnmower"] 			         = {["name"] = "lawnmower", 			        ["label"] = "Lawnmower", 			    ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/lawnmower.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Cuts grass", ['model'] = "prop_lawnmower_01", ['isFrozen'] = false},
     ["toolchest"] 			         = {["name"] = "toolchest", 			        ["label"] = "Tool Chest", 			    ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/toolchest.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A sturdy toolchest", ['model'] = "prop_toolchest_03", ['isFrozen'] = false},
-    ["carjack"] 			         = {["name"] = "carjack", 			            ["label"] = "Car jack", 			    ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/carjack.png", 		        ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A car jack", ['model'] = "prop_carjack", ['isFrozen'] = false},  
+    ["carjack"]     		         = {["name"] = "carjack", 			            ["label"] = "Car jack", 			    ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/carjack.png", 		        ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A car jack", ['model'] = "prop_carjack", ['isFrozen'] = false},  
+
+    ["devitem"]     		             = {["name"] = "devitem", 			                ["label"] = "Dev Item", 			    ["weight"] = 10, 		["type"] = "item", 		["image"] = "images/dev.png", 		            ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = 'An Items For Developers',},  
+    
+    
 }
 
 exports("GetSharedItems", function()
