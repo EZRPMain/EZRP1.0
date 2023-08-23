@@ -8,7 +8,7 @@ Config.SafeModel = "prop_ld_int_safe_01"
 
 Config.SafeSlots = 30 -- Safe Slots amount
 
-Config.SafeWeight = 5000 -- Safe Weight
+Config.SafeWeight = 500 -- Safe Weight
 
 Config.Safes_Crack = true -- True If players can cracking safes, false if no
 

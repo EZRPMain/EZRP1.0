@@ -61,8 +61,8 @@ end)
 RegisterNetEvent("hyon_owned_safes:open_thesafe")
 AddEventHandler("hyon_owned_safes:open_thesafe", function(safeid)
 	-- TriggerEvent("ox_inventory:openInventory", "stash", safeid)
-
-	TriggerServerEvent("inventory:server:OpenInventory", "stash", safeid, {maxweight = 500000, slots = 50})
+                                                                                        
+	TriggerServerEvent("inventory:server:OpenInventory", "stash", safeid, {maxweight = Config.SafeWeight*1000, slots = Config.SafeSlots })
 	TriggerEvent("inventory:client:SetCurrentStash", safeid)
 
 	Wait(2000)

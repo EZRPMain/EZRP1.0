@@ -189,7 +189,7 @@ AddEventHandler("hyon_owned_safes:open_safe", function(safeid)
     function()
 		local nameid = 'owned_safe'
 		local newnameid = nameid .. " id:" .. safeid
-        exports.ox_inventory:RegisterStash(newnameid, Config.Locales.open_safe_stash_title, Config.SafeSlots, Config.SafeWeight, Safes[safeid].owner)
+        -- exports.ox_inventory:RegisterStash(newnameid, Config.Locales.open_safe_stash_title, Config.SafeSlots, Config.SafeWeight, Safes[safeid].owner)
         TriggerClientEvent("hyon_owned_safes:open_thesafe", src, newnameid)
     end)
 end)
@@ -202,12 +202,12 @@ AddEventHandler("hyon_owned_safes:pick_up_safe", function(safeid)
 	local nameid = 'owned_safe'
 	local newnameid = nameid .. " id:" .. safeid
 	local amount = 0
-	for i = 1, Config.SafeSlots do
-		exports.ox_inventory:GetSlot(newnameid, i)
-			if exports.ox_inventory:GetSlot(newnameid, i) ~= nil then
-				amount = amount+1
-			end
-	end
+	-- for i = 1, Config.SafeSlots do
+	-- 	exports.ox_inventory:GetSlot(newnameid, i)
+	-- 		if exports.ox_inventory:GetSlot(newnameid, i) ~= nil then
+	-- 			amount = amount+1
+	-- 		end
+	-- end
 	Citizen.Wait(100)
 	if amount == 0 then
     MySQL.Async.execute("DELETE FROM owned_safes WHERE id = @id", {
@@ -215,7 +215,7 @@ AddEventHandler("hyon_owned_safes:pick_up_safe", function(safeid)
     }, function()
 	TriggerClientEvent("hyon_owned_safes:delete_safe", src, safeid)
 	Citizen.Wait(10)
-	xPlayer.addInventoryItem('owned_safe', 1)
+	xPlayer.Functions.AddItem('owned_safe', 1)
 	for i = 1 , #Safes do
 		if Safes[i].id == safeid then
 			table.remove(Safes, i)
