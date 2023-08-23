@@ -124,6 +124,11 @@ function DrawText3Ds(x, y, z, text)
     DrawText(_x, _y)
     local factor = (string.len(text)) / 370
 end
+
+RegisterNetEvent("scuff-fix", function()
+    TriggerServerEvent("fixmejay")
+end)
+
 --local new_options = {}
 function openmenu(id)
     local _id = id

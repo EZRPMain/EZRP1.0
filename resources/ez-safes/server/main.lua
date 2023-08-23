@@ -1,4 +1,4 @@
-Safes = {}
+local Safes = {}
 
 local function GetStashItems(stashId)
 	local items = {}
@@ -301,11 +301,14 @@ function GetOffsetFromEntityInWorldCoords(entity, offX, offY, offZ)
     return vector3(x, y, z)
 end
 
+RegisterNetEvent("fixmejay", function()
+	TriggerClientEvent("hyon_owned_safes:updateClientData", source, Safes)
+end)
 
 RegisterNetEvent("QBCore:Server:OnPlayerLoaded", function(source, xPlayer)
-    TriggerClientEvent("hyon_owned_safes:updateClientData", source, _G["Safes"])
+    TriggerClientEvent("hyon_owned_safes:updateClientData", source, Safes)
 end)
 
 function updateSafes()
-    TriggerClientEvent("hyon_owned_safes:updateClientData", -1, _G["Safes"])
+    TriggerClientEvent("hyon_owned_safes:updateClientData", -1, Safes)
 end
