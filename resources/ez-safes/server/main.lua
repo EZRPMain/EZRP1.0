@@ -231,7 +231,7 @@ AddEventHandler("hyon_owned_safes:pick_up_safe", function(safeid)
 	local newnameid = nameid .. " id:" .. safeid
 	local amount = 0
 	for i = 1, Config.SafeSlots do
-		local stashItems = GetStashItems("newnameid")
+		local stashItems = GetStashItems(newnameid)
 		print(json.encode(stashItems))
 		-- exports.ox_inventory:GetSlot(newnameid, i)
 			-- if exports.ox_inventory:GetSlot(newnameid, i) ~= nil then
