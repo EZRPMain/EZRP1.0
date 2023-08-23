@@ -1,5 +1,33 @@
 Safes = {}
 
+local function GetStashItems(stashId)
+	local items = {}
+	local result = MySQL.scalar.await('SELECT items FROM stashitems WHERE stash = ?', {stashId})
+	if not result then return items end
+
+	local stashItems = json.decode(result)
+	if not stashItems then return items end
+
+	for _, item in pairs(stashItems) do
+		local itemInfo = QBCore.Shared.Items[item.name:lower()]
+		if itemInfo then
+			items[item.slot] = {
+				name = itemInfo["name"],
+				amount = tonumber(item.amount),
+				info = item.info or "",
+				label = itemInfo["label"],
+				description = itemInfo["description"] or "",
+				weight = itemInfo["weight"],
+				type = itemInfo["type"],
+				unique = itemInfo["unique"],
+				useable = itemInfo["useable"],
+				image = itemInfo["image"],
+				slot = item.slot,
+			}
+		end
+	end
+	return items
+end
 
 MySQL.ready(function()
     local database = MySQL.Sync.fetchAll('SELECT * FROM owned_safes')
@@ -202,27 +230,29 @@ AddEventHandler("hyon_owned_safes:pick_up_safe", function(safeid)
 	local nameid = 'owned_safe'
 	local newnameid = nameid .. " id:" .. safeid
 	local amount = 0
-	-- for i = 1, Config.SafeSlots do
-	-- 	exports.ox_inventory:GetSlot(newnameid, i)
-	-- 		if exports.ox_inventory:GetSlot(newnameid, i) ~= nil then
-	-- 			amount = amount+1
-	-- 		end
-	-- end
+	for i = 1, Config.SafeSlots do
+		local stashItems = GetStashItems("newnameid")
+		print(stashItems)
+		-- exports.ox_inventory:GetSlot(newnameid, i)
+			-- if exports.ox_inventory:GetSlot(newnameid, i) ~= nil then
+				-- amount = amount+1
+			-- end
+	end
 	Citizen.Wait(100)
 	if amount == 0 then
-    MySQL.Async.execute("DELETE FROM owned_safes WHERE id = @id", {
-        ["id"] = safeid
-    }, function()
-	TriggerClientEvent("hyon_owned_safes:delete_safe", src, safeid)
-	Citizen.Wait(10)
-	xPlayer.Functions.AddItem('owned_safe', 1)
-	for i = 1 , #Safes do
-		if Safes[i].id == safeid then
-			table.remove(Safes, i)
-		end
-	end
-	updateSafes()
-    end)
+		MySQL.Async.execute("DELETE FROM owned_safes WHERE id = @id", {
+			["id"] = safeid
+		}, function()
+			TriggerClientEvent("hyon_owned_safes:delete_safe", src, safeid)
+			Citizen.Wait(10)
+			xPlayer.Functions.AddItem('owned_safe', 1)
+			for i = 1 , #Safes do
+				if Safes[i].id == safeid then
+					table.remove(Safes, i)
+				end
+			end
+			updateSafes()
+		end)
 	else
 		TriggerClientEvent('QBCore:Notify', src, Config.Locales.noempty, "error")
 	end
