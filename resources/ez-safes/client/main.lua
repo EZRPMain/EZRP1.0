@@ -268,7 +268,7 @@ function openmenu(id)
             end
             local play_er_id = tonumber(input[1])
             --Bugged wait for update
-            --TriggerServerEvent("hyon_owned_safes:add_allow_list", _id, play_er_id)
+            TriggerServerEvent("hyon_owned_safes:add_allow_list", _id, play_er_id)
         end
     }
     table.insert(allow_options, ap1)
