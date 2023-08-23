@@ -797,8 +797,8 @@ QBShared.Items = {
     ["toolchest"] 			         = {["name"] = "toolchest", 			        ["label"] = "Tool Chest", 			    ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/toolchest.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A sturdy toolchest", ['model'] = "prop_toolchest_03", ['isFrozen'] = false},
     ["carjack"]     		         = {["name"] = "carjack", 			            ["label"] = "Car jack", 			    ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/carjack.png", 		        ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A car jack", ['model'] = "prop_carjack", ['isFrozen'] = false},  
 
-    ["devitem"]     		             = {["name"] = "devitem", 			                ["label"] = "Dev Item", 			    ["weight"] = 10, 		["type"] = "item", 		["image"] = "images/dev.png", 		            ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = 'An Items For Developers',},  
-    
+    ["devitem"]     		         = {["name"] = "devitem", 			            ["label"] = "Dev Item", 			["weight"] = 10, 		["type"] = "item", 		["image"] = "images/dev.png", 		            ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = 'An Items For Developers',},  
+    ['owned_safe']                   = {["name"] = "owned_safe",                    ["label"] = "Safe",                 ["weight"] = 100,       ["type"] = "item",      ["image"] = "images/safe.png",                  ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = 'A Safe To Own',},
     
 }
 
