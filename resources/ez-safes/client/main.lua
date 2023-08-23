@@ -274,24 +274,37 @@ function openmenu(id)
     table.insert(allow_options, ap1)
 
     if #Safes[id].access_list > 0 then
-        local players = Framework:GetPlayers()
+        -- local players = Framework:GetPlayers()
+        local PD = Framework:GetPlayerData()
         for i = 1, #Safes[id].access_list do
-            for k, v in ipairs(players) do
-                local target = GetPlayerServerId(v)
-                local players2 = Framework:GetPlayerData(target)
-                --print(json.encode(firstName))
-                if players2.citizenid == Safes[id].access_list[i] then
-                    local alp = {
-                        icon = "fa fa-minus",
-                        title = Config.Locales.remove_player .. " " .. players2.firstName .. " " .. players2.lastName,
-                        disabled = _owner2,
-                        onSelect = function(args)
-                            TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, players2.citizenid)
-                        end
-                    }
-                    table.insert(allow_options, alp)
-                end
+
+            if PD.citizenid == Safes[id].access_list[i] then
+                local alp = {
+                    icon = "fa fa-minus",
+                    title = Config.Locales.remove_player .. " " .. PD.charinfo.firstname .. " " .. PD.charinfo.lastname,
+                    disabled = _owner2,
+                    onSelect = function(args)
+                        TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, players2.citizenid)
+                    end
+                }
+                table.insert(allow_options, alp)
             end
+            -- for k, v in ipairs(players) do
+            --     local target = GetPlayerServerId(v)
+            --     local players2 = Framework:GetPlayerData(target)
+            --     --print(json.encode(firstName))
+            --     if players2.citizenid == Safes[id].access_list[i] then
+            --         local alp = {
+            --             icon = "fa fa-minus",
+            --             title = Config.Locales.remove_player .. " " .. players2.firstName .. " " .. players2.lastName,
+            --             disabled = _owner2,
+            --             onSelect = function(args)
+            --                 TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, players2.citizenid)
+            --             end
+            --         }
+            --         table.insert(allow_options, alp)
+            --     end
+            -- end
         end
     end
     lib.registerContext(
