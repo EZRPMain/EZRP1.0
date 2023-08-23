@@ -9,7 +9,7 @@ local function GetStashItems(stashId)
 	if not stashItems then return items end
 
 	for _, item in pairs(stashItems) do
-		local itemInfo = QBCore.Shared.Items[item.name:lower()]
+		local itemInfo = Framework:GetSharedItem(item.name:lower())
 		if itemInfo then
 			items[item.slot] = {
 				name = itemInfo["name"],
