@@ -229,16 +229,17 @@ AddEventHandler("hyon_owned_safes:pick_up_safe", function(safeid)
     local identifier =  Framework:GetPlayer(src).identifier
 	local nameid = 'owned_safe'
 	local newnameid = nameid .. " id:" .. safeid
-	local amount = 0
-	for i = 1, Config.SafeSlots do
-		local stashItems = GetStashItems(newnameid)
-		print(json.encode(stashItems))
-		print(#stashItems)
+	-- local amount = 0
+	-- for i = 1, Config.SafeSlots do
+	local stashItems = GetStashItems(newnameid)
+	print(json.encode(stashItems))
+	print(#stashItems)
+	local amount = #stashItems
 		-- exports.ox_inventory:GetSlot(newnameid, i)
 			-- if exports.ox_inventory:GetSlot(newnameid, i) ~= nil then
 				-- amount = amount+1
 			-- end
-	end
+	-- end
 	Citizen.Wait(100)
 	if amount == 0 then
 		MySQL.Async.execute("DELETE FROM owned_safes WHERE id = @id", {
