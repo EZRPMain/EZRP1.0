@@ -133,7 +133,7 @@ function openmenu(id)
     local _cracked = false
     local _repair = true
     -- local _count = exports.ox_inventory:Search("count", Config.Items_crack_safe)
-	local hasItem = Framework:HasItem(Config.Items_crack_safe)
+	local hasItem = Inventory:HasItem(Config.Items_crack_safe)
 
     local new_options = {}
     local allow_options = {}
