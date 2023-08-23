@@ -284,7 +284,7 @@ function openmenu(id)
                     title = Config.Locales.remove_player .. " " .. PD.charinfo.firstname .. " " .. PD.charinfo.lastname,
                     disabled = _owner2,
                     onSelect = function(args)
-                        TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, players2.citizenid)
+                        TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, PD.citizenid)
                     end
                 }
                 table.insert(allow_options, alp)
