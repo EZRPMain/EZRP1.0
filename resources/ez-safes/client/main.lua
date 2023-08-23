@@ -1,6 +1,6 @@
 PlayerData = {}
 Citizen.CreateThread(function()
-	while PlayerData.identifier == nil do
+	while PlayerData.citizenid == nil do
 		PlayerData = Framework:GetPlayerData()
 		Citizen.Wait(1)
 	end
@@ -142,14 +142,14 @@ function openmenu(id)
         title = Config.Locales.menu_safe_id .. ": " .. _id
     }
     table.insert(new_options, op)
-    if PlayerData.identifier == Safes[_id].owner or Safes[_id].cracked == "true" then
+    if PlayerData.citizenid == Safes[_id].owner or Safes[_id].cracked == "true" then
         _owner1 = false
     end
-    if PlayerData.identifier == Safes[_id].owner then
+    if PlayerData.citizenid == Safes[_id].owner then
         _owner2 = false
     end
     for i = 1, #Safes[_id].access_list do
-        if Safes[_id].access_list[i] == PlayerData.identifier then
+        if Safes[_id].access_list[i] == PlayerData.citizenid then
             _owner = false
         end
     end
@@ -275,13 +275,13 @@ function openmenu(id)
                 local target = GetPlayerServerId(v)
                 local players2 = Framework:GetPlayerData(target)
                 --print(json.encode(firstName))
-                if players2.identifier == Safes[id].access_list[i] then
+                if players2.citizenid == Safes[id].access_list[i] then
                     local alp = {
                         icon = "fa fa-minus",
                         title = Config.Locales.remove_player .. " " .. players2.firstName .. " " .. players2.lastName,
                         disabled = _owner2,
                         onSelect = function(args)
-                            TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, players2.identifier)
+                            TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, players2.citizenid)
                         end
                     }
                     table.insert(allow_options, alp)
