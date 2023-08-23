@@ -165,12 +165,13 @@ AddEventHandler("hyon_owned_safes:add_allow_list", function(safeid, plid)
 	Citizen.Wait(100)
 	local newlist = Safes[_id].access_list
 	table.insert(newlist, allow_identifier)
-	MySQL.Async.insert('UPDATE owned_safes SET access_list = @access_list WHERE id = @id',
-    {['id'] = _id, ['access_list'] = json.encode(newlist)},
-        function() 
-			Safes[safe_id].access_list = newlist
-            updateSafes()
-		end)
+	MySQL.Async.insert('UPDATE owned_safes SET access_list = @access_list WHERE id = @id', {
+		['id'] = _id,
+		['access_list'] = json.encode(newlist)
+	}, function() 
+		Safes[safe_id].access_list = newlist
+		updateSafes()
+	end)
 end)
 
 RegisterNetEvent("hyon_owned_safes:remove_allow_list")
