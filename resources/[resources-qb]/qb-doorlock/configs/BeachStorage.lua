@@ -74,7 +74,7 @@ Config.DoorList['BeachStorage-Garage 5'] = {
 Config.DoorList['BeachStorage-Garage 6'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1676.203125, -762.477478, 10.619252),
     objName = -691755537,
     objYaw = 320.0,
@@ -88,7 +88,7 @@ Config.DoorList['BeachStorage-Garage 6'] = {
 Config.DoorList['BeachStorage-Garage 7'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1669.622803, -767.995667, 10.619741),
     objName = -691755537,
     objYaw = 320.0,
@@ -102,7 +102,7 @@ Config.DoorList['BeachStorage-Garage 7'] = {
 Config.DoorList['BeachStorage-Garage 8'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1712.675049, -750.462097, 10.618165),
     objName = -691755537,
     objYaw = 139.99998474121,
@@ -116,7 +116,7 @@ Config.DoorList['BeachStorage-Garage 8'] = {
 Config.DoorList['BeachStorage-Garage 9'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1706.099609, -755.986938, 10.620165),
     objName = -691755537,
     objYaw = 139.99998474121,
@@ -130,7 +130,7 @@ Config.DoorList['BeachStorage-Garage 9'] = {
 Config.DoorList['BeachStorage-Garage 10'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1699.519897, -761.507446, 10.610716),
     objName = -691755537,
     objYaw = 139.99998474121,
@@ -144,7 +144,7 @@ Config.DoorList['BeachStorage-Garage 10'] = {
 Config.DoorList['BeachStorage-Garage 11'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1693.036133, -766.956360, 10.613945),
     objName = -691755537,
     objYaw = 139.99998474121,
@@ -158,7 +158,7 @@ Config.DoorList['BeachStorage-Garage 11'] = {
 Config.DoorList['BeachStorage-Garage 12'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1686.117920, -772.748962, 10.617466),
     objName = -691755537,
     objYaw = 139.99998474121,
@@ -172,7 +172,7 @@ Config.DoorList['BeachStorage-Garage 12'] = {
 Config.DoorList['BeachStorage-Garage 13'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1679.980713, -777.892273, 10.620293),
     objName = -691755537,
     objYaw = 139.99998474121,
@@ -186,7 +186,7 @@ Config.DoorList['BeachStorage-Garage 13'] = {
 Config.DoorList['BeachStorage-Garage 14'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1673.851440, -783.006714, 10.612720),
     objName = -691755537,
     objYaw = 139.99998474121,
@@ -200,7 +200,7 @@ Config.DoorList['BeachStorage-Garage 14'] = {
 Config.DoorList['BeachStorage-Garage 15'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1665.722534, -794.483948, 10.634020),
     objName = -691755537,
     objYaw = 230.0,
@@ -214,7 +214,7 @@ Config.DoorList['BeachStorage-Garage 15'] = {
 Config.DoorList['BeachStorage-Garage 16'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1660.200317, -787.978027, 10.635111),
     objName = -691755537,
     objYaw = 230.0,
@@ -228,7 +228,7 @@ Config.DoorList['BeachStorage-Garage 16'] = {
 Config.DoorList['BeachStorage-Garage 17'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1655.059570, -781.888977, 10.633999),
     objName = -691755537,
     objYaw = 230.0,
@@ -242,7 +242,7 @@ Config.DoorList['BeachStorage-Garage 17'] = {
 Config.DoorList['BeachStorage-Garage 18'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1651.061035, -806.984802, 10.721688),
     objName = -691755537,
     objYaw = 230.0,
@@ -256,7 +256,7 @@ Config.DoorList['BeachStorage-Garage 18'] = {
 Config.DoorList['BeachStorage-Garage 19'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1645.559814, -800.433655, 10.730613),
     objName = -691755537,
     objYaw = 230.0,
@@ -270,7 +270,7 @@ Config.DoorList['BeachStorage-Garage 19'] = {
 Config.DoorList['BeachStorage-Garage 20'] = {
     distance = 3,
     authorizedJobs = { ['police'] = 0 },
-    locked = false,
+    locked = true,
     objCoords = vec3(-1640.441650, -794.328308, 10.733874),
     objName = -691755537,
     objYaw = 230.0,

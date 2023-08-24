@@ -49,6 +49,7 @@ local props = {
 	-- Contraband
 	["markedbills"] = { model = "prop_money_bag_01", hash = joaat("prop_money_bag_01"), tier = 3, x = -0.47, zr = 0 }, -- If you put any x,y,z,xr,yr,zr it will offset it from the slots to make it fit perfectly
 
+
 	-- Custom Weapons Tier 1
 	-- ["weapon_assaultrifle"]  = { model = "w_ar_assaultrifle", hash = joaat("weapon_assaultrifle"), tier = 1 },
 	-- ["weapon_carbinerifle"]  = { model = "w_ar_carbinerifle", hash = joaat("weapon_carbinerifle"), tier = 1 },
