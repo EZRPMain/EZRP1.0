@@ -277,7 +277,7 @@ function openmenu(id)
         -- local players = Framework:GetPlayers()
         local PD = Framework:GetPlayerData()
         for i = 1, #Safes[id].access_list do
-
+            print(Safes[id].access_list[i])
             if PD.citizenid == Safes[id].access_list[i] then
                 local alp = {
                     icon = "fa fa-minus",
