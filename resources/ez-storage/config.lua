@@ -108,7 +108,7 @@ Shared.Storages = {
             minZ = 9.199,
             maxZ = 12.499,
         },
-        door = "BeachStorage-Garage 7",
+        door = "BeachStorage-Garage 8",
         owner = nil,
         hasKeys = {}
     },
@@ -123,7 +123,7 @@ Shared.Storages = {
             minZ = 9.289,
             maxZ = 12.589,
         },
-        door = "BeachStorage-Garage 8",
+        door = "BeachStorage-Garage 9",
         owner = nil,
         hasKeys = {}
     },
@@ -138,7 +138,7 @@ Shared.Storages = {
             minZ = 9.289,
             maxZ = 12.589,
         },
-        door = "BeachStorage-Garage 9",
+        door = "BeachStorage-Garage 10",
         owner = nil,
         hasKeys = {}
     },
@@ -153,7 +153,7 @@ Shared.Storages = {
             minZ = 9.289,
             maxZ = 12.589,
         },
-        door = "BeachStorage-Garage 10",
+        door = "BeachStorage-Garage 11",
         owner = nil,
         hasKeys = {}
     },
@@ -168,7 +168,7 @@ Shared.Storages = {
             minZ = 9.189,
             maxZ = 12.489,
         },
-        door = "BeachStorage-Garage 11",
+        door = "BeachStorage-Garage 12",
         owner = nil,
         hasKeys = {}
     },
@@ -183,7 +183,7 @@ Shared.Storages = {
             minZ = 9.189,
             maxZ = 12.489,
         },
-        door = "BeachStorage-Garage 12",
+        door = "BeachStorage-Garage 13",
         owner = nil,
         hasKeys = {}
     },
@@ -198,7 +198,7 @@ Shared.Storages = {
             minZ = 9.293,
             maxZ = 12.593,
         },
-        door = "BeachStorage-Garage 13",
+        door = "BeachStorage-Garage 14",
         owner = nil,
         hasKeys = {}
     },
@@ -213,7 +213,7 @@ Shared.Storages = {
             minZ = 9.293,
             maxZ = 12.593,
         },
-        door = "BeachStorage-Garage 14",
+        door = "BeachStorage-Garage 15",
         owner = nil,
         hasKeys = {}
     },
@@ -228,7 +228,7 @@ Shared.Storages = {
             minZ = 9.293,
             maxZ = 12.593,
         },
-        door = "BeachStorage-Garage 15",
+        door = "BeachStorage-Garage 16",
         owner = nil,
         hasKeys = {}
     },
@@ -243,7 +243,7 @@ Shared.Storages = {
             minZ = 9.208,
             maxZ = 12.878,
         },
-        door = "BeachStorage-Garage 16",
+        door = "BeachStorage-Garage 17",
         owner = nil,
         hasKeys = {}
     },
@@ -258,7 +258,7 @@ Shared.Storages = {
             minZ = 9.911,
             maxZ = 12.581,
         },
-        door = "BeachStorage-Garage 17",
+        door = "BeachStorage-Garage 18",
         owner = nil,
         hasKeys = {}
     },
@@ -273,7 +273,7 @@ Shared.Storages = {
             minZ = 9.911,
             maxZ = 12.581,
         },
-        door = "BeachStorage-Garage 18",
+        door = "BeachStorage-Garage 19",
         owner = nil,
         hasKeys = {}
     },
@@ -288,7 +288,7 @@ Shared.Storages = {
             minZ = 9.511,
             maxZ = 12.181,
         },
-        door = "BeachStorage-Garage 19",
+        door = "BeachStorage-Garage 20",
         owner = nil,
         hasKeys = {}
     },
