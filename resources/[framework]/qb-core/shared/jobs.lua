@@ -16,7 +16,7 @@ QBShared.Jobs = {
         },
 	},
 	['police'] = {
-		label = 'Law Enforcement',
+		label = 'Los Santos Police Department',
         type = "leo",
 		defaultDuty = true,
 		offDutyPay = false,
