@@ -8,6 +8,12 @@ dependencies {
 	'ox_lib',
 }
 
+ui_page 'html/index.html'
+
+files {
+    'html/*'
+}
+
 shared_script {
 	'@ox_lib/init.lua',
 	'config.lua'

@@ -1,11 +1,3 @@
-PlayerData = {}
-Citizen.CreateThread(function()
-	while PlayerData.citizenid == nil do
-		PlayerData = Framework:GetPlayerData()
-		Citizen.Wait(1)
-	end
-end)
-
 Safes = {}
 local own_safes = {}
 
@@ -130,6 +122,71 @@ RegisterNetEvent("scuff-fix", function()
 end)
 
 --local new_options = {}
+
+RegisterNUICallback('PinpadClose', function(_, cb)
+    SetNuiFocus(false, false)
+    cb('ok')
+end)
+
+RegisterNUICallback('ErrorMessage', function(data, cb)
+    Framework:Notify(data.message, 'error')
+    cb('ok')
+end)
+
+RegisterNUICallback('EnterPincode', function(d, cb)
+    local password = Safes[d.safeId].password
+    if tonumber(d.pin) == password then
+        TriggerServerEvent("hyon_owned_safes:open_safe", d.safeId)
+    else
+        Framework:Notify("Incorrect Code", 'error')
+    end
+    cb('ok')
+end)
+
+RegisterNetEvent("ez-safes:openMenu", function(_id)
+    exports['qb-menu']:openMenu({
+        {
+            header = "Safe",
+            txt = Config.Locales.menu_safe_id .. ": " .. _id,
+            isMenuHeader = true, -- Set to true to make a nonclickable title
+        },
+        {
+            header = "Open Safe",
+            -- txt = "This goes to a sub menu",
+            params = {
+                isAction = true,
+                event = function()
+                    SendNUIMessage({
+                        action = "open"
+                        safeId = _id
+                    })
+                end,
+                args = {
+                    number = 1,
+                }
+            }
+        },
+        -- {
+        --     header = "Sub Menu Button",
+        --     txt = "This goes to a sub menu",
+        --     disabled = true,
+        --     -- hidden = true, -- doesnt create this at all if set to true
+        --     params = {
+        --         isAction = true,
+        --         event = function()
+        --             SendNUIMessage({
+        --                 action = "open"
+        --                 safeId = _id
+        --             })
+        --         end,
+        --         args = {
+        --             number = 1,
+        --         }
+        --     }
+        -- },
+    })
+end)
+
 function openmenu(id)
     local _id = id
     local pPed = PlayerPedId()
@@ -140,187 +197,189 @@ function openmenu(id)
     -- local _count = exports.ox_inventory:Search("count", Config.Items_crack_safe)
 	local hasItem = Inventory:HasItem(Config.Items_crack_safe)
 
-    local new_options = {}
-    local allow_options = {}
-    local op = {
-        icon = "fa fa-info",
-        title = Config.Locales.menu_safe_id .. ": " .. _id
-    }
-    table.insert(new_options, op)
-    if PlayerData.citizenid == Safes[_id].owner or Safes[_id].cracked == "true" then
-        _owner1 = false
-    end
-    if PlayerData.citizenid == Safes[_id].owner then
-        _owner2 = false
-    end
-    for i = 1, #Safes[_id].access_list do
-        if Safes[_id].access_list[i] == PlayerData.citizenid then
-            _owner = false
-        end
-    end
-    if Safes[_id].cracked == "true" then
-        _cracked = true
-        _repair = false
-    end
-    local op1 = {
-        icon = "fa fa-lock-open",
-        title = Config.Locales.menu_open_safe,
-        disabled = _owner1,
-        onSelect = function(args)
-            TriggerServerEvent("hyon_owned_safes:open_safe", _id)
-        end
-    }
-    table.insert(new_options, op1)
-    Citizen.Wait(10)
-    local op2 = {
-        icon = "fa fa-xmark",
-        title = Config.Locales.menu_remove_safe,
-        disabled = _owner2,
-        onSelect = function(args)
-            TriggerServerEvent("hyon_owned_safes:pick_up_safe", _id)
-        end
-    }
-    table.insert(new_options, op2)
+    TriggerEvent("ez-safes:openMenu", _id)
+    
+    -- local new_options = {}
+    -- local allow_options = {}
+    -- local op = {
+    --     icon = "fa fa-info",
+    --     title = Config.Locales.menu_safe_id .. ": " .. _id
+    -- }
+    -- table.insert(new_options, op)
+    -- if PlayerData.citizenid == Safes[_id].owner or Safes[_id].cracked == "true" then
+    --     _owner1 = false
+    -- end
+    -- if PlayerData.citizenid == Safes[_id].owner then
+    --     _owner2 = false
+    -- end
+    -- for i = 1, #Safes[_id].access_list do
+    --     if Safes[_id].access_list[i] == PlayerData.citizenid then
+    --         _owner = false
+    --     end
+    -- end
+    -- if Safes[_id].cracked == "true" then
+    --     _cracked = true
+    --     _repair = false
+    -- end
+    -- local op1 = {
+    --     icon = "fa fa-lock-open",
+    --     title = Config.Locales.menu_open_safe,
+    --     disabled = _owner1,
+    --     onSelect = function(args)
+    --         TriggerServerEvent("hyon_owned_safes:open_safe", _id)
+    --     end
+    -- }
+    -- table.insert(new_options, op1)
+    -- Citizen.Wait(10)
+    -- local op2 = {
+    --     icon = "fa fa-xmark",
+    --     title = Config.Locales.menu_remove_safe,
+    --     disabled = _owner2,
+    --     onSelect = function(args)
+    --         TriggerServerEvent("hyon_owned_safes:pick_up_safe", _id)
+    --     end
+    -- }
+    -- table.insert(new_options, op2)
 
-    Citizen.Wait(10)
-    local op5 = {
-        icon = "fa fa-list",
-        title = Config.Locales._allow_list,
-        menu = "allow_list",
-        disabled = _owner2
-    }
-    table.insert(new_options, op5)
+    -- Citizen.Wait(10)
+    -- local op5 = {
+    --     icon = "fa fa-list",
+    --     title = Config.Locales._allow_list,
+    --     menu = "allow_list",
+    --     disabled = _owner2
+    -- }
+    -- table.insert(new_options, op5)
 
-    if Config.Safes_Crack then
-        local op3 = {
-            icon = "fa fa-xmark",
-            title = Config.Locales.crack_the_safe,
-            disabled = _cracked,
-            onSelect = function(args)
-                lib.hideContext(onExit)
-                Citizen.Wait(1000)
-                -- if _count > 0 then
-				if hasItem then
-                    FreezeEntityPosition(pPed, true)
-                    TaskStartScenarioInPlace(pPed, "WORLD_HUMAN_WELDING", 0, true)
-                    local success = lib.skillCheck({Config.SkillCheck1, Config.SkillCheck2, Config.SkillCheck3})
-                    if success == true then
-                        ClearPedTasksImmediately(pPed)
-                        FreezeEntityPosition(pPed, false)
-                        TriggerEvent("QBCore:Notify", "succes", 3000, Config.Locales.notif_cracked)
-                        if Config.remove_item then
-                            TriggerServerEvent("hyon_owned_safes:remove_wedding_gun", _id)
-                        end
-                        TriggerServerEvent("hyon_owned_safes:cracked_safe", _id)
-                    else
-                        if Config.remove_item then
-                            TriggerServerEvent("hyon_owned_safes:remove_wedding_gun", _id)
-                        end
-                        TriggerEvent("QBCore:Notify", "error", 3000, Config.Locales.failed_crack)
-                        ClearPedTasksImmediately(pPed)
-                        FreezeEntityPosition(pPed, false)
-                    end
-                else
-                    TriggerEvent("QBCore:Notify", "error", 3000, Config.Locales.no_item)
-                end
-            end
-        }
-        table.insert(new_options, op3)
-    end
-    if Config.Safes_Crack then
-        local op4 = {
-            icon = "fa fa-screwdriver-wrench",
-            title = Config.Locales.repair_safe,
-            disabled = _repair,
-            onSelect = function(args)
-                FreezeEntityPosition(pPed, true)
-                LoadAnimDict("anim@gangops@facility@servers@bodysearch@")
-                TaskPlayAnim(
-                    PlayerPedId(),
-                    "anim@gangops@facility@servers@bodysearch@",
-                    "player_search",
-                    8.0,
-                    -8.0,
-                    -1,
-                    48,
-                    0,
-                    false,
-                    false,
-                    false
-                )
-                Citizen.Wait(2000)
-                FreezeEntityPosition(pPed, false)
-                TriggerEvent("QBCore:Notify", "succes", 3000, Config.Locales.notif_cracked)
-                TriggerServerEvent("hyon_owned_safes:repair_safe_", _id)
-            end
-        }
-        table.insert(new_options, op4)
-    end
-    local ap1 = {
-        icon = "fa fa-plus",
-        title = Config.Locales.add_allow_list,
-        disabled = _owner2,
-        onSelect = function(args)
-            local input = lib.inputDialog(Config.Locales.add_allow_list, {Config.Locales.player_id})
+    -- if Config.Safes_Crack then
+    --     local op3 = {
+    --         icon = "fa fa-xmark",
+    --         title = Config.Locales.crack_the_safe,
+    --         disabled = _cracked,
+    --         onSelect = function(args)
+    --             lib.hideContext(onExit)
+    --             Citizen.Wait(1000)
+    --             -- if _count > 0 then
+	-- 			if hasItem then
+    --                 FreezeEntityPosition(pPed, true)
+    --                 TaskStartScenarioInPlace(pPed, "WORLD_HUMAN_WELDING", 0, true)
+    --                 local success = lib.skillCheck({Config.SkillCheck1, Config.SkillCheck2, Config.SkillCheck3})
+    --                 if success == true then
+    --                     ClearPedTasksImmediately(pPed)
+    --                     FreezeEntityPosition(pPed, false)
+    --                     TriggerEvent("QBCore:Notify", "succes", 3000, Config.Locales.notif_cracked)
+    --                     if Config.remove_item then
+    --                         TriggerServerEvent("hyon_owned_safes:remove_wedding_gun", _id)
+    --                     end
+    --                     TriggerServerEvent("hyon_owned_safes:cracked_safe", _id)
+    --                 else
+    --                     if Config.remove_item then
+    --                         TriggerServerEvent("hyon_owned_safes:remove_wedding_gun", _id)
+    --                     end
+    --                     TriggerEvent("QBCore:Notify", "error", 3000, Config.Locales.failed_crack)
+    --                     ClearPedTasksImmediately(pPed)
+    --                     FreezeEntityPosition(pPed, false)
+    --                 end
+    --             else
+    --                 TriggerEvent("QBCore:Notify", "error", 3000, Config.Locales.no_item)
+    --             end
+    --         end
+    --     }
+    --     table.insert(new_options, op3)
+    -- end
+    -- if Config.Safes_Crack then
+    --     local op4 = {
+    --         icon = "fa fa-screwdriver-wrench",
+    --         title = Config.Locales.repair_safe,
+    --         disabled = _repair,
+    --         onSelect = function(args)
+    --             FreezeEntityPosition(pPed, true)
+    --             LoadAnimDict("anim@gangops@facility@servers@bodysearch@")
+    --             TaskPlayAnim(
+    --                 PlayerPedId(),
+    --                 "anim@gangops@facility@servers@bodysearch@",
+    --                 "player_search",
+    --                 8.0,
+    --                 -8.0,
+    --                 -1,
+    --                 48,
+    --                 0,
+    --                 false,
+    --                 false,
+    --                 false
+    --             )
+    --             Citizen.Wait(2000)
+    --             FreezeEntityPosition(pPed, false)
+    --             TriggerEvent("QBCore:Notify", "succes", 3000, Config.Locales.notif_cracked)
+    --             TriggerServerEvent("hyon_owned_safes:repair_safe_", _id)
+    --         end
+    --     }
+    --     table.insert(new_options, op4)
+    -- end
+    -- local ap1 = {
+    --     icon = "fa fa-plus",
+    --     title = Config.Locales.add_allow_list,
+    --     disabled = _owner2,
+    --     onSelect = function(args)
+    --         local input = lib.inputDialog(Config.Locales.add_allow_list, {Config.Locales.player_id})
 
-            if not input then
-                return
-            end
-            local play_er_id = tonumber(input[1])
-            --Bugged wait for update
-            TriggerServerEvent("hyon_owned_safes:add_allow_list", _id, play_er_id)
-        end
-    }
-    table.insert(allow_options, ap1)
+    --         if not input then
+    --             return
+    --         end
+    --         local play_er_id = tonumber(input[1])
+    --         --Bugged wait for update
+    --         TriggerServerEvent("hyon_owned_safes:add_allow_list", _id, play_er_id)
+    --     end
+    -- }
+    -- table.insert(allow_options, ap1)
 
-    if #Safes[id].access_list > 0 then
-        -- local players = Framework:GetPlayers()
-        local PD = Framework:GetPlayerData()
-        for i = 1, #Safes[id].access_list do
-            print(Safes[id].access_list[i])
-            if PD.citizenid == Safes[id].access_list[i] then
-                local alp = {
-                    icon = "fa fa-minus",
-                    title = Config.Locales.remove_player .. " " .. PD.charinfo.firstname .. " " .. PD.charinfo.lastname,
-                    disabled = _owner2,
-                    onSelect = function(args)
-                        TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, PD.citizenid)
-                    end
-                }
-                table.insert(allow_options, alp)
-            end
-            -- for k, v in ipairs(players) do
-            --     local target = GetPlayerServerId(v)
-            --     local players2 = Framework:GetPlayerData(target)
-            --     --print(json.encode(firstName))
-            --     if players2.citizenid == Safes[id].access_list[i] then
-            --         local alp = {
-            --             icon = "fa fa-minus",
-            --             title = Config.Locales.remove_player .. " " .. players2.firstName .. " " .. players2.lastName,
-            --             disabled = _owner2,
-            --             onSelect = function(args)
-            --                 TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, players2.citizenid)
-            --             end
-            --         }
-            --         table.insert(allow_options, alp)
-            --     end
-            -- end
-        end
-    end
-    lib.registerContext(
-        {
-            id = "open_menu",
-            title = Config.Locales.menu_title,
-            onExit = function()
-            end,
-            options = new_options,
-            {
-                id = "allow_list",
-                title = Config.Locales._allow_list,
-                menu = "open_menu",
-                options = allow_options
-            }
-        }
-    )
-    lib.showContext("open_menu")
+    -- if #Safes[id].access_list > 0 then
+    --     -- local players = Framework:GetPlayers()
+    --     local PD = Framework:GetPlayerData()
+    --     for i = 1, #Safes[id].access_list do
+    --         print(Safes[id].access_list[i])
+    --         if PD.citizenid == Safes[id].access_list[i] then
+    --             local alp = {
+    --                 icon = "fa fa-minus",
+    --                 title = Config.Locales.remove_player .. " " .. PD.charinfo.firstname .. " " .. PD.charinfo.lastname,
+    --                 disabled = _owner2,
+    --                 onSelect = function(args)
+    --                     TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, PD.citizenid)
+    --                 end
+    --             }
+    --             table.insert(allow_options, alp)
+    --         end
+    --         -- for k, v in ipairs(players) do
+    --         --     local target = GetPlayerServerId(v)
+    --         --     local players2 = Framework:GetPlayerData(target)
+    --         --     --print(json.encode(firstName))
+    --         --     if players2.citizenid == Safes[id].access_list[i] then
+    --         --         local alp = {
+    --         --             icon = "fa fa-minus",
+    --         --             title = Config.Locales.remove_player .. " " .. players2.firstName .. " " .. players2.lastName,
+    --         --             disabled = _owner2,
+    --         --             onSelect = function(args)
+    --         --                 TriggerServerEvent("hyon_owned_safes:remove_allow_list", _id, players2.citizenid)
+    --         --             end
+    --         --         }
+    --         --         table.insert(allow_options, alp)
+    --         --     end
+    --         -- end
+    --     end
+    -- end
+    -- lib.registerContext(
+    --     {
+    --         id = "open_menu",
+    --         title = Config.Locales.menu_title,
+    --         onExit = function()
+    --         end,
+    --         options = new_options,
+    --         {
+    --             id = "allow_list",
+    --             title = Config.Locales._allow_list,
+    --             menu = "open_menu",
+    --             options = allow_options
+    --         }
+    --     }
+    -- )
+    -- lib.showContext("open_menu")
 end
