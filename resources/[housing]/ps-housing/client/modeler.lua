@@ -327,6 +327,7 @@ Modeler = {
     -- maybe should do it all at once when the user leaves the menu????
     UpdateFurniture = function (self, item)
         local newPos = GetEntityCoords(item.entity)
+        local newRot = GetEntityRotation(item.entity)
 
         local offsetPos = {
                 x = math.floor((newPos.x - self.shellPos.x) * 10000) / 10000,
@@ -339,7 +340,7 @@ Modeler = {
             label = item.label,
             object = item.object,
             position = offsetPos,
-            rotation = item.rotation,
+            rotation = newRot,
             type = item.type,
         }
 
@@ -413,7 +414,7 @@ Modeler = {
     end,
 
     ClearCart = function (self)
-        for k, v in pairs(self.Cart) do
+        for _, v in pairs(self.Cart) do
             DeleteEntity(v.entity)
         end
 
@@ -427,18 +428,24 @@ Modeler = {
         local items = {}
         local totalPrice = 0
 
-        -- seperate loop to get total price so it doesnt have to do all that math for no reason
-        for k, v in pairs(self.Cart) do
-            totalPrice = totalPrice + v.price
-        end
-
-        local PlayerData = QBCore.Functions.GetPlayerData()
-        if PlayerData.money.cash < totalPrice then
-            lib.notify({title= "You don't have enough money!", type = "error"})
+	-- If the cart is empty, return notify
+        if not next(self.Cart) then
+	    Framework[Config.Notify].Notify("Your cart is empty", "error")
             return
         end
 
-        for k, v in pairs(self.Cart) do
+        -- seperate loop to get total price so it doesnt have to do all that math for no reason
+        for _, v in pairs(self.Cart) do
+            totalPrice = totalPrice + v.price
+        end
+
+        PlayerData = QBCore.Functions.GetPlayerData()
+        if PlayerData.money.cash < totalPrice and PlayerData.money.bank < totalPrice then
+	    Framework[Config.Notify].Notify("You don't have enough money!", "error")
+            return
+        end
+
+        for _, v in pairs(self.Cart) do
 
             local offsetPos = {
                 x = math.floor((v.position.x - self.shellPos.x) * 10000) / 10000,
@@ -468,12 +475,26 @@ Modeler = {
     end,
 
     HoverIn = function (self, data)
-        self:HoverOut()
-        local object = data.object
-        if object == nil then return end
+        if self.HoverObject then
+            local tries = 0
+            while DoesEntityExist(self.HoverObject) do
+                SetEntityAsMissionEntity(self.HoverObject, true, true)
+                DeleteEntity(self.HoverObject)
+                Wait(50)
+                tries = tries + 1
+                if tries > 25 then
+                    break
+                end
+            end
 
+            self.HoverObject = nil
+        end
+
+        local object = data.object and joaat(data.object) or nil
+        if object == nil then return end
         lib.requestModel(object)
-        self.HoverObject = CreateObject(GetHashKey(object), 0.0, 0.0, 0.0, false, true, false)
+        if self.HoverObject then return end
+        self.HoverObject = CreateObject(object, 0.0, 0.0, 0.0, false, false, false)
         Modeler.CurrentCameraLookAt =  Freecam:GetTarget(self.HoverDistance)
         local camRot = Freecam:GetRotation()
 
@@ -492,8 +513,19 @@ Modeler = {
 
     HoverOut = function (self)
         if self.HoverObject == nil then return end
-        DeleteEntity(self.HoverObject)
-        self.HoverObject = nil
+        if self.HoverObject and self.HoverObject ~= 0 then
+            local tries = 0
+            while DoesEntityExist(self.HoverObject) do
+                SetEntityAsMissionEntity(self.HoverObject, true, true)
+                DeleteEntity(self.HoverObject)
+                Wait(50)
+                tries = tries + 1
+                if tries > 25 then
+                    break
+                end
+            end
+            self.HoverObject = nil
+        end
         self.IsHovering = false
     end,
 

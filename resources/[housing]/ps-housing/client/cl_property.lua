@@ -2,6 +2,7 @@ Property = {
     property_id = nil,
     propertyData = nil,
 
+    shell = nil,
     shellData = nil,
     inProperty = false,
     shellObj = nil,
@@ -31,8 +32,7 @@ function Property:new(propertyData)
     propertyData.furnitures = {}
     self.propertyData = propertyData
 
-    local Player = QBCore.Functions.GetPlayerData()
-    local citizenid = Player.citizenid
+    local citizenid = PlayerData.citizenid
 
     self.owner = propertyData.owner == citizenid
     self.has_access = lib.table.contains(self.propertyData.has_access, citizenid)
@@ -75,13 +75,10 @@ end
 function Property:CreateShell()
     local coords = self:GetDoorCoords()
 
-    local shellHash = self.shellData.hash
-    lib.requestModel(shellHash)
+    coords = vec3(coords.x, coords.y, coords.z - 25.0)
+    self.shell = Shell:CreatePropertyShell(self.propertyData.shell, coords)
 
-    self.shellObj = CreateObjectNoOffset(shellHash, coords.x, coords.y, coords.z - 25.0, false, false, false)
-
-    SetModelAsNoLongerNeeded(shellHash)
-    FreezeEntityPosition(self.shellObj, true)
+    self.shellObj = self.shell.entity
 
     local doorOffset = self.shellData.doorOffset
     local offset = GetOffsetFromEntityInWorldCoords(self.shellObj, doorOffset.x, doorOffset.y, doorOffset.z)
@@ -180,19 +177,15 @@ function Property:RegisterGarageZone()
 
     TriggerEvent("qb-garages:client:addHouseGarage", self.property_id, data)
 
-    self.garageZone = BoxZone:Create(vector3(garageData.x + 5.0, garageData.y + 5.0, garageData.z), garageData.length,
-        garageData.width, {
-            name = garageName,
-            debugPoly = Config.DebugMode,
-            minZ = garageData.z - 1.0,
-            maxZ = garageData.z + 3.0
-        })
-
-    self.garageZone:onPlayerInOut(function(isPointInside, point)
-        if isPointInside then
+    self.garageZone = lib.zones.box({
+        coords = vec3(garageData.x, garageData.y, garageData.z),
+        size = vector3(garageData.length + 5.0, garageData.width + 5.0, 3.5),
+        rotation = garageData.h,
+        debug = Config.DebugMode,
+        onEnter = function()
             TriggerEvent('qb-garages:client:setHouseGarage', self.property_id, true)
-        end
-    end)
+        end,
+    })
 end
 
 function Property:UnregisterGarageZone()
@@ -200,12 +193,13 @@ function Property:UnregisterGarageZone()
 
     TriggerEvent("qb-garages:client:removeHouseGarage", self.property_id)
 
-    self.garageZone:destroy()
+    self.garageZone:remove()
     self.garageZone = nil
 end
 
 function Property:EnterShell()
     DoScreenFadeOut(250)
+    TriggerServerEvent("InteractSound_SV:PlayOnSource", "houses_door_open", 0.25)
     Wait(250)
 
     self.inProperty = true
@@ -225,6 +219,7 @@ function Property:LeaveShell()
     if not self.inProperty then return end
 
     DoScreenFadeOut(250)
+    TriggerServerEvent("InteractSound_SV:PlayOnSource", "houses_door_open", 0.25)
     Wait(250)
 
     local coords = self:GetDoorCoords()
@@ -235,12 +230,8 @@ function Property:LeaveShell()
     self:UnloadFurnitures()
     self.propertyData.furnitures = {}
 
-
-    if self.shellObj then
-        DeleteEntity(self.shellObj)
-        self.shellObj = nil
-    end
-
+    self.shell:DespawnShell()
+    self.shell = nil
     if self.exitTarget then
         Framework[Config.Target].RemoveTargetZone(self.exitTarget)
         self.exitTarget = nil
@@ -434,16 +425,19 @@ function Property:OpenDoorbellMenu()
 end
 
 function Property:LoadFurniture(furniture)
-    local coords = GetOffsetFromEntityInWorldCoords(self.shellObj, furniture.position.x, furniture.position.y,
-        furniture.position.z)
+    local coords = GetOffsetFromEntityInWorldCoords(self.shellObj, furniture.position.x, furniture.position.y, furniture.position.z)
     local hash = furniture.object
 
     lib.requestModel(hash)
     local entity = CreateObjectNoOffset(hash, coords.x, coords.y, coords.z, false, true, false)
     SetModelAsNoLongerNeeded(hash)
     SetEntityRotation(entity, furniture.rotation.x, furniture.rotation.y, furniture.rotation.z, 2, true)
-    FreezeEntityPosition(entity, true)
 
+    if furniture.type == 'door' and Config.DynamicDoors then
+        Debug("Object: "..furniture.label.." wont be frozen")
+    else
+        FreezeEntityPosition(entity, true)
+    end
 
     if furniture.type and Config.FurnitureTypes[furniture.type] then
         Config.FurnitureTypes[furniture.type](entity, self.property_id, self.propertyData.shell)
@@ -474,12 +468,11 @@ function Property:LoadFurnitures()
 end
 
 function Property:UnloadFurniture(furniture, index)
-    local entity = furniture.entity
-
+    local entity = furniture?.entity
     if not entity then 
         for i = 1, #self.furnitureObjs do
-            if self.furnitureObjs[i].id == furniture.id then
-                entity = self.furnitureObjs[i].entity
+            if self.furnitureObjs[i]?.id and furniture?.id and self.furnitureObjs[i].id == furniture.id then
+                entity = self.furnitureObjs[i]?.entity
                 break
             end
         end
@@ -496,11 +489,11 @@ function Property:UnloadFurniture(furniture, index)
     end
 
     if index and self.furnitureObjs?[index] then
-        self.furnitureObjs[index] = nil
+        table.remove(self.furnitureObjs, index)
     else 
         for i = 1, #self.furnitureObjs do
-            if self.furnitureObjs[i].id == furniture.id then
-                self.furnitureObjs[i] = nil
+            if self.furnitureObjs[i]?.id and furniture?.id and self.furnitureObjs[i].id == furniture.id then
+                table.remove(self.furnitureObjs, i)
                 break
             end
         end
@@ -520,7 +513,11 @@ end
 function Property:CreateBlip()
     local door_data = self.propertyData.door_data
     local blip = AddBlipForCoord(door_data.x, door_data.y, door_data.z)
-    SetBlipSprite(blip, 40)
+    if self.propertyData.garage_data.x ~= nil then
+        SetBlipSprite(blip, 492)
+    else
+        SetBlipSprite(blip, 40)
+    end
     SetBlipScale(blip, 0.8)
     SetBlipColour(blip, 2)
     SetBlipAsShortRange(blip, true)
@@ -633,8 +630,7 @@ end
 function Property:UpdateOwner(newOwner)
     self.propertyData.owner = newOwner
 
-    local Player = QBCore.Functions.GetPlayerData()
-    local citizenid = Player.citizenid
+    local citizenid = PlayerData.citizenid
 
     self.owner = newOwner == citizenid
 
@@ -663,8 +659,7 @@ function Property:UpdateDoor(newDoor, newStreet, newRegion)
 end
 
 function Property:UpdateHas_access(newHas_access)
-    local Player = QBCore.Functions.GetPlayerData()
-    local citizenid = Player.citizenid
+    local citizenid = PlayerData.citizenid
     self.propertyData.has_access = newHas_access
     self.has_access = lib.table.contains(newHas_access, citizenid)
 

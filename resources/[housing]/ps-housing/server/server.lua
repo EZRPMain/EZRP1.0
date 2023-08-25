@@ -38,13 +38,7 @@ lib.callback.register("ps-housing:server:requestProperties", function(source)
         Wait(100)
     end
 
-    local propertiesData = {}
-
-    for k, v in pairs(PropertiesTable) do
-        propertiesData[k] = v.propertyData
-    end
-
-    return propertiesData
+    return PropertiesTable
 end)
 
 AddEventHandler("ps-housing:server:registerProperty", function (propertyData) -- triggered by realtor job
@@ -90,7 +84,15 @@ AddEventHandler("ps-housing:server:registerProperty", function (propertyData) --
 
         Wait(1000)
 
-        TriggerClientEvent("qb-clothes:client:CreateFirstCharacter", src)
+        local query = "SELECT skin FROM playerskins WHERE citizenid = ?"
+        local result = MySQL.Sync.fetchAll(query, {propertyData.owner})
+
+        if result and result[1] then
+            Debug("Player: " .. propertyData.owner .. " skin already exists!")
+        else
+            TriggerClientEvent("qb-clothes:client:CreateFirstCharacter", src)
+            Debug("Player: " .. propertyData.owner .. " is creating a new character!")
+        end
 
         Framework[Config.Notify].Notify(src, "Open radial menu for furniture menu and place down your stash and clothing locker.", "info")
 
@@ -125,6 +127,15 @@ AddEventHandler("ps-housing:server:updateProperty", function(type, property_id, 
     property[type](property, data)
 end)
 
+AddEventHandler("onResourceStart", function(resourceName) -- Used for when the resource is restarted while in game
+	if (GetCurrentResourceName() == resourceName) then
+        while not dbloaded do
+            Wait(100)
+        end
+        TriggerClientEvent('ps-housing:client:initialiseProperties', -1, PropertiesTable)
+	end 
+end)
+
 RegisterNetEvent("ps-housing:server:createNewApartment", function(aptLabel)
     local src = source
     if not Config.StartingApartment then return end
@@ -143,6 +154,9 @@ RegisterNetEvent("ps-housing:server:createNewApartment", function(aptLabel)
     }
 
     Debug("Creating new apartment for " .. GetPlayerName(src) .. " in " .. apartment.label)
+
+    Framework[Config.Logs].SendLog("Creating new apartment for " .. GetPlayerName(src) .. " in " .. apartment.label)
+
     TriggerEvent("ps-housing:server:registerProperty", propertyData)
 end)
 

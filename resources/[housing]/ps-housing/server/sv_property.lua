@@ -14,6 +14,11 @@ function Property:new(propertyData)
     self.property_id = tostring(propertyData.property_id)
     self.propertyData = propertyData
 
+    local stashName = string.format("property_%s", propertyData.property_id)
+    local stashConfig = Config.Shells[propertyData.shell].stash
+
+    Framework[Config.Inventory].RegisterInventory(stashName, propertyData.street or propertyData.apartment or stashName, stashConfig)
+
     return self
 end
 
@@ -158,6 +163,8 @@ function Property:UpdateDescription(data)
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateDescription", self.property_id, description)
 
+    Framework[Config.Logs].SendLog("**Changed Description** of property with id: " .. self.property_id .. " by: " .. GetPlayerName(realtorSrc))
+
     Debug("Changed Description of property with id: " .. self.property_id, "by: " .. GetPlayerName(realtorSrc))
 end
 
@@ -176,6 +183,8 @@ function Property:UpdatePrice(data)
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdatePrice", self.property_id, price)
 
+    Framework[Config.Logs].SendLog("**Changed Price** of property with id: " .. self.property_id .. " by: " .. GetPlayerName(realtorSrc))
+
     Debug("Changed Price of property with id: " .. self.property_id, "by: " .. GetPlayerName(realtorSrc))
 end
 
@@ -191,6 +200,8 @@ function Property:UpdateForSale(data)
     })
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateForSale", self.property_id, forsale)
+
+    Framework[Config.Logs].SendLog("**Changed For Sale** of property with id: " .. self.property_id .. " by: " .. GetPlayerName(realtorSrc))
 
     Debug("Changed For Sale of property with id: " .. self.property_id, "by: " .. GetPlayerName(realtorSrc))
 end
@@ -210,12 +221,17 @@ function Property:UpdateShell(data)
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateShell", self.property_id, shell)
 
+    Framework[Config.Logs].SendLog("**Changed Shell** of property with id: " .. self.property_id .. " by: " .. GetPlayerName(realtorSrc))
+
     Debug("Changed Shell of property with id: " .. self.property_id, "by: " .. GetPlayerName(realtorSrc))
 end
 
 function Property:UpdateOwner(data)
     local targetSrc = data.targetSrc
     local realtorSrc = data.realtorSrc
+
+    if not realtorSrc then Debug("No Realtor Src found") return end
+    if not targetSrc then Debug("No Target Src found") return end
 
     local previousOwner = self.propertyData.owner
 
@@ -280,6 +296,8 @@ function Property:UpdateOwner(data)
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateOwner", self.property_id, citizenid)
 
+    Framework[Config.Logs].SendLog("**House Bought** by: **"..PlayerData.charinfo.firstname.." "..PlayerData.charinfo.lastname.."** for $"..self.propertyData.price.." from **"..realtor.PlayerData.charinfo.firstname.." "..realtor.PlayerData.charinfo.lastname.."** !")
+
     Framework[Config.Notify].Notify(targetSrc, "You have bought the property for $"..self.propertyData.price, "success")
     Framework[Config.Notify].Notify(realtorSrc, "Client has bought the property for $"..self.propertyData.price, "success")
 end
@@ -296,6 +314,8 @@ function Property:UpdateImgs(data)
     })
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateImgs", self.property_id, imgs)
+
+    Framework[Config.Logs].SendLog("**Changed Images** of property with id: " .. self.property_id .. " by: " .. GetPlayerName(realtorSrc))
 
     Debug("Changed Imgs of property with id: " .. self.property_id, "by: " .. GetPlayerName(realtorSrc))
 end
@@ -331,6 +351,8 @@ function Property:UpdateDoor(data)
     })
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateDoor", self.property_id, newDoor, data.street, data.region)
+
+    Framework[Config.Logs].SendLog("**Changed Door** of property with id: " .. self.property_id .. " by: " .. GetPlayerName(realtorSrc))
 
     Debug("Changed Door of property with id: " .. self.property_id, "by: " .. GetPlayerName(realtorSrc))
 end
@@ -376,6 +398,8 @@ function Property:UpdateGarage(data)
     
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateGarage", self.property_id, garage)
 
+    Framework[Config.Logs].SendLog("**Changed Garage** of property with id: " .. self.property_id .. " by: " .. GetPlayerName(realtorSrc))
+
     Debug("Changed Garage of property with id: " .. self.property_id, "by: " .. GetPlayerName(realtorSrc))
 end
 
@@ -392,8 +416,10 @@ function Property:UpdateApartment(data)
     })
 
     Framework[Config.Notify].Notify(realtorSrc, "Changed Apartment of property with id: " .. self.property_id .." to ".. apartment, "success")
-    
+
     Framework[Config.Notify].Notify(targetSrc, "Changed Apartment to " .. apartment, "success")
+
+    Framework[Config.Logs].SendLog("**Changed Apartment** with id: " .. self.property_id .. " by: **" .. GetPlayerName(realtorSrc) .. "** for **" .. GetPlayerName(targetSrc) .."**")
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateApartment", self.property_id, apartment)
 
@@ -402,21 +428,27 @@ end
 
 function Property:DeleteProperty(data)
     local realtorSrc = data.realtorSrc
+    local propertyid = self.property_id
+    local realtorName = GetPlayerName(realtorSrc)
 
     MySQL.Async.execute("DELETE FROM properties WHERE property_id = @property_id", {
-        ["@property_id"] = self.property_id
+        ["@property_id"] = propertyid
     }, function (rowsChanged)
         if rowsChanged > 0 then
-            Debug("Deleted property with id: " .. self.property_id, "by: " .. GetPlayerName(data.realtorSrc))
+            Debug("Deleted property with id: " .. propertyid, "by: " .. realtorName)
         end
     end)
 
-    TriggerClientEvent("ps-housing:client:removeProperty", -1, self.property_id)
+    TriggerClientEvent("ps-housing:client:removeProperty", -1, propertyid)
 
-    Framework[Config.Notify].Notify(realtorSrc, "Property with id: " .. self.property_id .." has been removed.", "info")
-    
+    Framework[Config.Notify].Notify(realtorSrc, "Property with id: " .. propertyid .." has been removed.", "info")
+
+    Framework[Config.Logs].SendLog("**Property Deleted** with id: " .. propertyid .. " by: " .. realtorName)
+
+    PropertiesTable[propertyid] = nil
     self = nil
-    Debug("Deleted property with id: " .. self.property_id, "by: " .. GetPlayerName(realtorSrc))
+
+    Debug("Deleted property with id: " .. propertyid, "by: " .. realtorName)
 end
 
 function Property.Get(property_id)
@@ -467,7 +499,7 @@ RegisterNetEvent("ps-housing:server:showcaseProperty", function(property_id)
     local jobName = job.name
     local onDuty = job.onduty
 
-    if jobName == "realtor" and onDuty then
+    if jobName == Config.RealtorJobName and onDuty then
         local showcase = lib.callback.await('ps-housing:cb:showcase', src)
         if showcase == "confirm" then
             property:PlayerEnter(src)
@@ -476,7 +508,7 @@ RegisterNetEvent("ps-housing:server:showcaseProperty", function(property_id)
     end
 end)
 
-RegisterNetEvent('ps-housing:server:raidProperty', function (property_id)
+RegisterNetEvent('ps-housing:server:raidProperty', function(property_id)
     local src = source
     Debug("Player is trying to raid property", property_id)
 
@@ -487,26 +519,55 @@ RegisterNetEvent('ps-housing:server:raidProperty', function (property_id)
         return 
     end
 
-    local PlayerData = GetPlayerData(src)
+    local Player = QBCore.Functions.GetPlayer(src)
+    if not Player then return end
+    local PlayerData = Player.PlayerData
     local job = PlayerData.job
     local jobName = job.name
     local gradeAllowed = tonumber(job.grade.level) >= Config.MinGradeToRaid
     local onDuty = job.onduty
+    local raidItem = Config.RaidItem
 
-    if jobName == "police" and onDuty and gradeAllowed then
-        if not property.raiding then
-            local confirmRaid = lib.callback.await('ps-housing:cb:confirmRaid', src, (property.propertyData.street or property.propertyData.apartment) .. " " .. property.property_id, property_id)
-            if confirmRaid == "confirm" then
-                property:StartRaid(src)
+    -- Check if the police officer has the "stormram" item
+    local hasStormRam = (Config.Inventory == "ox" and exports.ox_inventory:Search(src, "count", raidItem) > 0) or Player.Functions.GetItemByName(raidItem)
+
+    local isAllowedToRaid = PoliceJobs[jobName] and onDuty and gradeAllowed
+    if isAllowedToRaid then
+        if hasStormRam then
+            if not property.raiding then
+                local confirmRaid = lib.callback.await('ps-housing:cb:confirmRaid', src, (property.propertyData.street or property.propertyData.apartment) .. " " .. property.property_id, property_id)
+                if confirmRaid == "confirm" then
+                    property:StartRaid(src)
+                    property:PlayerEnter(src)
+                    Framework[Config.Notify].Notify(src, "Raid started", "success")
+
+                    -- Remove the "stormram" item from the officer's inventory
+                    if Config.Inventory == 'ox' then
+                        exports.ox_inventory:RemoveItem(src, raidItem, 1)
+                    else
+                        Player.Functions.RemoveItem(raidItem, 1)
+                        TriggerClientEvent("inventory:client:ItemBox", src, QBCore.Shared.Items[raidItem], "remove")
+                        TriggerEvent("inventory:server:RemoveItem", src, raidItem, 1)
+                    end
+                end
+            else
+                Framework[Config.Notify].Notify(src, "Raid in progress", "success")
                 property:PlayerEnter(src)
-                Framework[Config.Notify].Notify(src, "Raid started", "success")
             end
         else
-            Framework[Config.Notify].Notify(src, "Raid in progress", "success")
-            property:PlayerEnter(src)
+            Framework[Config.Notify].Notify(src, "You need a stormram to perform a raid", "error")
+        end
+    else
+        if not PoliceJobs[jobName] then
+            Framework[Config.Notify].Notify(src, "Only police officers are permitted to perform raids", "error")
+        elseif not onDuty then
+            Framework[Config.Notify].Notify(src, "You must be onduty before performing a raid", "error")
+        elseif not gradeAllowed then
+            Framework[Config.Notify].Notify(src, "You must be a higher rank before performing a raid", "error")
         end
     end
 end)
+
 
 
 lib.callback.register('ps-housing:cb:getFurnitures', function(source, property_id)
@@ -583,7 +644,7 @@ RegisterNetEvent("ps-housing:server:buyFurniture", function(property_id, items, 
         return
     end
 
-    if price > PlayerData.money.bank then
+    if price <= PlayerData.money.cash then
         Player.Functions.RemoveMoney('cash', price, "Bought furniture")
     else
         Player.Functions.RemoveMoney('bank', price, "Bought furniture")
@@ -599,6 +660,9 @@ RegisterNetEvent("ps-housing:server:buyFurniture", function(property_id, items, 
     property:UpdateFurnitures(property.propertyData.furnitures)
 
     Framework[Config.Notify].Notify(src, "You bought furniture for $" .. price, "success")
+
+    Framework[Config.Logs].SendLog("**Player ".. GetPlayerName(src) .. "** bought furniture for **$" .. price .. "**")
+
     Debug("Player bought furniture for $" .. price, "by: " .. GetPlayerName(src))
 end)
 
@@ -615,7 +679,7 @@ RegisterNetEvent("ps-housing:server:removeFurniture", function(property_id, item
 
     for k, v in pairs(currentFurnitures) do
         if v.id == itemid then
-            currentFurnitures[k] = nil
+            table.remove(currentFurnitures, k)
             break
         end
     end
@@ -685,7 +749,7 @@ RegisterNetEvent("ps-housing:server:removeAccess", function(property_id, citizen
 
     if not property.propertyData.owner == citizenid then
         -- hacker ban or something
-        TriggerClientEvent("ox_lib:notify", src, {title="You are not the owner of this property!", type="error"})
+        Framework[Config.Notify].Notify(src, "You are not the owner of this property!", "error")
         return
     end
 
@@ -753,7 +817,7 @@ lib.callback.register('ps-housing:cb:getPropertyInfo', function (source, propert
     local jobName = job.name
     local onDuty = job.onduty
 
-    if  not jobName == "realtor" and not onDuty then return end
+    if  not jobName == Config.RealtorJobName and not onDuty then return end
 
     local data = {}
 

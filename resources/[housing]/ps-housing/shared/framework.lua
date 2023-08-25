@@ -1,5 +1,11 @@
 Framework = {}
 
+PoliceJobs = {}
+
+-- Convert config table to usable keys
+for i = 1, #Config.PoliceJobNames do
+    PoliceJobs[Config.PoliceJobNames[i]] = true
+end
 
 if IsDuplicityVersion() then
     Framework.ox = {}
@@ -13,6 +19,24 @@ if IsDuplicityVersion() then
     function Framework.qb.Notify(src, message, type)
         type = type == "info" and "primary" or type
         TriggerClientEvent('QBCore:Notify', src, message, type)
+    end
+
+    function Framework.ox.RegisterInventory(stash, label, stashConfig)
+        exports.ox_inventory:RegisterStash(stash, label, stashConfig.slots, stashConfig.maxweight, nil)
+    end
+
+    function Framework.qb.RegisterInventory(stash, label, stashConfig)
+        -- Used for ox_inventory compat
+    end
+
+    function Framework.qb.SendLog(message)
+        if Config.EnableLogs then
+            TriggerEvent('qb-log:server:CreateLog', 'pshousing', 'Housing System', 'blue', message)
+        end
+    end
+    
+    function Framework.ox.SendLog(message)
+            -- noop
     end
 
     return
@@ -54,6 +78,7 @@ Framework.qb = {
                 options = {
                     {
                         label = "Enter Property",
+                        icon = "fas fa-door-open",
                         action = enter,
                         canInteract = function()
                             local property = Property.Get(property_id)
@@ -62,28 +87,29 @@ Framework.qb = {
                     },
                     {
                         label = "Showcase Property",
+                        icon = "fas fa-eye",
                         action = showcase,
                         canInteract = function()
-                            local PlayerData = QBCore.Functions.GetPlayerData()
                             local job = PlayerData.job
                             local jobName = job.name
                             local onDuty = job.onduty
-                            return jobName == "realtor" and onDuty
+                            return jobName == Config.RealtorJobName and onDuty
                         end,
                     },
                     {
                         label = "Property Info",
+                        icon = "fas fa-circle-info",
                         action = showData,
                         canInteract = function()
-                            local PlayerData = QBCore.Functions.GetPlayerData()
                             local job = PlayerData.job
                             local jobName = job.name
                             local onDuty = job.onduty
-                            return jobName == "realtor" and onDuty
+                            return jobName == Config.RealtorJobName and onDuty
                         end,
                     },
                     {
                         label = "Ring Doorbell",
+                        icon = "fas fa-bell",
                         action = enter,
                         canInteract = function()
                             local property = Property.Get(property_id)
@@ -92,15 +118,15 @@ Framework.qb = {
                     },
                     {
                         label = "Raid Property",
+                        icon = "fas fa-building-shield",
                         action = raid,
                         canInteract = function()
-                            local PlayerData = QBCore.Functions.GetPlayerData()
                             local job = PlayerData.job
                             local jobName = job.name
                             local gradeAllowed = tonumber(job.grade.level) >= Config.MinGradeToRaid
                             local onDuty = job.onduty
 
-                            return jobName == Config.PoliceJobName and gradeAllowed and onDuty
+                            return PoliceJobs[jobName] and gradeAllowed and onDuty
                         end,
                     },
                 },
@@ -122,6 +148,7 @@ Framework.qb = {
                 {
                     label = "Enter Apartment",
                     action = enter,
+                    icon = "fas fa-door-open",
                     canInteract = function()
                         local apartments = ApartmentsTable[apartment].apartments
                         return hasApartment(apartments)
@@ -129,19 +156,20 @@ Framework.qb = {
                 },
                 {
                     label = "See all apartments",
+                    icon = "fas fa-circle-info",
                     action = seeAll,
                 },
                 {
                     label = "Raid Apartment",
                     action = seeAllToRaid,
+                    icon = "fas fa-building-shield",
                     canInteract = function()
-                        local PlayerData = QBCore.Functions.GetPlayerData()
                         local job = PlayerData.job
                         local jobName = job.name
                         local gradeAllowed = tonumber(job.grade.level) >= Config.MinGradeToRaid
                         local onDuty = job.onduty
 
-                        return jobName == Config.PoliceJobName and gradeAllowed and onDuty
+                        return PoliceJobs[jobName] and gradeAllowed and onDuty
                     end,
                 },
             }
@@ -166,10 +194,39 @@ Framework.qb = {
                     {
                         label = "Leave Property",
                         action = leave,
+                        icon = "fas fa-right-from-bracket",
                     },
                     {
                         label = "Check Door",
                         action = checkDoor,
+                        icon = "fas fa-bell",
+                    },
+                },
+            }
+        )
+
+        return "shellExit"
+    end,
+
+    AddDoorZoneInsideTempShell = function(coords, size, heading, leave)
+        exports["qb-target"]:AddBoxZone(
+            "shellExit",
+            vector3(coords.x, coords.y, coords.z),
+            size.x,
+            size.y,
+            {
+                name = "shellExit",
+                heading = heading,
+                debugPoly = Config.DebugMode,
+                minZ = coords.z - 2.0,
+                maxZ = coords.z + 1.0,
+            },
+            {
+                options = {
+                    {
+                        label = "Leave",
+                        action = leave,
+                        icon = "fas fa-right-from-bracket",
                     },
                 },
             }
@@ -198,11 +255,12 @@ Framework.qb = {
         exports['qb-radialmenu']:RemoveOption(id)
     end,
 
-    AddTargetEntity = function (entity, label, action)
+    AddTargetEntity = function (entity, label, icon, action)
         exports["qb-target"]:AddTargetEntity(entity, {
             options = {
                 {
                     label = label,
+                    icon = icon,
                     action = action,
                 },
             },
@@ -211,6 +269,11 @@ Framework.qb = {
 
     RemoveTargetEntity = function (entity)
         exports["qb-target"]:RemoveTargetEntity(entity)
+    end,
+
+    OpenInventory = function (stash, stashConfig)
+        TriggerServerEvent("inventory:server:OpenInventory", "stash", stash, stashConfig)
+        TriggerEvent("inventory:client:SetCurrentStash", stash)
     end,
 }
 
@@ -236,6 +299,7 @@ Framework.ox = {
             options = {
                 {
                     label = "Enter Property",
+                    icon = "fas fa-door-open",
                     onSelect = enter,
                     canInteract = function()
                         local property = Property.Get(property_id)
@@ -244,31 +308,32 @@ Framework.ox = {
                 },
                 {
                     label = "Showcase Property",
+                    icon = "fas fa-eye",
                     onSelect = showcase,
                     canInteract = function()
                         -- local property = Property.Get(property_id)
                         -- if property.propertyData.owner ~= nil then return false end -- if its owned, it cannot be showcased
                         
-                        local PlayerData = QBCore.Functions.GetPlayerData()
                         local job = PlayerData.job
                         local jobName = job.name
 
-                        return jobName == "realtor"
+                        return jobName == Config.RealtorJobName
                     end,
                 },
                 {
                     label = "Property Info",
+                    icon = "fas fa-circle-info",
                     onSelect = showData,
                     canInteract = function()
-                        local PlayerData = QBCore.Functions.GetPlayerData()
                         local job = PlayerData.job
                         local jobName = job.name
                         local onDuty = job.onduty
-                        return jobName == "realtor" and onDuty
+                        return jobName == Config.RealtorJobName and onDuty
                     end,
                 },
                 {
                     label = "Ring Doorbell",
+                    icon = "fas fa-bell",
                     onSelect = enter,
                     canInteract = function()
                         local property = Property.Get(property_id)
@@ -277,15 +342,15 @@ Framework.ox = {
                 },
                 {
                     label = "Raid Property",
+                    icon = "fas fa-building-shield",
                     onSelect = raid,
                     canInteract = function()
-                        local PlayerData = QBCore.Functions.GetPlayerData()
                         local job = PlayerData.job
                         local jobName = job.name
                         local gradeAllowed = tonumber(job.grade.level) >= Config.MinGradeToRaid
                         local onDuty = job.onduty
 
-                        return jobName == "police" and onDuty and gradeAllowed
+                        return PoliceJobs[jobName] and onDuty and gradeAllowed
                     end,
                 },
             },
@@ -304,6 +369,7 @@ Framework.ox = {
                 {
                     label = "Enter Apartment",
                     onSelect = enter,
+                    icon = "fas fa-door-open",
                     canInteract = function()
                         local apartments = ApartmentsTable[apartment].apartments
                         return hasApartment(apartments)
@@ -312,18 +378,19 @@ Framework.ox = {
                 {
                     label = "See all apartments",
                     onSelect = seeAll,
+                    icon = "fas fa-circle-info",
                 },
                 {
                     label = "Raid Apartment",
                     onSelect = seeAllToRaid,
+                    icon = "fas fa-building-shield",
                     canInteract = function()
-                        local PlayerData = QBCore.Functions.GetPlayerData()
                         local job = PlayerData.job
                         local jobName = job.name
                         local gradeAllowed = tonumber(job.grade.level) >= Config.MinGradeToRaid
                         local onDuty = job.onduty
 
-                        return jobName == "police" and onDuty and gradeAllowed
+                        return PoliceJobs[jobName] and onDuty and gradeAllowed
                     end,
                 },
             },
@@ -343,15 +410,36 @@ Framework.ox = {
                     name = "leave",
                     label = "Leave Property",
                     onSelect = leave,
+                    icon = "fas fa-right-from-bracket",
                 },
                 {
                     name = "doorbell",
                     label = "Check Door",
                     onSelect = checkDoor,
+                    icon = "fas fa-bell",
                 },
             },
         })
 
+        return handler
+    end,
+
+    AddDoorZoneInsideTempShell = function (coords, size, heading, leave)
+        local handler = exports.ox_target:addBoxZone({
+            coords = vector3(coords.x, coords.y, coords.z), --z = 3.0
+            size = vector3(size.y, size.x, size.z),
+            rotation = heading,
+            debug = Config.DebugMode,
+            options = {
+                {
+                    name = "leave",
+                    label = "Leave",
+                    onSelect = leave,
+                    icon = "fas fa-right-from-bracket",
+                },
+            },
+        })
+        print("made")
         return handler
     end,
 
@@ -372,11 +460,12 @@ Framework.ox = {
         lib.removeRadialItem(id)
     end,
 
-    AddTargetEntity = function (entity, label, action)
+    AddTargetEntity = function (entity, label, icon, action)
         exports.ox_target:addLocalEntity(entity, {
             {
                 name = label,
                 label = label,
+                icon = icon,
                 onSelect = action,
             },
         })
@@ -384,5 +473,9 @@ Framework.ox = {
 
     RemoveTargetEntity = function (entity)
         exports.ox_target:removeLocalEntity(entity)
+    end,
+
+    OpenInventory = function (stash, stashConfig)
+        exports.ox_inventory:openInventory('stash', stash)
     end,
 }

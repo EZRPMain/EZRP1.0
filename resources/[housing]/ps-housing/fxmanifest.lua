@@ -3,7 +3,7 @@ fx_version 'cerulean'
 game "gta5"
 
 author "Xirvin#0985 and Project Sloth"
-version '1.0.0'
+version '1.1.2'
 
 repository 'Project-Sloth/ps-housing'
 
@@ -20,25 +20,28 @@ shared_script {
   }
 
 client_script {
-  '@PolyZone/client.lua',
-  '@PolyZone/BoxZone.lua',
+  'client/shell.lua',
   'client/apartment.lua',
   'client/cl_property.lua',
   'client/client.lua',
   'client/modeler.lua',
+  'client/migrate.lua'
 }
 
 server_script {
   '@oxmysql/lib/MySQL.lua',
   "server/sv_property.lua",
   "server/server.lua",
+  "server/migrate.lua"
   }
 
 files {
   'html/**',
-  'starter_shells_k4mb1.ytyp'
+  'stream/starter_shells_k4mb1.ytyp'
 }
 
 this_is_a_map 'yes'
-
 data_file 'DLC_ITYP_REQUEST' 'starter_shells_k4mb1.ytyp'
+
+file 'stream/**.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/**.ytyp'
