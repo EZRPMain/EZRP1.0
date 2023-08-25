@@ -21,9 +21,9 @@ files {
     'html/script.js'
 }
 
-dependencies {
-    'qb-core',
-    'qb-spawn'
-}
+-- dependencies {
+--     'qb-core',
+--     'qb-spawn'
+-- }
 
 lua54 'yes'
