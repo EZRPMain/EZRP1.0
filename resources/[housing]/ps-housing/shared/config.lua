@@ -7,9 +7,9 @@ exports('GetApartments', function() return ApartmentsTable end)
 Config = {}
 
 -- If you're not utilizing ox_lib, it's time to question your approach.
-Config.Target = "ox" -- "ox" or "qb"
-Config.Notify = "ox" -- "ox" or "qb"
-Config.Radial = "ox" -- "ox" or "qb"
+Config.Target = "qb" -- "ox" or "qb"
+Config.Notify = "qb" -- "ox" or "qb"
+Config.Radial = "qb" -- "ox" or "qb"
 Config.Inventory = "qb" -- "ox" or "qb"
 Config.Logs = "qb" -- "qb"
 
@@ -63,7 +63,7 @@ Config.Apartments = {
         door = { x = 269.73, y = -640.75, z = 42.02, h = 249.07, length = 1, width = 2 },
         imgs = {
             {
-                url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566754983972954/986BKLz.jpg",
+                url = "https://i.imgur.com/986BKLz.jpeg",
                 label = "Outside",
             },
         },
@@ -75,7 +75,7 @@ Config.Apartments = {
         door = { x = -667.02, y = -1105.24, z = 14.63, h = 242.32, length = 1, width = 2 },
         imgs = {
             {
-                url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566767864684665/FKTQq4b.jpg",
+                url = "https://i.imgur.com/FKTQq4b.jpeg",
                 label = "Outside",
             },
         },
@@ -87,7 +87,7 @@ Config.Apartments = {
         door = { x = -1288.52, y = -430.51, z = 35.15, h = 124.81, length = 1, width = 2 },
         imgs = {
             {
-                url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566730363412582/amZDmz7.jpg",
+                url = "https://i.imgur.com/amZDmz7.jpeg",
                 label = "Outside",
             },
         },
@@ -111,7 +111,7 @@ Config.Apartments = {
         door = { x = 291.517, y = -1078.674, z = 29.405, h = 270.75, length = 1, width = 2 },
         imgs = {
             {
-                url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566742589800629/SgK60IR.jpg",
+                url = "https://i.imgur.com/SgK60IR.jpeg",
                 label = "Outside",
             },
         },

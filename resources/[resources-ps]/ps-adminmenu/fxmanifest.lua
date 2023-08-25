@@ -9,24 +9,23 @@ repository 'https://github.com/Project-Sloth/ps-adminmenu'
 
 lua54 'yes'
 
-
 ui_page 'html/index.html'
--- ui_page 'http://localhost:3000/' --for dev
+-- ui_page 'http://localhost:5173/' --for dev
 
 client_script {
-    'client/**',
+  'client/**',
 }
-server_scripts {
-    "@oxmysql/lib/MySQL.lua",
-    "server/**",
+
+server_script {
+  "server/**",
+  "@oxmysql/lib/MySQL.lua",
 }
+
 shared_script {
-	'@qb-core/shared/locale.lua',
-    '@ox_lib/init.lua',
-	'locales/en.lua',
-    "shared/**",
+  "shared/**",
+  '@ox_lib/init.lua',
 }
 
 files {
-    'html/**',
+  'html/**',
 }
