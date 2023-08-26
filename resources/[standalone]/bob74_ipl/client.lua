@@ -77,7 +77,7 @@ Citizen.CreateThread(function()
     -- ====================================================================
     -- =-------------------------- [DLC: Heists] -------------------------=
     -- ====================================================================
-    HeistCarrier.Enable(false) -- 3082.3117, -4717.1191, 15.2622
+    HeistCarrier.Enable(true) -- 3082.3117, -4717.1191, 15.2622
     HeistYacht.LoadDefault() -- -2043.974,-1031.582, 11.981
 
     -- ====================================================================
@@ -119,12 +119,12 @@ Citizen.CreateThread(function()
     -- =------------------------ [DLC: Gunrunning] -----------------------=
     -- ====================================================================
     GunrunningBunker.LoadDefault() -- 892.6384, -3245.8664, -98.2645
-    GunrunningYacht.LoadDefault() -- -1363.724, 6734.108, 2.44598
+   -- GunrunningYacht.LoadDefault() -- -1363.724, 6734.108, 2.44598
 
     -- ====================================================================
     -- =---------------------- [DLC: Smuggler's Run] ---------------------=
     -- ====================================================================
-    SmugglerHangar.LoadDefault() -- -1267.0 -3013.135 -49.5
+   -- SmugglerHangar.LoadDefault() -- -1267.0 -3013.135 -49.5
 
     -- ====================================================================
     -- =-------------------- [DLC: The Doomsday Heist] -------------------=
@@ -160,7 +160,7 @@ Citizen.CreateThread(function()
         MpSecurityGarage.LoadDefault() -- -1071.4387, -77.033875, -93.525505
         MpSecurityMusicRoofTop.LoadDefault() -- -592.6896, 273.1052, 116.302444
         MpSecurityStudio.LoadDefault() -- -1000.7252, -70.559875, -98.10669
-        MpSecurityBillboards.LoadDefault() -- -592.6896, 273.1052, 116.302444
+       -- MpSecurityBillboards.LoadDefault() -- -592.6896, 273.1052, 116.302444
         MpSecurityOffice1.LoadDefault() -- -1021.86084, -427.74564, 68.95764
         MpSecurityOffice2.LoadDefault() -- 383.4156, -59.878227, 108.4595
         MpSecurityOffice3.LoadDefault() -- -1004.23035, -761.2084, 66.99069
