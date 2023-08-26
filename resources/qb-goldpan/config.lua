@@ -22,7 +22,7 @@ Config.SmeltingItems = {
     [1] = {
         name = "goldbar",
         threshold = 80,
-        max = 1,
+        max = 10,
         remove = "rawgold",
     },
 }
