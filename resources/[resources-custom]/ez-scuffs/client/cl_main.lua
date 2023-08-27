@@ -21,7 +21,7 @@ function normalize(vec)
 end
 
 AddEventHandler('entityDamaged', function(victim, culprit, weapon, damage)
-    print(culprit, PlayerPedId())
+    print(culprit, PedToNet(PlayerPedId()))
     if IsPedInAnyVehicle(PlayerPedId()) and GetEntityType(victim) == 2 then
         local playerVehicle = GetVehiclePedIsIn(PlayerPedId(), false)
         local victimVehicle = victim
