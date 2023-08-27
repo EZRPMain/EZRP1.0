@@ -31,7 +31,17 @@ AddEventHandler('entityDamaged', function(victim, culprit, weapon, damage)
             local victimCoords = GetEntityCoords(victimVehicle)
 
 
-            SetEntityCoords(victimVehicle, -14204.15,-1923.68,-161.7)
+            -- SetEntityCoords(victimVehicle, -14204.15,-1923.68,-161.7)
+
+            local forceDirection = (victimCoords - playerCoords) * vector3(1.0, 1.0, 0.0)
+            local normalizedForce = normalize(forceDirection)
+
+            local forceMultiplier = 25.0 -- Adjust this value to change force of velocity
+
+            local victimVelocity = GetEntityVelocity(victimVehicle)
+            local newVelocity = victimVelocity + normalizedForce * forceMultiplier
+            SetEntityVelocity(victimVehicle, newVelocity.x, newVelocity.y, newVelocity.z)
+
         end
 
 
