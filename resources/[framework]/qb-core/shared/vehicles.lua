@@ -2219,6 +2219,7 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'SUVs',
         ['hash'] = `xls`,
         ['shop'] = 'pdm',
+
     },
     -- ['granger2'] = {          --DLC +set sv_enforceGameBuild 2545
     --     ['name'] = 'Granger 3600LX',
@@ -5640,6 +5641,7 @@ QBShared.Vehicles = {
         ['categoryLabel'] = 'Compacts', 
         ['hash'] = 'ben17', 
         ['shop'] = 'pdm', 
+        ["tier"] = "D", -- Can either be D, C, B, A, A+, S, S+
     }, 
     -- ['blista2'] = {
     --     ['name'] = 'blista2',
@@ -5659,7 +5661,8 @@ QBShared.Vehicles = {
         ['category'] = 'compacts', 
         ['categoryLabel'] = 'Compacts', 
         ['hash'] = 'bmw1', 
-        ['shop'] = 'pdm', 
+        ['shop'] = 'pdm',
+        ["tier"] = "D", -- Can either be D, C, B, A, A+, S, S+
     }, 
     ['camry55'] = {
         ['name'] = 'camry55', 

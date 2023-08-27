@@ -124,6 +124,10 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
         wallpaper = 'default',
         apps = {}
     }
+    PlayerData.metadata['laptop'] = PlayerData.metadata['laptop'] or {
+        background = 'default',
+        darkfont = false,
+    }
     PlayerData.metadata['crypto'] = PlayerData.metadata['crypto'] or {
         ["shung"] = 0,
         ["gne"] = 0,

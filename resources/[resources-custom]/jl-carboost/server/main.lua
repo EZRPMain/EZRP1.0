@@ -27,6 +27,19 @@ local function GetNextClass(class)
    end
 end
 
+-- Group
+QBCore.Functions.TriggerCallback("OD-Carboost:server:ifgroup", function(source,cb)
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  if not Player then return end
+  local group = exports['qb-phone']:GetGroupByMembers(src)
+  if not group then  
+    cb(true)
+  else 
+    cb(false)
+  end
+end)
+
 -- Event
 RegisterNetEvent('jl-carboost:server:saveBoostData', function (citizenid)
    MySQL.Async.execute('UPDATE boost_data SET data = @data WHERE citizenid = @citizenid', {
