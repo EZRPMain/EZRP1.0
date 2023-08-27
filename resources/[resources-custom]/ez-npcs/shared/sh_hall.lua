@@ -6,7 +6,7 @@ Config.Peds["citythall"] = {
         heading = 215.32,
     },
     pedType = 0,
-    model = 's_m_y_dockwork_01',
+    model = 'cs_carbuyer',
     networked = false,
     distance = 50.0,
     target = {
@@ -25,7 +25,7 @@ Config.Peds["citythall"] = {
         { mode = 'ignore', active = true },
         { mode = 'freeze', active = true },
     },
-    scenario = "WORLD_HUMAN_CLIPBOARD",
+    -- scenario = "WORLD_HUMAN_CLIPBOARD",
     -- animation = {testdic = 'amb@world_human_leaning@male@wall@back@legs_crossed@base' , testanim = 'base' },
 }
 
