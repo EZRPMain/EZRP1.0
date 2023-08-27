@@ -21,6 +21,8 @@ Difficulty:     Beginner
 How to do :     Find a bank truck, Intercept and steal it, kill the driver and the passenger take it to a secure location use security card 4 or thermite
 Reward    :     Cash Rolls, Marked Money (no way to currently wash)
 
+-------------------------------------------
+
 ATM Robbery: 
 Difficulty:     Beginner
 How to do :     Buy towing rope, hook up to powerful truck/suv

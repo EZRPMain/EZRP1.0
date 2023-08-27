@@ -3,14 +3,12 @@ Inventory  = exports['lj-inventory']
 
 Config = Config or {}
 
-Config.RecycleTime = 5
-
 Config.Recyclables = {
     "metalscrap",
-    "plastic",
-    "copper",
-    -- "iron",
-    -- "aluminum",
-    -- "steel",
-    "glass",
+    -- "plastic",
+    -- "copper",
+    "iron",
+    "aluminum",
+    "steel",
+    -- "glass",
 }

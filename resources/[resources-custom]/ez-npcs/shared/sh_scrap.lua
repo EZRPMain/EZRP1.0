@@ -13,7 +13,7 @@ Config.Peds["scrap"] = {
         options = {
             {
                 type = "client",
-                event = "ez-recycle:openRecycle",
+                event = "ez-scrap:openScrap",
                 icon = "fas fa-box-circle-check",
                 label = "Trade Recyclables",
             },
