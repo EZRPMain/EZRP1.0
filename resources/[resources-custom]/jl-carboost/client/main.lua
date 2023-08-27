@@ -157,6 +157,7 @@ end
 local function StartHacking(vehicle)
     local veh = Entity(vehicle)
     local trackerLeft = veh.state.trackerLeft
+    local hackcooldown = 30
     if veh.state.tracker then
         if not veh.state.hacked then
             exports['ps-ui']:StatusShow("Car Boosting", {
@@ -183,18 +184,15 @@ local function StartHacking(vehicle)
                 end
                 else
                     QBCore.Functions.Notify(Lang:t("error.no_tracker"), "error")  
-                    trackerLeft = trackerLeft + 1  
-                    exports['ps-ui']:StatusHide()
                 end
                 CreateThread(function ()
-                    Wait(randomSeconds*1000)
+                    Wait(hackcooldown)
                     veh.state.hacked = false
                 end)
 
             end, "numeric", 30, 0) -- Type (alphabet, numeric, alphanumeric, greek, braille, runes), Time (Seconds), Mirrored (0: Normal, 1: Normal + Mirrored 2: Mirrored only )
         else
             print("ALREADY HACKED")
-            exports['ps-ui']:StatusHide()
         end
     else
         QBCore.Functions.Notify(Lang:t("error.no_tracker"), "error")

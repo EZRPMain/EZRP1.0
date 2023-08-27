@@ -252,7 +252,7 @@ Config.Tier = {
         priceminimum = 45,
         pricemaximum = 61,
         spawnnpc = true,
-        attempt = 2,
+        attempt = 5,
         vinprice = 35
     },
     ['S+'] = {
