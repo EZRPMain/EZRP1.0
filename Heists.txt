@@ -1,12 +1,20 @@
+-------------------------------------------
+-------------- RUNS / HEISTS --------------
+-------------------------------------------
+
 Oxy Runs: 
 Difficulty:     Beginner
 How to do :     Find oxy run start location, Get Job
 Reward    :     Oxy, Cash Rolls Washing, Gun parts (RARE)
 
+-------------------------------------------
+
 Store Robbery:
 Difficulty:     Beginner
 How to do :     Walk into store aim gun at clerk collect money, clerk defends his store (alert police)
 Reward    :     Cash Rolls
+
+-------------------------------------------
 
 Bank Truck Robbery :
 Difficulty:     Beginner
@@ -17,3 +25,71 @@ ATM Robbery:
 Difficulty:     Beginner
 How to do :     Buy towing rope, hook up to powerful truck/suv
 Reward    :     Cash Rolls
+
+-------------------------------------------
+
+Meth Run :
+Difficulty:     Moderate
+How to do :     Go to start location get job go skeet skeet Local Lost MC
+Reward    :     Meth
+
+-------------------------------------------
+
+Weed Run :
+Difficulty:     Beginner
+How to do :     Walk into store aim gun at clerk collect money, clerk defends his store (alert police)
+Reward    :     Cash Rolls or Money
+
+-------------------------------------------
+
+Humane Labs : 
+Difficulty:     Hard
+How to do :     Get Job, goto humane labs hack doors go through rooms collect samples, swim thru tunnels, take heli to finish spot
+Reward    :     Money, Casino Cards (RARE)
+
+-------------------------------------------
+
+WEAPON HEIST:
+Difficulty:     Hard
+How to do :     Get Job, goto train yard kill all NPC Gang members collect loot box
+Reward    :     WEAPONS
+
+-------------------------------------------
+
+Coke Run :
+Difficulty:     Easy
+How to do :     goto start location get plane (global cooldown 1 hour), fly plane to ocean to get drop, process coke bricks to bagss
+Reward    :     cocaine bricks
+
+-------------------------------------------
+Car Boosting
+TO DO TO DO
+
+
+-------------------------------------------
+------------- DRUGS / FIELDS --------------
+-------------------------------------------
+Drug Labs:
+
+Meth Lab                    : vector4(1754.01, -1649.21, 112.66, 281.29)
+Coke Lab                    : vector4(5000.29, -5213.44, 2.5, 210.71)
+Weed Lab                    : vector3(-338.52, -2444.93, 7.292)
+
+Drugs:
+
+Meth Processing             : vector3(978.17, -147.98, -48.53)
+Meth Tempature              : vector3(982.56, -145.59, -49.0)
+Meth Baggies                : vector3(987.81, -140.43, -49.0)
+HydrochloricAcidFarm        : vector3(3556.02, 3665.28, 33.89)
+SulfuricAcidFarm            : vector3(33.96, -2683.91, 6.01)
+SodiumHydroxideFarm         : vector3(-55.01, -2227.64, 7.81)
+ChemicalsField              : vector3(2831.6, 1524.88, 24.57)
+ChemicalsConvertionMenu     : vector3(1004.52, -1211.83, 25.29)
+CokeField                   : vector3(4744.3, -4388.62, 8.21)
+CokeProcessing              : vector3(1087.14, -3195.31, -38.99)
+CokePowder                  : vector3(1092.9, -3196.65, -38.99)
+CokeBrick                   : vector3(1099.57, -3194.35, -38.99)
+HeroinField                 : vector3(5072.79, -4767.72, 10.68)
+HeroinProcessing            : vector3(1665.439, -49.688, 167.912)
+lsdProcessing               : vector3(-168.3, 6167.51, 31.21)
+thionylchlorideProcessing   : vector3(1532.11, 1728.06, 109.92)
