@@ -100,6 +100,7 @@ AddEventHandler("fleeca:rewardBill", function()
         local amtOEJUFIE = math.random(Config.minDiscardCash, Config.maxDiscardCash)
         xPlayer.Functions.AddItem('cash_roll', amtOEJUFIE)
         TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["cash_roll"], "add", amtOEJUFIE)
+        print("titties")
     end
 end)
 
