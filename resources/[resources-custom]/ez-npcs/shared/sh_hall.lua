@@ -2,8 +2,8 @@ Config.Peds["citythall"] = {
     id = 'citythall',
     position = {
         --vector4(-553.72, -189.36, 38.22, 215.32)
-        coords = vector3(262.63, -1796.93, 27.11 - 1),
-        heading = 50.36,
+        coords = vector3(-553.72, -189.36, 38.22 - 1),
+        heading = 215.32,
     },
     pedType = 0,
     model = 's_m_y_dockwork_01',
