@@ -22,6 +22,7 @@ end
 
 AddEventHandler('entityDamaged', function(victim, culprit, weapon, damage)
     print(victim, culprit, weapon, damage)
+    print(PlayerPedId())
     print(PedToNet(PlayerPedId()), PedToNet(culprit))
     if IsPedInAnyVehicle(PlayerPedId()) and GetEntityType(victim) == 2 then
         local playerVehicle = GetVehiclePedIsIn(PlayerPedId(), false)
