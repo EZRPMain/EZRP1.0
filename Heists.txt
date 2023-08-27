@@ -64,8 +64,10 @@ How to do :     goto start location get plane (global cooldown 1 hour), fly plan
 Reward    :     cocaine bricks
 
 -------------------------------------------
-Car Boosting
-TO DO TO DO
+Car Boosting / Vin Scratcth
+Difficulty:     Per Rep
+How to do :     laptop, start contract, go to location, lockpick, shoot men (rep dependant), hack (rep dependant), drop off or vin scratch
+Reward    :     bost stuffs
 
 
 -------------------------------------------
