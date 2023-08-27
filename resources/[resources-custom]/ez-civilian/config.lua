@@ -27,4 +27,4 @@ Cityhall.BuyId = {
         item = "weaponlicense",
         license = "weapon"
     },
-},
+}
