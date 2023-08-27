@@ -11,7 +11,7 @@ Config.debugPoly = false -- if polyzones should show
 
 Config.laptopPrice = 5000
 Config.laptopbreak = 25 -- procent chance for the laptop to break 
-Config.laptopItem = "greenlaptop"
+Config.laptopItem = "security_card_01"
 
 Config.vaultdoor = "v_ilev_gb_vauldr"
 Config.door = "v_ilev_gb_vaubar"
