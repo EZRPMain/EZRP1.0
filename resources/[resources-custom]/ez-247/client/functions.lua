@@ -175,6 +175,7 @@ RobPed = function(pedEntity)
 
 		local clerkCoords = GetEntityCoords(pedEntity)
 
+		exports['ps-dispatch']:StoreRobbery()
 		GlobalFunction("alert_police", {
 			["coords"] = {
 				["x"] = clerkCoords["x"],

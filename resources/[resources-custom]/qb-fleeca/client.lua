@@ -57,36 +57,36 @@ end)
 --     end
 -- end)
 
-RegisterNetEvent('bennyPed:client:buyLaptop', function()   
-    QBCore.Functions.TriggerCallback("fleeca:canAfford", function(canAfford)
-        if canAfford then
-            hasBought = true
-            TriggerEvent("bennyPed:client:createBlipAndRoute")
-        else
-            QBCore.Functions.Notify('You cant afford this!', 'error', 5000)
-        end
-    end)
-end)
+-- RegisterNetEvent('bennyPed:client:buyLaptop', function()   
+--     QBCore.Functions.TriggerCallback("fleeca:canAfford", function(canAfford)
+--         if canAfford then
+--             hasBought = true
+--             TriggerEvent("bennyPed:client:createBlipAndRoute")
+--         else
+--             QBCore.Functions.Notify('You cant afford this!', 'error', 5000)
+--         end
+--     end)
+-- end)
 
-RegisterNetEvent("bennyPed:client:createBlipAndRoute")
-AddEventHandler("bennyPed:client:createBlipAndRoute", function()
-    QBCore.Functions.Notify('You recieved the location.', "success")
-    laptopBlip = AddBlipForCoord(361.64, 2977.13, 41.84)
-    SetBlipSprite(laptopBlip, 408)
-    SetBlipColour(laptopBlip, 46)
-    SetBlipScale(laptopBlip, 1.0)
-    SetBlipRoute(laptopBlip, true)
-    BeginTextCommandSetBlipName("STRING")
-    AddTextComponentString("Laptop Location")
-    EndTextCommandSetBlipName(laptopBlip)
-end)
+-- RegisterNetEvent("bennyPed:client:createBlipAndRoute")
+-- AddEventHandler("bennyPed:client:createBlipAndRoute", function()
+--     QBCore.Functions.Notify('You recieved the location.', "success")
+--     laptopBlip = AddBlipForCoord(361.64, 2977.13, 41.84)
+--     SetBlipSprite(laptopBlip, 408)
+--     SetBlipColour(laptopBlip, 46)
+--     SetBlipScale(laptopBlip, 1.0)
+--     SetBlipRoute(laptopBlip, true)
+--     BeginTextCommandSetBlipName("STRING")
+--     AddTextComponentString("Laptop Location")
+--     EndTextCommandSetBlipName(laptopBlip)
+-- end)
 
-RegisterNetEvent('bennyPed:client:pickUpLaptop', function()    
-	RemoveBlip(laptopBlip)
-	TriggerServerEvent("bennyPed:server:giveLaptop")
-    QBCore.Functions.Notify('Got Green laptop, head to a Fleeca bank to rob the vault.', "success")
-	hasBought = false
-end)
+-- RegisterNetEvent('bennyPed:client:pickUpLaptop', function()    
+-- 	RemoveBlip(laptopBlip)
+-- 	TriggerServerEvent("bennyPed:server:giveLaptop")
+--     QBCore.Functions.Notify('Got Green laptop, head to a Fleeca bank to rob the vault.', "success")
+-- 	hasBought = false
+-- end)
 
 -- CreateThread(function()
 --     exports['qb-polyzone']:AddBoxZone("AtLaptop", vector3(361.64, 2977.13, 41.84), 2, 2, {
@@ -130,6 +130,7 @@ AddEventHandler("fleeca:outcome", function(oc, arg)
     elseif not oc then
         QBCore.Functions.Notify(arg, 'error', 5000)
     end
+    exports['ps-dispatch']:FleecaBankRobbery()
 end)
 
 RegisterNetEvent("fleeca:grabMoney")
