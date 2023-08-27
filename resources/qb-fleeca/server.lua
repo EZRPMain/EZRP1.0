@@ -117,6 +117,7 @@ AddEventHandler("fleeca:server:onaction", function(name)
 end)
 
 RegisterServerEvent("fleeca:server:available", function()
+    local source = source
     local f1 = "Loading..."
     local f2 = "Loading..."
     local f3 = "Loading..."
@@ -173,7 +174,7 @@ RegisterServerEvent("fleeca:server:available", function()
     end
 
     Wait(100)
-    TriggerClientEvent('fleeca:client:checkAvailability', -1, f1, f2, f3, f4, f5, f6)
+    TriggerClientEvent('fleeca:client:checkAvailability', source, f1, f2, f3, f4, f5, f6)
 end)
 
 RegisterNetEvent('bennyPed:server:giveLaptop', function()
