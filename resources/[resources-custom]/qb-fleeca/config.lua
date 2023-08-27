@@ -1,8 +1,8 @@
 Config = {}
 Config.timer = 60 -- countdown to secure lock in seconds (time needed to pass to door to be closed back)
 
-Config.maxcash = 85 -- maxium amount of bills reward after tray has been grabbed
-Config.mincash = 50 -- minimum amount of bills reward after tray has been grabbed
+Config.maxcash = 5 -- maxium amount of bills reward after tray has been grabbed
+Config.mincash = 1 -- minimum amount of bills reward after tray has been grabbed
 Config.secondtrolley = 50 -- procent chance for the second trolley to spawn
 Config.discardItems = true -- if player should get some cash after grabbing money
 Config.minDiscardCash = 10000 -- max player should get some straight cash after grabbing money

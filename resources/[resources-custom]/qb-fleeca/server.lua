@@ -91,17 +91,13 @@ RegisterServerEvent("fleeca:rewardBill")
 AddEventHandler("fleeca:rewardBill", function()
     local xPlayer = QBCore.Functions.GetPlayer(source)
     local reward = math.random(Config.mincash, Config.maxcash)
+    local random = math.random(Config.minDiscardCash, Config.maxDiscardCash)
 
     xPlayer.Functions.AddItem("markedbills", reward)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["markedbills"], "add", reward)
-
-    -- if Config.discardItems then
-        TriggerClientEvent('QBCore:Notify', 'You discarded the counterfeit items')
-        local random = math.random(Config.minDiscardCash, Config.maxDiscardCash)
-        xPlayer.Functions.AddItem('cash_roll', random)
-        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["cash_roll"], "add", random)
-        print("titties")
-    -- end
+    xPlayer.Functions.AddItem('cash_roll', random)
+    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["cash_roll"], "add", random)
+    print("titties")
 end)
 
 RegisterServerEvent("fleeca:setCooldown")
