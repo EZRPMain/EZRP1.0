@@ -486,7 +486,17 @@ end)
 RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
 	if not closestDoor.data or not next(closestDoor.data) or PlayerData.metadata['isdead'] or PlayerData.metadata['ishandcuffed'] or (not closestDoor.data.pickable and not closestDoor.data.lockpick) or not closestDoor.data.locked then return end
 	usingAdvanced = isAdvanced
-	TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
+
+	local dict = "missheistfbisetup1"
+    local Player = PlayerPedId()
+    while (not HasAnimDictLoaded(dict)) do
+        RequestAnimDict(dict)
+        Citizen.Wait(1)
+    end
+    TaskPlayAnim(Player, "missheistfbisetup1", "hassle_intro_loop_f", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
+
+    exports['ps-ui']:Circle(lockpickFinish, math.random(3,8), 13)
+	-- TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
 end)
 
 RegisterNetEvent('qb-doorlock:client:addNewDoor', function()
