@@ -21,23 +21,27 @@ function normalize(vec)
 end
 
 AddEventHandler('entityDamaged', function(victim, culprit, weapon, damage)
-    print(victim, culprit, weapon, damage)
-    print(PlayerPedId(), GetPlayerServerId(culprit))
-    print(PedToNet(PlayerPedId()), PedToNet(culprit))
     if IsPedInAnyVehicle(PlayerPedId()) and GetEntityType(victim) == 2 then
         local playerVehicle = GetVehiclePedIsIn(PlayerPedId(), false)
-        local victimVehicle = victim
+        local driver = GetPedInVehicleSeat(playerVehicle, -1)
+        if driver ~= PlayerPedId() then
+            local victimVehicle = victim
 
-        local playerCoords = GetEntityCoords(playerVehicle)
-        local victimCoords = GetEntityCoords(victimVehicle)
+            local playerCoords = GetEntityCoords(playerVehicle)
+            local victimCoords = GetEntityCoords(victimVehicle)
 
-        local forceDirection = (victimCoords - playerCoords) * vector3(1.0, 1.0, 0.0)
-        local normalizedForce = normalize(forceDirection)
 
-        local forceMultiplier = 10.0 -- Adjust this value to change force of velocity
+            SetEntityCoords(victimVehicle, -14204.15,-1923.68,-161.7)
+        end
 
-        local victimVelocity = GetEntityVelocity(victimVehicle)
-        local newVelocity = victimVelocity + normalizedForce * forceMultiplier
-        SetEntityVelocity(victimVehicle, newVelocity.x, newVelocity.y, newVelocity.z)
+
+        -- local forceDirection = (victimCoords - playerCoords) * vector3(1.0, 1.0, 0.0)
+        -- local normalizedForce = normalize(forceDirection)
+
+        -- local forceMultiplier = 10.0 -- Adjust this value to change force of velocity
+
+        -- local victimVelocity = GetEntityVelocity(victimVehicle)
+        -- local newVelocity = victimVelocity + normalizedForce * forceMultiplier
+        -- SetEntityVelocity(victimVehicle, newVelocity.x, newVelocity.y, newVelocity.z)
     end
 end)
