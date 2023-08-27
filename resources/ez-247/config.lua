@@ -6,6 +6,13 @@ Config = {}
 
 Config.ShowBlips = false -- show blips of every storeclerk.
 
+Config.WeaponTable = {
+    "weapon_sawnoffshotgun",
+    "weapon_snspistol",
+    "weapon_musket",
+    "weapon_pumpshotgun",
+}
+
 Config.ClerkData = {
     ["model"] = GetHashKey("mp_m_shopkeep_01"), -- this is the model of the clerk that you rob.
     ["cash"] = { -- random reward between value 1 -> value 2

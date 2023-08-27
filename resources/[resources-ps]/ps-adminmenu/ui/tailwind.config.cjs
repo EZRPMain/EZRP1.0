@@ -7,12 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#141517',
-        secondary: '#1a1b1e',
-        tertiary: '#24272b',
-        accent: '#2284d9',
-        border_primary: '#373a40',
-        hover_secondary: '#2c2e33',
+        primary: '#1f2528',
+        secondary: '#131313',
+        tertiary: '#26343a',
+        accent: '#00889E',
       }
     },
   },

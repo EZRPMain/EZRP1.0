@@ -157,7 +157,7 @@ RobPed = function(pedEntity)
 		"mp_am_hold_up"
 	})
 
-	if math.random(3) == 2 then
+	if math.random(2) == 2 then
 		local started = GetGameTimer()
 
 		while GetGameTimer() - started < 5000 do
@@ -168,7 +168,8 @@ RobPed = function(pedEntity)
 			end
 		end
 
-		GiveWeaponToPed(pedEntity, GetHashKey("weapon_snspistol"), 12, false, true)
+		local rdmWeap = Config.WeaponTable[math.random(#Config.WeaponTable)]
+		GiveWeaponToPed(pedEntity, GetHashKey(rdmWeap), 12, false, true)
 
 		TaskCombatPed(pedEntity, PlayerPedId(), 0, 16)
 

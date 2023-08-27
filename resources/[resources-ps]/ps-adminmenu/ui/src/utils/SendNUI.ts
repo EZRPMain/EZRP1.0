@@ -1,12 +1,12 @@
-import { BROWSER_MODE, RESOURCE_NAME } from '@store/stores'
+import { browserMode, resName } from '@store/stores'
 
 let isBrowserMode: boolean = false;
-BROWSER_MODE.subscribe((value: boolean) => {
+browserMode.subscribe((value: boolean) => {
   isBrowserMode = value;
 });
 
 let debugResName: string = "";
-RESOURCE_NAME.subscribe((value: string) => {
+resName.subscribe((value: string) => {
   debugResName = value;
 });
 
@@ -22,7 +22,7 @@ export async function SendNUI<T = any>(
   data: unknown = {},
   debugReturn?: T
 ): Promise<T> {
-  if ((isBrowserMode == true && debugReturn) || (isBrowserMode == true)) {
+  if (isBrowserMode == true && debugReturn) {
     return Promise.resolve(debugReturn || {} as T)
   }
   const options = {

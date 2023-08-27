@@ -1,11 +1,16 @@
 <script lang="ts">
-	import { ACTION } from '@store/actions'
-	import { ITEM_DATA, VEHICLE_DATA, JOB_DATA, GANG_DATA, LOCATION_DATA } from '@store/data'
-	import { PLAYER, PLAYER_DATA } from '@store/players'
-	import { RESOURCE, RESOURCES } from '@store/server'
 	import { ReceiveNUI } from '@utils/ReceiveNUI'
 	import { debugData } from '@utils/debugData'
+	import { browserMode, visibility, ACTIONS, ACTIONSBUTTONS, RESOURCES, RESOURCESBUTTONS, PLAYERS, PLAYERSBUTTONS, VEHICLES, Message, Messages, SERVERMETRICS } from '@store/stores'
 
+	function copyToClipboard(str) {
+		const el = document.createElement('textarea');
+		el.value = str;
+		document.body.appendChild(el);
+		el.select();
+		document.execCommand('copy');
+		document.body.removeChild(el);
+	}
 
 	debugData([
 		{
@@ -21,26 +26,52 @@
 		},
 	])
 
-	ReceiveNUI('setupUI', (data: any) => {
-		$ACTION = data.actions
-		$RESOURCE = data.resources
-		$PLAYER_DATA = data.playerData
+	function browserHideAndShow(e: KeyboardEvent) {
+		if (e.key === '=') {
+			$visibility = true
+		}
+	}
+
+	ReceiveNUI('setBrowserMode', (data: boolean) => {
+		browserMode.set(data)
+		console.log('browser mode enabled')
+		if (data) {
+			window.addEventListener('keydown', browserHideAndShow)
+		} else {
+			window.removeEventListener('keydown', browserHideAndShow)
+		}
+	})
+
+	ReceiveNUI('setActionData', (data: any) => {
+		ACTIONS.set(data)
+		ACTIONSBUTTONS.set($ACTIONS[0])
 	})
 
 	ReceiveNUI('setResourceData', (data: any) => {
-		$RESOURCE = data
+		data.sort((a, b) => a.name.localeCompare(b.name))
+		RESOURCES.set(data)
+		RESOURCESBUTTONS.set($RESOURCES[0])
 	})
 
 	ReceiveNUI('setPlayersData', (data: any) => {
-		$PLAYER = data
+		PLAYERS.set(data)
+		PLAYERSBUTTONS.set($PLAYERS[0])
 	})
 
-	ReceiveNUI('data', (data: any) => {
-		$VEHICLE_DATA = data.vehicles
-		$ITEM_DATA = data.items
-		$JOB_DATA = data.jobs
-		$GANG_DATA = data.gangs
-		$LOCATION_DATA = data.locations
+	ReceiveNUI('CopyCoordinatesToClipboard', (data: any) => {
+		copyToClipboard(data);
 	})
 
+	ReceiveNUI('setVehicles', (data: any) => {
+		VEHICLES.set(data)
+	})
+
+	ReceiveNUI('setMetrics', (data: any) => {
+		SERVERMETRICS.set(data)
+	})
+
+	ReceiveNUI('setMessages', (data: any) => {
+		Message.set(data)
+		Messages.set($Message[0])
+	});
 </script>
