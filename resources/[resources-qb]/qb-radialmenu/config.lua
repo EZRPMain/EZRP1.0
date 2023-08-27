@@ -74,13 +74,6 @@ Config.MenuItems = {
                         shouldClose = true
                     }, 
                     {
-                        id = 'checkvin',
-                        title = 'Check VIN',
-                        icon = 'search',
-                        type = 'client',
-                        event = 'jl-carboost:client:checkvin',
-                        shouldClose = true
-                    }, {
                         id = 'escort',
                         title = 'Kidnap',
                         icon = 'user-group',
@@ -584,11 +577,11 @@ Config.JobInteractions = {
             event = 'police:client:SendPoliceEmergencyAlert',
             shouldClose = true
         }, {
-            id = 'checkvehstatus',
-            title = 'Check Tune Status',
+            id = 'checkvin',
+            title = 'Check The Vin Number',
             icon = 'circle-info',
             type = 'client',
-            event = 'qb-tunerchip:client:TuneStatus',
+            event = 'jl-carboost:client:checkvin',
             shouldClose = true
         }, {
             id = 'resethouse',

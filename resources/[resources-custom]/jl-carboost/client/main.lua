@@ -159,31 +159,46 @@ local function StartHacking(vehicle)
     local trackerLeft = veh.state.trackerLeft
     if veh.state.tracker then
         if not veh.state.hacked then
-            local success =  exports['boostinghack']:StartHack()
-            if success then
-                local randomSeconds = math.random(30)
-                trackerLeft = trackerLeft - 1
-                veh.state.trackerLeft = trackerLeft
-                veh.state.hacked = true
+            exports['ps-ui']:StatusShow("Car Boosting", {
+                "Car Boost Hacks",
+                ("Hacks Left: %s"):format(trackerLeft),
+              })
+            exports['ps-ui']:Scrambler(function(success)
+                if success then
+                    local randomSeconds = math.random(30)
+                    trackerLeft = trackerLeft - 1
+                    veh.state.trackerLeft = trackerLeft
+                    veh.state.hacked = true
+                    exports['ps-ui']:StatusUpdate("Car Boosting", {
+                        "Car Boost Hacks",
+                        ("Hacks Left: %s"):format(trackerLeft),
+                      })
                 if trackerLeft == 0 then
                     veh.state.tracker = false
                     veh.state.hacked = true
+                    exports['ps-ui']:StatusHide()
                     return QBCore.Functions.Notify(Lang:t("success.disable_tracker"))
                 else
                     QBCore.Functions.Notify(Lang:t('success.tracker_off', {time = randomSeconds, tracker_left = trackerLeft}))
+                end
+                else
+                    QBCore.Functions.Notify(Lang:t("error.no_tracker"), "error")  
+                    trackerLeft = trackerLeft + 1  
+                    exports['ps-ui']:StatusHide()
                 end
                 CreateThread(function ()
                     Wait(randomSeconds*1000)
                     veh.state.hacked = false
                 end)
-            else
-                QBCore.Functions.Notify(Lang:t('error.disable_fail'), "error")
-            end
+
+            end, "numeric", 30, 0) -- Type (alphabet, numeric, alphanumeric, greek, braille, runes), Time (Seconds), Mirrored (0: Normal, 1: Normal + Mirrored 2: Mirrored only )
         else
             print("ALREADY HACKED")
+            exports['ps-ui']:StatusHide()
         end
     else
         QBCore.Functions.Notify(Lang:t("error.no_tracker"), "error")
+        exports['ps-ui']:StatusHide()
     end
 end
 
@@ -227,8 +242,8 @@ local function Scratching()
 end
 
 local function BoostingAlert()
-    if Config.Alert == 'qb-dispatch' then
-        AlertBoosting(carID, 'qb-dispatch')
+    if Config.Alert == 'ps-dispatch' then
+        AlertBoosting(carID, 'ps-dispatch')
     elseif Config.Alert == 'linden_outlawalert' then
         AlertBoosting(carID, 'linden_outlawalert')
     else
@@ -716,6 +731,7 @@ RegisterNetEvent('jl-carboost:client:trackersReady', function (data)
                 RegisterCar(carSpawned)
                 BoostingAlert()
                 TriggerEvent('jl-carboost:client:startTracker', data)
+                
                 break
             end
         end
