@@ -38,24 +38,24 @@ RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job)
     PlayerData.job = job
 end)
 
-AddEventHandler('qb-polyzone:enter', function(name)
-    if LocalPlayer.state["isLoggedIn"] then
-        if name == "AtLaptop" then
-            atLaptop = true
-			if hasBought then
-				TriggerEvent("bennyPed:client:pickUpLaptop")
-			end
-        end  
-    end
-end)
+-- AddEventHandler('qb-polyzone:enter', function(name)
+--     if LocalPlayer.state["isLoggedIn"] then
+--         if name == "AtLaptop" then
+--             atLaptop = true
+-- 			if hasBought then
+-- 				TriggerEvent("bennyPed:client:pickUpLaptop")
+-- 			end
+--         end  
+--     end
+-- end)
 
-AddEventHandler('qb-polyzone:exit', function(name)
-    if LocalPlayer.state["isLoggedIn"] then
-        if name == "AtLaptop" then
-            atLaptop = false
-        end
-    end
-end)
+-- AddEventHandler('qb-polyzone:exit', function(name)
+--     if LocalPlayer.state["isLoggedIn"] then
+--         if name == "AtLaptop" then
+--             atLaptop = false
+--         end
+--     end
+-- end)
 
 RegisterNetEvent('bennyPed:client:buyLaptop', function()   
     QBCore.Functions.TriggerCallback("fleeca:canAfford", function(canAfford)
