@@ -66,7 +66,7 @@ end
 
 StartRobberyThread = function(pedEntity)
 	if IsPedDeadOrDying(pedEntity) then return end
-
+	exports['ps-dispatch']:StoreRobbery()
 	RequestNetworkControl({
 		pedEntity
 	})
@@ -174,7 +174,7 @@ RobPed = function(pedEntity)
 		TaskCombatPed(pedEntity, PlayerPedId(), 0, 16)
 
 		local clerkCoords = GetEntityCoords(pedEntity)
-		exports['ps-dispatch']:StoreRobbery()
+
 		GlobalFunction("alert_police", {
 			["coords"] = {
 				["x"] = clerkCoords["x"],
