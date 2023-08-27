@@ -724,19 +724,35 @@ function StartHack(data, name)
     NetworkStartSynchronisedScene(netScene2)
     Wait(2000)
 
-    exports["hacking2"]:hacking(
-    function() -- success
-        hackfinish = true
-        disableinput = false
-        hackSuccess = true
-    end,
-    function() -- failure
-        hackfinish = true
-        disableinput = false
-        hackSuccess = false
-        TriggerServerEvent("fleeca:server:onaction", name)
-        Check[name] = false
-    end)
+
+    exports['ez-untangle']:OpenUntangleGame(function(action)
+        print(action)
+        if action == 'failed' then
+            hackfinish = true
+            disableinput = false
+            hackSuccess = false
+            TriggerServerEvent("fleeca:server:onaction", name)
+            Check[name] = false
+        else
+            hackfinish = true
+            disableinput = false
+            hackSuccess = true
+        end
+      end, 8)
+
+    -- exports["hacking2"]:hacking(
+    -- function() -- success
+    --     hackfinish = true
+    --     disableinput = false
+    --     hackSuccess = true
+    -- end,
+    -- function() -- failure
+    --     hackfinish = true
+    --     disableinput = false
+    --     hackSuccess = false
+    --     TriggerServerEvent("fleeca:server:onaction", name)
+    --     Check[name] = false
+    -- end)
 
     while not hackfinish do
         Wait(1)
