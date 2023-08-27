@@ -5,8 +5,8 @@ Config.maxcash = 85 -- maxium amount of bills reward after tray has been grabbed
 Config.mincash = 50 -- minimum amount of bills reward after tray has been grabbed
 Config.secondtrolley = 50 -- procent chance for the second trolley to spawn
 Config.discardItems = true -- if player should get some cash after grabbing money
-Config.minDiscardCash = 20000 -- max player should get some straight cash after grabbing money
-Config.maxDiscardCash = 10000 -- min player should get some straight cash after grabbing money
+Config.minDiscardCash = 10000 -- max player should get some straight cash after grabbing money
+Config.maxDiscardCash = 20000 -- min player should get some straight cash after grabbing money
 Config.debugPoly = false -- if polyzones should show
 
 Config.laptopPrice = 5000
