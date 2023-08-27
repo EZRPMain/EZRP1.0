@@ -157,7 +157,7 @@ RobPed = function(pedEntity)
 		"mp_am_hold_up"
 	})
 
-	if math.random(2) == 2 then
+	-- if math.random(2) == 2 then
 		local started = GetGameTimer()
 
 		while GetGameTimer() - started < 5000 do
@@ -174,7 +174,6 @@ RobPed = function(pedEntity)
 		TaskCombatPed(pedEntity, PlayerPedId(), 0, 16)
 
 		local clerkCoords = GetEntityCoords(pedEntity)
-
 		exports['ps-dispatch']:StoreRobbery()
 		GlobalFunction("alert_police", {
 			["coords"] = {
@@ -182,7 +181,7 @@ RobPed = function(pedEntity)
 				["y"] = clerkCoords["y"]
 			}
 		})
-	end
+	-- end
 end
 
 BagThread = function(bagData)
