@@ -1,20 +1,21 @@
+fx_version 'adamant'
 
-fx_version "cerulean"
+game 'gta5'
 
-games { "gta5" }
-
-version "2.1.0"
-
-ui_page 'nui/index.html'
-
-files {
-    'nui/**/*',
-}
-
-server_scripts {
-    "server/sv_*.js",
-}
+ui_page 'web/build/index.html'
 
 client_scripts {
-    "client/cl_*.js",
+	'client/client.lua',
+	'client/utils.lua'
+}
+
+files {
+	'web/build/index.html',
+	'web/build/assets/*.css',
+	'web/build/assets/*.js',
+}
+
+
+exports {
+	'OpenUntangleGame'
 }
