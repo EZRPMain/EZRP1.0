@@ -1237,6 +1237,57 @@ RegisterNetEvent('ps-adminmenu:client:setInfiniteAmmo', function(_, _, perms)
     QBCore.Functions.Notify(Lang:t("success.inf_ammo_toggled"), 'success', 7500)
 end)
 
+-- Set Model
+local blockedPeds = {
+    "mp_m_freemode_01",
+    "mp_f_freemode_01",
+    "tony",
+    "g_m_m_chigoon_02_m",
+    "u_m_m_jesus_01",
+    "a_m_y_stbla_m",
+    "ig_terry_m",
+    "a_m_m_ktown_m",
+    "a_m_y_skater_m",
+    "u_m_y_coop",
+    "ig_car3guy1_m",
+}
+
+
+local function LoadPlayerModel(skin)
+    RequestModel(skin)
+    while not HasModelLoaded(skin) do
+      Wait(0)
+    end
+end
+
+local function isPedAllowedRandom(skin)
+    local retval = false
+    for _, v in pairs(blockedPeds) do
+        if v ~= skin then
+            retval = true
+        end
+    end
+    return retval
+end
+
+RegisterNetEvent('ps-adminmenu:client:SetModel', function(inputData)
+    local ped = PlayerPedId()
+    local model = GetHashKey(inputData["Model"])
+    SetEntityInvincible(ped, true)
+
+    if IsModelInCdimage(model) and IsModelValid(model) then
+        LoadPlayerModel(model)
+        SetPlayerModel(PlayerId(), model)
+
+        if isPedAllowedRandom(skin) then
+            SetPedRandomComponentVariation(ped, true)
+        end
+
+        SetModelAsNoLongerNeeded(model)
+    end
+    SetEntityInvincible(ped, false)
+end)
+
 AddEventHandler('onResourceStop', function(resourceName)
     if resourceName == ResourceName then
         FreezeEntityPosition(NoClipEntity, false)
