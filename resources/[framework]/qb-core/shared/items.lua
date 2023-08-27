@@ -808,7 +808,8 @@ QBShared.Items = {
     ["devitem"]     		         = {["name"] = "devitem", 			            ["label"] = "Dev Item", 			["weight"] = 10, 		["type"] = "item", 		["image"] = "images/dev.png", 		            ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = 'An Items For Developers',},  
     ['owned_safe']                   = {["name"] = "owned_safe",                    ["label"] = "Safe",                 ["weight"] = 100,       ["type"] = "item",      ["image"] = "images/safe.png",                  ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = 'A Safe To Own',},
    
-    
+    ['starter_gift']                   = {["name"] = "started_gift",                    ["label"] = "A Gift",                 ["weight"] = 100,       ["type"] = "item",      ["image"] = "images/starter_gift.png",                  ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = 'You stole this from some guy on the plane?',},
+   
 }
 
 exports("GetSharedItems", function()
