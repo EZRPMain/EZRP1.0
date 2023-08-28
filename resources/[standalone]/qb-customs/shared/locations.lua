@@ -358,12 +358,13 @@ Config.Locations = {
             text = "MRPD Motorworks",
         },
         restrictions = {
-            job = { 'police', 'bcso', 'sasp' },
-            allowedVehicle = { `police`, `police2` },
-            allowedClasses = { 18 },
+            job = { 'police', 'bcso', 'sasp', "state" },
+            -- allowedVehicle = { `police`, `police2` },
+            -- allowedClasses = { 18 },
         },
         zones = {
-            { coords = vector3(433.27, -1021.82, 28.76), length = 9.0, width = 4.0, heading = 90.0, minZ = 24.5, maxZ = 30.5 },
+            --vector4(450.12, -975.81, 25.38, 91.73)
+            { coords = vector3(450.12, -975.81, 25.38), length = 9.0, width = 4.0, heading = 90.0, minZ = 24.5, maxZ = 30.5 },
             { coords = vector3(435.53, -975.97, 25.7), length = 9.0, width = 4.0, heading = 90.0, minZ = 24.5, maxZ = 28.5 },
         }
     },
