@@ -7,8 +7,25 @@ function string.starts(String,Start)
 end
 
 Shared = Shared or {}
+
+Shared.RentUtil = {
+    ["oneweek"] = {
+        time = 604800,
+        price = 7500,
+    },
+    ["twoweek"] = {
+        time = 1209600,
+        price = 15000,
+    },
+    ["threeweek"] = {
+        time = 1814400,
+        price = 25000,
+    },
+}
+
 Shared.Storages = {
     ["Garage1"] = {
+        label = "Garage1",
         coords = vector3(-1706.692, -733.426, 10.841),
         length = 7.4, 
         width = 8.2, 
@@ -24,6 +41,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage2"] = {
+        label = "Garage2",
         coords = vector3(-1700.915, -739.139, 11.016),
         length = 7.3, 
         width = 8.2, 
@@ -39,6 +57,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage3"] = {
+        label = "Garage3",
         coords = vector3(-1694.553, -743.888, 10.941),
         length = 7.3, 
         width = 8.2, 
@@ -54,6 +73,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage4"] = {
+        label = "Garage4",
         coords = vector3(-1688.185, -749.479, 10.841),
         length = 7.9, 
         width = 8.2, 
@@ -69,6 +89,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage5"] = {
+        label = "Garage5",
         coords = vector3(-1681.185, -754.922, 10.941),
         length = 7.9, 
         width = 8.2, 
@@ -84,6 +105,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage6"] = {
+        label = "Garage6",
         coords = vector3(-1674.875, -760.581, 10.841),
         length = 7.9, 
         width = 8.2, 
@@ -99,6 +121,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage7"] = {
+        label = "Garage7",
         coords = vector3(-1713.966, -752.266, 10.849),
         length = 7.9, 
         width = 8.2, 
@@ -114,6 +137,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage8"] = {
+        label = "Garage8",
         coords = vector3(-1707.656, -758.116, 10.939),
         length = 7.9, 
         width = 8.2, 
@@ -129,6 +153,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage9"] = {
+        label = "Garage9",
         coords = vector3(-1701.004, -763.406, 10.939),
         length = 7.9, 
         width = 8.2, 
@@ -144,6 +169,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage10"] = {
+        label = "Garage10",
         coords = vector3(-1694.46, -768.911, 10.939),
         length = 7.9, 
         width = 8.2, 
@@ -159,6 +185,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage11"] = {
+        label = "Garage11",
         coords = vector3(-1687.5, -774.342, 10.839),
         length = 7.9, 
         width = 8.2, 
@@ -174,6 +201,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage12"] = {
+        label = "Garage12",
         coords = vector3(-1681.392, -779.582, 10.839),
         length = 7.9, 
         width = 8.2, 
@@ -189,6 +217,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage13"] = {
+        label = "Garage13",
         coords = vector3(-1675.683, -784.816, 10.939),
         length = 7.2, 
         width = 8.2, 
@@ -204,6 +233,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage14"] = {
+        label = "Garage14",
         coords = vector3(-1663.561, -796.12, 10.943),
         length = 7.9, 
         width = 8.4, 
@@ -219,6 +249,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage15"] = {
+        label = "Garage15",
         coords = vector3(-1658.172, -789.895, 10.943),
         length = 8.5, 
         width = 7.9, 
@@ -234,6 +265,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage16"] = {
+        label = "Garage16",
         coords = vector3(-1653.121, -783.423, 11.043),
         length = 8.5, 
         width = 7.9, 
@@ -249,6 +281,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage17"] = {
+        label = "Garage17",
         coords = vector3(-1649.423, -808.152, 10.746),
         length = 8.5, 
         width = 7.9, 
@@ -264,6 +297,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage18"] = {
+        label = "Garage18",
         coords = vector3(-1643.741, -801.966, 10.746),
         length = 8.5, 
         width = 7.9, 
@@ -279,6 +313,7 @@ Shared.Storages = {
         hasKeys = {}
     },
     ["Garage19"] = {
+        label = "Garage19",
         coords = vector3(-1639.108, -795.654, 10.346),
         length = 8.5, 
         width = 7.9, 

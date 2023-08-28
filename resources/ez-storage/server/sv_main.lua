@@ -2,17 +2,31 @@ MySQL.ready(function()
 	Citizen.Wait(500)
 
     for name in pairs(Shared.Storages) do
-        local result = MySQL.scalar.await('SELECT 1 from ez_storage WHERE zone = ?', {name})
-        if not result then 
-            MySQL.insert('INSERT INTO ez_storage (zone) VALUES (:zone) ON DUPLICATE KEY UPDATE zone = :zone', {
-                ['zone'] = name
-            })
-            print("Created "..name)
-        end
-        Wait(100)
+        local result = MySQL.scalar.await('SELECT * from ez_storage WHERE zone = ?', {name})
+        -- if not result then 
+        --     MySQL.insert('INSERT INTO ez_storage (zone) VALUES (:zone) ON DUPLICATE KEY UPDATE zone = :zone', {
+        --         ['zone'] = name
+        --     })
+        --     print("Created "..name)
+        -- end
+        -- Wait(100)
     end
-	
 end)
+
+local function SyncOwners(src)
+    for name in pairs(Shared.Storages) do
+        local result = MySQL.scalar.await('SELECT cid from ez_storage WHERE zone = ?', {name})
+        if result then 
+            print(result)
+            TriggerClientEvent("ez-storage:syncOwners", src, result, name)
+        end
+    end
+end
+
+local function SyncOwner(src, garage)
+    local cid = Framework:GetPlayer(src).PlayerData.citizenid
+    -- TriggerClientEvent("ez-storage:syncOwners", -1, cid, garage)
+end
 
 local function ConvertCidToTrue(cids)
     local result = {}
@@ -72,7 +86,10 @@ end
 local function AddKeyHolder(src, garage, citizenid)
     local Player = Framework:GetPlayer(src)
     local cid = Player.PlayerData.citizenid
-
+    if Shared.Storages[garage].owner and Shared.Storages[garage].owner ~= cid then 
+        -- TriggerClientEvent
+        return "Not Owner"
+    end
 
     local result = MySQL.scalar.await('SELECT keyholders from ez_storage WHERE zone = ?', {garage})
     if not result then
@@ -88,7 +105,10 @@ local function AddKeyHolder(src, garage, citizenid)
         keyholders[#keyholders+1] = citizenid
         MySQL.update('UPDATE ez_storage SET keyholders = ? WHERE zone = ?',{ json.encode(keyholders), garage })
     end
-
+    local reloadKey = ReloadKeys(src, garage)
+    if reloadKey then 
+        print(("[SRC: %s] has loaded storage keys for %s"):format(src, garage)) 
+    end
 end
 
 RegisterCommand("addkeyholder", function(s,a)
@@ -120,6 +140,7 @@ end)
 
 RegisterNetEvent("ez-storage:scuffFix", function()
     local source = source
+    SyncOwners(source)
     local ped = GetPlayerPed(source)
     local coords = GetEntityCoords(ped)
     local dist = #(vector3(-1718.24, -746.92, 10.19) - coords)
@@ -138,10 +159,64 @@ end)
 
 RegisterNetEvent("QBCore:Server:OnPlayerLoaded", function()
     local source = source
+    SyncOwners(source)
     for name in pairs(Shared.Storages) do 
         local result = ReloadKeys(source, name)
         if result then 
             print(("[SRC: %s] has loaded storage keys for %s"):format(source, name))
+        end
+    end
+end)
+
+RegisterNetEvent("ez-storage:CheckAva", function()
+    local source = source
+    local menuData = {
+        {
+            header = "Storage Rental",
+            isMenuHeader = true,
+        }
+    }
+    for name, data in pairs(Shared.Storages) do
+        -- print(name)
+        local addData = {
+            header = data.label,
+            txt = "",
+            params = {
+                event = "ez-storage:openBuyMenu",
+                args = {
+                    name = name,
+                }
+            }
+        }
+        if data.owner ~= nil then 
+            addData.disabled = true
+        end
+        menuData[#menuData+1] = addData
+    end
+
+
+    TriggerClientEvent("qb-menu:client:openMenu", source, menuData)
+end)
+
+RegisterNetEvent("ez-storage:rentCheck", function(garage, timeadd, isAdd)
+    local source = source
+    local Player = Framework:GetPlayer(source)
+    local price = Shared.RentUtil[timeadd].price
+    local addTime = Shared.RentUtil[timeadd].time
+    local newTime = os.time() + addTime
+    local cid = Player.PlayerData.citizenid 
+    if not Shared.Storages[garage].owner and not isAdd then
+        if Player.Functions.RemoveMoney("bank", price, "storage-rental") then
+            Shared.Storages[garage].owner = cid
+
+            local canAdd = AddKeyHolder(source, garage, Shared.Storages[garage].owner)
+            TriggerClientEvent("ez-storage:syncOwners", -1, Shared.Storages[garage].owner, garage)
+            MySQL.update('UPDATE ez_storage SET cid = ?, lastpaid = ?, needpay = ? WHERE zone = ?',{ cid, os.time(), newTime, garage })
+        end
+    elseif Shared.Storages[garage].owner == Player.PlayerData.citizenid and isAdd then 
+        if Player.Functions.RemoveMoney("bank", price, "storage-rental") then
+
+            MySQL.update('UPDATE ez_storage SET cid = ?, lastpaid = ?, needpay = ? WHERE zone = ?',{ cid, os.time(), newTime, garage })
         end
     end
 end)
