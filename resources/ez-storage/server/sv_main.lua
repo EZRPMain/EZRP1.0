@@ -170,6 +170,7 @@ end)
 
 RegisterNetEvent("ez-storage:CheckAva", function()
     local source = source
+    local cid = Framework:GetPlayer(source).PlayerData.citizenid
     local menuData = {
         {
             header = "Storage Rental",
@@ -189,7 +190,9 @@ RegisterNetEvent("ez-storage:CheckAva", function()
             }
         }
         if data.owner ~= nil then 
-            addData.disabled = true
+            if data.owner ~= cid then
+                addData.disabled = true
+            end
         end
         menuData[#menuData+1] = addData
     end
