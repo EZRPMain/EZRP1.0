@@ -4,7 +4,7 @@ local currentStorage = nil
 
 -- Key Events
 RegisterNetEvent("scuff-fix", function()
-    TriggerServerEvent("fuckthis")
+    TriggerServerEvent("ez-storage:scuffFix")
 end)
 
 

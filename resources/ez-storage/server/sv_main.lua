@@ -52,6 +52,23 @@ RegisterCommand("keyholder", function(s,a)
 
 end)
 
+local function ReloadKeys(source, garage)
+    local Player = Framework:GetPlayer(source)
+    local cid = Player.PlayerData.citizenid
+    local keyholders = GetStorageKeyHolders(garage)
+    if keyholders then
+        local keyholder = ConvertCidToTrue(keyholders)
+        if keyholder[cid] then 
+            Shared.Storages[garage].hasKeys = keyholder
+            TriggerClientEvent("ez-storage:loadKeys", source, garage, Shared.Storages[garage].hasKeys)
+            return true
+        end
+        return false
+    end
+    return false
+end
+
+
 local function AddKeyHolder(src, garage, citizenid)
     local Player = Framework:GetPlayer(src)
     local cid = Player.PlayerData.citizenid
@@ -101,18 +118,30 @@ RegisterNetEvent("ez-storage:AddKeys", function(otherPlayer, garage)
 
 end)
 
+RegisterNetEvent("ez-storage:scuffFix", function()
+    local source = source
+    local ped = GetPlayerPed(source)
+    local coords = GetEntityCoords(ped)
+    local dist = #(vector3(-1718.24, -746.92, 10.19) - coords)
+    if dist < 5 then 
+        for name in pairs(Shared.Storages) do 
+            local result = ReloadKeys(source, name)
+            if result then 
+                print(("[SRC: %s] has loaded storage keys for %s"):format(source, name)) 
+            end
+        end
+        TriggerClientEvent("QBCore:Notify", source, "STORAGE SCUFF FIXED")
+    elseif dist < 75 then
+        TriggerClientEvent("QBCore:Notify", source, "If you a trying to scuff fix storage go closer to blue door ;)") 
+    end
+end)
+
 RegisterNetEvent("QBCore:Server:OnPlayerLoaded", function()
     local source = source
-    -- Way to get Storage Key Holders (Save to DB or KVP?)
-    local cids = {"CWP72955", "CWP72955","UBY85808"}
-
-    -- for i, cid in pairs(cids) do
-    --     Shared.Storages[garage].hasKeys[cid] = true
-    -- end
-    local garage = "Garage19"
-
-    Shared.Storages[garage].hasKeys = ConvertCidToTrue(cids)
-    
-
-    TriggerClientEvent("ez-storage:loadKeys", source, garage, Shared.Storages[garage].hasKeys)
+    for name in pairs(Shared.Storages) do 
+        local result = ReloadKeys(source, name)
+        if result then 
+            print(("[SRC: %s] has loaded storage keys for %s"):format(source, name))
+        end
+    end
 end)
