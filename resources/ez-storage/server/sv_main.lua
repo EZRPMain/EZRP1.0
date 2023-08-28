@@ -92,7 +92,7 @@ RegisterNetEvent("ez-storage:AddKeys", function(otherPlayer, garage)
     local Player2 = Framework:GetPlayer(otherPlayer)
 
     if Player2 then 
-        local canAdd = AddKeyHolder(s, a[1], a[2])
+        local canAdd = AddKeyHolder(s, garage, Player2.PlayerData.citizenid)
         -- Shared.Storages[garage].hasKeys[Player2.PlayerData.citizenid] = true
         -- MySQL.insert
     else
