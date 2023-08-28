@@ -68,9 +68,14 @@ local garagetogglestate = true
 RegisterNetEvent("ez-storage:garageDoor", function()
     local house = currentStorage
     if house then
+        PlaySoundFrontend(-1, "Enter_On_Foot", "GTAO_ImpExp_Enter_Exit_Garage_Sounds", 1)
         garagetogglestate = not garagetogglestate
         TriggerServerEvent('qb-doorlock:server:updateState', Shared.Storages[house].door, garagetogglestate, false, false, true, false, false)
     end
+end)
+
+RegisterNetEvent("ez-storage:openAccessMenu", function()
+    print("[W.I.P] MOTHER FUCKER")
 end)
 
 RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)

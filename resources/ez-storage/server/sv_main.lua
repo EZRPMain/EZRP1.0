@@ -123,7 +123,7 @@ RegisterNetEvent("ez-storage:scuffFix", function()
     local ped = GetPlayerPed(source)
     local coords = GetEntityCoords(ped)
     local dist = #(vector3(-1718.24, -746.92, 10.19) - coords)
-    if dist < 5 then 
+    if dist < 200 then 
         for name in pairs(Shared.Storages) do 
             local result = ReloadKeys(source, name)
             if result then 
@@ -131,8 +131,8 @@ RegisterNetEvent("ez-storage:scuffFix", function()
             end
         end
         TriggerClientEvent("QBCore:Notify", source, "STORAGE SCUFF FIXED")
-    elseif dist < 75 then
-        TriggerClientEvent("QBCore:Notify", source, "If you a trying to scuff fix storage go closer to blue door ;)") 
+    -- elseif dist < 75 then
+    --     TriggerClientEvent("QBCore:Notify", source, "If you a trying to scuff fix storage go closer to blue door ;)") 
     end
 end)
 
