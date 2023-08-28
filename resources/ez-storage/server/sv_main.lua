@@ -223,3 +223,62 @@ RegisterNetEvent("ez-storage:rentCheck", function(garage, timeadd, isAdd)
         end
     end
 end)
+
+RegisterNetEvent("ez-storage:keyHolders_sv", function(garage)
+    local source = source
+
+    local keyholders = GetStorageKeyHolders(garage)
+
+    local menuData = {
+        {
+            header = "View Access",
+            isMenuHeader = true,
+        },
+    }
+    -- for i, data in pairs(fakeData) do 
+    for i = 1,#keyholders do
+        local cid = keyholders[i]
+        local Player = Framework:GetPlayerByCitizenId(cid)
+        local fakeData = {
+            fn = Player.PlayerData.charinfo.firstname,
+            ln = Player.PlayerData.charinfo.lastname,
+            cid = Player.PlayerData.citizenid,
+        }
+        menuData[#menuData+1] = {
+            header = ("%s %s"):format(fakeData.fn, fakeData.ln),
+            txt = ("CID: %s"):format(fakeData.cid),
+            params = {
+                event = "ez-storage:openPlayer",
+                args = {
+                    name = garage,
+                    Player = Player,
+                    cid = cid,
+                    data = fakeData,
+                }
+            }
+        }
+    end
+    -- end
+
+    menuData[#menuData+1] = {
+        header = "Add Player",
+        txt = "",
+        params = {
+            event = "ez-storage:AddPlayerDialog",
+            args = {
+                name = garage,
+            }
+        }
+    }
+    menuData[#menuData+1] = {
+        header = "< Go Back",
+        txt = "",
+        params = {
+            event = "ez-storage:openBuyMenu",
+            args = {
+                name = garage,
+            }
+        }
+    }
+    TriggerClientEvent("qb-menu:client:openMenu", source, menuData)
+end)

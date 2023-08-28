@@ -141,6 +141,16 @@ RegisterNetEvent("ez-storage:openBuyMenu", function(data)
                         }
                     }
                 },
+                {
+                    header = "Key Holders",
+                    txt = "View Access",
+                    params = {
+                        event = "ez-storage:keyHolders",
+                        args = {
+                            name = garage,
+                        }
+                    }
+                },
             }
         end
     else
@@ -200,3 +210,33 @@ RegisterNetEvent("ez-storage:syncOwners", function(cid, garage)
     Shared.Storages[garage].owner = cid
 end)
 
+RegisterNetEvent("ez-storage:keyHolders", function(data)
+    local garage = data.name
+    TriggerServerEvent("ez-storage:keyHolders_sv", garage)
+  
+end)
+
+RegisterNetEvent("ez-storage:AddPlayerDialog", function(data)
+
+    local garage = data.name
+    local dialog = exports['qb-input']:ShowInput({
+        header = "Test",
+        submitText = "Bill",
+        inputs = {
+            {
+                text = "Citizen ID (#)", -- text you want to be displayed as a place holder
+                name = "citizenid", -- name of the input should be unique otherwise it might override
+                type = "text", -- type of the input
+                isRequired = true, -- Optional [accepted values: true | false] but will submit the form if no value is inputted
+                -- default = "CID-1234", -- Default text option, this is optional
+            },
+           
+        },
+    })
+
+    if dialog ~= nil then
+        for k,v in pairs(dialog) do
+            print(k .. " : " .. v)
+        end
+    end
+end)
