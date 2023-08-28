@@ -220,8 +220,8 @@ RegisterNetEvent("ez-storage:AddPlayerDialog", function(data)
 
     local garage = data.name
     local dialog = exports['qb-input']:ShowInput({
-        header = "Test",
-        submitText = "Bill",
+        header = "Add Player",
+        submitText = "Confirm",
         inputs = {
             {
                 text = "Citizen ID (#)", -- text you want to be displayed as a place holder
@@ -235,8 +235,43 @@ RegisterNetEvent("ez-storage:AddPlayerDialog", function(data)
     })
 
     if dialog ~= nil then
-        for k,v in pairs(dialog) do
-            print(k .. " : " .. v)
-        end
+        TriggerServerEvent("ez-storage:AddKeys", garage, dialog.citizenid)
     end
+end)
+
+RegisterNetEvent("ez-storage:openPlayer", function(data)
+    local garage = data.name
+    local fakeData = data.data
+    local PlayerData = Framework:GetPlayerData()
+    local menuData = {
+        {
+            header = ("%s %s | %s"):format(fakeData.fn, fakeData.ln, fakeData.cid), 
+            isMenuHeader = true,
+        }
+    }
+    if data.cid ~= PlayerData.citizenid then
+        menuData[#menuData+1] = {
+            header = "Remove",
+            txt = "",
+            params = {
+                event = "ez-storage:removeKeyAccess",
+                args = {
+                    name = garage,
+                    cid = data.cid
+                }
+            }
+        }
+    end
+    menuData[#menuData+1] = {
+        header = "< Go Back",
+        txt = "",
+        params = {
+            event = "ez-storage:keyHolders",
+            args = {
+                name = garage,
+                cid = data.cid
+            }
+        }
+    }
+    exports['qb-menu']:openMenu(menuData)
 end)

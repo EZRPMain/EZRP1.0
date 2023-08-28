@@ -118,22 +118,20 @@ RegisterCommand("addkeyholder", function(s,a)
     end
 end)
 
-RegisterNetEvent("ez-storage:AddKeys", function(otherPlayer, garage)
+RegisterNetEvent("ez-storage:AddKeys", function(garage, citizenid)
     local source = source
-    if isDebug then 
-        garage = garage or "Garage1"
-    end
-
     local Player = Framework:GetPlayer(source)
 
-    local Player2 = Framework:GetPlayer(otherPlayer)
+    local Player2 = Framework:GetPlayerByCitizenId(citizenid)
 
     if Player2 then 
-        local canAdd = AddKeyHolder(s, garage, Player2.PlayerData.citizenid)
+        local canAdd = AddKeyHolder(source, garage, citizenid)
+        TriggerClientEvent("QBCore:Notify", source, "Added Key Holder", "success")
+        TriggerClientEvent("QBCore:Notify", Player2.PlayerData.source, "You just recieved keys from ".. Player.PlayerData.charinfo.firstname.. " " .. Player.PlayerData.charinfo.lastname)
         -- Shared.Storages[garage].hasKeys[Player2.PlayerData.citizenid] = true
         -- MySQL.insert
     else
-        TriggerClientEvent("QBCore:Notify", source, "Person does not exist", "error")
+        TriggerClientEvent("QBCore:Notify", source, "They couldn't recieve the keys, Try again later", "error")
     end
 
 end)
@@ -251,7 +249,7 @@ RegisterNetEvent("ez-storage:keyHolders_sv", function(garage)
                 event = "ez-storage:openPlayer",
                 args = {
                     name = garage,
-                    Player = Player,
+                    -- Player = Player,
                     cid = cid,
                     data = fakeData,
                 }
