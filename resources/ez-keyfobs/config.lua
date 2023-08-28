@@ -29,7 +29,36 @@ Shared.Zones = {
             }
         }
     },
-    -- {
-
-    -- }
+    {
+        name = "MRPD-GARAGE-1",
+        coords = vector3(452.412, -1001.004, 26.786),
+        length = 25.0,
+        width = 5.3,
+        data = {
+            debugPoly = Shared.DebugZone,
+            heading = 0.0,
+            minZ = 23.936,
+            maxZ = 29.636,
+            data = {
+                doorlock = "LSPD-Garage 1",
+                jobType = "leo",
+            }
+        }
+    },
+    {
+        name = "MRPD-GARAGE-2",
+        coords = vector3(431.31, -1001.004, 26.786),
+        length = 25.0,
+        width = 5.3,
+        data = {
+            debugPoly = Shared.DebugZone,
+            heading = 0.0,
+            minZ = 23.936,
+            maxZ = 29.636,
+            data = {
+                doorlock = "LSPD-Garage 2",
+                jobType = "leo",
+            }
+        }
+    },
 }
