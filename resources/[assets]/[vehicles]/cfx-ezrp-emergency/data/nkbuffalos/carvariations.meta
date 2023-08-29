@@ -6,13 +6,13 @@
 			<colors>
 				<Item>
 					<indices content="char_array">
-            0
-            0
-            0
-            0
-            0
-            0
-          </indices>
+						0
+						111
+						0
+						0
+						0
+						0
+					</indices>
 					<liveries>
 						<Item value="false"/>
 						<Item value="false"/>
@@ -48,7 +48,7 @@
 				</Item>
 			</colors>
 			<kits>
-				<Item>995_nkbuffalos_modkit</Item>
+				<Item>6436_nkbuffalos_modkit</Item>
 			</kits>
 			<windowsWithExposedEdges/>
 			<plateProbabilities>
@@ -60,7 +60,7 @@
 				</Probabilities>
 			</plateProbabilities>
 			<lightSettings value="1"/>
-			<sirenSettings value="1233"/>
+			<sirenSettings value="6436"/>
 		</Item>
 	</variationData>
 </CVehicleModelInfoVariation>
