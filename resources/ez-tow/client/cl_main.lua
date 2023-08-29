@@ -1,6 +1,6 @@
 local MenuItemId = nil
 
-function GetEntityInFrontOfPlayer(distance, ped)
+local function GetEntityInFrontOfPlayer(distance, ped)
 	local coords = GetEntityCoords(ped, 1)
 	local offset = GetOffsetFromEntityInWorldCoords(ped, 0.0, distance, 0.0)
 	local rayHandle = StartShapeTestRay(coords.x, coords.y, coords.z, offset.x, offset.y, offset.z, -1, ped, 0)
@@ -35,12 +35,45 @@ RegisterNetEvent("ps-zones:enter", function(ZoneName, ZoneData)
     end
 end)
 
+local function isVehicleImpoundable(plate)
+    -- promise code shit for later :kekw:
+    return "Parking Violation"
+end
+
 RegisterNetEvent("ez-tow:deleteVehicleShit", function()
     local entity = GetEntityInFrontOfPlayer(3.0, PlayerPedId())
-    if DoesEntityExist(entity) then
-        Functions:DeleteVehicle(entity)
+    if DoesEntityExist(entity) and GetEntityType(entity) == 2 then
+        -- Functions:DeleteVehicle(entity)
+        local plate = Framework:GetPlate(entity)
+        local reason = isVehicleImpoundable(plate)
+        if reason then 
+            local menuData = {
+                {
+                    header = "Impound Vehicle",
+                    isMenuHeader = true,
+                },
+                {
+                    header = ("%s"):format(reason),
+                    txt = ("Plate : %s"):format(plate),
+                    params = {
+                        isAction = true,
+                        event = function()
+                            Functions:DeleteVehicle(entity)
+                            TriggerServerEvent("ez-tow:updateLog", plate)
+                        end,
+                        args = {}
+                    }
+                }
+            }
+            exports['qb-menu']:openMenu(menuData)
+        else 
+            Framework:Notify("incorrect vehicle", "error")
+        end
+    else 
+        Framework:Notify("No vehicle found", "error")
     end
 end)
+
 
 RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)
     if string.starts(ZoneName, "storage_") then
