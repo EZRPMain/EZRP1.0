@@ -76,7 +76,7 @@ end)
 
 
 RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)
-    if string.starts(ZoneName, "storage_") then
+    if string.starts(ZoneName, "towyard_") then
         if MenuItemId ~= nil then
             Radial:RemoveOption(MenuItemId)
             MenuItemId = nil
