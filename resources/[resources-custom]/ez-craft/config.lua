@@ -28,9 +28,9 @@ Config.categories = {
                ['pistol'] = {
                     label = 'Pistol',
                },
-               ['smg'] = {
-                    label = 'SMG',
-               },
+               -- ['smg'] = {
+               --      label = 'SMG',
+               -- },
           }
      },
      ['medical'] = {
@@ -227,15 +227,15 @@ local weapons_recipe = {
                exp_per_craft = 5
           }
      },
-     ['weapon_pistol'] = {
+     ['weapon_ceramicpistol'] = {
           categories = {
                sub = 'pistol',
           },
           item_settings = {
-               label = 'Walther P99',
-               image = 'weapon_pistol', -- use inventory's images
+               label = 'Ceramic Pistol',
+               image = 'weapon_ceramicpistol', -- use inventory's images
                object = {
-                    name = 'w_pi_pistol50',
+                    name = 'w_pi_ceramic_pistol',
                     rotation = vector3(45.0, 0.0, 0.0)
                },
                level = 150,
@@ -256,15 +256,15 @@ local weapons_recipe = {
                exp_per_craft = 30
           }
      },
-     ['weapon_combatpistol'] = {
+     ['weapon_glock22'] = {
           categories = {
                sub = 'pistol',
           },
           item_settings = {
-               label = 'Combat Pistol',
-               image = 'weapon_combatpistol', -- use inventory's images
+               label = 'Glock 22',
+               image = 'weapon_glock22', -- use inventory's images
                object = {
-                    name = 'w_pi_combatpistol',
+                    name = 'w_pi_glock22',
                     rotation = vector3(45.0, 0.0, 0.0)
                },
                level = 200,
@@ -285,15 +285,15 @@ local weapons_recipe = {
                exp_per_craft = 40
           }
      },
-     ['weapon_appistol'] = {
+     ['weapon_glock18c'] = {
           categories = {
                sub = 'pistol',
           },
           item_settings = {
-               label = 'AP Pistol',
-               image = 'weapon_appistol', -- use inventory's images
+               label = 'Glock 18C',
+               image = 'weapon_glock18c', -- use inventory's images
                object = {
-                    name = 'w_pi_appistol',
+                    name = 'w_pi_glock18c',
                     rotation = vector3(45.0, 0.0, 0.0)
                },
                level = 500,
@@ -397,9 +397,10 @@ Config.workbenches = {
 
     {
           table_model = 'gr_prop_gr_bench_04b',
-          coords = vector3(-2220.25, -365.41, 12.32),
+          -- vector4(1141.58, -436.53, 67.3, 345.02)
+          coords = vector3(1141.58, -436.63, 66.3),
           item_show_case_offset = vector3(0.0, 0.0, 1.2),
-          rotation = vector3(0.0, 0.0, 340.0),
+          rotation = vector3(0.0, 0.0, 345.02-180),
           job = {
                allowed_list = {},
                allowed_grades = {}
@@ -417,7 +418,6 @@ Config.workbenches = {
                allowed_list = {},
                allowed_grades = {}
           },
-          categories = { Config.categories.blueprints, Config.categories.misc, Config.categories.medical },
           categories = { Config.categories.weapons },
           recipes = { weapons_recipe },
           radius = 3.0
