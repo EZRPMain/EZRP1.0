@@ -812,6 +812,9 @@ QBShared.Items = {
    
     ['starter_gift']                   = {["name"] = "started_gift",                    ["label"] = "A Gift",                 ["weight"] = 100,       ["type"] = "item",      ["image"] = "images/starter_gift.png",                  ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = 'You stole this from some guy on the plane?',},
    
+    ['fob_racing_basic'] = {['name'] = 'fob_racing_basic', ['label'] = 'Basic Racing GPS', ['weight'] = 500, ['type'] = 'item', ['image'] = 'images/fob_racing_basic.png', ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['description'] = 'This basic GPS allows someone to join custom races.'},
+    ['fob_racing_master'] = {['name'] = 'fob_racing_master', ['label'] = 'Master Racing GPS', ['weight'] = 500, ['type'] = 'item', ['image'] = 'images/fob_racing_master.png', ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['description'] = 'This master GPS allows someone to create custom races.'},
+
 }
 
 exports("GetSharedItems", function()
