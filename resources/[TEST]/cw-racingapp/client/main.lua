@@ -52,7 +52,7 @@ local CurrentRaceData = {
     Ghosted = false,
 }
 
-local Classes = exports['ez-manager']:GetVehicleTier()
+-- local Classes = exports['cw-performance']:getPerformanceClasses()
 local Entities = {}
 local Kicked = false
 local traderPed
