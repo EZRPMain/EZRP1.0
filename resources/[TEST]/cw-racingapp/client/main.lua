@@ -53,6 +53,7 @@ local CurrentRaceData = {
 }
 
 -- local Classes = exports['cw-performance']:getPerformanceClasses()
+local Classes = exports['ez-manager']:GetTierClasses()
 local Entities = {}
 local Kicked = false
 local traderPed
@@ -911,7 +912,10 @@ end
 
 function FinishRace()
     local PlayerPed = PlayerPedId()
-    local info, class, perfRating, vehicleModel = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+    -- local info, class, perfRating, vehicleModel = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+    local veh = GetVehiclePedIsIn(PlayerPed, false)
+    local class, perfRating = exports['ez-manager']:GetVehicleTier(veh)
+    local vehicleModel = GetEntityModel(veh)
     -- print('NEW TIME TEST', currentTotalTime, SecondsToClock(currentTotalTime))
     if useDebug then print('Best lap:', CurrentRaceData.BestLap, 'Total:', CurrentRaceData.TotalTime) end
     TriggerServerEvent('cw-racingapp:server:FinishPlayer', CurrentRaceData, CurrentRaceData.TotalTime,
@@ -1202,7 +1206,8 @@ RegisterNetEvent('cw-racingapp:client:ReadyJoinRace', function(RaceData)
 
     local info, class, perfRating = '', '', ''
     if PlayerIsInVehicle then
-        info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+        -- info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+        class, perfRating = exports['ez-manager']:GetVehicleTier(GetVehiclePedIsIn(PlayerPed, false))
     else
         QBCore.Functions.Notify('You are not in a vehicle', 'error')
     end
@@ -1713,7 +1718,8 @@ RegisterNetEvent("cw-racingapp:Client:OpenMainMenu", function(data)
     local PlayerIsInVehicle = IsPedInAnyVehicle(PlayerPed, false)
 
     if PlayerIsInVehicle then
-        info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+        -- info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+        class, perfRating = exports['ez-manager']:GetVehicleTier(GetVehiclePedIsIn(PlayerPed, false))
         subtitle = Lang:t('menu.currently_in') .. class .. perfRating.. Lang:t('menu.class_car')
     else
         QBCore.Functions.Notify(Lang:t('menu.not_in_a_vehicle'), 'error')
@@ -1964,7 +1970,8 @@ RegisterNetEvent("cw-racingapp:Client:RaceRecordsMenu", function(data)
 
     local info, class, perfRating = '', '', ''
     if PlayerIsInVehicle then
-        info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+        -- info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+        class, perfRating = exports['ez-manager']:GetVehicleTier(GetVehiclePedIsIn(PlayerPed, false))
     end
 
     QBCore.Functions.TriggerCallback('cw-racingapp:server:GetTracks', function(Tracks)
@@ -2095,7 +2102,7 @@ local function getKeysSortedByValue(tbl, sortFunction)
 
 
 RegisterNetEvent("cw-racingapp:Client:ClassesList", function(data)
-    local classes = exports['cw-performance']:getPerformanceClasses()
+    local classes = exports['ez-manager']:GetTierClasses()
     local sortedClasses = getKeysSortedByValue(classes, function(a, b) return a > b end)
 
     local menu = {{
@@ -2389,7 +2396,8 @@ RegisterNetEvent("cw-racingapp:Client:SetupRaceMenu", function(data)
                 local PlayerIsInVehicle = IsPedInAnyVehicle(PlayerPed, false)
     
                 if PlayerIsInVehicle then
-                    local info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+                    -- local info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+                    local class, perfRating = exports['ez-manager']:GetVehicleTier(GetVehiclePedIsIn(PlayerPed, false))
                     if myCarClassIsAllowed(dialog.maxClass, class) then
                         TriggerServerEvent('cw-racingapp:server:SetupRace',
                             dialog.track,
@@ -3174,7 +3182,8 @@ RegisterNUICallback('UiSetupRace', function(setupData, cb)
     local PlayerIsInVehicle = IsPedInAnyVehicle(PlayerPed, false)
 
     if PlayerIsInVehicle then
-        local info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+        -- local info, class, perfRating = exports['cw-performance']:getVehicleInfo(GetVehiclePedIsIn(PlayerPed, false))
+        local class, perfRating = exports['ez-manager']:GetVehicleTier(GetVehiclePedIsIn(PlayerPed, false))
         if myCarClassIsAllowed(setupData.maxClass, class) then
             local maxClass = setupData.maxClass
             TriggerServerEvent('cw-racingapp:server:SetupRace',
