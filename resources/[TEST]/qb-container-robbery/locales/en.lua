@@ -1,14 +1,14 @@
 local Translations = {
     error = {
-        ["missing_something"] = "Valami még hiányzik...",
-        ["not_enough_police"] = "Nincs elég rendvédelem..",
-        ["door_open"] = "Már nyitva van..",
-        ["process_cancelled"] = "Megszakítva..",
-        ["didnt_work"] = "Nem sikerült..",
-        ["emty_box"] = "Üres volt..",
+        ["missing_something"] = "Something is still missing...",
+        ["not_enough_police"] = "Not enough law enforcement..",
+        ["door_open"] = "It's already open..",
+        ["process_cancelled"] = "Cancelled..",
+        ["didnt_work"] = "Failed..",
+        ["emty_box"] = "It was empty.",
     },
     success = {
-        ["worked"] = "Sikerült!",
+        ["worked"] = "Success!",
     }
 }
 Lang = Locale:new({
