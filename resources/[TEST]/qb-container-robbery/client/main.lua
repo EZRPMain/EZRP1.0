@@ -166,12 +166,8 @@ local function searchCabin(cabin)
     TriggerServerEvent('qb-container-robbery:server:SetBusyState', cabin, currentHouse, true)
     FreezeEntityPosition(ped, true)
     IsLockpicking = true
-    Skillbar.Start({
-        duration = math.random(7500, 15000),
-        pos = math.random(10, 30),
-        width = math.random(10, 20),
-    }, function()
-        if SucceededAttempts + 1 >= NeededAttempts then
+    exports['ps-ui']:Circle(function(success)
+        if success then
             openingDoor = false
             ClearPedTasks(PlayerPedId())
             TriggerServerEvent('qb-container-robbery:server:searchCabin', cabin, currentHouse)
@@ -183,24 +179,52 @@ local function searchCabin(cabin)
                 IsLockpicking = false
             end)
         else
-            Skillbar.Repeat({
-                duration = math.random(700, 1250),
-                pos = math.random(10, 40),
-                width = math.random(10, 13),
-            })
-            SucceededAttempts = SucceededAttempts + 1
+            openingDoor = false
+            ClearPedTasks(PlayerPedId())
+            TriggerServerEvent('qb-container-robbery:server:SetBusyState', cabin, currentHouse, false)
+            QBCore.Functions.Notify(Lang:t("error.process_cancelled"), "error", 3500)
+            SucceededAttempts = 0
+            FreezeEntityPosition(ped, false)
+            SetTimeout(500, function()
+                IsLockpicking = false
+            end)
         end
-    end, function()
-        openingDoor = false
-        ClearPedTasks(PlayerPedId())
-        TriggerServerEvent('qb-container-robbery:server:SetBusyState', cabin, currentHouse, false)
-        QBCore.Functions.Notify(Lang:t("error.process_cancelled"), "error", 3500)
-        SucceededAttempts = 0
-        FreezeEntityPosition(ped, false)
-        SetTimeout(500, function()
-            IsLockpicking = false
-        end)
-    end)
+    end, math.random(10,15), math.random(15,30)) -- NumberOfCircles, MS
+    -- Skillbar.Start({
+    --     duration = math.random(7500, 15000),
+    --     pos = math.random(10, 30),
+    --     width = math.random(10, 20),
+    -- }, function()
+    --     if SucceededAttempts + 1 >= NeededAttempts then
+    --         openingDoor = false
+    --         ClearPedTasks(PlayerPedId())
+    --         TriggerServerEvent('qb-container-robbery:server:searchCabin', cabin, currentHouse)
+    --         Config.Containers[currentHouse]["furniture"][cabin]["searched"] = true
+    --         TriggerServerEvent('qb-container-robbery:server:SetBusyState', cabin, currentHouse, false)
+    --         SucceededAttempts = 0
+    --         FreezeEntityPosition(ped, false)
+    --         SetTimeout(500, function()
+    --             IsLockpicking = false
+    --         end)
+    --     else
+    --         Skillbar.Repeat({
+    --             duration = math.random(700, 1250),
+    --             pos = math.random(10, 40),
+    --             width = math.random(10, 13),
+    --         })
+    --         SucceededAttempts = SucceededAttempts + 1
+    --     end
+    -- end, function()
+    --     openingDoor = false
+    --     ClearPedTasks(PlayerPedId())
+    --     TriggerServerEvent('qb-container-robbery:server:SetBusyState', cabin, currentHouse, false)
+    --     QBCore.Functions.Notify(Lang:t("error.process_cancelled"), "error", 3500)
+    --     SucceededAttempts = 0
+    --     FreezeEntityPosition(ped, false)
+    --     SetTimeout(500, function()
+    --         IsLockpicking = false
+    --     end)
+    -- end)
 end
 
 -- Events
@@ -270,7 +294,7 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                                 QBCore.Functions.Notify(Lang:t("error.door_open"), "error", 3500)
                                 StopAnimTask(PlayerPedId(), "veh@break_in@0h@p_m_one@", "low_force_entry_ds", 1.0)
                             end
-                        end, circles, 20) -- NumberOfCircles, MS
+                        end, circles, seconds) -- NumberOfCircles, MS
                     end
                 else
                     QBCore.Functions.Notify(Lang:t("error.not_enough_police"), "error", 3500)
@@ -295,7 +319,7 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                                     seconds = math.random(12,15)
                                     circles = math.random(10,11)
                                 -- end
-                                exports['ps-ui']:Circle(lockpickFinish)
+                                exports['ps-ui']:Circle(lockpickFinish, circle, seconds)
                                 -- local success = exports['qb-lock']:StartLockPickCircle(circles, seconds, success)
                                 -- lockpickFinish(success)
                                 if math.random(1, 100) <= 85 and not IsWearingHandshoes() then
