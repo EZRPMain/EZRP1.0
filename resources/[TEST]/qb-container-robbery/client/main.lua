@@ -319,7 +319,7 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                                     seconds = math.random(12,15)
                                     circles = math.random(10,11)
                                 -- end
-                                exports['ps-ui']:Circle(lockpickFinish, circle, seconds)
+                                exports['ps-ui']:Circle(lockpickFinish, circles, seconds)
                                 -- local success = exports['qb-lock']:StartLockPickCircle(circles, seconds, success)
                                 -- lockpickFinish(success)
                                 if math.random(1, 100) <= 85 and not IsWearingHandshoes() then
