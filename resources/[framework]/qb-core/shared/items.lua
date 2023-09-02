@@ -815,7 +815,7 @@ QBShared.Items = {
     ['fob_racing_basic'] = {['name'] = 'fob_racing_basic', ['label'] = 'Basic Racing GPS', ['weight'] = 500, ['type'] = 'item', ['image'] = 'images/fob_racing_basic.png', ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['description'] = 'This basic GPS allows someone to join custom races.'},
     ['fob_racing_master'] = {['name'] = 'fob_racing_master', ['label'] = 'Master Racing GPS', ['weight'] = 500, ['type'] = 'item', ['image'] = 'images/fob_racing_master.png', ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['description'] = 'This master GPS allows someone to create custom races.'},
    
-    ['hardcutter'] = {['name'] = 'hardcutter', ['label'] = 'hardcutter', ['weight'] = 500, ['type'] = 'item', ['image'] = 'images/hardcutter.png', ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['description'] = 'Shhhh!'},
+    ['hardcutter'] = {['name'] = 'hardcutter', ['label'] = 'Bolt Cutter', ['weight'] = 500, ['type'] = 'item', ['image'] = 'images/hardcutter.png', ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['description'] = 'Shhhh!'},
 
 }
 

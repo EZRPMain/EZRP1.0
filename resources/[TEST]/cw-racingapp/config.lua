@@ -1,5 +1,5 @@
 Config = Config or {}
-Config.Debug = false
+Config.Debug = true
 
 Config.UseCustomUi = true
 Config.UseResetTimer = true
@@ -142,11 +142,8 @@ Config.Ghosting = {
     Timer = 0, -- Default timer, in milliseconds. SET TO 0 TO HAVE ON FOR ENTIRE RACE. This is what's used if you leave the field blank when setting up a race
     DistanceLoopTime = 1000, -- in ms. Time until the ghosting script rechecks positions. Higher will be less accurate but will be more performance friendly.
     Options = {
-        { value = 0, text = 'Never' },
-        { value = 10, text = 10 },
-        { value = 30, text = 30 },
-        { value = 60, text = 60 },
-        { value = 120, text = 120 },
+        { value = 0, text = 'Off' },
+        { value = 10000, text = 'On' },
     }
 }
 
