@@ -32,6 +32,20 @@ RegisterNetEvent('qb-weathersync:client:DisableSync', function()
 	end)
 end)
 
+RegisterNetEvent('qb-weathersync:client:DisableContainer', function()
+	disable = true
+	CreateThread(function()
+		while disable do
+			SetRainLevel(0.0)
+			SetWeatherTypePersist('FOGGY')
+			SetWeatherTypeNow('FOGGY')
+			SetWeatherTypeNowPersist('FOGGY')
+			NetworkOverrideClockTime(23, 0, 0)
+			Wait(5000)
+		end
+	end)
+end)
+
 RegisterNetEvent('qb-weathersync:client:SyncWeather', function(NewWeather, newblackout)
     CurrentWeather = NewWeather
     blackout = newblackout
