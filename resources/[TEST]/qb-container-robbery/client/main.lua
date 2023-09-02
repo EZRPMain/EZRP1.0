@@ -367,7 +367,7 @@ CreateThread(function()
                             inRange = true
                             if CurrentCops >= Config.MinimumHouseRobberyPolice then
                                 if Config.Containers[k]["opened"] then
-                                    DrawText3Ds(Config.Containers[k]["coords"]["x"], Config.Containers[k]["coords"]["y"], Config.Containers[k]["coords"]["z"], '~b~[ E ]~w~ To Enter')
+                                    DrawText3Ds(Config.Containers[k]["coords"]["x"], Config.Containers[k]["coords"]["y"], Config.Containers[k]["coords"]["z"], '~b~[E]~w~ To Enter')
                                     if IsControlJustPressed(0, 38) then
                                         enterRobberyHouse(k)
                                     end
@@ -402,7 +402,7 @@ CreateThread(function()
 
         if inside then
             if #(pos - vector3(Config.Containers[currentHouse]["coords"]["x"] + POIOffsets.exit.x, Config.Containers[currentHouse]["coords"]["y"] + POIOffsets.exit.y, Config.Containers[currentHouse]["coords"]["z"] - Config.MinZOffset + POIOffsets.exit.z)) < 1.5 then
-                DrawText3Ds(Config.Containers[currentHouse]["coords"]["x"] + POIOffsets.exit.x, Config.Containers[currentHouse]["coords"]["y"] + POIOffsets.exit.y, Config.Containers[currentHouse]["coords"]["z"] - Config.MinZOffset + POIOffsets.exit.z, '~b~[ E ]~w~ To leave home')
+                DrawText3Ds(Config.Containers[currentHouse]["coords"]["x"] + POIOffsets.exit.x, Config.Containers[currentHouse]["coords"]["y"] + POIOffsets.exit.y, Config.Containers[currentHouse]["coords"]["z"] - Config.MinZOffset + POIOffsets.exit.z, '~b~[E]~w~ To leave home')
                 if IsControlJustPressed(0, 38) then
                     leaveRobberyHouse(currentHouse)
                 end
