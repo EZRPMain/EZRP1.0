@@ -295,8 +295,9 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                                     seconds = math.random(12,15)
                                     circles = math.random(10,11)
                                 -- end
-                                local success = exports['qb-lock']:StartLockPickCircle(circles, seconds, success)
-                                lockpickFinish(success)
+                                exports['ps-ui']:Circle(lockpickFinish)
+                                -- local success = exports['qb-lock']:StartLockPickCircle(circles, seconds, success)
+                                -- lockpickFinish(success)
                                 if math.random(1, 100) <= 85 and not IsWearingHandshoes() then
                                     local pos = GetEntityCoords(PlayerPedId())
                                     TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
