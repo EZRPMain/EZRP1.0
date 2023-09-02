@@ -254,13 +254,13 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                         PoliceCall()
                         loadAnimDict("veh@break_in@0h@p_m_one@")
                         TaskPlayAnim(PlayerPedId(), "veh@break_in@0h@p_m_one@", "low_force_entry_ds", 3.0, 3.0, -1, 16, 0, 0, 0, 0)
-                        if PlayerData.metadata['tolvaj'] >= 20 then
-                            seconds = math.random(17,19)
-                            circles = math.random(3,4)
-                        else
+                        -- if PlayerData.metadata['tolvaj'] >= 20 then
+                        --     seconds = math.random(17,19)
+                        --     circles = math.random(3,4)
+                        -- else
                             seconds = math.random(12,15)
                             circles = math.random(10,11)
-                        end
+                        -- end
                         exports['ps-ui']:Circle(function(success)
                             if success then
                                 local pos = GetEntityCoords(PlayerPedId())
@@ -270,7 +270,7 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                                 QBCore.Functions.Notify(Lang:t("error.door_open"), "error", 3500)
                                 StopAnimTask(PlayerPedId(), "veh@break_in@0h@p_m_one@", "low_force_entry_ds", 1.0)
                             end
-                        end, 2, 20) -- NumberOfCircles, MS
+                        end, circles, 20) -- NumberOfCircles, MS
                     end
                 else
                     QBCore.Functions.Notify(Lang:t("error.not_enough_police"), "error", 3500)
@@ -278,7 +278,9 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                 end
             end
         else
-            QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
+            -- QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
+                local result = exports['lj-inventory']:HasItem("hardcutter")
+
                 if closestHouse ~= nil then
                     if result then
                         if CurrentCops >= Config.MinimumHouseRobberyPolice then
@@ -286,13 +288,13 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                                 PoliceCall()
                                 loadAnimDict("veh@break_in@0h@p_m_one@")
                                 TaskPlayAnim(PlayerPedId(), "veh@break_in@0h@p_m_one@", "low_force_entry_ds", 3.0, 3.0, -1, 16, 0, 0, 0, 0)
-                                if PlayerData.metadata['tolvaj'] >= 20 then
-                                    seconds = math.random(17,19)
-                                    circles = math.random(3,4)
-                                else
+                                -- if PlayerData.metadata['tolvaj'] >= 20 then
+                                --     seconds = math.random(17,19)
+                                --     circles = math.random(3,4)
+                                -- else
                                     seconds = math.random(12,15)
                                     circles = math.random(10,11)
-                                end
+                                -- end
                                 local success = exports['qb-lock']:StartLockPickCircle(circles, seconds, success)
                                 lockpickFinish(success)
                                 if math.random(1, 100) <= 85 and not IsWearingHandshoes() then
@@ -312,7 +314,7 @@ RegisterNetEvent('lockpicks:heavycutters', function(isAdvanced)
                         StopAnimTask(PlayerPedId(), "veh@break_in@0h@p_m_one@", "low_force_entry_ds", 1.0)
                     end
                 end
-            end, "hardcutter")
+            -- end, "hardcutter")
         end
     end
 end)
