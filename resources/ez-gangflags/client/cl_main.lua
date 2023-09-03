@@ -16,6 +16,24 @@ AddEventHandler('onResourceStart', function(resourceName)
     TriggerServerEvent("ez-gangflags:loadFlags")
 end)
 
+AddEventHandler("scuff-fix", function()
+    for entity in pairs(spawnedEntity) do
+        if DoesEntityExist(entity) then
+            SetEntityAsMissionEntity(entity, 1, 1)
+            DeleteEntity(entity)
+            SetEntityAsNoLongerNeeded(entity)
+            spawnedEntity[entity] = nil
+        end
+    end
+    for name, zone in pairs(zoneName) do
+        exports['qb-target']:RemoveZone(name)
+        zoneName[name] = nil
+    end
+    Wait(1000)
+    TriggerServerEvent("ez-gangflags:loadFlags")
+
+end)
+
 AddEventHandler('onResourceStop', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
       return
