@@ -89,9 +89,9 @@ end)
 RegisterNetEvent("ez-gangflags:delete", function(name)
     MySQL.query('DELETE FROM gangflags WHERE coords = ?', { name })
 
-    for k, data in pairs(cache_data) do 
-        print(data.coords, name)
+    for k, data in pairs(cache_data) do
         if data.coords == name then 
+            print(data.coords, name)
             cache_data[k] = nil
         end
     end
