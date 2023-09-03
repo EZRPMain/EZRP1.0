@@ -42,9 +42,9 @@ for _, prop in pairs(Shared.Flags) do
 end
 
 -- This function is to handle the syncing of deleting world props between all clients
-RegisterServerEvent("ez-sync:server:deleteWorldObject", function(object)
-    TriggerClientEvent("ez-sync:client:deleteWorldObject", -1, object)
-end)
+-- RegisterServerEvent("ez-sync:server:deleteWorldObject", function(object)
+--     TriggerClientEvent("ez-sync:client:deleteWorldObject", -1, object)
+-- end)
 
 RegisterNetEvent("ez-gangflags:removeFlag", function(itemName)
     local src = source
