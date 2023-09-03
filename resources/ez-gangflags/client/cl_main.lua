@@ -116,64 +116,66 @@ end
 
 
 RegisterNetEvent("ez-gangflags:loadProps", function(result)
-    print(json.encode(result))
-    local ped = PlayerPedId()
-    for k, data in pairs(result) do 
-        -- print(k, data.coords)
-        local d = json.decode(data.coords)
-        local itemModel = data.model
-        local coords = vector3(d.x, d.y, d.z)
-        local name = data.coords
-        -- print(name)
-        local heading = data.heading*1.0
-        -- print(type(heading))
-        LoadPropDict(itemModel)
+    if result then 
+        print(json.encode(result))
+        local ped = PlayerPedId()
+        for k, data in pairs(result) do 
+            -- print(k, data.coords)
+            local d = json.decode(data.coords)
+            local itemModel = data.model
+            local coords = vector3(d.x, d.y, d.z)
+            local name = data.coords
+            -- print(name)
+            local heading = data.heading*1.0
+            -- print(type(heading))
+            LoadPropDict(itemModel)
 
-        -- local name = json.encode(coords)
-        -- print(name)
-        if not zoneName[name] then
-            -- zoneName[name] = name
-            zoneName[name] = exports['qb-target']:AddCircleZone(name, coords, 0.75, {
-                name = name,
-                debugPoly = false,
-                useZ = true,
-            }, {
-                options =  {
-                    {
-                        event = "ez-gangflags:destroy",
-                        icon = "fas fa-hand-holding",
-                        label = "Destroy Flag",
-                        targetName = name,
-                        coords = coords,
-                        model = itemModel,
+            -- local name = json.encode(coords)
+            -- print(name)
+            if not zoneName[name] then
+                -- zoneName[name] = name
+                zoneName[name] = exports['qb-target']:AddCircleZone(name, coords, 0.75, {
+                    name = name,
+                    debugPoly = false,
+                    useZ = true,
+                }, {
+                    options =  {
+                        {
+                            event = "ez-gangflags:destroy",
+                            icon = "fas fa-hand-holding",
+                            label = "Destroy Flag",
+                            targetName = name,
+                            coords = coords,
+                            model = itemModel,
+                        },
                     },
-                },
-                distance = Shared.PlacementRadius
-            })
-            -- print(zoneName[name])
-        end
-        -- Spawn prop on ground at the provided coords and heading
-        -- TriggerServerEvent("ez-gangflags:placeFlag", item, coords, heading, shouldSnapToGround)
-    
-        local obj = CreateObject(itemModel, GetEntityCoords(ped), false)
-        if obj ~= 0 then
-            SetEntityRotation(obj, 0.0, 0.0, heading, false, false)
-            SetEntityHeading(obj, heading)
-            SetEntityCoords(obj, coords)
-    
-            if shouldFreezeItem then
-                FreezeEntityPosition(obj, true)
+                    distance = Shared.PlacementRadius
+                })
+                -- print(zoneName[name])
             end
-    
-    
-            -- TriggerServerEvent("ez-gangflags:TargetData", coords, itemModel)
-            -- print(itemModel)
-            -- TriggerServerEvent("ez-gangflags:Save", coords, itemModel, heading)
-            spawnedEntity[obj] = obj
-        end
-    
-        SetModelAsNoLongerNeeded(itemModel)
+            -- Spawn prop on ground at the provided coords and heading
+            -- TriggerServerEvent("ez-gangflags:placeFlag", item, coords, heading, shouldSnapToGround)
+        
+            local obj = CreateObject(itemModel, GetEntityCoords(ped), false)
+            if obj ~= 0 then
+                SetEntityRotation(obj, 0.0, 0.0, heading, false, false)
+                SetEntityHeading(obj, heading)
+                SetEntityCoords(obj, coords)
+        
+                if shouldFreezeItem then
+                    FreezeEntityPosition(obj, true)
+                end
+        
+        
+                -- TriggerServerEvent("ez-gangflags:TargetData", coords, itemModel)
+                -- print(itemModel)
+                -- TriggerServerEvent("ez-gangflags:Save", coords, itemModel, heading)
+                spawnedEntity[obj] = obj
+            end
+        
+            SetModelAsNoLongerNeeded(itemModel)
 
+        end
     end
 end)
 

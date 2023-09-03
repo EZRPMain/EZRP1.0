@@ -1,31 +1,38 @@
-local cache_data = {}
+local cache_data = nil
 
-local firstCheck = false
+MySQL.ready(function()
+	Citizen.Wait(500)
+
+    for name in pairs(Shared.Storages) do
+        local response = MySQL.query.await('SELECT * from gangflags', {})
+        if response then 
+            cache_data = response
+        end
+        -- if not result then 
+        --     MySQL.insert('INSERT INTO ez_storage (zone) VALUES (:zone) ON DUPLICATE KEY UPDATE zone = :zone', {
+        --         ['zone'] = name
+        --     })
+        --     print("Created "..name)
+        -- end
+        -- Wait(100)
+    end
+end)
 
 RegisterNetEvent("ez-gangflags:loadFlags", function()
     local source = source
-    -- print(json.encode(cache_data))
-    if json.encode(cache_data) == '[]' and not firstCheck then
-        -- print("fresh start") 
-        -- print("cache_data == {}")
+    if not cache_data then
         local response = MySQL.query.await('SELECT * from gangflags', {})
         if response then 
-            -- print("test")
-            -- print(json.encode(response))
-            firstCheck = true
             cache_data = response
-        else 
-            cache_data = {}
         end
+    else 
+        -- cache_data = {}
         
     end
 
-    if cache_data then
-        -- print(json.encode(response))
-        -- print("balls")
+    -- if cache_data then
         TriggerClientEvent("ez-gangflags:loadProps", source, cache_data)
-        -- print(json.encode(cache_data))
-    end
+    -- end
 
 
 
