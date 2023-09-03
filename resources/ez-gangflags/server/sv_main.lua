@@ -84,6 +84,12 @@ RegisterNetEvent("ez-gangflags:Save", function(coords, model, heading)
     }, function(id)
         print(id)
     end)
+    cache_data[#cache_data+1] = {
+        coords = json.encode(coords),
+        model = model,
+        creator = cid,
+        heading = heading,
+    }
 
     TriggerClientEvent("ez-gangflags:syncObject", -1, coords, model, heading)
 
