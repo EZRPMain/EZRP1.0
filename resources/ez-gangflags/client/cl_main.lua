@@ -116,7 +116,7 @@ end
 
 
 RegisterNetEvent("ez-gangflags:loadProps", function(result)
-    print(json.encode(cache_data))
+    print(json.encode(result))
     local ped = PlayerPedId()
     for k, data in pairs(result) do 
         -- print(k, data.coords)
