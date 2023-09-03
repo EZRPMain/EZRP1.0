@@ -23,7 +23,7 @@ AddEventHandler('onResourceStop', function(resourceName)
     -- print('The resource ' .. resourceName .. ' has been started.')
     -- CreateThread(function()
         for entity in pairs(spawnedEntity) do
-            print(entity)
+            -- print(entity)
             if DoesEntityExist(entity) then
                 SetEntityAsMissionEntity(entity, 1, 1)
                 DeleteEntity(entity)
@@ -37,7 +37,7 @@ AddEventHandler('onResourceStop', function(resourceName)
         for name, zone in pairs(zoneName) do
             -- print(json.encode(zoneName[name]))
             -- zoneName[name]:destory()
-            print(name, zone)
+            -- print(name, zone)
             exports['qb-target']:RemoveZone(name)
             zoneName[name] = nil
         end
@@ -83,14 +83,14 @@ end
 RegisterNetEvent("ez-gangflags:loadProps", function(result)
     local ped = PlayerPedId()
     for k, data in pairs(result) do 
-        print(k, data.coords)
+        -- print(k, data.coords)
         local d = json.decode(data.coords)
         local itemModel = data.model
         local coords = vector3(d.x, d.y, d.z)
         local name = data.coords
-        print(name)
+        -- print(name)
         local heading = data.heading*1.0
-        print(type(heading))
+        -- print(type(heading))
         LoadPropDict(itemModel)
 
         -- local name = json.encode(coords)
@@ -114,7 +114,7 @@ RegisterNetEvent("ez-gangflags:loadProps", function(result)
                 },
                 distance = Shared.PlacementRadius
             })
-            print(zoneName[name])
+            -- print(zoneName[name])
         end
         -- Spawn prop on ground at the provided coords and heading
         -- TriggerServerEvent("ez-gangflags:placeFlag", item, coords, heading, shouldSnapToGround)
@@ -301,7 +301,7 @@ RegisterNetEvent("ez-gangflags:syncObject", function(coords, model, heading)
             },
             distance = Shared.PlacementRadius
         })
-        print(zoneName[name])
+        -- print(zoneName[name])
     end
     -- Spawn prop on ground at the provided coords and heading
     -- TriggerServerEvent("ez-gangflags:placeFlag", item, coords, heading, shouldSnapToGround)
