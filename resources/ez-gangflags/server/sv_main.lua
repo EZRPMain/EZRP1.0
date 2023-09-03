@@ -81,9 +81,9 @@ RegisterNetEvent("ez-gangflags:Save", function(coords, model, heading)
     -- print("Created "..name)
 end)
 
-RegisterNetEvent("ez-gangflags:delete", function(name, object)
+RegisterNetEvent("ez-gangflags:delete", function(name)
     MySQL.query('DELETE FROM gangflags WHERE coords = ?', { name })
 
-    -- TriggerClientEvent("ez-gangflags:removeFlag", -1, object)
+    TriggerClientEvent("ez-gangflags:reload", -1)
 
 end)

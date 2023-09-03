@@ -16,6 +16,23 @@ AddEventHandler('onResourceStart', function(resourceName)
     TriggerServerEvent("ez-gangflags:loadFlags")
 end)
 
+RegisterNetEvent("ez-gangflags:reload", function()
+    for entity in pairs(spawnedEntity) do
+        if DoesEntityExist(entity) then
+            SetEntityAsMissionEntity(entity, 1, 1)
+            DeleteEntity(entity)
+            SetEntityAsNoLongerNeeded(entity)
+            spawnedEntity[entity] = nil
+        end
+    end
+    for name, zone in pairs(zoneName) do
+        exports['qb-target']:RemoveZone(name)
+        zoneName[name] = nil
+    end
+    Wait(100)
+    TriggerServerEvent("ez-gangflags:loadFlags")
+end)
+
 AddEventHandler("scuff-fix", function()
     for entity in pairs(spawnedEntity) do
         if DoesEntityExist(entity) then
@@ -29,7 +46,7 @@ AddEventHandler("scuff-fix", function()
         exports['qb-target']:RemoveZone(name)
         zoneName[name] = nil
     end
-    Wait(1000)
+    Wait(100)
     TriggerServerEvent("ez-gangflags:loadFlags")
 
 end)
@@ -461,26 +478,26 @@ RegisterNetEvent("ez-gangflags:placeFlag", function(item)
     end
 end)
 
-RegisterNetEvent("ez-sync:client:deleteWorldObject", function(object)
-    print(object.model, object.coords.x, object.coords.y, object.coords.z)
-    local entity = GetClosestObjectOfType(object.coords.x, object.coords.y, object.coords.z, 0.1, object.model, false, false, false)
-    print(entity, GetEntityModel(entity))
-    -- if DoesEntityExist(entity) then
-    --     print("my G")
-    --     SetEntityAsMissionEntity(entity, 1, 1)
-    --     -- DeleteObject(entity)
-    --     DeleteEntity(entity)
-    --     SetEntityAsNoLongerNeeded(entity)
-    -- end
-    if DoesEntityExist(entity) then
-        print(spawnedEntity[entity])
-        print("make me choke")
-        SetEntityAsMissionEntity(entity, 1, 1)
-        DeleteEntity(entity)
-        SetEntityAsNoLongerNeeded(entity)
-        spawnedEntity[entity] = nil
-    end
-end)
+-- RegisterNetEvent("ez-sync:client:deleteWorldObject", function(object)
+--     print(object.model, object.coords.x, object.coords.y, object.coords.z)
+--     local entity = GetClosestObjectOfType(object.coords.x, object.coords.y, object.coords.z, 0.1, object.model, false, false, false)
+--     print(entity, GetEntityModel(entity))
+--     -- if DoesEntityExist(entity) then
+--     --     print("my G")
+--     --     SetEntityAsMissionEntity(entity, 1, 1)
+--     --     -- DeleteObject(entity)
+--     --     DeleteEntity(entity)
+--     --     SetEntityAsNoLongerNeeded(entity)
+--     -- end
+--     if DoesEntityExist(entity) then
+--         print(spawnedEntity[entity])
+--         print("make me choke")
+--         SetEntityAsMissionEntity(entity, 1, 1)
+--         DeleteEntity(entity)
+--         SetEntityAsNoLongerNeeded(entity)
+--         spawnedEntity[entity] = nil
+--     end
+-- end)
 
 -- TO DO: Create Dick Pics ()
 
@@ -585,7 +602,7 @@ local function pickUpItem(itemData)
         DeleteEntity(itemEntity)
 
         local object = {coords = coords, model = itemModel}
-        TriggerServerEvent("ez-sync:server:deleteWorldObject", object)
+        -- TriggerServerEvent("ez-sync:server:deleteWorldObject", object)
         TriggerServerEvent("ez-gangflags:RemoveTargetZone", name)
         TriggerServerEvent("ez-gangflags:delete", name)
         -- Framework:Notify("")
