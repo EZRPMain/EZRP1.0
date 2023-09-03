@@ -23,7 +23,7 @@ Shared.Flags = {
     {item = "flag7", model = "bzzz_bandanaflag_purple_a"},
     {item = "flag8", model = "bzzz_bandanaflag_red_a"},
     {item = "flag9", model = "bzzz_bandanaflag_skull_a"},
-    {item = "flag10", model = "bzzz_bandanaflag_yellow_a"},
+    {item = "flag10", model ="bzzz_bandanaflag_yellow_a"},
 }
 
 Shared.DebugShared = {

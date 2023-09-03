@@ -817,6 +817,18 @@ QBShared.Items = {
    
     ['hardcutter'] = {['name'] = 'hardcutter', ['label'] = 'Bolt Cutter', ['weight'] = 500, ['type'] = 'item', ['image'] = 'images/hardcutter.png', ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['description'] = 'Shhhh!'},
 
+    -- Gang Flags
+    ["flag1"]    = {["name"] = "flag1",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag1.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_black_a", ['isFrozen'] = true},
+    ["flag2"]    = {["name"] = "flag2",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag2.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_blue_a", ['isFrozen'] = true},
+    ["flag3"]    = {["name"] = "flag3",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag3.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_brown_a", ['isFrozen'] = true},
+    ["flag4"]    = {["name"] = "flag4",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag4.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_custom_a", ['isFrozen'] = true},
+    ["flag5"]    = {["name"] = "flag5",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag5.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_custom_b", ['isFrozen'] = true},
+    ["flag6"]    = {["name"] = "flag6",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag6.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_green_a", ['isFrozen'] = true},
+    ["flag7"]    = {["name"] = "flag7",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag7.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_purple_a", ['isFrozen'] = true},
+    ["flag8"]    = {["name"] = "flag8",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag8.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_red_a", ['isFrozen'] = true},
+    ["flag9"]    = {["name"] = "flag9",   ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag9.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_skull_a", ['isFrozen'] = true},
+    ["flag10"]   = {["name"] = "flag10",  ["label"] = "Flag", 	        ["weight"] = 1000, 		["type"] = "item", 		["image"] = "images/flag10.png",["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Gang Flag", ['model'] = "bzzz_bandanaflag_yellow_a", ['isFrozen'] = true},
+
 }
 
 exports("GetSharedItems", function()
