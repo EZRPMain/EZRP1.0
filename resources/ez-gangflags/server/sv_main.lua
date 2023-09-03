@@ -1,9 +1,12 @@
 local cache_data = {}
 
+local firstCheck = false
+
 RegisterNetEvent("ez-gangflags:loadFlags", function()
     local source = source
     -- print(json.encode(cache_data))
-    if json.encode(cache_data) == '[]' then
+    if json.encode(cache_data) == '[]' and not firstCheck then
+        firstCheck = true
         -- print("fresh start") 
         -- print("cache_data == {}")
         local response = MySQL.query.await('SELECT * from gangflags', {})
@@ -11,6 +14,8 @@ RegisterNetEvent("ez-gangflags:loadFlags", function()
             -- print("test")
             -- print(json.encode(response))
             cache_data = response
+        else 
+            cache_data = {}
         end
         
     end
