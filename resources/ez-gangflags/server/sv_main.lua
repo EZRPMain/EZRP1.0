@@ -2,13 +2,13 @@ local cache_data = {}
 
 RegisterNetEvent("ez-gangflags:loadFlags", function()
     local source = source
-    print(json.encode(cache_data))
+    -- print(json.encode(cache_data))
     if json.encode(cache_data) == '[]' then 
-        print("cache_data == {}")
+        -- print("cache_data == {}")
         local response = MySQL.query.await('SELECT * from gangflags', {})
         if response then 
-            print("test")
-            print(json.encode(response))
+            -- print("test")
+            -- print(json.encode(response))
             cache_data = response
         end
         
@@ -16,7 +16,7 @@ RegisterNetEvent("ez-gangflags:loadFlags", function()
 
     if cache_data then
         -- print(json.encode(response))
-        print("balls")
+        -- print("balls")
         TriggerClientEvent("ez-gangflags:loadProps", source, cache_data)
         -- print(json.encode(cache_data))
     end
@@ -27,10 +27,10 @@ end)
 
 -- Setup all the placeable props as useable items
 for _, prop in pairs(Shared.Flags) do
-    -- Framework:CreateUseableItem(prop.item, function(source, item)
-    RegisterCommand(prop.item, function(source, item)
-        -- TriggerClientEvent("ez-gangflags:placeFlag", source, Framework:GetSharedItem(prop.item))
-        TriggerClientEvent("ez-gangflags:placeFlag", source, Shared.DebugShared[prop.item])
+    Framework:CreateUseableItem(prop.item, function(source, item)
+    -- RegisterCommand(prop.item, function(source, item)
+        TriggerClientEvent("ez-gangflags:placeFlag", source, Framework:GetSharedItem(prop.item))
+        -- TriggerClientEvent("ez-gangflags:placeFlag", source, Shared.DebugShared[prop.item])
   
     end)
 end
