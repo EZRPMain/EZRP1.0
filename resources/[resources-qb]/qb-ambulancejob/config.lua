@@ -1,10 +1,10 @@
 Config = {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add setr UseTarget true)
-Config.MinimalDoctors = 2 -- How many players with the ambulance job to prevent the hospital check-in system from being used
+Config.MinimalDoctors = 4 -- How many players with the ambulance job to prevent the hospital check-in system from being used
 Config.DocCooldown = 1 -- Cooldown between doctor calls allowed, in minutes
 Config.WipeInventoryOnRespawn = false -- Enable or disable removing all the players items when they respawn at the hospital
 Config.Helicopter = "polmav" -- Helicopter model that players with the ambulance job can use
-Config.BillCost = 2000 -- Price that players are charged for using the hospital check-in system
+Config.BillCost = 100 -- Price that players are charged for using the hospital check-in system
 Config.DeathTime = 300 -- How long the timer is for players to bleed out completely and respawn at the hospital
 Config.ReviveInterval = 360 -- How long the timer is for players to revive a player in laststand
 Config.MinimumRevive = 300 -- How long the timer is for players to revive a player in laststand
@@ -27,7 +27,7 @@ Config.ArmInjuryTimer = 30 -- How much time, in seconds, do arm injury effects c
 Config.LegInjuryTimer = 15 -- How much time, in seconds, do leg injury effects chance occur
 Config.HeadInjuryChance = 25 -- The chance, in percent, that head injury side-effects get applied
 Config.LegInjuryChance = { -- The chance, in percent, that leg injury side-effects get applied
-    Running = 50,
+    Running = 25,
     Walking = 15
 }
 Config.MajorArmoredBleedChance = 45 -- The chance, in percent, that a player will get a bleed effect when taking heavy damage while wearing armor
