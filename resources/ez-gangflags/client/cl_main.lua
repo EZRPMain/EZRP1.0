@@ -515,7 +515,7 @@ local function pickUpItem(itemData)
     -- print(itemEntity)
     -- print(itemEntity2, 2)
     -- local itemName = itemData.itemName
-    -- local itemModel = itemData.itemModel
+    local itemModel = itemData.itemModel
     local name = itemData.targetName
     -- print(name)
 
