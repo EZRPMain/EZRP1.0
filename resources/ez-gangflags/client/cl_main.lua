@@ -278,7 +278,7 @@ local function placeItem(item, coords, heading, shouldSnapToGround)
 end
 
 RegisterNetEvent("ez-gangflags:syncObject", function(coords, model, heading)
-    LoadPropDict(itemModel)
+    LoadPropDict(model)
     local ped = PlayerPedId()
     local name = json.encode(coords)
     -- print(name)
@@ -306,7 +306,7 @@ RegisterNetEvent("ez-gangflags:syncObject", function(coords, model, heading)
     -- Spawn prop on ground at the provided coords and heading
     -- TriggerServerEvent("ez-gangflags:placeFlag", item, coords, heading, shouldSnapToGround)
 
-    local obj = CreateObject(itemModel, GetEntityCoords(ped), false)
+    local obj = CreateObject(model, GetEntityCoords(ped), false)
     if obj ~= 0 then
         SetEntityRotation(obj, 0.0, 0.0, heading, false, false)
         SetEntityCoords(obj, coords)
@@ -322,7 +322,7 @@ RegisterNetEvent("ez-gangflags:syncObject", function(coords, model, heading)
         spawnedEntity[obj] = obj
     end
 
-    SetModelAsNoLongerNeeded(itemModel)
+    SetModelAsNoLongerNeeded(model)
 
 end)
 
