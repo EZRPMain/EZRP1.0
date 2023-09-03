@@ -2,7 +2,7 @@ local cache_data = {}
 
 RegisterNetEvent("ez-gangflags:loadFlags", function()
     local source = source
-    -- print(json.encode(cache_data))
+    print(json.encode(cache_data))
     if json.encode(cache_data) == '[]' then 
         -- print("cache_data == {}")
         local response = MySQL.query.await('SELECT * from gangflags', {})
