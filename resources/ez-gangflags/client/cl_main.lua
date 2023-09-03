@@ -446,13 +446,20 @@ end)
 RegisterNetEvent("ez-sync:client:deleteWorldObject", function(object)
     print(object.model, object.coords.x, object.coords.y, object.coords.z)
     local entity = GetClosestObjectOfType(object.coords.x, object.coords.y, object.coords.z, 0.1, object.model, false, false, false)
-    print(entity)
+    print(entity, GetEntityModel(entity))
+    -- if DoesEntityExist(entity) then
+    --     print("my G")
+    --     SetEntityAsMissionEntity(entity, 1, 1)
+    --     -- DeleteObject(entity)
+    --     DeleteEntity(entity)
+    --     SetEntityAsNoLongerNeeded(entity)
+    -- end
     if DoesEntityExist(entity) then
-        print("my G")
+        print("make me choke")
         SetEntityAsMissionEntity(entity, 1, 1)
-        -- DeleteObject(entity)
         DeleteEntity(entity)
         SetEntityAsNoLongerNeeded(entity)
+        spawnedEntity[entity] = nil
     end
 end)
 
