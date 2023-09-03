@@ -87,7 +87,7 @@ RegisterNetEvent("ez-gangflags:delete", function(name)
     for k, data in pairs(cache_data) do 
         print(data.coords, name)
         if data.coords == name then 
-            cache_data[name] = nil
+            cache_data[k] = nil
         end
     end
 
