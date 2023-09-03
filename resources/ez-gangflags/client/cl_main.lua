@@ -455,6 +455,7 @@ RegisterNetEvent("ez-sync:client:deleteWorldObject", function(object)
     --     SetEntityAsNoLongerNeeded(entity)
     -- end
     if DoesEntityExist(entity) then
+        print(spawnedEntity[entity])
         print("make me choke")
         SetEntityAsMissionEntity(entity, 1, 1)
         DeleteEntity(entity)
