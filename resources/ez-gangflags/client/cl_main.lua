@@ -444,6 +444,7 @@ RegisterNetEvent("ez-gangflags:placeFlag", function(item)
 end)
 
 RegisterNetEvent("ez-sync:client:deleteWorldObject", function(object)
+    print(object.model)
     local entity = GetClosestObjectOfType(object.coords.x, object.coords.y, object.coords.z, 0.1, object.model, false, false, false)
     if DoesEntityExist(entity) then
         SetEntityAsMissionEntity(entity, 1, 1)
