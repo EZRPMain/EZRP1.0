@@ -398,23 +398,6 @@ local function startPlacement(item)
             Draw2DText('[E] Place\n[Scroll Up/Down] Rotate', 4, {255, 255, 255}, 0.4, 0.85, 0.85)
             Draw2DText('[Right Click / Backspace] Exit place mode', 4, {255, 255, 255}, 0.4, 0.85, 0.945)
 
-
-            -- Handle various key presses and actions
-
-            -- Controls for placing item
-
-            -- Pressed Shift + E - Place object on ground
-            -- if IsControlJustReleased(0, 38) and IsControlPressed(0, 21)then
-            --     isInPlaceItemMode = false
-
-            --     local objHeading = GetEntityHeading(obj)
-            --     local snapToGround = true
-
-            --     DeleteEntity(obj)
-            --     placeItem(item, vector3(coords.x, coords.y, coords.z + zOffset), objHeading, snapToGround)
-
-            -- -- Pressed E - Place object at current position
-            -- else
             if IsControlJustReleased(0, 38) then
                 isInPlaceItemMode = false
 
@@ -427,34 +410,16 @@ local function startPlacement(item)
 
             -- Controls for rotating item
 
-            -- Mouse Wheel Up (and Shift not pressed), rotate by +10 degrees
-            if IsControlJustReleased(0, 241) and not IsControlPressed(0, 21) then
-                local objHeading = GetEntityHeading(obj)
-                SetEntityRotation(obj, 0.0, 0.0, objHeading + 10, false, false)
-            end
-
-            -- Mouse Wheel Down (and shift not pressed), rotate by -10 degrees
-            if IsControlJustReleased(0, 242) and not IsControlPressed(0, 21) then
-                local objHeading = GetEntityHeading(obj)
-                SetEntityRotation(obj, 0.0, 0.0, objHeading - 10, false, false)
-            end
-
-            -- Controls for raising/lowering item
-
-            -- -- Shift + Mouse Wheel Up, move item up
-            -- if IsControlPressed(0, 21) and IsControlJustReleased(0, 241) then
-            --     zOffset = zOffset + 0.1
-            --     if zOffset > Shared.maxZOffset then
-            --         zOffset = Shared.maxZOffset
-            --     end
+            -- -- Mouse Wheel Up (and Shift not pressed), rotate by +10 degrees
+            -- if IsControlJustReleased(0, 241) and not IsControlPressed(0, 21) then
+            --     local objHeading = GetEntityHeading(obj)
+            --     SetEntityRotation(obj, 0.0, 0.0, objHeading + 10, false, false)
             -- end
 
-            -- -- Shift + Mouse Wheel Down, move item down
-            -- if IsControlPressed(0, 21) and IsControlJustReleased(0, 242) then
-            --     zOffset = zOffset - 0.1
-            --     if zOffset < Shared.minZOffset then
-            --         zOffset = Shared.minZOffset
-            --     end
+            -- -- Mouse Wheel Down (and shift not pressed), rotate by -10 degrees
+            -- if IsControlJustReleased(0, 242) and not IsControlPressed(0, 21) then
+            --     local objHeading = GetEntityHeading(obj)
+            --     SetEntityRotation(obj, 0.0, 0.0, objHeading - 10, false, false)
             -- end
 
             -- Right click or Backspace to exit out of placement mode and delete the local object

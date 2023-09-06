@@ -41,68 +41,71 @@ RegisterNetEvent("weapheist:spawnGang", function(netIds)
 end)
 
 --vector4(2641.66, 4235.43, 45.49, 213.2)
-exports['qb-target']:SpawnPed({
-    model = 'g_m_m_chicold_01',
-    coords = vector4(2016.91, 4987.84, 42.1, 132.92),
-    minusOne = true,
-    freeze = true,
-    invincible = true, 
-    spawnNow = true,
-    blockevents = true,
-    target = {
-        useModel = false,
+-- exports['qb-target']:SpawnPed({
+--     model = 'g_m_m_chicold_01',
+--     coords = vector4(2016.91, 4987.84, 42.1, 132.92),
+--     minusOne = true,
+--     freeze = true,
+--     invincible = true, 
+--     spawnNow = true,
+--     blockevents = true,
+--     target = {
+--         useModel = false,
+--         options = {
+--             {
+--                 type = "client",
+--                 icon = 'fas fa-circle',
+--                 label = 'Talk',
+--                 action = function(entity)
+--                     exports['qb-core']:Progressbar("talking_man", "Talking..", 10000, false, true, {
+--                         disableMovement = false,
+--                         disableCarMovement = false,
+--                         disableMouse = false,
+--                         disableCombat = true,
+--                     }, {}, {}, {}, function() -- Done
+--                         TriggerServerEvent("weapheist:StartHeist")
+--                     end)
+--                 end,
+--             }
+--         },
+--         distance = 2.5,
+--     },
+-- })
+
+CreateThread(function()
+    exports['qb-target']:AddTargetModel(`p_secret_weapon_02`, {
         options = {
             {
                 type = "client",
-                icon = 'fas fa-circle',
-                label = 'Talk',
+                icon = "fas fa-user-secret",
+                label = "Loot",
                 action = function(entity)
-                    exports['qb-core']:Progressbar("talking_man", "Talking..", 10000, false, true, {
+                    print("netid", ObjToNet(entity))
+                    print("normal id", entity)
+                    exports['qb-core']:Progressbar("lotting_wh", "Looting..", 10000, false, true, {
                         disableMovement = false,
                         disableCarMovement = false,
                         disableMouse = false,
                         disableCombat = true,
                     }, {}, {}, {}, function() -- Done
-                        TriggerServerEvent("weapheist:StartHeist")
+                        RemoveBlip(RadiusBlip)
+                        RemoveBlip(Blip)
+                        TriggerServerEvent("weapheist:loot", ObjToNet(entity))
                     end)
                 end,
-            }
+                canInteract = function(entity)
+                    local ped = PlayerPedId()
+                    local coord = GetEntityCoords(ped)
+                    local dist = #(coord - vector3(1120.27, -2173.53, 31.85))
+                    if dist < 25 then return true end
+                    return false
+                end,
+            },
         },
-        distance = 2.5,
-    },
-})
+        distance = 2.5
+    })
+end)
 
-exports['qb-target']:AddTargetModel(`p_secret_weapon_02`, {
-    options = {
-        {
-            type = "client",
-            icon = "fas fa-user-secret",
-            label = "Loot",
-            action = function(entity)
-                print("netid", ObjToNet(entity))
-                print("normal id", entity)
-                exports['qb-core']:Progressbar("lotting_wh", "Looting..", 10000, false, true, {
-                    disableMovement = false,
-                    disableCarMovement = false,
-                    disableMouse = false,
-                    disableCombat = true,
-                }, {}, {}, {}, function() -- Done
-                    RemoveBlip(RadiusBlip)
-                    RemoveBlip(Blip)
-                    TriggerServerEvent("weapheist:loot", ObjToNet(entity))
-                end)
-            end,
-            canInteract = function(entity)
-                local ped = PlayerPedId()
-                local coord = GetEntityCoords(ped)
-                local dist = #(coord - vector3(1120.27, -2173.53, 31.85))
-                if dist < 25 then return true end
-                return false
-            end,
-        },
-    },
-    distance = 2.5
-})
 
 RegisterNetEvent("weapheist:AddBlip", function()
     local ped = PlayerPedId()

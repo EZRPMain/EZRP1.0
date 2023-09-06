@@ -25,7 +25,9 @@ CreateThread(function()
     while not HasModelLoaded(`g_m_m_mexboss_01`) do
     Wait(1)
   end
-    methboss = CreatePed(2, `g_m_m_mexboss_01`, 481.18, -591.21, 23.75, 299.77, false, false) -- change here the cords for the ped 
+  --vector4(55.12, -115.26, 55.97, 8.73)
+    -- methboss = CreatePed(2, `g_m_m_mexboss_01`, 481.18, -591.21, 23.75, 299.77, false, false) -- change here the cords for the ped 
+    methboss = CreatePed(2, `g_m_m_mexboss_01`, 55.12, -115.26, 54.97, 8.73, false, false) -- change here the cords for the ped 
     SetPedFleeAttributes(methboss, 0, 0)
     SetPedDiesWhenInjured(methboss, false)
     TaskStartScenarioInPlace(methboss, "WORLD_HUMAN_STAND_IMPATIENT", 0, true)
