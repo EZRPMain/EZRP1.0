@@ -243,7 +243,7 @@ RegisterNetEvent('ps-methrun:client:items', function()
                 else
                     QBCore.Functions.Notify(Lang:t("error.you_failed"), 'error')
                 end
-             end, 12, 8, 3) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlocks
+             end, 60, 5, 5) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlocks
              
 
 

@@ -18,7 +18,7 @@ Reward    :     Cash Rolls
 
 Bank Truck Robbery :
 Difficulty:     Beginner
-How to do :     Find a bank truck, Intercept and steal it, kill the driver and the passenger take it to a secure location use security card 4 or thermite
+How to do :     Find a bank truck, Intercept and steal it, kill the driver and the passenger take it to a secure location use security card 4 or thermite (Alert)
 Reward    :     Cash Rolls, Marked Money (no way to currently wash)
 
 -------------------------------------------
@@ -32,7 +32,7 @@ Reward    :     Cash Rolls
 
 Meth Run :
 Difficulty:     Moderate
-How to do :     Go to start location get job go skeet skeet Local Lost MC
+How to do :     Go to start location get job go skeet skeet Local Lost MC (need to add alerts)
 Reward    :     Meth
 
 -------------------------------------------

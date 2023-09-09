@@ -133,18 +133,18 @@ function CheckForGhostUsers()
     if GetPlayerName(user) == nil or GetPlayerName(user) ~= name then 
       -- They no longer exist
       Queue:PopLicense(license)
-      if Config.Debug then 
-        print("[Ez-queue] (Thread : NO LONGER EXISTS) Popped player " .. name .. " from queue...");
-      end
+      -- if Config.Debug then 
+      --   print("[Ez-queue] (Thread : NO LONGER EXISTS) Popped player " .. name .. " from queue...");
+      -- end
       if connecting[license] ~= nil then 
         connecting[license] = nil;
         if (currentConnectors > 0) then 
           currentConnectors = currentConnectors - 1;
         end
       end
-      if Config.Debug then 
-        print("[Ez-queue] (Thread : NO LONGER EXISTS) currentConnectors is == " .. tostring(currentConnectors) )
-      end
+      -- if Config.Debug then 
+      --   print("[Ez-queue] (Thread : NO LONGER EXISTS) currentConnectors is == " .. tostring(currentConnectors) )
+      -- end
       playerConnecting[license] = nil;
     end
   end
@@ -203,7 +203,7 @@ AddEventHandler('playerConnecting', function(name, setKickReason, deferrals)
           -- Set them up 
           Queue:SetupPriority(user);
           if GetPlayerName(user) ~= nil then
-            sendToDiscQueue("QUEUED USER", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` has been added to the queue...", "Ez-queue created by Badger");
+            sendToDiscQueue("QUEUED USER", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` has been added to the queue...", "Ez-queue");
           end 
           local message = GetMessage(user);
           local msg = message:gsub("{QUEUE_NUM}", Queue:GetQueueNum(user)):gsub("{QUEUE_MAX}", Queue:GetMax());
@@ -233,15 +233,15 @@ AddEventHandler('playerConnecting', function(name, setKickReason, deferrals)
           end
           Wait(1000);
           if GetPlayerName(user) ~= nil then
-            sendToDisc("NEW CONNECTOR", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` is allowed to join now!", "Ez-queue created by Badger");
+            sendToDisc("NEW CONNECTOR", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` is allowed to join now!", "Ez-queue ");
           end
           if playerConnecting[license] ~= nil then 
             playerConnecting[license].Timeout = Config.Timeout;
             playerConnecting[license].Connection = true;
           end
-          if Config.Debug then 
-            print("[Ez-queue] currentConnectors is == " .. tostring(currentConnectors) )
-          end
+          -- if Config.Debug then 
+          --   print("[Ez-queue] currentConnectors is == " .. tostring(currentConnectors) )
+          -- end
         end -- connecting[license] == nil 
         deferrals.done();
       else	 
@@ -252,7 +252,7 @@ AddEventHandler('playerConnecting', function(name, setKickReason, deferrals)
         -- Set them up 
         Queue:SetupPriority(user);
         if GetPlayerName(user) ~= nil then
-          sendToDiscQueue("QUEUED USER", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` has been added to the queue...", "Ez-queue created by Badger");
+          sendToDiscQueue("QUEUED USER", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` has been added to the queue...", "Ez-queue ");
         end
         local message = GetMessage(user);
         local msg = message:gsub("{QUEUE_NUM}", Queue:GetQueueNum(user)):gsub("{QUEUE_MAX}", Queue:GetMax());
@@ -283,15 +283,15 @@ AddEventHandler('playerConnecting', function(name, setKickReason, deferrals)
         end
         Wait(1000);
         if GetPlayerName(user) ~= nil then
-          sendToDisc("NEW CONNECTOR", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` is allowed to join now!", "Ez-queue created by Badger");
+          sendToDisc("NEW CONNECTOR", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` is allowed to join now!", "Ez-queue ");
         end
         if playerConnecting[license] ~= nil then 
           playerConnecting[license].Timeout = Config.Timeout;
           playerConnecting[license].Connection = true;
         end
-        if Config.Debug then 
-          print("[Ez-queue] currentConnectors is == " .. tostring(currentConnectors) )
-        end
+        -- if Config.Debug then 
+        --   print("[Ez-queue] currentConnectors is == " .. tostring(currentConnectors) )
+        -- end
       end -- connecting[license] == nil
       deferrals.done();
     end
@@ -309,7 +309,7 @@ AddEventHandler('playerDropped', function (reason)
   playerConnecting[license] = nil;
   if (Queue:IsSetUp(user)) then 
     Queue:Pop(user);
-    sendToDiscQueue("REMOVED QUEUE USER", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` has been removed from the queue...", "Ez-queue created by Badger");
+    sendToDiscQueue("REMOVED QUEUE USER", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` has been removed from the queue...", "Ez-queue ");
     print(prefix .. " (playerDropped) " .. "Player " .. GetPlayerName(user) .. " has been removed from QUEUE");
   end
 end)
@@ -322,13 +322,13 @@ AddEventHandler('DiscordQueue:Activated', function()
   local license = ExtractIdentifiers(user).license:gsub("license:", "");
   connecting[license] = nil;
   playerConnecting[license] = nil;
-  sendToDiscQueue("REMOVED QUEUE USER", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` has been removed from the queue...", "Ez-queue created by Badger");
+  sendToDiscQueue("REMOVED QUEUE USER", "Player `" .. GetPlayerName(user):gsub("`", "") .. "` has been removed from the queue...", "Ez-queue ");
   if (currentConnectors > 0) then 
     currentConnectors = currentConnectors - 1;
   end
-  if Config.Debug then 
-    print(prefix .. " (DiscordQueue:Activated) " .. "Player " .. GetPlayerName(user) .. " has been removed from QUEUE");
-    print("[Ez-queue] (DiscordQueue:Activated) currentConnectors is == " .. tostring(currentConnectors) )
-  end
+  -- if Config.Debug then 
+  --   print(prefix .. " (DiscordQueue:Activated) " .. "Player " .. GetPlayerName(user) .. " has been removed from QUEUE");
+  --   print("[Ez-queue] (DiscordQueue:Activated) currentConnectors is == " .. tostring(currentConnectors) )
+  -- end
 end)
 

@@ -6,10 +6,10 @@ Config = {
 	onlyActiveWhenFull = false,
 	Requirements = { -- A player must have the identifier to be allowed into the server
 		Discord = true,
-		Steam = true
+		Steam = false
 	},
 	WhitelistRequired = false, -- If this option is set to true, a player must have a role in Config.Rankings to be allowed into the server
-	Debug = true,
+	Debug = false,
 	Webhook = 'https://discord.com/api/webhooks/1147975278296051773/gH-0QZ4TtHM3OSve7ZC_hX_9UTuO8XRMccNkA_jMs742WT2zTyxpUWqYgwhpPzgvKw-2',
 	Displays = {
 		Prefix = 'Eazy RP Connect Queue',
