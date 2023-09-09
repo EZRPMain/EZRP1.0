@@ -10,7 +10,7 @@ Config.Priority = {
 }
 
 -- require people to run steam
-Config.RequireSteam = false
+Config.RequireSteam = true
 
 -- "whitelist" only server
 Config.PriorityOnly = false
@@ -28,7 +28,7 @@ Config.ConnectTimeOut = 600
 Config.QueueTimeOut = 90
 
 -- will give players temporary priority when they disconnect and when they start loading in
-Config.EnableGrace = false
+Config.EnableGrace = true
 
 -- how much priority power grace time will give
 Config.GracePower = 5
