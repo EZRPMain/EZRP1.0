@@ -37,5 +37,5 @@ Config.Rankings = {
 	['1053842293506965552'] = {250, "You are being connected [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Supporter
 	['1053842293775409254'] = {100, "You are being connected (Staff) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Staff 
 	['1053842293725089851'] = {50, "You are being connected (Admin) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Admin
-	['1132951992738775070'] = {1000, "You are being connected (Founder) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Founder
+	['1132951992738775070'] = {1, "You are being connected (Founder) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Founder
 }
