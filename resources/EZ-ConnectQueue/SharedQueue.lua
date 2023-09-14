@@ -3,7 +3,8 @@ Queue.Players = {}
 Queue.PlayerInfo = {}
 Queue.SortedKeys = {}
 Queue.Messages = {}
-debugg = true;
+debugg = false;
+debug = false
 
 
 

@@ -5,6 +5,7 @@ currentConnectors = 0;
 maxConnectors = Config.AllowedPerTick;
 hostname = GetConvar("sv_hostname")
 slots = GetConvarInt('sv_maxclients', 32)
+debug = false
 
 StopResource('hardcap')
 

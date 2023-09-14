@@ -33,8 +33,9 @@ Config = {
 Config.Rankings = {
 	-- LOWER NUMBER === HIGHER PRIORITY 
 	-- ['roleID'] = {rolePriority, connectQueueMessage},
-	['1140307332102885406'] = {500, "You are being connected (you are not as special as Badger) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Discord User 
-	['1053842293775409254'] = {100, "You are being connected (Staff Queue) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Staff 
-	['1053842293725089851'] = {50, "You are being connected (Admin Queue) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Admin
-	['1132951992738775070'] = {1, "You are being connected (Founder Queue) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Founder
+	['1140307332102885406'] = {500, "You are being connected [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Discord User 
+	['1053842293506965552'] = {250, "You are being connected [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Supporter
+	['1053842293775409254'] = {100, "You are being connected (Staff) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Staff 
+	['1053842293725089851'] = {50, "You are being connected (Admin) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Admin
+	['1132951992738775070'] = {1000, "You are being connected (Founder) [{QUEUE_NUM}/{QUEUE_MAX}]:"}, -- Founder
 }
