@@ -12,7 +12,7 @@
 }
 
 .MapStyle{
-    height: 83%;
+    /* height: 83%; */
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -58,18 +58,18 @@
     color: #dd8d23;
 }
 
-.BtnBodyClass{
+.BtnBodyClass {
     position: absolute;
     display: block;
-    top: 6%;
-    left: 50%;
+    bottom: 15%;
+    left: 87%;
     transform: translate(-50%, -50%);
     z-index: 1;
     width: 20%;
-    background: #202731;
+    /* background: #202731; */
     padding: 0.6% 0;
     text-align: center;
-    box-shadow: 1px 1px 6px rgb(5, 5, 5);
+    /* box-shadow: 1px 1px 6px rgb(5 5 5); */
     color: whitesmoke;
     font-family: sans-serif;
     font-size: 1.8vh;
@@ -111,10 +111,14 @@
     background: #3aadd6;
 }
 
-.SelectLoc-Border-Btn{
+.SelectLoc-Border-Btn {
     margin: 4% 10%;
     width: 80%;
-    border-bottom: 0.3vh solid rgb(255, 255, 255);
+    border-bottom: 0.3vh solid hwb(214deg 32% 33%);
+}
+
+.SelectLoc-Border-Btn {
+    color: #5177aa !important; 
 }
 
 .AddCoord{

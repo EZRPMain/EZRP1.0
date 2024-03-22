@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SpoonerPlacements>
+    <Note>For guests, a point-to-point race around one of the world's most secure private islands is an adrenaline-fueled exhibition of skill and mettle. For guards, it's time to grab the popcorn. This is going to be messy.</Note>
+	<ReferenceCoords>
+		<X>4001.255</X>
+		<Y>-4692.793</Y>
+		<Z>3.340</Z>
+	</ReferenceCoords>
+	<Placement>
+		<ModelHash>0x774D6C5D</ModelHash>
+		<Type>3</Type>
+		<Dynamic>false</Dynamic>
+		<FrozenPos>true</FrozenPos>
+		<HashName>~t~Static Prop ~s~[prop_water_ramp_03]</HashName>
+		<InitialHandle>1</InitialHandle>
+		<ObjectProperties>
+			<TextureVariation>1</TextureVariation>
+		</ObjectProperties>
+		<OpacityLevel>255</OpacityLevel>
+		<LodDistance>16960</LodDistance>
+		<IsVisible>true</IsVisible>
+		<MaxHealth>1000</MaxHealth>
+		<Health>1000</Health>
+		<HasGravity>true</HasGravity>
+		<IsOnFire>false</IsOnFire>
+		<IsInvincible>false</IsInvincible>
+		<IsBulletProof>false</IsBulletProof>
+		<IsCollisionProof>false</IsCollisionProof>
+		<IsExplosionProof>false</IsExplosionProof>
+		<IsFireProof>false</IsFireProof>
+		<IsMeleeProof>false</IsMeleeProof>
+		<IsOnlyDamagedByPlayer>false</IsOnlyDamagedByPlayer>
+		<PositionRotation>
+			<X>5100.266</X>
+			<Y>-5731.370</Y>
+			<Z>15.501</Z>
+			<Pitch>0.0</Pitch>
+			<Roll>0.0</Roll>
+			<Yaw>-127.353</Yaw>
+		</PositionRotation>
+		<Attachment isAttached="false" />
+	</Placement>
+	<Placement>
+		<ModelHash>0x774D6C5D</ModelHash>
+		<Type>3</Type>
+		<Dynamic>false</Dynamic>
+		<FrozenPos>true</FrozenPos>
+		<HashName>~t~Static Prop ~s~[prop_water_ramp_03]</HashName>
+		<InitialHandle>2</InitialHandle>
+		<ObjectProperties>
+			<TextureVariation>1</TextureVariation>
+		</ObjectProperties>
+		<OpacityLevel>255</OpacityLevel>
+		<LodDistance>16960</LodDistance>
+		<IsVisible>true</IsVisible>
+		<MaxHealth>1000</MaxHealth>
+		<Health>1000</Health>
+		<HasGravity>true</HasGravity>
+		<IsOnFire>false</IsOnFire>
+		<IsInvincible>false</IsInvincible>
+		<IsBulletProof>false</IsBulletProof>
+		<IsCollisionProof>false</IsCollisionProof>
+		<IsExplosionProof>false</IsExplosionProof>
+		<IsFireProof>false</IsFireProof>
+		<IsMeleeProof>false</IsMeleeProof>
+		<IsOnlyDamagedByPlayer>false</IsOnlyDamagedByPlayer>
+		<PositionRotation>
+			<X>5102.325</X>
+			<Y>-5728.664</Y>
+			<Z>15.501</Z>
+			<Pitch>0.0</Pitch>
+			<Roll>0.0</Roll>
+			<Yaw>-127.353</Yaw>
+		</PositionRotation>
+		<Attachment isAttached="false" />
+	</Placement>
+	<Placement>
+		<ModelHash>0x774D6C5D</ModelHash>
+		<Type>3</Type>
+		<Dynamic>false</Dynamic>
+		<FrozenPos>true</FrozenPos>
+		<HashName>~t~Static Prop ~s~[prop_water_ramp_03]</HashName>
+		<InitialHandle>3</InitialHandle>
+		<ObjectProperties>
+			<TextureVariation>1</TextureVariation>
+		</ObjectProperties>
+		<OpacityLevel>255</OpacityLevel>
+		<LodDistance>16960</LodDistance>
+		<IsVisible>true</IsVisible>
+		<MaxHealth>1000</MaxHealth>
+		<Health>1000</Health>
+		<HasGravity>true</HasGravity>
+		<IsOnFire>false</IsOnFire>
+		<IsInvincible>false</IsInvincible>
+		<IsBulletProof>false</IsBulletProof>
+		<IsCollisionProof>false</IsCollisionProof>
+		<IsExplosionProof>false</IsExplosionProof>
+		<IsFireProof>false</IsFireProof>
+		<IsMeleeProof>false</IsMeleeProof>
+		<IsOnlyDamagedByPlayer>false</IsOnlyDamagedByPlayer>
+		<PositionRotation>
+			<X>5098.208</X>
+			<Y>-5734.076</Y>
+			<Z>15.501</Z>
+			<Pitch>0.0</Pitch>
+			<Roll>0.0</Roll>
+			<Yaw>-127.353</Yaw>
+		</PositionRotation>
+		<Attachment isAttached="false" />
+	</Placement>	
+
+</SpoonerPlacements>

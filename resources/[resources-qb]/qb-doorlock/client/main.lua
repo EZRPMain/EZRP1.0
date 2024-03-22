@@ -24,9 +24,9 @@ function Draw3DText(coords, str)
 		SetTextProportional(1)
 		SetTextOutline()
 		SetTextCentre(1)
-        SetTextEntry("STRING")
-        AddTextComponentString(str)
-        DrawText(worldX, worldY)
+        BeginTextCommandDisplayText("STRING")
+        AddTextComponentSubstringPlayerName(str)
+        EndTextCommandDisplayText(worldX, worldY)
     end
 end
 
@@ -486,17 +486,13 @@ end)
 RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
 	if not closestDoor.data or not next(closestDoor.data) or PlayerData.metadata['isdead'] or PlayerData.metadata['ishandcuffed'] or (not closestDoor.data.pickable and not closestDoor.data.lockpick) or not closestDoor.data.locked then return end
 	usingAdvanced = isAdvanced
-
-	local dict = "missheistfbisetup1"
-    local Player = PlayerPedId()
-    while (not HasAnimDictLoaded(dict)) do
-        RequestAnimDict(dict)
-        Citizen.Wait(1)
-    end
-    TaskPlayAnim(Player, "missheistfbisetup1", "hassle_intro_loop_f", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
-
-    exports['ps-ui']:Circle(lockpickFinish, math.random(3,8), 13)
 	-- TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
+	-- exports['ps-ui']:Circle(lockpickFinish, 2, 20)
+	local time = math.random(15,20)
+	local circles = math.random(3,4)
+	local success = exports['qb-lock']:StartLockPickCircle(circles, time)
+	-- print(success)
+	lockpickFinish(success)
 end)
 
 RegisterNetEvent('qb-doorlock:client:addNewDoor', function()
@@ -822,6 +818,7 @@ RegisterKeyMapping('remotetriggerdoor', Lang:t("general.keymapping_remotetrigger
 -- Threads
 
 CreateThread(function()
+	while not HasStreamedTextureDictLoaded("interactions_txd") do Wait(10) RequestStreamedTextureDict("interactions_txd", true) end
 	if Config.PersistentDoorStates and isLoggedIn then Wait(1000) SetupDoors() end -- Required for pulling in door states properly from live ensures
 
 	updateDoors()
@@ -863,29 +860,66 @@ CreateThread(function()
 						closestDoor.distance = #(closestDoor.data.textCoords - playerCoords)
 						if closestDoor.distance < (closestDoor.data.distance or closestDoor.data.maxDistance) then
 							local authorized = isAuthorized(closestDoor.data)
-							local displayText = ""
+							local displayText = "pin"
+							local spritename = ""
+							local size1 = 0.0185
+							local size2 = 0.03333333333333333
+
+							local setSize1
+							local setSize2
 
 							if not closestDoor.data.hideLabel and Config.UseDoorLabelText and closestDoor.data.doorLabel then
 								displayText = closestDoor.data.doorLabel
 							else
 								if not closestDoor.data.locked and not authorized then
 									displayText = Lang:t("general.unlocked")
+									spritename = "pin"
+									setSize1 = 0.010
+									setSize2 = 0.025
 								elseif not closestDoor.data.locked and authorized then
 									displayText = Lang:t("general.unlocked_button")
+									spritename = "pin"
+									setSize1 = 0.010
+									setSize2 = 0.025
+									if closestDoor.distance < ((closestDoor.data.distance or closestDoor.data.maxDistance)/1.8) then
+										spritename = "interact"
+										setSize1 = 0.0185
+										setSize2 = 0.03333333333333333
+									end
 								elseif closestDoor.data.locked and not authorized then
 									displayText = Lang:t("general.locked")
+									spritename = "pin"
+									setSize1 = 0.010
+									setSize2 = 0.025
 								elseif closestDoor.data.locked and authorized then
 									displayText = Lang:t("general.locked_button")
+									spritename = "pin"
+									setSize1 = 0.010
+									setSize2 = 0.025
+									if closestDoor.distance < ((closestDoor.data.distance or closestDoor.data.maxDistance)/1.8) then
+										spritename = "interact_red"
+										setSize1 = 0.0185
+										setSize2 = 0.03333333333333333
+									end
 								end
 							end
+							-- print("test")
 
-							if displayText ~= "" and (closestDoor.data.hideLabel == nil or not closestDoor.data.hideLabel) then displayNUIText(displayText) end
+							if displayText ~= "" and (closestDoor.data.hideLabel == nil or not closestDoor.data.hideLabel) then
+								-- displayNUIText(displayText)
+								local coords = closestDoor.data.textCoords
+
+								SetDrawOrigin(coords.x, coords.y, coords.z, 0)
+								-- print(spritename)
+								DrawSprite("interactions_txd", spritename, 0, 0, setSize1, setSize2, 0, 255, 255, 255, 255)
+								ClearDrawOrigin()
+							end
 						else
 							hideNUI()
 							break
 						end
 					end
-					Wait(100)
+					Wait(3)
 				end
 				closestDoor = {}
 				sleep = 0
