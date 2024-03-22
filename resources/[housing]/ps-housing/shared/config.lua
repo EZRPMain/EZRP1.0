@@ -61,6 +61,7 @@ Config.Apartments = {
     ["Integrity Way"] = {
         label = "Integrity Way",
         door = { x = 269.73, y = -640.75, z = 42.02, h = 249.07, length = 1, width = 2 },
+        pos = {top = 50.2, left = 64.2},
         imgs = {
             {
                 url = "https://i.imgur.com/986BKLz.jpeg",
@@ -73,6 +74,7 @@ Config.Apartments = {
     ["South Rockford Drive"] = {
         label = "South Rockford Drive",
         door = { x = -667.02, y = -1105.24, z = 14.63, h = 242.32, length = 1, width = 2 },
+        pos = {top = 58.5, left = 66.4},
         imgs = {
             {
                 url = "https://i.imgur.com/FKTQq4b.jpeg",
@@ -85,6 +87,7 @@ Config.Apartments = {
     ['Morningwood Blvd'] = {
         label = 'Morningwood Blvd',
         door = { x = -1288.52, y = -430.51, z = 35.15, h = 124.81, length = 1, width = 2 },
+        pos = {top = 64.4, left = 62.9},
         imgs = {
             {
                 url = "https://i.imgur.com/amZDmz7.jpeg",
@@ -97,6 +100,7 @@ Config.Apartments = {
     ['Tinsel Towers'] = {
         label = 'Tinsel Towers',
         door = { x = -619.29, y = 37.69, z = 43.59, h = 181.03, length = 1, width = 2 },
+        pos = {top = 58.1, left = 60.8},
         imgs = {
             {
                 url = "https://cdn.discordapp.com/attachments/1108364246342963322/1140163262315495494/tinsel.webp",
@@ -109,6 +113,7 @@ Config.Apartments = {
     ['Fantastic Plaza'] = {
         label = 'Fantastic Plaza',
         door = { x = 291.517, y = -1078.674, z = 29.405, h = 270.75, length = 1, width = 2 },
+        pos = {top = 49.5, left = 66.2},
         imgs = {
             {
                 url = "https://i.imgur.com/SgK60IR.jpeg",
