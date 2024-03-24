@@ -16,10 +16,8 @@ CreateThread(function()
 	local chemTable = `v_ret_ml_tableb`
 	local chemTableCoords = vector4(1004.52, -1211.83, 25.29, 178.77)
 	RequestModel(chemTable)
-	local iter_for_request = 1
-	while not HasModelLoaded(chemTable) and iter_for_request < 5 do
+	while not HasModelLoaded(chemTable) do
 		Wait(500)                
-		iter_for_request = iter_for_request + 1
 	end
 	if not HasModelLoaded(chemTable) then
 		SetModelAsNoLongerNeeded(chemTable)

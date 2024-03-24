@@ -21,7 +21,8 @@ files {
 	'data/*.lua',
 	'html/*.html',
 	'html/css/*.css',
-	'html/js/*.js'
+	'html/js/*.js',
+	'assets/*.png'
 }
 
 lua54 'yes'

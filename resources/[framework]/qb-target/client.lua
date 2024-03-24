@@ -63,30 +63,21 @@ end
 
 -- Functions
 
+local txd = CreateRuntimeTxd('target_txd')
+CreateRuntimeTextureFromImage(txd, tostring(Config.Sprite), "assets/"..Config.Sprite..".png")
+
+
 local function DrawTarget()
 	CreateThread(function()
-		while not HasStreamedTextureDictLoaded("shared") do Wait(10) RequestStreamedTextureDict("shared", true) end
+		while not HasStreamedTextureDictLoaded("target_txd") do Wait(10) RequestStreamedTextureDict("target_txd", true) end
 		local sleep
 		local r, g, b, a
 		while targetActive do
 			sleep = 500
 			for _, zone in pairs(listSprite) do
 				sleep = 0
-
-				r = zone.targetoptions.drawColor?[1] or Config.DrawColor[1]
-				g = zone.targetoptions.drawColor?[2] or Config.DrawColor[2]
-				b = zone.targetoptions.drawColor?[3] or Config.DrawColor[3]
-				a = zone.targetoptions.drawColor?[4] or Config.DrawColor[4]
-
-				if zone.success then
-					r = zone.targetoptions.successDrawColor?[1] or Config.SuccessDrawColor[1]
-					g = zone.targetoptions.successDrawColor?[2] or Config.SuccessDrawColor[2]
-					b = zone.targetoptions.successDrawColor?[3] or Config.SuccessDrawColor[3]
-					a = zone.targetoptions.successDrawColor?[4] or Config.SuccessDrawColor[4]
-				end
-
 				SetDrawOrigin(zone.center.x, zone.center.y, zone.center.z, 0)
-				DrawSprite("shared", "emptydot_32", 0, 0, 0.02, 0.035, 0, r, g, b, a)
+				DrawSprite("target_txd", Config.Sprite, 0, 0, 0.010, 0.025, 0, 255, 255, 255, 255)
 				ClearDrawOrigin()
 			end
 			Wait(sleep)
@@ -211,7 +202,7 @@ local function CheckEntity(flag, datatable, entity, distance)
 		return
 	end
 	success = true
-	SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon})
+	SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon or nuiData[slot].icon})
 	DrawOutlineEntity(entity, true)
 	while targetActive and success do
 		local _, dist, entity2 = RaycastCamera(flag)
@@ -322,7 +313,7 @@ local function EnableTarget()
 						local slot = SetupOptions(datatable, entity, distance)
 						if next(nuiData) then
 							success = true
-							SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon})
+							SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon or nuiData[slot].icon})
 							DrawOutlineEntity(entity, true)
 							while targetActive and success do
 								local coords2, dist, entity2 = RaycastCamera(flag)
@@ -392,7 +383,7 @@ local function EnableTarget()
 					local slot = SetupOptions(closestZone.targetoptions.options, entity, distance, true)
 					if next(nuiData) then
 						success = true
-						SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon})
+						SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon or nuiData[slot].icon})
 						if Config.DrawSprite then
 							listSprite[closestZone.name].success = true
 						end

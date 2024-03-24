@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas Neue:wght@300;400;500;600;700&display=swap');
 body {
     overflow: hidden;
 }
@@ -7,8 +8,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
-    font-size: 3vh;
-    text-shadow: 0.2vh 0.2vh 0.2vh #000000;
+    font-size: 0.5vh;
+    -webkit-transition: color 0.25s, font-size 0.25s;
+    -moz-transition: color 0.25s, font-size 0.25s;
+    -o-transition: color 0.25s, font-size 0.25s;
+    transition: color 0.25s, font-size 0.25s;
 }
 
 #target-label-wrapper {
@@ -20,16 +24,20 @@ body {
     left: 51.5%;
     width: fit-content;
     height: 100%;
-    top: 49.25%;
+    top: 50%;
 }
 
 #target-label {
     list-style: none;
-    font-size: 1.3vh;
-    font-weight: bold;
-    font-family: sans-serif;
+    font-size: 1.75vh;
+    font-family: 'Bebas Neue';
     color: white;
     user-select: none;
     white-space: nowrap;
-    text-shadow: 0.2vh 0.2vh 0.2vh #000000;
+    text-shadow: 0vh 0vh 0.2vh black;
+    transition: 300ms;
+    transform-origin: left top;
+    /* background-color: #000000; */
+    /* border: 4px solid greenyellow */
 }
+  

@@ -3,10 +3,10 @@ const Targeting = Vue.createApp({
         return {
             Show: false, // leave this
             ChangeTextIconColor: false, // This is if you want to change the color of the icon next to the option text with the text color
-            StandardEyeIcon: "fas fa-hand-middle-finger", // This is the default eye icon
+            StandardEyeIcon: "fa-solid fa-fingerprint", // This is the default eye icon
             CurrentIcon: this.StandardEyeIcon, // leave this
-            SuccessColor: "rgb(30, 144, 255)", // This is the color when the target has found the option
-            StandardColor: "white", // This is the standard color, change this to the same as the StandardColor if you have changed it
+            SuccessColor: "rgba(81, 119, 170, 1)", // This is the color when the target has found the option
+            StandardColor: "rgba(243, 247, 255, 1)", // This is the standard color, change this to the same as the StandardColor if you have changed it
             TargetEyeStyleObject: {
                 color: this.StandardColor, // leave this
             },
@@ -84,6 +84,9 @@ const Targeting = Vue.createApp({
                 const split = element.id.split("-");
                 if (split[0] === "target" && split[1] === "option") {
                     event.target.style.color = this.SuccessColor;
+                    event.target.style.transition = '300ms';
+                    event.target.style.transformOrigin = 'left top';
+                    event.target.style.marginLeft = '4pt';
                     if (this.ChangeTextIconColor) document.getElementById(`target-icon-${index}`).style.color = this.SuccessColor;
                 }
             }
@@ -95,6 +98,7 @@ const Targeting = Vue.createApp({
                 const split = element.id.split("-");
                 if (split[0] === "target" && split[1] === "option") {
                     element.style.color = this.StandardColor;
+                    element.style.marginLeft = '0pt';
                     if (this.ChangeTextIconColor) document.getElementById(`target-icon-${index}`).style.color = this.StandardColor;
                 }
             }
@@ -104,11 +108,13 @@ const Targeting = Vue.createApp({
         OpenTarget() {
             this.targetLabel.innerHTML = "";
             this.Show = true;
+            this.TargetEyeStyleObject.fontSize = '1.5vh';
             this.TargetEyeStyleObject.color = this.StandardColor;
         },
 
         CloseTarget() {
             this.targetLabel.innerHTML = "";
+            this.TargetEyeStyleObject.fontSize = '1.5vh';
             this.TargetEyeStyleObject.color = this.StandardColor;
             this.Show = false;
             this.CurrentIcon = this.StandardEyeIcon;
@@ -116,7 +122,8 @@ const Targeting = Vue.createApp({
 
         FoundTarget(item) {
             if (item.data) this.CurrentIcon = item.data;
-            else this.CurrentIcon = this.StandardEyeIcon;
+            else this.CurrentIcon = 'las la-hand-pointer';
+            this.TargetEyeStyleObject.fontSize = '3vh';
             this.TargetEyeStyleObject.color = this.SuccessColor;
         },
 
@@ -125,20 +132,19 @@ const Targeting = Vue.createApp({
             for (let [index, itemData] of Object.entries(item.data)) {
                 if (itemData !== null) {
                     index = Number(index) + 1;
-
                     if (this.ChangeTextIconColor) {
                         this.targetLabel.innerHTML +=
-                        `<div id="target-option-${index}" style="margin-bottom: 1vh; color: ${this.StandardColor}">
+                        `<div class="target-option" id="target-option-${index}" style="color: ${this.StandardColor}">
                             <span id="target-icon-${index}" style="color: ${this.StandardColor}">
-                                <i class="${itemData.icon}"></i>
+                                <i class="${itemData.icon}" style="padding-right: 1.5vh;"></i>
                             </span>
                             ${itemData.label}
                         </div>`;
                     } else {
                         this.targetLabel.innerHTML +=
-                        `<div id="target-option-${index}" style="margin-bottom: 1vh; color: ${this.StandardColor}">
+                        `<div class="target-option" id="target-option-${index}" style="color: ${this.StandardColor}">
                             <span id="target-icon-${index}" style="color: ${this.SuccessColor}">
-                                <i class="${itemData.icon}"></i>
+                                <i class="${itemData.icon}" style="padding-right: 1.5vh;"></i>
                             </span>
                             ${itemData.label}
                         </div>`;
@@ -150,6 +156,7 @@ const Targeting = Vue.createApp({
         LeftTarget() {
             this.targetLabel.innerHTML = "";
             this.CurrentIcon = this.StandardEyeIcon;
+            this.TargetEyeStyleObject.fontSize = '1.5vh';
             this.TargetEyeStyleObject.color = this.StandardColor;
         }
     }
