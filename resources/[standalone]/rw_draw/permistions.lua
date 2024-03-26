@@ -1,5 +1,5 @@
 PERMS = {}
-PERMS.type = "license" ---[PERMISION FILE]
+PERMS.type = "custom" ---[PERMISION FILE]
 PERMS.data = {
     ['license'] = {
        ['b9442171c45b2803702fe9eb336eaa67759ac077'] = true,
