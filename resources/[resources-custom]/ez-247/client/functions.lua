@@ -191,58 +191,94 @@ BagThread = function(bagData)
 
 		local bagEntity = NetToObj(bagData["networkedBag"])
 
-		while DoesEntityExist(bagEntity) do
-			local sleepThread = 500
-
-			local ped = PlayerPedId()
-			local pedCoords = GetEntityCoords(ped)
-
-			local bagCoords = GetEntityCoords(bagEntity)
-
-			local distanceCheck = #(pedCoords - bagCoords)
-
-			if distanceCheck <= 1.1 then
-				sleepThread = 5
-
-				-- local displayText = "Press ~INPUT_DETONATE~ to grab $" .. bagData["cash"]
-
-				-- ESX.ShowHelpNotification(displayText)
-				if not isShown then
-					isShown = true
-					Framework:DrawText("[G] Grab Cash")
-				end
-				-- Framework:Notify(displayText)
-
-				if IsControlJustPressed(0, 47) then
-					PlayAnimation(PlayerPedId(), "pickup_object", "pickup_low", { ["speed"] = 8.0, ["speedMultiplier"] = 8.0, ["duration"] = -1, ["flag"] = 16 })
+		exports.interact:AddEntityInteraction({
+			netId = bagData["networkedBag"],
+			name = 'store_robbery_bag', -- optional
+			id = 'store_robbery_bag', -- needed for removing interactions
+			distance = 6.0, -- optional
+			interactDst = 4.0, -- optional
+			ignoreLos = false, -- optional ignores line of sight
+			offset = vec3(0.0, 0.0, 0.0), -- optional
+			options = {
+				{
+					label = 'Pick Up!',
+					action = function(entity, coords, args)
+						PlayAnimation(PlayerPedId(), "pickup_object", "pickup_low", { ["speed"] = 8.0, ["speedMultiplier"] = 8.0, ["duration"] = -1, ["flag"] = 16 })
 					
-					Citizen.Wait(500)
+						Citizen.Wait(500)
 
-					RequestNetworkControl({
-						bagEntity
-					})
+						RequestNetworkControl({
+							bagEntity
+						})
 
-					AttachEntityToEntity(bagEntity, ped, GetPedBoneIndex(ped, 6286), 0.1, -0.11, 0.08, 0.0, -75.0, -75.0, 1, 1, 0, 0, 2, 1)
+						AttachEntityToEntity(bagEntity, ped, GetPedBoneIndex(ped, 6286), 0.1, -0.11, 0.08, 0.0, -75.0, -75.0, 1, 1, 0, 0, 2, 1)
 
-					Citizen.Wait(900)
+						Citizen.Wait(900)
 
-					if DoesEntityExist(bagEntity) then
-						TriggerServerEvent("storerobbery:receiveBagCash", bagData["cash"])
+						if DoesEntityExist(bagEntity) then
+							TriggerServerEvent("storerobbery:receiveBagCash", bagData["cash"])
 
-						DeleteObject(bagEntity)
-					end
-					isShown = false
-					Framework:HideText()
-				end
-			else
-				if isShown then 
-					isShown = false
-					Framework:HideText()
-				end
-			end
+							DeleteObject(bagEntity)
+							exports.interact:RemoveEntityInteraction(bagData["networkedBag"], 'store_robbery_bag')
+						end
+						isShown = false
+					end,
+				},
+			}
+		})
 
-			Citizen.Wait(sleepThread)
-		end
+		-- while DoesEntityExist(bagEntity) do
+		-- 	local sleepThread = 500
+
+		-- 	local ped = PlayerPedId()
+		-- 	local pedCoords = GetEntityCoords(ped)
+
+		-- 	local bagCoords = GetEntityCoords(bagEntity)
+
+		-- 	local distanceCheck = #(pedCoords - bagCoords)
+
+		-- 	if distanceCheck <= 1.1 then
+		-- 		sleepThread = 5
+
+		-- 		-- local displayText = "Press ~INPUT_DETONATE~ to grab $" .. bagData["cash"]
+
+		-- 		-- ESX.ShowHelpNotification(displayText)
+		-- 		if not isShown then
+		-- 			isShown = true
+		-- 			Framework:DrawText("[G] Grab Cash")
+		-- 		end
+		-- 		-- Framework:Notify(displayText)
+
+		-- 		if IsControlJustPressed(0, 47) then
+		-- 			PlayAnimation(PlayerPedId(), "pickup_object", "pickup_low", { ["speed"] = 8.0, ["speedMultiplier"] = 8.0, ["duration"] = -1, ["flag"] = 16 })
+					
+		-- 			Citizen.Wait(500)
+
+		-- 			RequestNetworkControl({
+		-- 				bagEntity
+		-- 			})
+
+		-- 			AttachEntityToEntity(bagEntity, ped, GetPedBoneIndex(ped, 6286), 0.1, -0.11, 0.08, 0.0, -75.0, -75.0, 1, 1, 0, 0, 2, 1)
+
+		-- 			Citizen.Wait(900)
+
+		-- 			if DoesEntityExist(bagEntity) then
+		-- 				TriggerServerEvent("storerobbery:receiveBagCash", bagData["cash"])
+
+		-- 				DeleteObject(bagEntity)
+		-- 			end
+		-- 			isShown = false
+		-- 			Framework:HideText()
+		-- 		end
+		-- 	else
+		-- 		if isShown then 
+		-- 			isShown = false
+		-- 			Framework:HideText()
+		-- 		end
+		-- 	end
+
+		-- 	Citizen.Wait(sleepThread)
+		-- end
 	end)
 end
 
