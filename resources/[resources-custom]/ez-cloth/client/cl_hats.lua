@@ -11,7 +11,7 @@ RegisterNetEvent('ez-usables:client:ToggleHat', function()
     local hat = GetPedPropIndex(ped, 0)
     local tex = GetPedPropTextureIndex(ped, 0)
 
-    if hat == 0 then
+    if hat == -1 then
         TriggerServerEvent("ez-usables:server:HatOnByCommand")
     else
         TriggerEvent("ez-usables:client:HatOff", hat, tex)
@@ -22,7 +22,7 @@ RegisterNetEvent('ez-usables:client:HatOn', function(item)
     local ped = PlayerPedId()
     if item.info.drawableId == nil then print("This hat has no data. Do not spawn it in. Instead go to a clothing store then remove the hat") end
     -- print(GetPedPropIndex(ped, 0))
-    if GetPedPropIndex(ped, 0) ~= 0 then Framework:Notify("You are already wearing a hat", "error") return end
+    if GetPedPropIndex(ped, 0) ~= -1 then Framework:Notify("You are already wearing a hat", "error") return end
 
     Framework:Progressbar("haton", "Putting Hat On..", 600, false, true, {
         disableMovement = false,
@@ -44,7 +44,7 @@ end)
 
 RegisterNetEvent('ez-usables:client:HatOff', function(hat, tex)
     local ped = PlayerPedId()
-    if GetPedPropIndex(ped, 0) == 0 then Framework:Notify("You are not wearing a hat", "error") return end
+    if GetPedPropIndex(ped, 0) == -1 then Framework:Notify("You are not wearing a hat", "error") return end
 
     Framework:Progressbar("hatoff", "Taking Hat Off..", 600, false, true, {
         disableMovement = false,
@@ -56,7 +56,7 @@ RegisterNetEvent('ez-usables:client:HatOff', function(hat, tex)
         anim = "takeoff_mask",
         flags = 49,
     }, {}, {}, function() -- Done
-        SetPedPropIndex(ped, 0, 0)
+        SetPedPropIndex(ped, 0, -1, 0)
         TriggerServerEvent("ez-usables:server:GiveHatItem", hat, tex)
     end, function() -- Cancel
 

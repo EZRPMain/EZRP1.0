@@ -1,5 +1,4 @@
 Framework = exports['qb-core']
-Manager = exports['ez-manager']
 Keybinds = exports['jay-interactions']
 Inventory  = exports['lj-inventory']
 Radial = exports['qb-radialmenu']

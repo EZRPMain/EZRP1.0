@@ -79,7 +79,53 @@ Config.PolyZones = {
 }
 
 Config.TargetBones = {
-
+    ["main"] = {
+        bones = {
+            "seat_dside_f",
+            "seat_pside_f",
+            "seat_dside_r",
+            "seat_pside_r",
+            "door_dside_f",
+            "door_dside_r",
+            "door_pside_f",
+            "door_pside_r",
+        
+        },
+        options = {
+            {
+                type = "client",
+                event = 'police:client:PutPlayerInVehicle',
+                icon = "fas fa-user-plus",
+                label = "Seat in Vehicle",
+            },
+            {
+                type = "client",
+                event = "police:client:SetPlayerOutVehicle",
+                icon = "fas fa-user-minus",
+                label = "Take out Vehicle",
+            },
+            {
+                type = "client",
+                event = "police:client:ImpoundVehicle",
+                icon = "fas fa-car",
+                label = "Impound Vehicle",
+                job = {["police"] = 0, ["sasp"] = 0, ["saspr"] = 0, ["bcso"] = 0},
+            },
+            {
+                type = "client",
+                event = "qb-trunk:client:GetIn",
+                icon = "fas fa-user-secret",
+                label = "Get in Trunk",
+            },
+            {
+                type = "client",
+                event = "jim-mechanic:flipvehicle",
+                label = 'Flipping Vehicle',
+                icon = 'fas fa-chevron-circle-up',
+            },
+        },
+        distance = 3.0
+    },
 }
 
 Config.TargetModels = {
@@ -87,7 +133,47 @@ Config.TargetModels = {
 }
 
 Config.GlobalPedOptions = {
-
+    options = {
+        {
+            type = "client",
+            event = "roadphone:client:GiveContactDetails",
+            icon = "fas fa-address-book",
+            label = "Give Contact Details",
+        },
+        {
+            event = "police:client:RobPlayer",
+            icon = "fas fa-user-secret",
+            label = "Rob Person",
+        },
+        {
+            type = "client",
+            event = "police:client:CuffPlayer",
+            icon = "fas fa-hands",
+            label = "Handcuff Person",
+            -- job = "police",
+            item = 'handcuffs',
+        },
+        {
+          type = "client",
+          event = "police:client:EscortPlayer",
+          icon = "fas fa-key",
+          label = "Escort Person",
+        },
+        {
+            type = "client",
+            event = "police:client:PutPlayerInVehicle",
+            icon = "fas fa-chevron-circle-left",
+            -- job = 'police',
+            label = "Put Person In Vehicle",
+        },
+        {
+            type = "client",
+            event = "police:client:SetPlayerOutVehicle",
+            icon = "fas fa-chevron-circle-right",
+            -- job = 'police',
+            label = "Set Person Out Of Vehicle",
+        },
+    }
 }
 
 Config.GlobalVehicleOptions = {
