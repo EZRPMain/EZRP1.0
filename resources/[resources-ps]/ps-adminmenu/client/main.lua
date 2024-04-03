@@ -1,113 +1,79 @@
 QBCore = exports['qb-core']:GetCoreObject()
-local hasPerms = nil
+PlayerData = {}
 
-local function toggleUI(bool)
-	SetNuiFocus(bool, bool)
+-- Functions
+local function setupMenu()
+	Wait(500)
+	PlayerData = QBCore.Functions.GetPlayerData()
+	local resources = lib.callback.await('ps-adminmenu:callback:GetResources', false)
+	local commands = lib.callback.await('ps-adminmenu:callback:GetCommands', false)
+	GetData()
 	SendNUIMessage({
-		action = "setVisible",
-		data = bool
+		action = "setupUI",
+		data = {
+			actions = Config.Actions,
+			resources = resources,
+			playerData = PlayerData,
+			commands = commands
+		}
 	})
 end
 
-RegisterNetEvent('ps-adminmenu:client:openmenu', function()
-    toggleUI(true)
-	SendNUIMessage({
-		action = "setActionData",
-		data = Config.Actions
-	})
-	TriggerServerEvent("ps-adminmenu:server:Getresources")
-
-    lib.callback('ps-adminmenu:server:GetPlayers', false, function(Players)
-        SendNUIMessage({
-            action = "setPlayersData",
-            data = Players
-        }) 
-    end)
+-- Event Handlers
+AddEventHandler("QBCore:Client:OnPlayerLoaded", function()
+	setupMenu()
 end)
 
+AddEventHandler("onResourceStart", function(resourceName)
+	if (GetCurrentResourceName() == resourceName) then
+		setupMenu()
+	end
+end)
+
+-- NUICallbacks
 RegisterNUICallback("hideUI", function()
-    toggleUI(false)
+	ToggleUI(false)
 end)
 
+RegisterNUICallback("clickButton", function(data)
+	local selectedData = data.selectedData
+	local key = data.data
+	local data = CheckDataFromKey(key)
+	if not data or not CheckPerms(data.perms) then return end
 
-RegisterNUICallback("normalButton", function(data, cb)
-    local event = data.event
-    local type = data.type
-    local inputData = data.data
-    local buttonlabel = data.button
-    local permissions = data.perms
-    print("Event: " .. event .. " Type: " .. type .. " Perms: " .. permissions)
-    if event and type then
-        if type == "client" then
-            TriggerEvent(event, inputData, buttonlabel, permissions)
-        elseif type == "server" then
-            TriggerServerEvent(event, inputData, buttonlabel, permissions)
-        elseif type == "command" then
-            if PermsCheck(permissions) then
-                ExecuteCommand(event, inputData, buttonlabel)
-            end
-        end
-    end
-    cb("ok")
+	if data.type == "client" then
+		TriggerEvent(data.event, key, selectedData)
+	elseif data.type == "server" then
+		TriggerServerEvent(data.event, key, selectedData)
+	elseif data.type == "command" then
+		ExecuteCommand(data.event)
+	end
+
+	Log("Action Used: " .. key,
+            PlayerData.name ..
+            " (" ..
+            PlayerData.citizenid ..
+            ") - Used: " .. key .. (selectedData and (" with args: " .. json.encode(selectedData)) or ""))
 end)
 
-
-RegisterNetEvent('ps-adminmenu:client:UpdateResources', function(data)
-    SendNUIMessage({
-        action = "setResourceData",
-        data = data
-    })
+-- Open UI Event
+RegisterNetEvent('ps-adminmenu:client:OpenUI', function()
+	ToggleUI(true)
 end)
 
-
+-- Close UI Event
 RegisterNetEvent('ps-adminmenu:client:CloseUI', function()
-    toggleUI(false)
+	ToggleUI(false)
 end)
 
-
-RegisterNUICallback("RefreshResources", function(data, cb)
-	TriggerServerEvent("ps-adminmenu:server:Getresources")
+-- Change resource state
+RegisterNUICallback("setResourceState", function(data, cb)
+	local resources = lib.callback.await('ps-adminmenu:callback:ChangeResourceState', false, data)
+	cb(resources)
 end)
 
-
-RegisterNUICallback("ChangeResourcesState", function(data, cb)
-	local name = data.name
-	local state = data.state
-	TriggerServerEvent("ps-adminmenu:server:changeResourceState", name, state)
-	Wait(500)
-	TriggerServerEvent("ps-adminmenu:server:Getresources")
-	cb("ok")
-end)
-
--- Chat Backend
-RegisterNUICallback("GetMessages", function(data, cb)
-	local data = lib.callback.await('ps-adminmenu:callback:GetMessages', false)
-	SendNUIMessage({
-		action = "setMessages",
-		data = data
-	})
-end)
-
-RegisterNUICallback("SendMessage", function(data, cb)
-	local Player = QBCore.Functions.GetPlayerData()
-	local message = data.message
-	print(message, Player.citizenid, Player.charinfo.firstname .. " " .. Player.charinfo.lastname )
-	-- print(dump(Player))
-	TriggerServerEvent("ps-adminmenu:server:sendMessageServer", message, Player.citizenid, Player.charinfo.firstname .. " " .. Player.charinfo.lastname)
-
-	local data = lib.callback.await('ps-adminmenu:callback:GetMessages', false)
-	SendNUIMessage({
-		action = "setMessages",
-		data = data
-	})
-end)
-
--- Metrics Backend
-RegisterNUICallback("GetMetrics", function(data, cb)
-    local data = lib.callback('ps-adminmenu:server:getServerMetrics', false)
-    SendNUIMessage({
-        action = "setMetrics",
-        data = data
-    }) 
-    print(json.encode(data))
+-- Get players
+RegisterNUICallback("getPlayers", function(data, cb)
+	local players = lib.callback.await('ps-adminmenu:callback:GetPlayers', false)
+	cb(players)
 end)

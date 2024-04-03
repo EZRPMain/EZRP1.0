@@ -1,19 +1,38 @@
 <script lang="ts">
 	import VisibilityProvider from '@providers/VisibilityProvider.svelte'
-	import { browserMode, resName } from '@store/stores'
+	import { BROWSER_MODE, RESOURCE_NAME } from '@store/stores'
 	import DebugBrowser from '@providers/DebugBrowser.svelte'
 	import AlwaysListener from '@providers/AlwaysListener.svelte'
 	import Main from './layout/Main.svelte'
+	import VehicleDev from '@components/VehicleDev.svelte'
+	import { VEHICLE_DEV } from '@store/vehicle_dev'
+	import ToggleCoords from '@components/ToggleCoords.svelte'
+	import { TOGGLE_COORDS } from '@store/togglecoords'
+	import { ENTITY_INFO } from '@store/entityInfo'
+	import EntityInformation from '@components/EntityInformation.svelte'
 
-	$resName = 'ps-adminmenu' // Change this to your resource name (case sensitive)
+
+	$RESOURCE_NAME = 'ps-adminmenu'
 </script>
 
 <VisibilityProvider>
 	<Main />
 </VisibilityProvider>
 
+{#if $VEHICLE_DEV?.show}
+	<VehicleDev />
+{/if}
+
+{#if $TOGGLE_COORDS?.show}
+	<ToggleCoords />
+{/if}
+
+{#if $ENTITY_INFO?.show}
+	<EntityInformation />
+{/if}
+
 <AlwaysListener />
-{#if $browserMode}
+{#if $BROWSER_MODE}
 	<DebugBrowser />
-	<body style="background-color: rgb(33, 33, 33);"></body>
+	<div class="absolute w-screen h-screen bg-neutral-800" />
 {/if}

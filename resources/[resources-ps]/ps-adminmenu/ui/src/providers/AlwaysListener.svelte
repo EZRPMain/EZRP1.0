@@ -1,16 +1,15 @@
 <script lang="ts">
+	import { ACTION } from '@store/actions'
+	import { ITEM_DATA, VEHICLE_DATA, JOB_DATA, GANG_DATA, LOCATION_DATA, PED_LIST } from '@store/data'
+	import { PLAYER, PLAYER_DATA } from '@store/players'
+	import { RESOURCE, RESOURCES, COMMANDS } from '@store/server'
+	import { VEHICLE_DEV } from '@store/vehicle_dev'
+	import { TOGGLE_COORDS } from '@store/togglecoords'
+	import { Message, Messages } from "@store/staffchat";
 	import { ReceiveNUI } from '@utils/ReceiveNUI'
 	import { debugData } from '@utils/debugData'
-	import { browserMode, visibility, ACTIONS, ACTIONSBUTTONS, RESOURCES, RESOURCESBUTTONS, PLAYERS, PLAYERSBUTTONS, VEHICLES, Message, Messages, SERVERMETRICS } from '@store/stores'
+	import { ENTITY_INFO } from '@store/entityInfo'
 
-	function copyToClipboard(str) {
-		const el = document.createElement('textarea');
-		el.value = str;
-		document.body.appendChild(el);
-		el.select();
-		document.execCommand('copy');
-		document.body.removeChild(el);
-	}
 
 	debugData([
 		{
@@ -26,52 +25,44 @@
 		},
 	])
 
-	function browserHideAndShow(e: KeyboardEvent) {
-		if (e.key === '=') {
-			$visibility = true
-		}
-	}
-
-	ReceiveNUI('setBrowserMode', (data: boolean) => {
-		browserMode.set(data)
-		console.log('browser mode enabled')
-		if (data) {
-			window.addEventListener('keydown', browserHideAndShow)
-		} else {
-			window.removeEventListener('keydown', browserHideAndShow)
-		}
-	})
-
-	ReceiveNUI('setActionData', (data: any) => {
-		ACTIONS.set(data)
-		ACTIONSBUTTONS.set($ACTIONS[0])
+	ReceiveNUI('setupUI', (data: any) => {
+		$ACTION = data.actions
+		$RESOURCE = data.resources
+		$PLAYER_DATA = data.playerData
+		$COMMANDS = data.commands
 	})
 
 	ReceiveNUI('setResourceData', (data: any) => {
-		data.sort((a, b) => a.name.localeCompare(b.name))
-		RESOURCES.set(data)
-		RESOURCESBUTTONS.set($RESOURCES[0])
+		$RESOURCE = data
 	})
 
 	ReceiveNUI('setPlayersData', (data: any) => {
-		PLAYERS.set(data)
-		PLAYERSBUTTONS.set($PLAYERS[0])
+		$PLAYER = data
 	})
 
-	ReceiveNUI('CopyCoordinatesToClipboard', (data: any) => {
-		copyToClipboard(data);
+	ReceiveNUI('data', (data: any) => {
+		$VEHICLE_DATA = data.vehicles
+		$ITEM_DATA = data.items
+		$JOB_DATA = data.jobs
+		$GANG_DATA = data.gangs
+		$LOCATION_DATA = data.locations
+		$PED_LIST = data.pedlist
 	})
 
-	ReceiveNUI('setVehicles', (data: any) => {
-		VEHICLES.set(data)
+	ReceiveNUI('showVehicleMenu', (data: any) => {
+		$VEHICLE_DEV = data
 	})
 
-	ReceiveNUI('setMetrics', (data: any) => {
-		SERVERMETRICS.set(data)
+	ReceiveNUI('showCoordsMenu', (data: any) => {
+		$TOGGLE_COORDS = data
 	})
 
+	ReceiveNUI('showEntityInfo', (data: any) => {
+		$ENTITY_INFO = data
+	})
 	ReceiveNUI('setMessages', (data: any) => {
 		Message.set(data)
 		Messages.set($Message[0])
 	});
+
 </script>

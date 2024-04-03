@@ -3,30 +3,34 @@ fx_version 'cerulean'
 game "gta5"
 
 author "Project Sloth & OK1ez"
-version '1.0.0'
+version '1.1.6'
 description 'Admin Menu'
 repository 'https://github.com/Project-Sloth/ps-adminmenu'
 
 lua54 'yes'
 
-
 ui_page 'html/index.html'
--- ui_page 'http://localhost:3000/' --for dev
+-- ui_page 'http://localhost:5173/' --for dev
 
 client_script {
-    'client/**',
+  'client/**',
 }
-server_scripts {
-    "@oxmysql/lib/MySQL.lua",
-    "server/**",
+
+server_script {
+  "server/**",
+  "@oxmysql/lib/MySQL.lua",
 }
+
 shared_script {
-	'@qb-core/shared/locale.lua',
-    '@ox_lib/init.lua',
-	'locales/en.lua',
-    "shared/**",
+  '@ox_lib/init.lua',
+  "shared/**",
 }
 
 files {
-    'html/**',
+  'html/**',
+  'data/ped.lua',
+  'data/object.lua',
+  'locales/*.json',
 }
+
+ox_lib 'locale' -- v3.8.0 or above
