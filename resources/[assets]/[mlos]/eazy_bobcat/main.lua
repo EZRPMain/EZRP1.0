@@ -1,0 +1,7 @@
+CreateThread(function()
+	RequestIpl("prologue06_int_eazy")
+    local interiorid = GetInteriorAtCoords(71.2213, -1572.3469, 29.5613)
+	print(interiorid)
+	ActivateInteriorEntitySet(interiorid, "eazy_prolog_clean")
+	RefreshInterior(interiorid)
+end)

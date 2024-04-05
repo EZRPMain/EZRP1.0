@@ -448,13 +448,15 @@ RegisterNUICallback('transfercontract', function (data, cb)
     end, data)
 end)
 
-RegisterNUICallback('joinqueue', function (data)
+RegisterNUICallback('joinqueue', function(data)
     QBCore.Functions.TriggerCallback("OD-Carboost:server:ifgroup", function(data)
-        if group = false then
+        if group == false then
             return
         else
-        TriggerEvent('jl-carboost:client:joinQueue', data)
-end))
+            TriggerEvent('jl-carboost:client:joinQueue', data)
+        end
+    end)
+end)
 
 RegisterNUICallback('buycontract', function(data, cb)
     QBCore.Functions.TriggerCallback('jl-carboost:server:buycontract', function(result)

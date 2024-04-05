@@ -1,5 +1,5 @@
 Config = {}
-Config.UsingTarget = GetConvar('UseTarget', 'false') == 'true'
+Config.UsingTarget = true--GetConvar('UseTarget', 'false') == 'true'
 Config.Commission = 0.10 -- Percent that goes to sales person from a full car sale 10%
 Config.FinanceCommission = 0.05 -- Percent that goes to sales person from a finance sale 5%
 Config.FinanceZone = vector3(-29.53, -1103.67, 26.42)-- Where the finance menu is located
@@ -385,6 +385,48 @@ Config.Shops = {
                 coords = vector4(4469.66, -4463.21, 3.66, 186.19),
                 defaultVehicle = 'winky',
                 chosenVehicle = 'winky'
+            },
+        },
+    },
+
+    ['bmxshop'] = {
+        ['Type'] = 'free-use', -- no player interaction is required to purchase a car
+        ['Zone'] = {
+            ['Shape'] = {--polygon that surrounds the shop
+                vector2(-32.71, -1689.61),
+                vector2(-8.34, -1679.76),
+                vector2(-27.02, -1665.22),
+                vector2(-41.48, -1677.36),
+            },
+            ['minZ'] = 22.0, -- min height of the shop zone
+            ['maxZ'] = 35.0, -- max height of the shop zone
+            ['size'] = 2.75 -- size of the vehicles zones
+        },
+        ['Job'] = 'none', -- Name of job or none
+        ['ShopLabel'] = 'Bike Shop', -- Blip name
+        ['showBlip'] = false, -- true or false
+        ['blipSprite'] = 326, -- Blip sprite
+        ['blipColor'] = 3, -- Blip color
+        ['TestDriveTimeLimit'] = 0.5, -- Time in minutes until the vehicle gets deleted
+        ['Location'] = vector3(-24.58, -1677.80, 29.47), -- Blip Location
+        ['ReturnLocation'] = vector3(-24.58, -1677.80, 29.47), -- Location to return vehicle, only enables if the vehicleshop has a job owned
+        ['VehicleSpawn'] = vector4(-28.17, -1674.71, 29.49, 69.420), -- Spawn location when vehicle is bought
+        ['TestDriveSpawn'] = vector4(-28.17, -1674.71, 29.49, 69.420), -- Spawn location for test drive
+        ['ShowroomVehicles'] = {
+            [1] = {
+                coords = vector4(-20.53, -1675.03, 28.88, 123.70), -- where the vehicle will spawn on display
+                defaultVehicle = 'bmx', -- Default display vehicle
+                chosenVehicle = 'bmx', -- Same as default but is dynamically changed when swapping vehicles
+            },
+            [2] = {
+                coords = vector4(-23.17, -1682.02, 28.80, 46.05),
+                defaultVehicle = 'bmx',
+                chosenVehicle = 'bmx'
+            },
+            [3] = {
+                coords = vector4(-28.43, -1681.20, 28.82, 280.08),
+                defaultVehicle = 'bmx',
+                chosenVehicle = 'bmx'
             },
         },
     },

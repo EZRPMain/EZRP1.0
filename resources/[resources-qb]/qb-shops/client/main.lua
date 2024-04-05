@@ -137,21 +137,66 @@ local function createPeds()
         SetBlockingOfNonTemporaryEvents(ShopPed[k], true)
 
         if Config.UseTarget then
-            exports['qb-target']:AddTargetEntity(ShopPed[k], {
+            local groups = {}
+            if v.requiredJob then 
+                groups[v.requiredJob] = 0
+            end
+            if v.requiredGang then 
+                groups[v.requiredGang] = 0
+            end
+            exports.interact:AddLocalEntityInteraction({
+                entity = ShopPed[k],
+                id = 'store_'..k, -- needed for removing interactions
+                name =  'store_'..k, -- optional
+                distance = 8.0, -- optional
+                interactDst = 6.0, -- optional
+                -- ignoreLos = false, -- optional ignores line of sight
+                -- offset = vec3(0.0, 0.0, 0.0), -- optional
+                -- bone = 'engine', -- optional
+                -- groups = {
+                --     ['police'] = 2, -- Jobname | Job grade
+                -- },
                 options = {
                     {
-                        label = v["targetLabel"],
-                        icon = v["targetIcon"],
-                        item = v["item"],
-                        action = function()
+                        label = 'Open Shop!',
+                        action = function(entity, coords, args)
                             openShop(k, Config.Locations[k])
                         end,
-                        job = v.requiredJob,
-                        gang = v.requiredGang
-                    }
-                },
-                distance = 2.0
+                    },
+                }
             })
+            -- exports.interact:AddInteraction({
+            --     coords = vector3(v["coords"].x, v["coords"].y, v["coords"].z),
+            --     distance = 8.0, -- optional
+            --     interactDst = 1.0, -- optional
+            --     id = 'store_'..k, -- needed for removing interactions
+            --     name =  'store_'..k, -- optional
+            --     groups = groups,
+            --     options = {
+            --          {
+            --             label = 'Open Shop!',
+            --             action = function(entity, coords, args)
+            --                 openShop(k, Config.Locations[k])
+            --             end,
+            --         },
+            --     }
+            -- })
+
+        --     exports['qb-target']:AddTargetEntity(ShopPed[k], {
+        --         options = {
+        --             {
+        --                 label = v["targetLabel"],
+        --                 icon = v["targetIcon"],
+        --                 item = v["item"],
+        --                 action = function()
+        --                     openShop(k, Config.Locations[k])
+        --                 end,
+        --                 job = v.requiredJob,
+        --                 gang = v.requiredGang
+        --             }
+        --         },
+        --         distance = 2.0
+        --     })
         end
     end
 

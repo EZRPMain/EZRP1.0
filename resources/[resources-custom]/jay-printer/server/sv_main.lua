@@ -16,7 +16,7 @@ end)
 RegisterNetEvent('jay-printer:savePaperDocument', function(info, printer)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    local printerItems = exports['qb-inventory']:GetStashItems(printer)
+    local printerItems = exports['lj-inventory']:GetStashItems(printer)
     if not printerItems then return end
     if not printerItems[1] then return end
     local itemName = printerItems[1].name
