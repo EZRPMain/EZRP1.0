@@ -149,18 +149,18 @@ Config.Apartments = {
 
     --4526.14, -4537.33, 7.55, 203.33
 
-    ['Cayp Perico Motel'] = {
-        label ='Dream View Motel',
-        door = { x = 4526.14, y = -4537.33, z = 7.55, h = 203.33, length = 1, width = 2 },
-        pos = {top = 49.5, left = 86.2},
-        imgs = {
-            {
-                url = "",
-                label = "Outside",
-            },
-        },
-        shell = "Standard Motel",
-    },
+    -- ['Cayp Perico Motel'] = {
+    --     label ='Dream View Motel',
+    --     door = { x = 4526.14, y = -4537.33, z = 7.55, h = 203.33, length = 1, width = 2 },
+    --     pos = {top = 49.5, left = 86.2},
+    --     imgs = {
+    --         {
+    --             url = "",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Standard Motel",
+    -- },
 }
 
 -- Shells provided by K4MB1 https://www.k4mb1maps.com/
