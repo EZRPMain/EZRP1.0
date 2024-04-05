@@ -1,8 +1,8 @@
 Property = {
     property_id = nil,
     propertyData = nil,
-    playersInside = {},   -- src
-    playersDoorbell = {}, -- src
+    playersInside = nil,   -- src
+    playersDoorbell = nil, -- src
 
     raiding = false,
 }
@@ -13,6 +13,9 @@ function Property:new(propertyData)
 
     self.property_id = tostring(propertyData.property_id)
     self.propertyData = propertyData
+
+    self.playersInside = {}
+    self.playersDoorbell = {}
 
     local stashName = string.format("property_%s", propertyData.property_id)
     local stashConfig = Config.Shells[propertyData.shell].stash
@@ -48,6 +51,7 @@ function Property:PlayerEnter(src)
 
     local bucket = tonumber(self.property_id) -- because the property_id is a string
     SetPlayerRoutingBucket(src, bucket)
+    Player(src).state:set('instance', bucket, true)
 end
 
 function Property:PlayerLeave(src)
@@ -67,6 +71,7 @@ function Property:PlayerLeave(src)
     end
 
     SetPlayerRoutingBucket(src, 0)
+    Player(src).state:set('instance', 0, true)
 end
 
 function Property:CheckForAccess(citizenid)
@@ -135,10 +140,23 @@ function Property:StartRaid()
 end
 
 function Property:UpdateFurnitures(furnitures)
-    self.propertyData.furnitures = furnitures
+    local newfurnitures = {}
+
+    for i = 1, #furnitures do
+        newfurnitures[i] = {
+            id = furnitures[i].id,
+            label = furnitures[i].label,
+            object = furnitures[i].object,
+            position = furnitures[i].position,
+            rotation = furnitures[i].rotation,
+            type = furnitures[i].type
+        }
+    end
+
+    self.propertyData.furnitures = newfurnitures
 
     MySQL.update("UPDATE properties SET furnitures = @furnitures WHERE property_id = @property_id", {
-        ["@furnitures"] = json.encode(furnitures),
+        ["@furnitures"] = json.encode(newfurnitures),
         ["@property_id"] = self.property_id
     })
 
@@ -272,14 +290,18 @@ function Property:UpdateOwner(data)
 
     local totalAfterCommission = self.propertyData.price - commission
 
-    if prevPlayer ~= nil then
-        Framework[Config.Notify].Notify(prevPlayer.PlayerData.source, "Sold Property: " .. self.propertyData.street .. " " .. self.property_id, "success")
-        prevPlayer.Functions.AddMoney('bank', totalAfterCommission, "Sold Property: " .. self.propertyData.street .. " " .. self.property_id)
-    elseif previousOwner then
-        MySQL.Async.execute('UPDATE `players` SET `bank` = `bank` + @price WHERE `citizenid` = @citizenid', {
-            ['@citizenid'] = previousOwner,
-            ['@price'] = totalAfterCommission
-        })
+    if Config.QBManagement then
+        exports['qb-banking']:AddMoney(Config.RealtorJobName, totalAfterCommission)
+    else
+        if prevPlayer ~= nil then
+            Framework[Config.Notify].Notify(prevPlayer.PlayerData.source, "Sold Property: " .. self.propertyData.street .. " " .. self.property_id, "success")
+            prevPlayer.Functions.AddMoney('bank', totalAfterCommission, "Sold Property: " .. self.propertyData.street .. " " .. self.property_id)
+        elseif previousOwner then
+            MySQL.Async.execute('UPDATE `players` SET `bank` = `bank` + @price WHERE `citizenid` = @citizenid', {
+                ['@citizenid'] = previousOwner,
+                ['@price'] = totalAfterCommission
+            })
+        end
     end
     
     realtor.Functions.AddMoney('bank', commission, "Commission from Property: " .. self.propertyData.street .. " " .. self.property_id)
@@ -295,7 +317,8 @@ function Property:UpdateOwner(data)
     self.propertyData.furnitures = {} -- to be fetched on enter
 
     TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateOwner", self.property_id, citizenid)
-
+    TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateForSale", self.property_id, 0)
+    
     Framework[Config.Logs].SendLog("**House Bought** by: **"..PlayerData.charinfo.firstname.." "..PlayerData.charinfo.lastname.."** for $"..self.propertyData.price.." from **"..realtor.PlayerData.charinfo.firstname.." "..realtor.PlayerData.charinfo.lastname.."** !")
 
     Framework[Config.Notify].Notify(targetSrc, "You have bought the property for $"..self.propertyData.price, "success")
@@ -396,7 +419,7 @@ function Property:UpdateGarage(data)
         ["@property_id"] = self.property_id
     })
     
-    TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateGarage", self.property_id, garage)
+    TriggerClientEvent("ps-housing:client:updateProperty", -1, "UpdateGarage", self.property_id, newData)
 
     Framework[Config.Logs].SendLog("**Changed Garage** of property with id: " .. self.property_id .. " by: " .. GetPlayerName(realtorSrc))
 
@@ -541,13 +564,15 @@ RegisterNetEvent('ps-housing:server:raidProperty', function(property_id)
                     property:PlayerEnter(src)
                     Framework[Config.Notify].Notify(src, "Raid started", "success")
 
-                    -- Remove the "stormram" item from the officer's inventory
-                    if Config.Inventory == 'ox' then
-                        exports.ox_inventory:RemoveItem(src, raidItem, 1)
-                    else
-                        Player.Functions.RemoveItem(raidItem, 1)
-                        TriggerClientEvent("inventory:client:ItemBox", src, QBCore.Shared.Items[raidItem], "remove")
-                        TriggerEvent("inventory:server:RemoveItem", src, raidItem, 1)
+                    if Config.ConsumeRaidItem then
+                        -- Remove the "stormram" item from the officer's inventory
+                        if Config.Inventory == 'ox' then
+                            exports.ox_inventory:RemoveItem(src, raidItem, 1)
+                        else
+                            Player.Functions.RemoveItem(raidItem, 1)
+                            TriggerClientEvent("inventory:client:ItemBox", src, QBCore.Shared.Items[raidItem], "remove")
+                            TriggerEvent("inventory:server:RemoveItem", src, raidItem, 1)
+                        end
                     end
                 end
             else

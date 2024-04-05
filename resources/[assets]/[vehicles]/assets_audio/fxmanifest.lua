@@ -14,6 +14,11 @@ files {
   'sfx/**/*.awc',
 }
 
+
+data_file 'AUDIO_GAMEDATA' 'audioconfig/lg247hemi57_game.dat'
+data_file 'AUDIO_SOUNDDATA' 'audioconfig/lg247hemi57_sounds.dat'
+data_file 'AUDIO_WAVEPACK' 'sfx/dlc_lg247hemi57'
+
 data_file 'AUDIO_GAMEDATA' 'audioconfig/demonengine_game.dat'
 data_file 'AUDIO_SOUNDDATA' 'audioconfig/demonengine_sounds.dat'
 data_file 'AUDIO_WAVEPACK' 'sfx/dlc_demonengine'

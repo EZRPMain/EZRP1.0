@@ -74,22 +74,31 @@ https://github.com/complexza/ps-housing/assets/74205343/0ff26e7f-1341-45fc-8fc6-
 * This entire README is meant for compatibility with default QBCore scripts. If you have different scripts, you'll need to adjust them for compatibility yourself. Refrain from asking us how to circumvent paid scripts that can't be adjusted for ps-housing support. Instead, request their support for ps-housing - this script is fully open source for that reason. Any inquiries related to this be ignored. 
 
 # Installation
+## Kamaryn has created an amazing setup video located [here.](https://www.youtube.com/watch?v=6YKkl20BevE)
+
 ## PAY ATTENTION TO EACH STEP. DO NOT SKIP ANY. 
 
-1. Find the following events in `qb-multicharacter` and change in server/main.lua event to: 
+### 1. Find the following events in `qb-multicharacter` and change in server/main.lua event to: 
 
 `qb-multicharacter > server > main.lua`
 ```lua
 RegisterNetEvent('qb-multicharacter:server:loadUserData', function(cData)
     local src = source
     if QBCore.Player.Login(src, cData.citizenid) then
+        local Player = QBCore.Functions.GetPlayer(src)
+        local Name = Player.PlayerData.charinfo.firstname .. " " .. Player.PlayerData.charinfo.lastname
         repeat
             Wait(10)
         until hasDonePreloading[src]
-        print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
+        print('[' .. GetPlayerName(src) .. '] - ^2' .. Name .. '^7 (Citizen ID: ' .. cData.citizenid .. ') has succesfully loaded!')
         QBCore.Commands.Refresh(src)
-        TriggerClientEvent('ps-housing:client:setupSpawnUI', src, cData)
-        TriggerEvent("qb-log:server:CreateLog", "joinleave", "Loaded", "green", "**".. GetPlayerName(src) .. "** (<@"..(QBCore.Functions.GetIdentifier(src, 'discord'):gsub("discord:", "") or "unknown").."> |  ||"  ..(QBCore.Functions.GetIdentifier(src, 'ip') or 'undefined') ..  "|| | " ..(QBCore.Functions.GetIdentifier(src, 'license') or 'undefined') .." | " ..cData.citizenid.." | "..src..") loaded..")
+        if Config.SkipSelection then
+            local coords = json.decode(cData.position)
+            TriggerClientEvent('qb-multicharacter:client:spawnLastLocation', src, coords, cData)
+        else
+            TriggerClientEvent('ps-housing:client:setupSpawnUI', src, cData)
+        end
+        TriggerEvent("qb-log:server:CreateLog", "joinleave", "Loaded", "green", "**" .. GetPlayerName(src) .. "** - " .. Name .. " (<@" .. (QBCore.Functions.GetIdentifier(src, 'discord'):gsub("discord:", "") or "unknown") .. "> | ||" .. (QBCore.Functions.GetIdentifier(src, 'ip') or 'undefined') .. "|| | " .. (QBCore.Functions.GetIdentifier(src, 'license') or 'undefined') .. " | " .. cData.citizenid .. " | " .. src .. ") loaded..")
     end
 end)
 ```
@@ -113,8 +122,42 @@ RegisterNetEvent('qb-multicharacter:server:createCharacter', function(data)
         GiveStarterItems(src)
     end
 end)
+
 ```
-2. Find the following events in `qb-spawn` and change in client/client.lua event to: 
+### 2. Find the following event in `qb-multicharacter` and change in client/main.lua event to: 
+`qb-multicharacter > client > main.lua`
+
+```lua
+RegisterNetEvent('qb-multicharacter:client:spawnLastLocation', function(coords, cData)
+    local result = lib.callback.await('ps-housing:cb:GetOwnedApartment', source, cData.citizenid)
+    if result then
+        TriggerEvent("apartments:client:SetHomeBlip", result.type)
+    end
+    local ped = PlayerPedId()
+    SetEntityCoords(ped, coords.x, coords.y, coords.z)
+    SetEntityHeading(ped, coords.w)
+    FreezeEntityPosition(ped, false)
+    SetEntityVisible(ped, true)
+    local PlayerData = QBCore.Functions.GetPlayerData()
+    local insideMeta = PlayerData.metadata["inside"]
+    DoScreenFadeOut(500)
+    if insideMeta.propertyId then
+        TriggerServerEvent('ps-housing:server:enterProperty', tostring(insideMeta.propertyId))
+    else
+        SetEntityCoords(ped, coords.x, coords.y, coords.z)
+        SetEntityHeading(ped, coords.w)
+        FreezeEntityPosition(ped, false)
+        SetEntityVisible(ped, true)
+    end
+    TriggerServerEvent('QBCore:Server:OnPlayerLoaded')
+    TriggerEvent('QBCore:Client:OnPlayerLoaded')
+    Wait(2000)
+    DoScreenFadeIn(250)
+end)
+```
+
+
+### 3. Find the following events in `qb-spawn` and change in client/client.lua event to: 
 
 `qb-spawn > client.lua > line 51 > 'qb-spawn:client:setupSpawns' event`
 ```lua
@@ -236,7 +279,7 @@ QBCore.Functions.CreateCallback('qb-spawn:server:getOwnedHouses', function(_, cb
 end)
 ```
 
-3. Find the following events in `qb-garages` and change: 
+### 4. Find the following events in `qb-garages` and change: 
 `qb-garages > server > main.lua > around line 120` on event `qb-garage:server:checkOwnership`
 
 Replace 
@@ -248,33 +291,86 @@ With
 local hasHouseKey = exports['ps-housing']:IsOwner(src, house)
 ```
 
-`qb-garages > client > main.lua > around line 451` under event `qb-garages:client:addHouseGarage`
+`qb-garages > client > main.lua > around line 451` add under event `qb-garages:client:addHouseGarage`
 ```lua
 RegisterNetEvent('qb-garages:client:removeHouseGarage', function(house)
     Config.HouseGarages[house] = nil
 end)
 ```
 
-4. Run the `properties.sql` file, but be cautious. If a table named `properties` already exists in your database, this operation will drop it, resulting in the loss of all its data.
+### For qb-garages v2: 
+`qb-garages > server > main.lua > around line 118` on event `qb-garages:server:canDeposit`
 
-5. Delete default [qb-apartments](https://github.com/qbcore-framework/qb-apartments)
+Replace 
+```lua
+if type == 'house' and not exports['qb-houses']:hasKey(Player.PlayerData.license, Player.PlayerData.citizenid, Config.HouseGarages[garage].label) then
+```
+With
+```lua
+if type == 'house' and not exports['ps-housing']:IsOwner(source, garage) then
+```
 
-6. Delete default [qb-houses](https://github.com/qbcore-framework/qb-houses)
+`qb-garages > client > main.lua > around line 392` add under event `qb-garages:client:addHouseGarage`
+```lua
+RegisterNetEvent('qb-garages:client:removeHouseGarage', function(house)
+    Config.Garages[house] = nil
+end)
+```
 
-7. Delete `qb-apartments/config.lua` references in `qb-spawn`, `qb-multicharacter` and `qb-phone` fxmanifest.lua (and any other scripts that may reference it).
+### 5. Run the `properties.sql` file, but be cautious. If a table named `properties` already exists in your database, this operation will drop it, resulting in the loss of all its data.
 
-8. Ensure ps-realtor above ps-housing.
+### 6. Delete default [qb-apartments](https://github.com/qbcore-framework/qb-apartments)
 
-9. In your server.cfg, add `ensure ox_lib` above all other resources
+### 7. Delete default [qb-houses](https://github.com/qbcore-framework/qb-houses)
 
-10. Install the dependencies below.
+### 8. Delete `qb-apartments/config.lua` references in `qb-spawn`, `qb-multicharacter` and `qb-phone` fxmanifest.lua (and any other scripts that may reference it).
 
-## Migrating houses and apartments from qb-houses and qb-apartments
+### 9. Ensure ps-realtor above ps-housing.
+
+### 10. In your server.cfg, add `ensure ox_lib` above all other resources
+
+### 11. Install the dependencies below.
+
+# Dependencies
+1. [ps-realtor](https://github.com/Project-Sloth/ps-realtor)
+2. [fivem-freecam](https://github.com/Deltanic/fivem-freecam)
+3. [ox_lib](https://github.com/overextended/ox_lib/releases) - Use the latest release. If you do not use the latest release, MAKE SURE TO BUILD THE UI. Find their docs [here](https://overextended.dev/ox_lib#building-the-ui) on how to build the UI.
+4. [ox_target](https://github.com/overextended/ox_target) or [qb-target](https://github.com/qbcore-framework/qb-target) - Change in [Config](https://github.com/Project-Sloth/ps-housing/blob/3c0f197b6d639f13235598393c84aac8d23d5f7a/shared/config.lua#L8), default is qb-target.
+
+## For reference your server.cfg should be ensured like below:
+* We highly recommend making a folder named [ps-housing] and add `ps-realtor`, `fivem-freecam`, `ox_lib`, `ps-core`, `ps-housing` inside the folder.
+  
+```
+ensure ox_lib
+ensure ps-housing
+ensure ps-realtor
+ensure fivem-freecam
+```
+## End of Installation 
+
+# Migrating houses and apartments from qb-houses and qb-apartments
 
 1. From a client run the `migratehouses` command to automatically convert all houses from qb-houses. It will print a message to the console once complete.
    **The `migratehouses` command MUST be run from a client in order to retrieve street and region data for each house**
 
 2. From a client or server console run the `migrateapartments` command to automatically convert all apartments from qb-apartments. It will print a message to the console once complete.
+
+## Resolving the "Foreign key constraint is incorrectly formed" Issue
+
+If you come across an error such as `Foreign key constraint is incorrectly formed` while importing the `properties.sql` into your database, follow these steps to fix it.
+
+1. Open your database in HeidiSQL.
+2. Right-click on your database name and select "Edit."
+3. Locate the database collation setting take a note of it. 
+4. You will need to format the `properties.sql` file to match your database collation.
+5. Ensure that the collation of your `citizenid` column in your `players` table is `utf8mb4_general_ci` and not `utf8mb4_unicode_ci`
+
+If your database collation is set to `utf8mb4_general_ci`, modify the last line of the `properties.sql` file using VSCode or in HeidiSQL's query tab to the following:
+
+```sql
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
+This adjustment ensures that `properties.sql` file's character set and collation match that of your database, effectively resolving the issue.
 
 ## Item Limits System
 
@@ -295,26 +391,8 @@ end)
 
 > This system only supports qb-core for now.
 
-## Add new Shells
-
-1. Copy the files from the shell into the `ps-housing/stream` folder.
-2. Add the new shell into the Config.Shells in `ps-housing/shared/config.lua`.
-
-# Dependency
-1. [ps-realtor](https://github.com/Project-Sloth/ps-realtor)
-2. [five-freecam](https://github.com/Deltanic/fivem-freecam)
-3. [ox_lib](https://github.com/overextended/ox_lib/releases) - Use the latest release. If you do not use the latest release, MAKE SURE TO BUILD THE UI. Find their docs [here](https://overextended.dev/ox_lib#building-the-ui) on how to build the UI.
-4. [ox_target](https://github.com/overextended/ox_target) or [qb-target](https://github.com/qbcore-framework/qb-target) - Change in [Config](https://github.com/Project-Sloth/ps-housing/blob/3c0f197b6d639f13235598393c84aac8d23d5f7a/shared/config.lua#L8), default is qb-target.
-
-## For reference your server.cfg should be ensured like below:
-* We highly recommend making a folder named [ps-housing] and add `ps-realtor`, `fivem-freecam`, `ox_lib`, `ps-core`, `ps-housing` inside the folder.
-  
-```
-ensure ox_lib
-ensure ps-housing
-ensure ps-realtor
-ensure fivem-freecam
-```
+## Adding New Shells
+* Follow the [ps-housing wiki](https://github.com/Project-Sloth/ps-housing/wiki) information.
 
 # Notes
 - If a player is in their apartment/house and an admin does a "Bring to me" function, they will not see the player nor will the player see anyone else. This is because the player is still in their own unique routing bucket. **Workaround**: To fix this, the player must go back into their apartment and leave on their own. 

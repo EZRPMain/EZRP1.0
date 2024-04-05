@@ -43,7 +43,14 @@ Config.RaidTimer = 5  -- 5 minutes
 
 Config.RaidItem = "police_stormram"  -- The item required to raid a property
 
+-- If you are using ox_inventory, it is encouraged to use the consume property within data/items.lua and keeping this config option false
+Config.ConsumeRaidItem = false          -- Whether or not to consume the raid item upon successful entry.
+
 Config.RealtorJobName = "realestate" -- Set your Real Estate job here
+
+-- If you are utilizing qb-banking and wish for the funds to be deposited directly into the Realestate bank account, set this value to true. 
+-- In case you are using an alternative Boss Menu, replace the qb-banking export with the appropriate script export or event.
+Config.QBManagement = false
 
 -- Realtor Commisions based on job grade, the rest goes to the owner, if any.
 Config.Commissions = {
@@ -57,61 +64,64 @@ Config.Commissions = {
 -- Set this value to false if you don't want to assign a starting apartment.
 Config.StartingApartment = true
 
+--- With this enabled, the customizer will open when starting apartment is false.
+Config.ShowCustomizerWhenNoStartingApartment = true
+
 Config.Apartments = {
-    ["Integrity Way"] = {
-        label = "Integrity Way",
-        door = { x = 269.73, y = -640.75, z = 42.02, h = 249.07, length = 1, width = 2 },
-        pos = {top = 50.2, left = 64.2},
-        imgs = {
-            {
-                url = "https://i.imgur.com/986BKLz.jpeg",
-                label = "Outside",
-            },
-        },
-        shell = "Apartment Furnished",
-    },
+    -- ["Integrity Way"] = {
+    --     label = "Integrity Way",
+    --     door = { x = 269.73, y = -640.75, z = 42.02, h = 249.07, length = 1, width = 2 },
+    --     pos = {top = 50.2, left = 64.2},
+    --     imgs = {
+    --         {
+    --             url = "https://i.imgur.com/986BKLz.jpeg",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Apartment Furnished",
+    -- },
     
-    ["South Rockford Drive"] = {
-        label = "South Rockford Drive",
-        door = { x = -667.02, y = -1105.24, z = 14.63, h = 242.32, length = 1, width = 2 },
-        pos = {top = 58.5, left = 66.4},
-        imgs = {
-            {
-                url = "https://i.imgur.com/FKTQq4b.jpeg",
-                label = "Outside",
-            },
-        },
-        shell = "Apartment Furnished",
-    },
+    -- ["South Rockford Drive"] = {
+    --     label = "South Rockford Drive",
+    --     door = { x = -667.02, y = -1105.24, z = 14.63, h = 242.32, length = 1, width = 2 },
+    --     pos = {top = 58.5, left = 66.4},
+    --     imgs = {
+    --         {
+    --             url = "https://i.imgur.com/FKTQq4b.jpeg",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Apartment Furnished",
+    -- },
 
-    ['Morningwood Blvd'] = {
-        label = 'Morningwood Blvd',
-        door = { x = -1288.52, y = -430.51, z = 35.15, h = 124.81, length = 1, width = 2 },
-        pos = {top = 64.4, left = 62.9},
-        imgs = {
-            {
-                url = "https://i.imgur.com/amZDmz7.jpeg",
-                label = "Outside",
-            },
-        },
-        shell = "Apartment Furnished",
-    },
+    -- ['Morningwood Blvd'] = {
+    --     label = 'Morningwood Blvd',
+    --     door = { x = -1288.52, y = -430.51, z = 35.15, h = 124.81, length = 1, width = 2 },
+    --     pos = {top = 64.4, left = 62.9},
+    --     imgs = {
+    --         {
+    --             url = "https://i.imgur.com/amZDmz7.jpeg",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Apartment Furnished",
+    -- },
 
-    ['Tinsel Towers'] = {
-        label = 'Tinsel Towers',
-        door = { x = -619.29, y = 37.69, z = 43.59, h = 181.03, length = 1, width = 2 },
-        pos = {top = 58.1, left = 60.8},
-        imgs = {
-            {
-                url = "https://cdn.discordapp.com/attachments/1108364246342963322/1140163262315495494/tinsel.webp",
-                label = "Outside",
-            },
-        },
-        shell = "Apartment Furnished",
-    },
+    -- ['Tinsel Towers'] = {
+    --     label = 'Tinsel Towers',
+    --     door = { x = -619.29, y = 37.69, z = 43.59, h = 181.03, length = 1, width = 2 },
+    --     pos = {top = 58.1, left = 60.8},
+    --     imgs = {
+    --         {
+    --             url = "https://cdn.discordapp.com/attachments/1108364246342963322/1140163262315495494/tinsel.webp",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Apartment Furnished",
+    -- },
 
-    ['Fantastic Plaza'] = {
-        label = 'Fantastic Plaza',
+    ['Templar Hotel'] = {
+        label = 'Templar Hotel',
         door = { x = 291.517, y = -1078.674, z = 29.405, h = 270.75, length = 1, width = 2 },
         pos = {top = 49.5, left = 66.2},
         imgs = {
@@ -120,8 +130,37 @@ Config.Apartments = {
                 label = "Outside",
             },
         },
-        shell = "Apartment Furnished",
-    }
+        shell = "Standard Motel",
+    },
+
+    ['Dream View Motel'] = {
+        label ='Dream View Motel',
+        -- -104.57, 6316.12, 31.58, 314.48
+        door = { x = -104.57, y = 6316.12, z = 31.58, h = 314.48, length = 1, width = 2 },
+        pos = {top = 49.5, left = 36.2},
+        imgs = {
+            {
+                url = "https://cdn.discordapp.com/attachments/1104051074266054738/1225747023974760488/image.png?ex=662240df&is=660fcbdf&hm=9be6283a13bf2683cb8ac60e923d742cdafa9d6956ec341263ba16221bf737e8&",
+                label = "Outside",
+            },
+        },
+        shell = "Standard Motel",
+    },
+
+    --4526.14, -4537.33, 7.55, 203.33
+
+    ['Cayp Perico Motel'] = {
+        label ='Dream View Motel',
+        door = { x = 4526.14, y = -4537.33, z = 7.55, h = 203.33, length = 1, width = 2 },
+        pos = {top = 49.5, left = 86.2},
+        imgs = {
+            {
+                url = "",
+                label = "Outside",
+            },
+        },
+        shell = "Standard Motel",
+    },
 }
 
 -- Shells provided by K4MB1 https://www.k4mb1maps.com/
