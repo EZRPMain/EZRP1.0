@@ -53,10 +53,31 @@ RegisterNetEvent("addAttachment", function(component)
     GiveWeaponComponentToPed(ped, GetHashKey(WeaponData.name), GetHashKey(component))
 end)
 
-RegisterNetEvent('weapons:client:EquipTint', function(tint)
+RegisterNetEvent('weapons:client:EquipTint', function(tint, item)
     local player = PlayerPedId()
     local weapon = GetSelectedPedWeapon(player)
-    SetPedWeaponTintIndex(player, weapon, tint)
+    if CurrentWeaponData then
+        if QBCore.Shared.Weapons[weapon]["name"] ~= "weapon_unarmed" then
+            QBCore.Functions.Progressbar("weapon_tintgszserrfe", "Applying Tint", Config.ReloadTime, false, true, {
+                disableMovement = false,
+                disableCarMovement = false,
+                disableMouse = false,
+                disableCombat = true,
+            }, {}, {}, {}, function() -- Done
+                if QBCore.Shared.Weapons[weapon] then
+                    SetPedWeaponTintIndex(player, weapon, tint)
+                    TriggerServerEvent('weapons:server:SetPedWeaponTintIndex', CurrentWeaponData, tint)
+                    TriggerServerEvent('weapons:server:removeWeaponAmmoItem', item)
+                end
+            end, function()
+                QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+            end)
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_weapon'), "error")
+        end
+    else
+        QBCore.Functions.Notify(Lang:t('error.no_weapon'), "error")
+    end
 end)
 
 RegisterNetEvent('weapons:client:SetCurrentWeapon', function(data, bool)

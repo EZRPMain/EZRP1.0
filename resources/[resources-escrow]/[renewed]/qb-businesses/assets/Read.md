@@ -29,7 +29,7 @@ Welcome to qb-businesses, the most advanced FiveM - business script.
             end)
         - If you need further assistance making sure this work please refere to my Pullrequest on QBCore (https://github.com/qbcore-framework/qb-inventory/pull/239)
         - After we've done that part we move on to the Javascript for QBCore please do the following
-        * use the replace feature in Visual Studio Code and replace src="images/' with src="'
+        * use the replace feature in Visual Studio Code and replace src="' with src="'
 
     ## qb-businesses ##
         - After doing the above your business script is now ready to be moved into your server please do make sure you have the following dependencies

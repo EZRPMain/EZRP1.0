@@ -8,6 +8,43 @@ local blackout = Config.Blackout
 local blackoutVehicle = Config.BlackoutVehicle
 local disable = Config.Disabled
 
+-- Config.AvailableWeatherTypes = { -- DON'T TOUCH EXCEPT IF YOU KNOW WHAT YOU ARE DOING
+--     'EXTRASUNNY',
+--     'CLEAR',
+--     'NEUTRAL',
+--     'SMOG',
+--     'FOGGY',
+--     'OVERCAST',
+--     'CLOUDS',
+--     'CLEARING',
+--     'RAIN',
+--     'THUNDER',
+--     'SNOW',
+--     'BLIZZARD',
+--     'SNOWLIGHT',
+--     'XMAS',
+--     'HALLOWEEN',
+-- }
+
+-- vector2(4916.67, 1134.85),
+--  vector2(-3204.55, 5098.48),
+
+local function IsInSandyShores(x, y, z)
+	return x >= 4916 and y >= -1134 and x <= 3204 and y >= -5098
+end
+
+local function getWeatherZone(weather, x,y,z)
+
+    if weather == "SMOG" or weather == "FOGGY" or weather == "OVERCAST" or weather == "CLOUDS" then
+        print(IsInSandyShores(x,y,z))
+        if IsInSandyShores(x,y,z) then
+            return "SNOWLIGHT"
+        end
+    end
+
+    return weather
+end
+
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     disable = false
     TriggerServerEvent('qb-weathersync:server:RequestStateSync')
@@ -59,30 +96,32 @@ end)
 
 CreateThread(function()
     while true do
-        if not disable then
+        if not disable then 
+            local x,y,z = table.unpack(GetEntityCoords(PlayerPedId()))
             if lastWeather ~= CurrentWeather then
                 lastWeather = CurrentWeather
                 SetWeatherTypeOverTime(CurrentWeather, 15.0)
                 Wait(15000)
             end
             Wait(100) -- Wait 0 seconds to prevent crashing.
+            resetWeather = getWeatherZone(lastWeather, x,y,z)
             SetArtificialLightsState(blackout)
             SetArtificialLightsStateAffectsVehicles(blackoutVehicle)
             ClearOverrideWeather()
             ClearWeatherTypePersist()
-            SetWeatherTypePersist(lastWeather)
-            SetWeatherTypeNow(lastWeather)
-            SetWeatherTypeNowPersist(lastWeather)
-            if lastWeather == 'XMAS' then
+            SetWeatherTypePersist(resetWeather)
+            SetWeatherTypeNow(resetWeather)
+            SetWeatherTypeNowPersist(resetWeather)
+            if resetWeather == 'XMAS' then
                 SetForceVehicleTrails(true)
                 SetForcePedFootstepsTracks(true)
             else
                 SetForceVehicleTrails(false)
                 SetForcePedFootstepsTracks(false)
             end
-            if lastWeather == 'RAIN' then
+            if resetWeather == 'RAIN' then
                 SetRainLevel(0.3)
-            elseif lastWeather == 'THUNDER' then
+            elseif resetWeather == 'THUNDER' then
                 SetRainLevel(0.5)
             else
                 SetRainLevel(0.0)

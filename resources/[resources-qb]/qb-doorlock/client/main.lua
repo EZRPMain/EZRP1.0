@@ -487,12 +487,12 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
 	if not closestDoor.data or not next(closestDoor.data) or PlayerData.metadata['isdead'] or PlayerData.metadata['ishandcuffed'] or (not closestDoor.data.pickable and not closestDoor.data.lockpick) or not closestDoor.data.locked then return end
 	usingAdvanced = isAdvanced
 	-- TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
-	-- exports['ps-ui']:Circle(lockpickFinish, 2, 20)
-	local time = math.random(15,20)
-	local circles = math.random(3,4)
-	local success = exports['qb-lock']:StartLockPickCircle(circles, time)
+	exports['ps-ui']:Circle(lockpickFinish, 2, 20)
+	-- local time = math.random(15,20)
+	-- local circles = math.random(3,4)
+	-- local success = exports['qb-lock']:StartLockPickCircle(circles, time)
 	-- print(success)
-	lockpickFinish(success)
+	-- lockpickFinish(success)
 end)
 
 RegisterNetEvent('qb-doorlock:client:addNewDoor', function()

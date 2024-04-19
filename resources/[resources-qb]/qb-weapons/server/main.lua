@@ -167,6 +167,17 @@ RegisterNetEvent("weapons:server:UpdateWeaponAmmo", function(CurrentWeaponData, 
     end
 end)
 
+RegisterNetEvent("weapons:server:SetPedWeaponTintIndex", function(CurrentWeaponData, tint)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    if CurrentWeaponData then
+        if Player.PlayerData.items[CurrentWeaponData.slot] then
+            Player.PlayerData.items[CurrentWeaponData.slot].info.tint = tint
+        end
+        Player.Functions.SetInventory(Player.PlayerData.items, true)
+    end
+end)
+
 RegisterNetEvent("weapons:server:TakeBackWeapon", function(k)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -325,36 +336,36 @@ QBCore.Functions.CreateUseableItem('emp_ammo', function(source, item)
 end)
 
 -- TINTS
-QBCore.Functions.CreateUseableItem('weapontint_black', function(source)
-    TriggerClientEvent('weapons:client:EquipTint', source, 0)
+QBCore.Functions.CreateUseableItem('weapontint_black', function(source, item)
+    TriggerClientEvent('weapons:client:EquipTint', source, 0, item)
 end)
 
-QBCore.Functions.CreateUseableItem('weapontint_green', function(source)
-    TriggerClientEvent('weapons:client:EquipTint', source, 1)
+QBCore.Functions.CreateUseableItem('weapontint_green', function(source, item)
+    TriggerClientEvent('weapons:client:EquipTint', source, 1, item)
 end)
 
-QBCore.Functions.CreateUseableItem('weapontint_gold', function(source)
-    TriggerClientEvent('weapons:client:EquipTint', source, 2)
+QBCore.Functions.CreateUseableItem('weapontint_gold', function(source, item)
+    TriggerClientEvent('weapons:client:EquipTint', source, 2, item)
 end)
 
-QBCore.Functions.CreateUseableItem('weapontint_pink', function(source)
-    TriggerClientEvent('weapons:client:EquipTint', source, 3)
+QBCore.Functions.CreateUseableItem('weapontint_pink', function(source, item)
+    TriggerClientEvent('weapons:client:EquipTint', source, 3, item)
 end)
 
-QBCore.Functions.CreateUseableItem('weapontint_army', function(source)
-    TriggerClientEvent('weapons:client:EquipTint', source, 4)
+QBCore.Functions.CreateUseableItem('weapontint_army', function(source, item)
+    TriggerClientEvent('weapons:client:EquipTint', source, 4, item)
 end)
 
-QBCore.Functions.CreateUseableItem('weapontint_lspd', function(source)
-    TriggerClientEvent('weapons:client:EquipTint', source, 5)
+QBCore.Functions.CreateUseableItem('weapontint_lspd', function(source, item)
+    TriggerClientEvent('weapons:client:EquipTint', source, 5, item)
 end)
 
-QBCore.Functions.CreateUseableItem('weapontint_orange', function(source)
-    TriggerClientEvent('weapons:client:EquipTint', source, 6)
+QBCore.Functions.CreateUseableItem('weapontint_orange', function(source, item)
+    TriggerClientEvent('weapons:client:EquipTint', source, 6, item)
 end)
 
-QBCore.Functions.CreateUseableItem('weapontint_plat', function(source)
-    TriggerClientEvent('weapons:client:EquipTint', source, 7)
+QBCore.Functions.CreateUseableItem('weapontint_plat', function(source, item)
+    TriggerClientEvent('weapons:client:EquipTint', source, 7, item)
 end)
 
 -- ATTACHMENTS

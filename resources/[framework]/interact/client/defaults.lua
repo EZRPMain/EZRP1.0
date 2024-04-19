@@ -10,6 +10,7 @@ api.addGlobalVehicleInteraction({
     offset = vec3(0.0, 1.0, 0.0),
     bone = 'boot',
     id = 'interact:defaultTrunk',
+    name = 'interact:defaultTrunk', -- optional
     options = {
         {
             name = 'interact:trunk',

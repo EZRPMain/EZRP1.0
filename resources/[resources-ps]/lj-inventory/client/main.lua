@@ -600,6 +600,8 @@ RegisterNetEvent('inventory:client:UseWeapon', function(weaponData, shootbool)
         SetPedAmmo(ped, weaponHash, ammo)
         SetCurrentPedWeapon(ped, weaponHash, true)
 
+        SetPedWeaponTintIndex(ped, weaponHash, weaponData.info.tint)
+
         if weaponData.info.attachments then
             for _, attachment in pairs(weaponData.info.attachments) do
                 GiveWeaponComponentToPed(ped, weaponHash, joaat(attachment.component))

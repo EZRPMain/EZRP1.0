@@ -46,19 +46,19 @@ QBConfig.Notify.NotificationStyling = {
 QBConfig.Notify.VariantDefinitions = {
     success = {
         classes = 'success',
-        icon = 'done'
+        icon = 'fab fa-facebook-messenger'
     },
     primary = {
         classes = 'primary',
-        icon = 'info'
+        icon = 'fas fa-circle-notch fa-spin'
     },
     error = {
         classes = 'error',
-        icon = 'dangerous'
+        icon = 'fas fa-exclamation-circle fa-spin'
     },
     police = {
         classes = 'police',
-        icon = 'local_police'
+        icon = 'fas fa-bell'
     },
     ambulance = {
         classes = 'ambulance',
