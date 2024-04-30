@@ -85,29 +85,67 @@ exports("LoadAnimSet", QBCore.Functions.LoadAnimSet)
 RegisterNUICallback('getNotifyConfig', function(_, cb)
     cb(QBCore.Config.Notify)
 end)
+--[[
+      success = {
+        classes = 'success',
+        icon = 'fab fa-facebook-messenger'
+    },
+    primary = {
+        classes = 'primary',
+        icon = 'fas fa-circle-notch fa-spin'
+    },
+    error = {
+        classes = 'error',
+        icon = 'fas fa-exclamation-circle fa-spin'
+    },
+    police = {
+        classes = 'police',
+        icon = 'fas fa-bell'
+    },
+    ambulance = {
+        classes = 'ambulance',
+        icon = 'fas fa-ambulance'
+    }
+    
+    'inform' or 'error' or 'success'or 'warning'
+]]
 
 function QBCore.Functions.Notify(text, texttype, length)
     if type(text) == "table" then
         local ttext = text.text or 'Placeholder'
         local caption = text.caption or 'Placeholder'
-        texttype = texttype or 'primary'
+        texttype = texttype or 'inform'
+        if texttype == "primary" then texttype = 'inform' elseif texttype == "police" then texttype = 'inform' elseif texttype == "ambulance" then texttype = 'inform' end
         length = length or 5000
-        SendNUIMessage({
-            action = 'notify',
+        lib.notify({
+            id = "qb_notify_"..text,
+            -- title = title,
+            description = text,
+            duration = length,
             type = texttype,
-            length = length,
-            text = ttext,
-            caption = caption
+            -- position = position,
+            -- style = notifyStyle,
+            -- icon = notifyIcon,
+            -- iconColor = notifyIconColor
         })
+
+        
     else
-        texttype = texttype or 'primary'
+        texttype = texttype or 'inform'
+        if texttype == "primary" then texttype = 'inform' elseif texttype == "police" then texttype = 'inform' elseif texttype == "ambulance" then texttype = 'inform' end
         length = length or 5000
-        SendNUIMessage({
-            action = 'notify',
+        lib.notify({
+            id = "qb_notify_"..text,
+            -- title = title,
+            description = text,
+            duration = length,
             type = texttype,
-            length = length,
-            text = text
+            -- position = position,
+            -- style = notifyStyle,
+            -- icon = notifyIcon,
+            -- iconColor = notifyIconColor
         })
+
     end
 end
 exports("Notify", QBCore.Functions.Notify)

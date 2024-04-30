@@ -51,7 +51,6 @@ function lib.__addCommand(group, name, callback, parameters, help)
         end
     else
         chatSuggestion(name, parameters, help)
-
         RegisterCommand(name, function(source, args, raw)
             source = tonumber(source) --[[@as number]]
 

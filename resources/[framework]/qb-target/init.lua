@@ -58,7 +58,7 @@ Config.DisableInVehicle = false
 Config.OpenKey = 'LMENU' -- Left Alt
 
 -- Control for key press detection on the context menu, it's the Right Mouse Button by default, controls are found here https://docs.fivem.net/docs/game-references/controls/
-Config.MenuControlKey = 238
+Config.MenuControlKey = 237
 
 -------------------------------------------------------------------------------
 -- Target Configs
