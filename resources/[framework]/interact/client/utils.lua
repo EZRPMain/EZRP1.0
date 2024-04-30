@@ -63,11 +63,7 @@ function utils.getCoordsFromInteract(interaction)
     if interaction.entity then
         if DoesEntityExist(interaction.entity) then
             if interaction.bone then
-                local pos = GetEntityBonePosition_2(interaction.entity, GetEntityBoneIndexByName(interaction.entity, interaction.bone))
-                if interaction.offset then
-                    pos = GetEntityBonePosition_2(interaction.entity, GetEntityBoneIndexByName(interaction.entity, interaction.bone)) + interaction.offset
-                end
-                return pos
+                return GetEntityBonePosition_2(interaction.entity, GetEntityBoneIndexByName(interaction.entity, interaction.bone))
             elseif interaction.model then
                 local offset = interaction.offset or vec3(0.0, 0.0, 0.0)
 
