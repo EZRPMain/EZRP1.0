@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.4.25-MariaDB - mariadb.org binary distribution
+-- Server version:               10.4.32-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
--- HeidiSQL Version:             12.1.0.6537
+-- HeidiSQL Version:             12.6.0.6765
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,7 +16,7 @@
 
 
 -- Dumping database structure for ezfw
-CREATE DATABASE IF NOT EXISTS `ezfw` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `ezfw` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
 USE `ezfw`;
 
 -- Dumping structure for table ezfw.apartments
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `apartments` (
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.apartments: ~0 rows (approximately)
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `bank_accounts` (
   KEY `business` (`business`),
   KEY `businessid` (`businessid`),
   KEY `gangid` (`gangid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table ezfw.bank_accounts: ~0 rows (approximately)
 
@@ -60,17 +60,17 @@ CREATE TABLE IF NOT EXISTS `bank_accounts_new` (
   `isFrozen` int(11) DEFAULT 0,
   `creator` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.bank_accounts_new: ~11 rows (approximately)
-INSERT IGNORE INTO `bank_accounts_new` (`id`, `amount`, `transactions`, `auth`, `isFrozen`, `creator`) VALUES
+REPLACE INTO `bank_accounts_new` (`id`, `amount`, `transactions`, `auth`, `isFrozen`, `creator`) VALUES
 	('ambulance', 0, '[]', '[]', 0, NULL),
 	('ballas', 0, '[]', '[]', 0, NULL),
 	('cardealer', 0, '[]', '[]', 0, NULL),
 	('cartel', 0, '[]', '[]', 0, NULL),
 	('families', 0, '[]', '[]', 0, NULL),
 	('lostmc', 0, '[]', '[]', 0, NULL),
-	('mechanic', 0, '[]', '[]', 0, NULL),
+	('mechanic', 13200, '[]', '[]', 0, NULL),
 	('police', 0, '[]', '[]', 0, NULL),
 	('realestate', 0, '[]', '[]', 0, NULL),
 	('triads', 0, '[]', '[]', 0, NULL),
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `bank_cards` (
   `cardType` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`citizenid`),
   KEY `record_id` (`record_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table ezfw.bank_cards: ~0 rows (approximately)
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `bank_statements` (
   KEY `business` (`business`),
   KEY `businessid` (`businessid`),
   KEY `gangid` (`gangid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table ezfw.bank_statements: ~0 rows (approximately)
 
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `bans` (
   KEY `license` (`license`),
   KEY `discord` (`discord`),
   KEY `ip` (`ip`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.bans: ~0 rows (approximately)
 
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `bennys_shop` (
   `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`citizenid`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table ezfw.bennys_shop: ~0 rows (approximately)
 
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `boost_contract` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `owner` (`owner`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.boost_contract: ~0 rows (approximately)
 
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `business_data` (
   `dui` longtext DEFAULT NULL,
   `combos` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.business_data: ~0 rows (approximately)
 
@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `business_items` (
   `active` int(11) DEFAULT 0,
   `emote` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.business_items: ~0 rows (approximately)
 
@@ -189,10 +189,10 @@ CREATE TABLE IF NOT EXISTS `cl_spawnselector` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `location_data` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=375 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=375 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.cl_spawnselector: ~5 rows (approximately)
-INSERT IGNORE INTO `cl_spawnselector` (`id`, `location_data`) VALUES
+REPLACE INTO `cl_spawnselector` (`id`, `location_data`) VALUES
 	(1, '{"locationText":"Hospital","iconColor":"rgb(51, 51, 51)","iconName":"fas fa-hospital","screenPosition":{"left":510,"resolution":{"height":1080,"width":1920},"top":571},"backgroundColor":"rgb(253, 92, 99)"}'),
 	(2, '{"locationText":"Legion Square","iconColor":"rgb(51, 51, 51)","iconName":"fas fa-tree","screenPosition":{"left":477,"resolution":{"height":1080,"width":1920},"top":546},"backgroundColor":"#c3f2cb"}'),
 	(3, '{"locationText":"Airport","iconColor":"rgb(51, 51, 51)","iconName":"fas fa-cart-flatbed-suitcase","screenPosition":{"left":167,"resolution":{"height":1080,"width":1920},"top":391},"backgroundColor":"rgb(200, 237, 253)"}'),
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `crypto` (
   `worth` int(11) NOT NULL DEFAULT 0,
   `history` text DEFAULT NULL,
   PRIMARY KEY (`crypto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.crypto: ~0 rows (approximately)
 
@@ -218,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `crypto_transactions` (
   `date` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.crypto_transactions: ~0 rows (approximately)
 
@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `dealers` (
   `time` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `createdby` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.dealers: ~0 rows (approximately)
 
@@ -239,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `donator` (
   `license` varchar(255) NOT NULL,
   `coins` int(11) NOT NULL DEFAULT 0,
   UNIQUE KEY `license` (`license`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.donator: ~0 rows (approximately)
 
@@ -249,9 +249,41 @@ CREATE TABLE IF NOT EXISTS `donator_pending` (
   `package` longtext NOT NULL,
   `redeemed` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`transactionId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.donator_pending: ~0 rows (approximately)
+
+-- Dumping structure for table ezfw.ez_storage
+CREATE TABLE IF NOT EXISTS `ez_storage` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cid` varchar(50) NOT NULL,
+  `zone` varchar(255) NOT NULL,
+  `keyholders` longtext DEFAULT NULL,
+  PRIMARY KEY (`zone`) USING BTREE,
+  KEY `id` (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1667 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Dumping data for table ezfw.ez_storage: ~19 rows (approximately)
+REPLACE INTO `ez_storage` (`id`, `cid`, `zone`, `keyholders`) VALUES
+	(1, '', 'Garage1', NULL),
+	(10, '', 'Garage10', NULL),
+	(11, '', 'Garage11', NULL),
+	(12, '', 'Garage12', NULL),
+	(13, '', 'Garage13', NULL),
+	(14, '', 'Garage14', NULL),
+	(15, '', 'Garage15', NULL),
+	(16, '', 'Garage16', NULL),
+	(17, '', 'Garage17', NULL),
+	(18, '', 'Garage18', NULL),
+	(19, '', 'Garage19', NULL),
+	(2, '', 'Garage2', NULL),
+	(3, '', 'Garage3', NULL),
+	(4, '', 'Garage4', NULL),
+	(5, '', 'Garage5', NULL),
+	(6, '', 'Garage6', NULL),
+	(7, '', 'Garage7', NULL),
+	(8, '', 'Garage8', NULL),
+	(9, '', 'Garage9', NULL);
 
 -- Dumping structure for table ezfw.gloveboxitems
 CREATE TABLE IF NOT EXISTS `gloveboxitems` (
@@ -260,9 +292,11 @@ CREATE TABLE IF NOT EXISTS `gloveboxitems` (
   `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`plate`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.gloveboxitems: ~0 rows (approximately)
+REPLACE INTO `gloveboxitems` (`id`, `plate`, `items`) VALUES
+	(8, '6ZI722BR', '[]');
 
 -- Dumping structure for table ezfw.houselocations
 CREATE TABLE IF NOT EXISTS `houselocations` (
@@ -276,7 +310,7 @@ CREATE TABLE IF NOT EXISTS `houselocations` (
   `garage` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.houselocations: ~0 rows (approximately)
 
@@ -295,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `house_plants` (
   PRIMARY KEY (`id`),
   KEY `building` (`building`),
   KEY `plantid` (`plantid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.house_plants: ~0 rows (approximately)
 
@@ -310,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `lapraces` (
   `raceid` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `raceid` (`raceid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.lapraces: ~0 rows (approximately)
 
@@ -323,10 +357,10 @@ CREATE TABLE IF NOT EXISTS `management_funds` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `job_name` (`job_name`),
   KEY `type` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.management_funds: ~12 rows (approximately)
-INSERT IGNORE INTO `management_funds` (`id`, `job_name`, `amount`, `type`) VALUES
+REPLACE INTO `management_funds` (`id`, `job_name`, `amount`, `type`) VALUES
 	(1, 'police', 0, 'boss'),
 	(2, 'ambulance', 0, 'boss'),
 	(3, 'realestate', 0, 'boss'),
@@ -339,6 +373,22 @@ INSERT IGNORE INTO `management_funds` (`id`, `job_name`, `amount`, `type`) VALUE
 	(10, 'cartel', 0, 'gang'),
 	(11, 'families', 0, 'gang'),
 	(12, 'triads', 0, 'gang');
+
+-- Dumping structure for table ezfw.management_outfits
+CREATE TABLE IF NOT EXISTS `management_outfits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_name` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `minrank` int(11) NOT NULL DEFAULT 0,
+  `name` varchar(50) NOT NULL DEFAULT 'Cool Outfit',
+  `gender` varchar(50) NOT NULL DEFAULT 'male',
+  `model` varchar(50) DEFAULT NULL,
+  `props` varchar(1000) DEFAULT NULL,
+  `components` varchar(1500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table ezfw.management_outfits: ~0 rows (approximately)
 
 -- Dumping structure for table ezfw.mdt_bolos
 CREATE TABLE IF NOT EXISTS `mdt_bolos` (
@@ -355,7 +405,7 @@ CREATE TABLE IF NOT EXISTS `mdt_bolos` (
   `time` varchar(20) DEFAULT NULL,
   `jobtype` varchar(25) NOT NULL DEFAULT 'police',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_bolos: ~0 rows (approximately)
 
@@ -368,7 +418,7 @@ CREATE TABLE IF NOT EXISTS `mdt_bulletin` (
   `time` varchar(20) NOT NULL,
   `jobtype` varchar(25) DEFAULT 'police',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_bulletin: ~0 rows (approximately)
 
@@ -383,7 +433,7 @@ CREATE TABLE IF NOT EXISTS `mdt_clocking` (
   `total_time` int(10) NOT NULL DEFAULT 0,
   PRIMARY KEY (`user_id`) USING BTREE,
   KEY `id` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_clocking: ~0 rows (approximately)
 
@@ -403,7 +453,7 @@ CREATE TABLE IF NOT EXISTS `mdt_convictions` (
   `recsentence` int(11) DEFAULT 0,
   `time` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_convictions: ~0 rows (approximately)
 
@@ -419,7 +469,7 @@ CREATE TABLE IF NOT EXISTS `mdt_data` (
   `fingerprint` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`cid`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_data: ~0 rows (approximately)
 
@@ -431,7 +481,7 @@ CREATE TABLE IF NOT EXISTS `mdt_impound` (
   `fee` int(11) DEFAULT NULL,
   `time` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_impound: ~0 rows (approximately)
 
@@ -448,7 +498,7 @@ CREATE TABLE IF NOT EXISTS `mdt_incidents` (
   `time` varchar(20) DEFAULT NULL,
   `jobtype` varchar(25) NOT NULL DEFAULT 'police',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_incidents: ~0 rows (approximately)
 
@@ -459,7 +509,7 @@ CREATE TABLE IF NOT EXISTS `mdt_logs` (
   `time` varchar(20) DEFAULT NULL,
   `jobtype` varchar(25) DEFAULT 'police',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_logs: ~0 rows (approximately)
 
@@ -477,7 +527,7 @@ CREATE TABLE IF NOT EXISTS `mdt_reports` (
   `time` varchar(20) DEFAULT NULL,
   `jobtype` varchar(25) DEFAULT 'police',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_reports: ~0 rows (approximately)
 
@@ -491,7 +541,7 @@ CREATE TABLE IF NOT EXISTS `mdt_vehicleinfo` (
   `image` text NOT NULL DEFAULT '',
   `points` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.mdt_vehicleinfo: ~0 rows (approximately)
 
@@ -506,9 +556,12 @@ CREATE TABLE IF NOT EXISTS `mdt_weaponinfo` (
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `serial` (`serial`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table ezfw.mdt_weaponinfo: ~0 rows (approximately)
+-- Dumping data for table ezfw.mdt_weaponinfo: ~2 rows (approximately)
+REPLACE INTO `mdt_weaponinfo` (`id`, `serial`, `owner`, `information`, `weapClass`, `weapModel`, `image`) VALUES
+	(2, '78lUQ9GX898Utjk', 'test test', 'Purchased at Ammunation', '1', 'Knife', 'https://cfx-nui-lj-inventory/html/images/weapon_knife.png'),
+	(3, '47JTm4XF348hPAa', 'test test', 'Purchased at Ammunation', '1', 'Bat', 'https://cfx-nui-lj-inventory/html/images/weapon_bat.png');
 
 -- Dumping structure for table ezfw.nightclubs
 CREATE TABLE IF NOT EXISTS `nightclubs` (
@@ -517,7 +570,7 @@ CREATE TABLE IF NOT EXISTS `nightclubs` (
   `missions` text NOT NULL,
   `employee` text NOT NULL,
   PRIMARY KEY (`citizenid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.nightclubs: ~0 rows (approximately)
 
@@ -533,7 +586,7 @@ CREATE TABLE IF NOT EXISTS `occasion_vehicles` (
   `occasionid` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `occasionId` (`occasionid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.occasion_vehicles: ~0 rows (approximately)
 
@@ -551,10 +604,10 @@ CREATE TABLE IF NOT EXISTS `phone_chatrooms` (
   `created` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `room_code` (`room_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.phone_chatrooms: ~3 rows (approximately)
-INSERT IGNORE INTO `phone_chatrooms` (`id`, `room_code`, `room_name`, `room_owner_id`, `room_owner_name`, `room_members`, `room_pin`, `unpaid_balance`, `is_pinned`, `created`) VALUES
+REPLACE INTO `phone_chatrooms` (`id`, `room_code`, `room_name`, `room_owner_id`, `room_owner_name`, `room_members`, `room_pin`, `unpaid_balance`, `is_pinned`, `created`) VALUES
 	(1, '411', '411', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-07-26 15:15:33'),
 	(2, 'lounge', 'The Lounge', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-07-26 15:15:33'),
 	(3, 'events', 'Events', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-07-26 15:15:33');
@@ -569,7 +622,7 @@ CREATE TABLE IF NOT EXISTS `phone_chatroom_messages` (
   `is_pinned` tinyint(1) DEFAULT 0,
   `created` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.phone_chatroom_messages: ~0 rows (approximately)
 
@@ -578,7 +631,7 @@ CREATE TABLE IF NOT EXISTS `phone_gallery` (
   `citizenid` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `date` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.phone_gallery: ~0 rows (approximately)
 
@@ -593,7 +646,7 @@ CREATE TABLE IF NOT EXISTS `phone_invoices` (
   `time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.phone_invoices: ~0 rows (approximately)
 
@@ -607,7 +660,7 @@ CREATE TABLE IF NOT EXISTS `phone_messages` (
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`),
   KEY `number` (`number`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.phone_messages: ~0 rows (approximately)
 
@@ -620,7 +673,7 @@ CREATE TABLE IF NOT EXISTS `phone_note` (
   `lastupdate` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.phone_note: ~0 rows (approximately)
 
@@ -637,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `phone_tweets` (
   `date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.phone_tweets: ~0 rows (approximately)
 
@@ -660,11 +713,12 @@ CREATE TABLE IF NOT EXISTS `players` (
   KEY `id` (`id`),
   KEY `last_updated` (`last_updated`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=1541 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2073 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table ezfw.players: ~1 rows (approximately)
-INSERT IGNORE INTO `players` (`id`, `citizenid`, `cid`, `license`, `name`, `money`, `charinfo`, `job`, `gang`, `position`, `metadata`, `inventory`, `last_updated`) VALUES
-	(1534, 'NCY05380', 1, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'Jay', '{"payslip":100,"crypto":0,"cash":500,"bank":750}', '{"lastname":"Ender","nationality":"Australia","firstname":"School","birthdate":"2000-02-06","backstory":"placeholder backstory","account":"US06QBCore2946325378","gender":{"length":0,"prevObject":{"length":1,"0":{"_cash1692948225560":{"_cashEvents":{"reset":[],"keyup":[],"keydown":[],"click":[],"change":[]}},"location":{"pathname":"/html/index.html","hostname":"cfx-nui-qb-multicharacter","protocol":"https:","origin":"https://cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"host":"cfx-nui-qb-multicharacter","search":"","href":"https://cfx-nui-qb-multicharacter/html/index.html","port":"","hash":""},"jQuery224057436502354012281":{"events":{"click":[{"needsContext":false,"guid":2,"namespace":"","type":"click","origType":"click","selector":"#close-log"},{"needsContext":false,"guid":3,"namespace":"","type":"click","origType":"click","selector":".character"},{"needsContext":false,"guid":4,"namespace":"","type":"click","origType":"click","selector":"#create"},{"needsContext":false,"guid":5,"namespace":"","type":"click","origType":"click","selector":".Expert-Register-ImageStyle"},{"needsContext":false,"guid":6,"namespace":"","type":"click","origType":"click","selector":"#accept-delete"},{"needsContext":false,"guid":7,"namespace":"","type":"click","origType":"click","selector":"#cancel-delete"}]}}},"context":{"_cash1692948225560":{"_cashEvents":{"reset":[],"keyup":[],"keydown":[],"click":[],"change":[]}},"location":{"pathname":"/html/index.html","hostname":"cfx-nui-qb-multicharacter","protocol":"https:","origin":"https://cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"host":"cfx-nui-qb-multicharacter","search":"","href":"https://cfx-nui-qb-multicharacter/html/index.html","port":"","hash":""},"jQuery224057436502354012281":{"events":{"click":[{"needsContext":false,"guid":2,"namespace":"","type":"click","origType":"click","selector":"#close-log"},{"needsContext":false,"guid":3,"namespace":"","type":"click","origType":"click","selector":".character"},{"needsContext":false,"guid":4,"namespace":"","type":"click","origType":"click","selector":"#create"},{"needsContext":false,"guid":5,"namespace":"","type":"click","origType":"click","selector":".Expert-Register-ImageStyle"},{"needsContext":false,"guid":6,"namespace":"","type":"click","origType":"click","selector":"#accept-delete"},{"needsContext":false,"guid":7,"namespace":"","type":"click","origType":"click","selector":"#cancel-delete"}]}}}},"selector":"Male","context":{"_cash1692948225560":{"_cashEvents":{"reset":[],"keyup":[],"keydown":[],"click":[],"change":[]}},"location":{"pathname":"/html/index.html","hostname":"cfx-nui-qb-multicharacter","protocol":"https:","origin":"https://cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"host":"cfx-nui-qb-multicharacter","search":"","href":"https://cfx-nui-qb-multicharacter/html/index.html","port":"","hash":""},"jQuery224057436502354012281":{"events":{"click":[{"needsContext":false,"guid":2,"namespace":"","type":"click","origType":"click","selector":"#close-log"},{"needsContext":false,"guid":3,"namespace":"","type":"click","origType":"click","selector":".character"},{"needsContext":false,"guid":4,"namespace":"","type":"click","origType":"click","selector":"#create"},{"needsContext":false,"guid":5,"namespace":"","type":"click","origType":"click","selector":".Expert-Register-ImageStyle"},{"needsContext":false,"guid":6,"namespace":"","type":"click","origType":"click","selector":"#accept-delete"},{"needsContext":false,"guid":7,"namespace":"","type":"click","origType":"click","selector":"#cancel-delete"}]}}}},"phone":"1268938198","cid":"1"}', '{"label":"Civilian","grade":{"name":"Freelancer","level":0},"payment":10,"onduty":true,"type":"none","isboss":false,"name":"unemployed"}', '{"label":"No Gang Affiliaton","isboss":false,"name":"none","grade":{"name":"none","level":0}}', '{"x":-812.2417602539063,"y":182.53187561035157,"z":76.7288818359375}', '{"walletid":"QB-93417527","dealerrep":0,"fingerprint":"ty844x29Jwr2229","carboostclass":"D","ishandcuffed":false,"laptopdata":{"wallpaper":"default","apps":[]},"bloodtype":"O-","stress":0,"jailitems":[],"hunger":95.8,"phonedata":{"InstalledApps":[],"SerialNumber":92445390},"status":[],"criminalrecord":{"hasRecord":false},"armor":0,"craftingrep":0,"injail":0,"carboostrep":0,"inlaststand":false,"commandbinds":[],"delivery":0,"fitbit":[],"callsign":"NO CALLSIGN","tracker":false,"isdead":false,"jobrep":{"trucker":0,"tow":0,"taxi":0,"hotdog":0},"attachmentcraftingrep":0,"thirst":96.2,"licences":{"business":false,"driver":true,"weapon":false},"crypto":{"shung":0,"xcoin":0,"lme":0,"gne":0},"phone":[],"inside":{"apartment":[]}}', '[{"type":"item","amount":1,"name":"driver_license","slot":1,"info":{"type":"Class C Driver License","firstname":"School","lastname":"Ender","birthdate":"2000-02-06"}},{"type":"item","amount":1,"name":"phone","slot":2,"info":[]},{"type":"item","amount":1,"name":"id_card","slot":3,"info":{"birthdate":"2000-02-06","lastname":"Ender","nationality":"Australia","firstname":"School","gender":{"prevObject":{"0":{"_cash1692948225560":{"_cashEvents":{"change":[],"reset":[],"keyup":[],"click":[],"keydown":[]}},"location":{"hash":"","hostname":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"protocol":"https:","origin":"https://cfx-nui-qb-multicharacter","port":"","search":"","href":"https://cfx-nui-qb-multicharacter/html/index.html","pathname":"/html/index.html","host":"cfx-nui-qb-multicharacter"},"jQuery224057436502354012281":{"events":{"click":[{"type":"click","selector":"#close-log","needsContext":false,"origType":"click","guid":2,"namespace":""},{"type":"click","selector":".character","needsContext":false,"origType":"click","guid":3,"namespace":""},{"type":"click","selector":"#create","needsContext":false,"origType":"click","guid":4,"namespace":""},{"type":"click","selector":".Expert-Register-ImageStyle","needsContext":false,"origType":"click","guid":5,"namespace":""},{"type":"click","selector":"#accept-delete","needsContext":false,"origType":"click","guid":6,"namespace":""},{"type":"click","selector":"#cancel-delete","needsContext":false,"origType":"click","guid":7,"namespace":""}]}}},"length":1,"context":{"_cash1692948225560":{"_cashEvents":{"change":[],"reset":[],"keyup":[],"click":[],"keydown":[]}},"location":{"hash":"","hostname":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"protocol":"https:","origin":"https://cfx-nui-qb-multicharacter","port":"","search":"","href":"https://cfx-nui-qb-multicharacter/html/index.html","pathname":"/html/index.html","host":"cfx-nui-qb-multicharacter"},"jQuery224057436502354012281":{"events":{"click":[{"type":"click","selector":"#close-log","needsContext":false,"origType":"click","guid":2,"namespace":""},{"type":"click","selector":".character","needsContext":false,"origType":"click","guid":3,"namespace":""},{"type":"click","selector":"#create","needsContext":false,"origType":"click","guid":4,"namespace":""},{"type":"click","selector":".Expert-Register-ImageStyle","needsContext":false,"origType":"click","guid":5,"namespace":""},{"type":"click","selector":"#accept-delete","needsContext":false,"origType":"click","guid":6,"namespace":""},{"type":"click","selector":"#cancel-delete","needsContext":false,"origType":"click","guid":7,"namespace":""}]}}}},"length":0,"context":{"_cash1692948225560":{"_cashEvents":{"change":[],"reset":[],"keyup":[],"click":[],"keydown":[]}},"location":{"hash":"","hostname":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"protocol":"https:","origin":"https://cfx-nui-qb-multicharacter","port":"","search":"","href":"https://cfx-nui-qb-multicharacter/html/index.html","pathname":"/html/index.html","host":"cfx-nui-qb-multicharacter"},"jQuery224057436502354012281":{"events":{"click":[{"type":"click","selector":"#close-log","needsContext":false,"origType":"click","guid":2,"namespace":""},{"type":"click","selector":".character","needsContext":false,"origType":"click","guid":3,"namespace":""},{"type":"click","selector":"#create","needsContext":false,"origType":"click","guid":4,"namespace":""},{"type":"click","selector":".Expert-Register-ImageStyle","needsContext":false,"origType":"click","guid":5,"namespace":""},{"type":"click","selector":"#accept-delete","needsContext":false,"origType":"click","guid":6,"namespace":""},{"type":"click","selector":"#cancel-delete","needsContext":false,"origType":"click","guid":7,"namespace":""}]}}},"selector":"Male"},"citizenid":"NCY05380"}}]', '2023-08-25 07:38:24');
+-- Dumping data for table ezfw.players: ~2 rows (approximately)
+REPLACE INTO `players` (`id`, `citizenid`, `cid`, `license`, `name`, `money`, `charinfo`, `job`, `gang`, `position`, `metadata`, `inventory`, `last_updated`) VALUES
+	(1865, 'IIJ16816', 1, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'Jay', '{"crypto":0,"cash":239339344,"payslip":27480,"bank":239339281}', '{"account":"US07QBCore9533247651","lastname":"test","phone":"4931634247","birthdate":"1111-11-11","gender":{"length":0,"selector":"Male","prevObject":{"length":1,"0":{"_cash1712311661186":{"_cashEvents":{"reset":[],"change":[],"keyup":[],"keydown":[],"click":[]}},"jQuery224097928083398861811":{"events":{"click":[{"type":"click","origType":"click","namespace":"","selector":"#close-log","guid":2,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":".character","guid":3,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#create","guid":4,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":".Expert-Register-ImageStyle","guid":5,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#accept-delete","guid":6,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#cancel-delete","guid":7,"needsContext":false}]}},"location":{"port":"","ancestorOrigins":{"0":"nui://game"},"search":"","protocol":"https:","pathname":"/html/index.html","href":"https://cfx-nui-qb-multicharacter/html/index.html","hash":"","hostname":"cfx-nui-qb-multicharacter","host":"cfx-nui-qb-multicharacter","origin":"https://cfx-nui-qb-multicharacter"}},"context":{"_cash1712311661186":{"_cashEvents":{"reset":[],"change":[],"keyup":[],"keydown":[],"click":[]}},"jQuery224097928083398861811":{"events":{"click":[{"type":"click","origType":"click","namespace":"","selector":"#close-log","guid":2,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":".character","guid":3,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#create","guid":4,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":".Expert-Register-ImageStyle","guid":5,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#accept-delete","guid":6,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#cancel-delete","guid":7,"needsContext":false}]}},"location":{"port":"","ancestorOrigins":{"0":"nui://game"},"search":"","protocol":"https:","pathname":"/html/index.html","href":"https://cfx-nui-qb-multicharacter/html/index.html","hash":"","hostname":"cfx-nui-qb-multicharacter","host":"cfx-nui-qb-multicharacter","origin":"https://cfx-nui-qb-multicharacter"}}},"context":{"_cash1712311661186":{"_cashEvents":{"reset":[],"change":[],"keyup":[],"keydown":[],"click":[]}},"jQuery224097928083398861811":{"events":{"click":[{"type":"click","origType":"click","namespace":"","selector":"#close-log","guid":2,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":".character","guid":3,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#create","guid":4,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":".Expert-Register-ImageStyle","guid":5,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#accept-delete","guid":6,"needsContext":false},{"type":"click","origType":"click","namespace":"","selector":"#cancel-delete","guid":7,"needsContext":false}]}},"location":{"port":"","ancestorOrigins":{"0":"nui://game"},"search":"","protocol":"https:","pathname":"/html/index.html","href":"https://cfx-nui-qb-multicharacter/html/index.html","hash":"","hostname":"cfx-nui-qb-multicharacter","host":"cfx-nui-qb-multicharacter","origin":"https://cfx-nui-qb-multicharacter"}}},"firstname":"test","backstory":"placeholder backstory","nationality":"test","cid":"1"}', '{"onduty":true,"type":"none","grade":{"level":0,"name":"Freelancer"},"name":"unemployed","payment":10,"isboss":false,"label":"Civilian"}', '{"label":"No Gang Affiliaton","grade":{"name":"none","level":0},"isboss":false,"name":"none"}', '{"x":4933.97802734375,"y":-5140.78662109375,"z":3.5501708984375}', '{"jobrep":{"trucker":0,"tow":0,"taxi":0,"hotdog":0},"laptopdata":{"wallpaper":"default","apps":[]},"ishandcuffed":false,"carboostrep":0,"phone":[],"fitbit":[],"bloodtype":"B-","phonedata":{"InstalledApps":[],"SerialNumber":83298073},"tracker":false,"armor":0,"walletid":"QB-81089055","jailitems":[],"fingerprint":"AE405N64Hit0779","status":[],"hunger":32.79999999999995,"injail":0,"isdead":false,"callsign":"NO CALLSIGN","carboostclass":"D","criminalrecord":{"hasRecord":false},"stress":2,"craftingrep":0,"inlaststand":false,"dealerrep":0,"thirst":39.20000000000004,"licences":{"weapon":false,"business":false,"driver":true},"inside":{"apartment":[]},"attachmentcraftingrep":0,"crypto":{"shung":0,"lme":0,"xcoin":0,"gne":0},"laptop":{"darkfont":false,"background":"default"},"commandbinds":[],"delivery":0}', '[{"slot":1,"type":"weapon","amount":1,"name":"weapon_pistol50","info":{"quality":100,"ammo":0,"tint":4,"serie":"82sWe8uy924JuVv"}},{"slot":2,"type":"item","amount":1,"name":"hacking_device","info":[]},{"slot":3,"type":"item","amount":1,"name":"lockpick","info":[]},{"slot":4,"type":"item","amount":1,"name":"advancedlockpick","info":[]},{"slot":5,"type":"item","amount":1,"name":"security_card_01","info":[]},{"slot":6,"type":"item","amount":1,"name":"id_card","info":{"lastname":"test","birthdate":"1111-11-11","gender":{"length":0,"context":{"location":{"pathname":"/html/index.html","origin":"https://cfx-nui-qb-multicharacter","search":"","hash":"","hostname":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"href":"https://cfx-nui-qb-multicharacter/html/index.html","port":"","protocol":"https:","host":"cfx-nui-qb-multicharacter"},"_cash1712311661186":{"_cashEvents":{"change":[],"click":[],"keyup":[],"keydown":[],"reset":[]}},"jQuery224097928083398861811":{"events":{"click":[{"namespace":"","origType":"click","type":"click","guid":2,"selector":"#close-log","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":3,"selector":".character","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":4,"selector":"#create","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":5,"selector":".Expert-Register-ImageStyle","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":6,"selector":"#accept-delete","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":7,"selector":"#cancel-delete","needsContext":false}]}}},"selector":"Male","prevObject":{"length":1,"context":{"location":{"pathname":"/html/index.html","origin":"https://cfx-nui-qb-multicharacter","search":"","hash":"","hostname":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"href":"https://cfx-nui-qb-multicharacter/html/index.html","port":"","protocol":"https:","host":"cfx-nui-qb-multicharacter"},"_cash1712311661186":{"_cashEvents":{"change":[],"click":[],"keyup":[],"keydown":[],"reset":[]}},"jQuery224097928083398861811":{"events":{"click":[{"namespace":"","origType":"click","type":"click","guid":2,"selector":"#close-log","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":3,"selector":".character","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":4,"selector":"#create","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":5,"selector":".Expert-Register-ImageStyle","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":6,"selector":"#accept-delete","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":7,"selector":"#cancel-delete","needsContext":false}]}}},"0":{"location":{"pathname":"/html/index.html","origin":"https://cfx-nui-qb-multicharacter","search":"","hash":"","hostname":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"href":"https://cfx-nui-qb-multicharacter/html/index.html","port":"","protocol":"https:","host":"cfx-nui-qb-multicharacter"},"_cash1712311661186":{"_cashEvents":{"change":[],"click":[],"keyup":[],"keydown":[],"reset":[]}},"jQuery224097928083398861811":{"events":{"click":[{"namespace":"","origType":"click","type":"click","guid":2,"selector":"#close-log","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":3,"selector":".character","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":4,"selector":"#create","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":5,"selector":".Expert-Register-ImageStyle","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":6,"selector":"#accept-delete","needsContext":false},{"namespace":"","origType":"click","type":"click","guid":7,"selector":"#cancel-delete","needsContext":false}]}}}}},"citizenid":"IIJ16816","nationality":"test","firstname":"test"}},{"slot":7,"type":"item","amount":1,"name":"phone","info":[]},{"slot":8,"type":"item","amount":1,"name":"driver_license","info":{"birthdate":"1111-11-11","type":"Class C Driver License","lastname":"test","firstname":"test"}},{"slot":9,"type":"item","amount":1,"name":"mask","info":{"drawableId":51,"textureId":9}},{"slot":10,"type":"item","amount":5,"name":"markedbills","info":[]},{"slot":11,"type":"item","amount":33248,"name":"cash_roll","info":[]},{"slot":12,"type":"item","amount":1,"name":"markedbills","info":[]},{"slot":13,"type":"item","amount":1,"name":"weapontint_army","info":[]},{"slot":14,"type":"item","amount":1,"name":"weapontint_plat","info":[]},{"slot":17,"type":"weapon","amount":1,"name":"weapon_sawnoffshotgun","info":{"quality":100,"tint":5,"serie":"25Wwe8iv590pipu"}},{"slot":18,"type":"weapon","amount":1,"name":"weapon_knife","info":{"quality":100,"serie":"78lUQ9GX898Utjk"}},{"slot":19,"type":"item","amount":16,"name":"joint","info":[]},{"slot":21,"type":"weapon","amount":1,"name":"weapon_combatpistol","info":{"quality":100,"ammo":0,"tint":1,"serie":"99rVB8Ay130kDIp"}},{"slot":22,"type":"weapon","amount":1,"name":"weapon_combatpistol","info":{"quality":55.44999999999871,"ammo":241,"attachments":[{"item":"combatpistol_extendedclip","type":"clip","component":"COMPONENT_COMBATPISTOL_CLIP_02","label":"Pistol EXT Clip"},{"item":"pistol_suppressor","component":"COMPONENT_AT_PI_SUPP","label":"Pistol Suppressor"},{"item":"combatpistol_luxuryfinish","component":"COMPONENT_COMBATPISTOL_VARMOD_LOWRIDER","label":"Pistol Finish"}],"serie":"92iSW1dh669QWYj"}},{"slot":23,"type":"weapon","amount":1,"name":"weapon_glock17","info":{"attachments":[{"component":"COMPONENT_AT_PI_FLSH","label":"Flashlight"}],"quality":100,"serie":"45ncC9mg383QetC"}},{"slot":24,"type":"weapon","amount":1,"name":"weapon_bat","info":{"quality":99.85,"ammo":0,"serie":"47JTm4XF348hPAa"}}]', '2024-04-30 11:49:07'),
+	(1956, 'PPI90621', 1, 'license:8f1aa453620f9c72d4e3a6505cb5b112e2084927', 'Rinehart', '{"payslip":70,"crypto":0,"cash":500,"bank":5000}', '{"backstory":"placeholder backstory","gender":{"selector":"Female","length":0,"context":{"jQuery224087305145271334931":{"events":{"click":[{"origType":"click","namespace":"","selector":"#close-log","needsContext":false,"guid":2,"type":"click"},{"origType":"click","namespace":"","selector":".character","needsContext":false,"guid":3,"type":"click"},{"origType":"click","namespace":"","selector":"#create","needsContext":false,"guid":4,"type":"click"},{"origType":"click","namespace":"","selector":".Expert-Register-ImageStyle","needsContext":false,"guid":5,"type":"click"},{"origType":"click","namespace":"","selector":"#accept-delete","needsContext":false,"guid":6,"type":"click"},{"origType":"click","namespace":"","selector":"#cancel-delete","needsContext":false,"guid":7,"type":"click"}]}},"_cash1712621478918":{"_cashEvents":{"click":[],"keydown":[],"keyup":[],"change":[],"reset":[]}},"location":{"href":"https://cfx-nui-qb-multicharacter/html/index.html","pathname":"/html/index.html","origin":"https://cfx-nui-qb-multicharacter","protocol":"https:","search":"","hostname":"cfx-nui-qb-multicharacter","port":"","host":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"hash":""}},"prevObject":{"length":1,"context":{"jQuery224087305145271334931":{"events":{"click":[{"origType":"click","namespace":"","selector":"#close-log","needsContext":false,"guid":2,"type":"click"},{"origType":"click","namespace":"","selector":".character","needsContext":false,"guid":3,"type":"click"},{"origType":"click","namespace":"","selector":"#create","needsContext":false,"guid":4,"type":"click"},{"origType":"click","namespace":"","selector":".Expert-Register-ImageStyle","needsContext":false,"guid":5,"type":"click"},{"origType":"click","namespace":"","selector":"#accept-delete","needsContext":false,"guid":6,"type":"click"},{"origType":"click","namespace":"","selector":"#cancel-delete","needsContext":false,"guid":7,"type":"click"}]}},"_cash1712621478918":{"_cashEvents":{"click":[],"keydown":[],"keyup":[],"change":[],"reset":[]}},"location":{"href":"https://cfx-nui-qb-multicharacter/html/index.html","pathname":"/html/index.html","origin":"https://cfx-nui-qb-multicharacter","protocol":"https:","search":"","hostname":"cfx-nui-qb-multicharacter","port":"","host":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"hash":""}},"0":{"jQuery224087305145271334931":{"events":{"click":[{"origType":"click","namespace":"","selector":"#close-log","needsContext":false,"guid":2,"type":"click"},{"origType":"click","namespace":"","selector":".character","needsContext":false,"guid":3,"type":"click"},{"origType":"click","namespace":"","selector":"#create","needsContext":false,"guid":4,"type":"click"},{"origType":"click","namespace":"","selector":".Expert-Register-ImageStyle","needsContext":false,"guid":5,"type":"click"},{"origType":"click","namespace":"","selector":"#accept-delete","needsContext":false,"guid":6,"type":"click"},{"origType":"click","namespace":"","selector":"#cancel-delete","needsContext":false,"guid":7,"type":"click"}]}},"_cash1712621478918":{"_cashEvents":{"click":[],"keydown":[],"keyup":[],"change":[],"reset":[]}},"location":{"href":"https://cfx-nui-qb-multicharacter/html/index.html","pathname":"/html/index.html","origin":"https://cfx-nui-qb-multicharacter","protocol":"https:","search":"","hostname":"cfx-nui-qb-multicharacter","port":"","host":"cfx-nui-qb-multicharacter","ancestorOrigins":{"0":"nui://game"},"hash":""}}}},"phone":"7357425825","lastname":"theexlora","cid":"1","account":"US07QBCore4078741228","nationality":"white","firstname":"dora","birthdate":"1991-11-11"}', '{"onduty":true,"name":"unemployed","type":"none","grade":{"level":0,"name":"Freelancer"},"label":"Civilian","payment":10,"isboss":false}', '{"name":"none","label":"No Gang Affiliaton","isboss":false,"grade":{"level":0,"name":"none"}}', '{"x":655.5164794921875,"y":-1055.4461669921876,"z":22.11865234375}', '{"inlaststand":false,"crypto":{"gne":0,"shung":0,"lme":0,"xcoin":0},"jailitems":[],"injail":0,"bloodtype":"A-","phone":[],"walletid":"QB-65291973","armor":0,"status":[],"tracker":false,"delivery":0,"fitbit":[],"licences":{"business":false,"driver":true,"weapon":false},"attachmentcraftingrep":0,"carboostrep":0,"phonedata":{"InstalledApps":[],"SerialNumber":88487303},"craftingrep":0,"ishandcuffed":false,"dealerrep":0,"callsign":"NO CALLSIGN","isdead":false,"fingerprint":"IE220A35ZXt9963","stress":0,"laptopdata":{"apps":[],"wallpaper":"default"},"thirst":96.2,"inside":{"apartment":[]},"hunger":95.8,"commandbinds":[],"jobrep":{"trucker":0,"hotdog":0,"taxi":0,"tow":0},"laptop":{"background":"default","darkfont":false},"carboostclass":"D","criminalrecord":{"hasRecord":false}}', '[{"slot":1,"info":{"birthdate":"1991-11-11","firstname":"dora","lastname":"theexlora","type":"Class C Driver License"},"type":"item","amount":1,"name":"driver_license"},{"slot":2,"info":[],"type":"item","amount":1,"name":"phone"},{"slot":3,"info":{"firstname":"dora","citizenid":"PPI90621","nationality":"white","lastname":"theexlora","birthdate":"1991-11-11","gender":{"selector":"Female","context":{"jQuery224087305145271334931":{"events":{"click":[{"selector":"#close-log","type":"click","needsContext":false,"origType":"click","guid":2,"namespace":""},{"selector":".character","type":"click","needsContext":false,"origType":"click","guid":3,"namespace":""},{"selector":"#create","type":"click","needsContext":false,"origType":"click","guid":4,"namespace":""},{"selector":".Expert-Register-ImageStyle","type":"click","needsContext":false,"origType":"click","guid":5,"namespace":""},{"selector":"#accept-delete","type":"click","needsContext":false,"origType":"click","guid":6,"namespace":""},{"selector":"#cancel-delete","type":"click","needsContext":false,"origType":"click","guid":7,"namespace":""}]}},"location":{"href":"https://cfx-nui-qb-multicharacter/html/index.html","hash":"","origin":"https://cfx-nui-qb-multicharacter","hostname":"cfx-nui-qb-multicharacter","protocol":"https:","ancestorOrigins":{"0":"nui://game"},"pathname":"/html/index.html","search":"","port":"","host":"cfx-nui-qb-multicharacter"},"_cash1712621478918":{"_cashEvents":{"change":[],"click":[],"reset":[],"keydown":[],"keyup":[]}}},"length":0,"prevObject":{"length":1,"0":{"jQuery224087305145271334931":{"events":{"click":[{"selector":"#close-log","type":"click","needsContext":false,"origType":"click","guid":2,"namespace":""},{"selector":".character","type":"click","needsContext":false,"origType":"click","guid":3,"namespace":""},{"selector":"#create","type":"click","needsContext":false,"origType":"click","guid":4,"namespace":""},{"selector":".Expert-Register-ImageStyle","type":"click","needsContext":false,"origType":"click","guid":5,"namespace":""},{"selector":"#accept-delete","type":"click","needsContext":false,"origType":"click","guid":6,"namespace":""},{"selector":"#cancel-delete","type":"click","needsContext":false,"origType":"click","guid":7,"namespace":""}]}},"location":{"href":"https://cfx-nui-qb-multicharacter/html/index.html","hash":"","origin":"https://cfx-nui-qb-multicharacter","hostname":"cfx-nui-qb-multicharacter","protocol":"https:","ancestorOrigins":{"0":"nui://game"},"pathname":"/html/index.html","search":"","port":"","host":"cfx-nui-qb-multicharacter"},"_cash1712621478918":{"_cashEvents":{"change":[],"click":[],"reset":[],"keydown":[],"keyup":[]}}},"context":{"jQuery224087305145271334931":{"events":{"click":[{"selector":"#close-log","type":"click","needsContext":false,"origType":"click","guid":2,"namespace":""},{"selector":".character","type":"click","needsContext":false,"origType":"click","guid":3,"namespace":""},{"selector":"#create","type":"click","needsContext":false,"origType":"click","guid":4,"namespace":""},{"selector":".Expert-Register-ImageStyle","type":"click","needsContext":false,"origType":"click","guid":5,"namespace":""},{"selector":"#accept-delete","type":"click","needsContext":false,"origType":"click","guid":6,"namespace":""},{"selector":"#cancel-delete","type":"click","needsContext":false,"origType":"click","guid":7,"namespace":""}]}},"location":{"href":"https://cfx-nui-qb-multicharacter/html/index.html","hash":"","origin":"https://cfx-nui-qb-multicharacter","hostname":"cfx-nui-qb-multicharacter","protocol":"https:","ancestorOrigins":{"0":"nui://game"},"pathname":"/html/index.html","search":"","port":"","host":"cfx-nui-qb-multicharacter"},"_cash1712621478918":{"_cashEvents":{"change":[],"click":[],"reset":[],"keydown":[],"keyup":[]}}}}}},"type":"item","amount":1,"name":"id_card"}]', '2024-04-09 01:36:55');
 
 -- Dumping structure for table ezfw.playerskins
 CREATE TABLE IF NOT EXISTS `playerskins` (
@@ -676,11 +730,12 @@ CREATE TABLE IF NOT EXISTS `playerskins` (
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Dumping data for table ezfw.playerskins: ~1 rows (approximately)
-INSERT IGNORE INTO `playerskins` (`id`, `citizenid`, `model`, `skin`, `active`) VALUES
-	(37, 'NCY05380', '1885233650', '{"nose_3":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"jaw_bone_width":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"nose_5":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"beard":{"defaultItem":-1,"defaultTexture":1,"item":-1,"texture":1},"cheek_3":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"ageing":{"defaultItem":-1,"defaultTexture":0,"item":-1,"texture":0},"nose_2":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"decals":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"arms":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"nose_4":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"glass":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"lips_thickness":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"watch":{"defaultItem":-1,"defaultTexture":0,"item":-1,"texture":0},"cheek_2":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"facemix":{"defaultSkinMix":0.0,"skinMix":0,"defaultShapeMix":0.0,"shapeMix":0},"neck_thikness":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"chimp_hole":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"chimp_bone_width":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"cheek_1":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"chimp_bone_lenght":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"vest":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"torso2":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"jaw_bone_back_lenght":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"bracelet":{"defaultItem":-1,"defaultTexture":0,"item":-1,"texture":0},"makeup":{"defaultItem":-1,"defaultTexture":1,"item":-1,"texture":1},"hat":{"defaultItem":-1,"defaultTexture":0,"item":-1,"texture":0},"eye_opening":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"bag":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"nose_0":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"moles":{"defaultItem":-1,"defaultTexture":0,"item":-1,"texture":0},"blush":{"defaultItem":-1,"defaultTexture":1,"item":-1,"texture":1},"accessory":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"eyebrown_forward":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"shoes":{"defaultItem":1,"defaultTexture":0,"item":1,"texture":0},"ear":{"defaultItem":-1,"defaultTexture":0,"item":-1,"texture":0},"eyebrows":{"defaultItem":-1,"defaultTexture":1,"item":-1,"texture":1},"face":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"face2":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"mask":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"nose_1":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"chimp_bone_lowering":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"lipstick":{"defaultItem":-1,"defaultTexture":1,"item":-1,"texture":1},"eyebrown_high":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"t-shirt":{"defaultItem":1,"defaultTexture":0,"item":1,"texture":0},"eye_color":{"defaultItem":-1,"defaultTexture":0,"item":-1,"texture":0},"hair":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0},"pants":{"defaultItem":0,"defaultTexture":0,"item":0,"texture":0}}', 1);
+REPLACE INTO `playerskins` (`id`, `citizenid`, `model`, `skin`, `active`) VALUES
+	(10, 'PPI90621', 'mp_m_freemode_01', '{"faceFeatures":{"cheeksBoneWidth":0,"eyesOpening":0,"jawBoneBackSize":0,"noseBoneHigh":0,"neckThickness":0,"jawBoneWidth":0,"nosePeakHigh":0,"noseBoneTwist":0,"noseWidth":0,"eyeBrownForward":0,"cheeksBoneHigh":0,"nosePeakLowering":0,"lipsThickness":0,"chinBoneLenght":0,"eyeBrownHigh":0,"chinBoneSize":0,"nosePeakSize":0,"cheeksWidth":0,"chinBoneLowering":0,"chinHole":0},"props":[{"texture":-1,"drawable":-1,"prop_id":0},{"texture":-1,"drawable":-1,"prop_id":1},{"texture":-1,"drawable":-1,"prop_id":2},{"texture":-1,"drawable":-1,"prop_id":6},{"texture":-1,"drawable":-1,"prop_id":7}],"headBlend":{"shapeMix":0,"skinSecond":0,"skinMix":0,"shapeSecond":0,"thirdMix":0,"shapeThird":0,"shapeFirst":0,"skinThird":0,"skinFirst":0},"model":"mp_m_freemode_01","headOverlays":{"ageing":{"secondColor":0,"opacity":0,"style":0,"color":0},"sunDamage":{"secondColor":0,"opacity":0,"style":0,"color":0},"makeUp":{"secondColor":0,"opacity":0,"style":0,"color":0},"chestHair":{"secondColor":0,"opacity":0,"style":0,"color":0},"beard":{"secondColor":0,"opacity":0,"style":0,"color":0},"blush":{"secondColor":0,"opacity":0,"style":0,"color":0},"eyebrows":{"secondColor":0,"opacity":0,"style":0,"color":0},"moleAndFreckles":{"secondColor":0,"opacity":0,"style":0,"color":0},"bodyBlemishes":{"secondColor":0,"opacity":0,"style":0,"color":0},"complexion":{"secondColor":0,"opacity":0,"style":0,"color":0},"lipstick":{"secondColor":0,"opacity":0,"style":0,"color":0},"blemishes":{"secondColor":0,"opacity":0,"style":0,"color":0}},"tattoos":[],"hair":{"highlight":0,"texture":0,"style":0,"color":0},"eyeColor":0,"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":121,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":1,"component_id":3},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":110,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":204,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":7,"drawable":506,"component_id":11},{"texture":0,"drawable":169,"component_id":4}]}', 1),
+	(14, 'IIJ16816', 'mp_m_freemode_01', '{"props":[{"drawable":-1,"texture":-1,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":17,"texture":0,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}],"headBlend":{"skinThird":0,"shapeFirst":42,"shapeMix":0.5,"skinSecond":0,"skinMix":0,"thirdMix":0,"shapeSecond":23,"skinFirst":5,"shapeThird":0},"headOverlays":{"complexion":{"opacity":0,"secondColor":0,"color":0,"style":0},"bodyBlemishes":{"opacity":0,"secondColor":0,"color":0,"style":0},"sunDamage":{"opacity":0,"secondColor":0,"color":0,"style":0},"eyebrows":{"opacity":1,"secondColor":0,"color":3,"style":29},"blush":{"opacity":0,"secondColor":0,"color":0,"style":0},"chestHair":{"opacity":0,"secondColor":0,"color":0,"style":0},"makeUp":{"opacity":0,"secondColor":0,"color":0,"style":0},"beard":{"opacity":0.5,"secondColor":0,"color":3,"style":4},"moleAndFreckles":{"opacity":0,"secondColor":0,"color":0,"style":0},"ageing":{"opacity":0,"secondColor":0,"color":0,"style":0},"lipstick":{"opacity":0,"secondColor":0,"color":0,"style":0},"blemishes":{"opacity":0,"secondColor":0,"color":0,"style":0}},"tattoos":[],"faceFeatures":{"nosePeakSize":0,"cheeksBoneWidth":0,"jawBoneWidth":0,"noseBoneTwist":0,"chinBoneLowering":0,"noseWidth":0,"jawBoneBackSize":0,"lipsThickness":0,"cheeksWidth":0,"chinBoneLenght":0,"nosePeakHigh":0,"chinHole":0,"eyesOpening":0,"chinBoneSize":0,"cheeksBoneHigh":0,"noseBoneHigh":0,"nosePeakLowering":0,"neckThickness":0,"eyeBrownForward":0,"eyeBrownHigh":0},"components":[{"drawable":0,"texture":0,"component_id":0},{"drawable":37,"texture":0,"component_id":2},{"drawable":187,"texture":0,"component_id":3},{"drawable":0,"texture":12,"component_id":4},{"drawable":0,"texture":0,"component_id":5},{"drawable":0,"texture":0,"component_id":7},{"drawable":15,"texture":0,"component_id":8},{"drawable":0,"texture":0,"component_id":9},{"drawable":0,"texture":0,"component_id":10},{"drawable":57,"texture":0,"component_id":1},{"drawable":126,"texture":10,"component_id":11},{"drawable":1,"texture":7,"component_id":6}],"hair":{"highlight":45,"texture":0,"color":8,"style":37},"eyeColor":3,"model":"mp_m_freemode_01"}', 1);
 
 -- Dumping structure for table ezfw.player_contacts
 CREATE TABLE IF NOT EXISTS `player_contacts` (
@@ -690,7 +745,7 @@ CREATE TABLE IF NOT EXISTS `player_contacts` (
   `number` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.player_contacts: ~0 rows (approximately)
 
@@ -709,7 +764,7 @@ CREATE TABLE IF NOT EXISTS `player_houses` (
   KEY `house` (`house`),
   KEY `citizenid` (`citizenid`),
   KEY `identifier` (`identifier`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.player_houses: ~0 rows (approximately)
 
@@ -720,7 +775,7 @@ CREATE TABLE IF NOT EXISTS `player_jobs` (
   `employees` text DEFAULT NULL,
   `maxEmployee` tinyint(11) DEFAULT 15,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.player_jobs: ~0 rows (approximately)
 
@@ -737,24 +792,42 @@ CREATE TABLE IF NOT EXISTS `player_mails` (
   `button` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table ezfw.player_mails: ~0 rows (approximately)
+-- Dumping data for table ezfw.player_mails: ~4 rows (approximately)
+REPLACE INTO `player_mails` (`id`, `citizenid`, `sender`, `subject`, `message`, `read`, `mailid`, `date`, `button`) VALUES
+	(58, 'NCY05380', 'Unknown', 'Car Location', 'Hey this is the car location, its in near Del Perro Beach', 0, 880823, '2024-04-03 11:47:45', NULL),
+	(59, 'NCY05380', 'Unknown', 'Car Location', 'Hey this is the car location, its in near Vinewood Hills', 0, 112598, '2024-04-03 11:56:16', NULL),
+	(60, 'NCY05380', 'Unknown', 'Drop point', 'Hey this is the drop point, you can drop your car here, I\'m sending you the coord on gps', 0, 627064, '2024-04-03 11:59:28', NULL),
+	(61, 'NCY05380', 'Unknown', 'Drop point', 'Hey this is the drop point, you can drop your car here, I\'m sending you the coord on gps', 0, 138242, '2024-04-03 11:59:29', NULL);
 
 -- Dumping structure for table ezfw.player_outfits
 CREATE TABLE IF NOT EXISTS `player_outfits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `citizenid` varchar(50) DEFAULT NULL,
-  `outfitname` varchar(50) NOT NULL,
+  `outfitname` varchar(50) NOT NULL DEFAULT '0',
   `model` varchar(50) DEFAULT NULL,
-  `skin` text DEFAULT NULL,
-  `outfitId` varchar(50) NOT NULL,
+  `props` varchar(1000) DEFAULT NULL,
+  `components` varchar(1500) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `citizenid` (`citizenid`),
-  KEY `outfitId` (`outfitId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `citizenid_outfitname_model` (`citizenid`,`outfitname`,`model`),
+  KEY `citizenid` (`citizenid`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table ezfw.player_outfits: ~0 rows (approximately)
+REPLACE INTO `player_outfits` (`id`, `citizenid`, `outfitname`, `model`, `props`, `components`) VALUES
+	(26, 'IIJ16816', 'casual mask', 'mp_m_freemode_01', '[{"texture":0,"prop_id":0,"drawable":96},{"texture":0,"prop_id":1,"drawable":3},{"texture":0,"prop_id":2,"drawable":17},{"texture":-1,"prop_id":6,"drawable":-1},{"texture":-1,"prop_id":7,"drawable":-1}]', '[{"texture":0,"drawable":0,"component_id":0},{"texture":9,"drawable":51,"component_id":1},{"texture":0,"drawable":48,"component_id":2},{"texture":0,"drawable":180,"component_id":3},{"texture":0,"drawable":122,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":1,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":106,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":4,"drawable":7,"component_id":11}]');
+
+-- Dumping structure for table ezfw.player_outfit_codes
+CREATE TABLE IF NOT EXISTS `player_outfit_codes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `outfitid` int(11) NOT NULL,
+  `code` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `FK_player_outfit_codes_player_outfits` (`outfitid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table ezfw.player_outfit_codes: ~0 rows (approximately)
 
 -- Dumping structure for table ezfw.player_transactions
 CREATE TABLE IF NOT EXISTS `player_transactions` (
@@ -762,7 +835,7 @@ CREATE TABLE IF NOT EXISTS `player_transactions` (
   `isFrozen` int(11) DEFAULT 0,
   `transactions` longtext DEFAULT '[]',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.player_transactions: ~0 rows (approximately)
 
@@ -795,9 +868,24 @@ CREATE TABLE IF NOT EXISTS `player_vehicles` (
   KEY `plate` (`plate`),
   KEY `citizenid` (`citizenid`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table ezfw.player_vehicles: ~0 rows (approximately)
+-- Dumping data for table ezfw.player_vehicles: ~14 rows (approximately)
+REPLACE INTO `player_vehicles` (`id`, `license`, `citizenid`, `vehicle`, `vinnum`, `hash`, `mods`, `plate`, `fakeplate`, `garage`, `fuel`, `engine`, `body`, `state`, `depotprice`, `drivingdistance`, `status`, `balance`, `paymentamount`, `paymentsleft`, `financetime`, `vinnumber`, `vinscratch`) VALUES
+	(11, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'XJV08874', 'sultan', NULL, '970598228', '{"modFrame":-1,"headlightColor":255,"interiorColor":0,"modTrimA":-1,"color1":1,"modHood":-1,"modDial":-1,"modRightFender":-1,"modKit47":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"pearlescentColor":5,"modHydrolic":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modTank":-1,"modLivery":-1,"modHorns":-1,"wheelWidth":0.0,"modAirFilter":-1,"modDoorSpeaker":-1,"modArchCover":-1,"modSpoilers":-1,"modArmor":-1,"oilLevel":4.76596940834568,"modPlateHolder":-1,"modFender":-1,"modCustomTiresF":false,"tyreSmokeColor":[255,255,255],"modDashboard":-1,"model":970598228,"modTurbo":false,"modVanityPlate":-1,"modStruts":-1,"modExhaust":-1,"modGrille":-1,"modCustomTiresR":false,"modAPlate":-1,"modSeats":-1,"modEngine":-1,"neonEnabled":[false,false,false,false],"modEngineBlock":-1,"modXenon":false,"windowTint":-1,"extras":{"12":true,"10":false},"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSuspension":-1,"modWindows":-1,"modFrontBumper":-1,"modSpeakers":-1,"fuelLevel":24.62417527645272,"modKit49":-1,"modFrontWheels":-1,"color2":1,"modTrimB":-1,"dirtLevel":0.0,"modRoof":-1,"bodyHealth":1000.0592475178704,"liveryRoof":-1,"engineHealth":1000.0592475178704,"wheels":0,"plate":"43BKC214","modKit19":-1,"modAerials":-1,"xenonColor":255,"modRearBumper":-1,"modBackWheels":-1,"wheelSize":0.0,"modSteeringWheel":-1,"modSmokeEnabled":false,"modSideSkirt":-1,"tankHealth":1000.0592475178704,"modBrakes":-1,"modShifterLeavers":-1,"neonColor":[255,0,255],"modTransmission":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"plateIndex":3,"modOrnaments":-1,"modTrunk":-1,"dashboardColor":0,"wheelColor":156,"modKit21":-1,"modKit17":-1}', '43BKC214', NULL, 'pillboxgarage', 24, 980, 999, 1, 0, 890570, NULL, 0, 0, 0, 0, NULL, 0),
+	(12, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'sultan', NULL, '970598228', '{"modExhaust":-1,"modFrame":-1,"modTrimB":-1,"plate":"83PSJ678","headlightColor":255,"xenonColor":255,"wheelSize":0.0,"modKit17":-1,"color1":1,"interiorColor":0,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"tyreSmokeColor":[255,255,255],"modFender":-1,"modArmor":-1,"modTrunk":-1,"modDial":-1,"modRightFender":-1,"modTurbo":false,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modHydrolic":-1,"modSpoilers":-1,"tankHealth":1000.0592475178704,"modBrakes":-1,"modAPlate":-1,"color2":1,"modFrontBumper":-1,"modGrille":-1,"modKit19":-1,"plateIndex":0,"wheelColor":156,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSeats":-1,"neonColor":[255,0,255],"oilLevel":4.76596940834568,"modTransmission":-1,"modStruts":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modLivery":-1,"modSpeakers":-1,"modXenon":false,"pearlescentColor":5,"dashboardColor":0,"engineHealth":1000.0592475178704,"modOrnaments":-1,"modFrontWheels":-1,"modSteeringWheel":-1,"fuelLevel":27.00715998062557,"modWindows":-1,"extras":{"12":false,"10":true},"modEngine":-1,"neonEnabled":[false,false,false,false],"modHorns":-1,"modVanityPlate":-1,"modAerials":-1,"modEngineBlock":-1,"modArchCover":-1,"modHood":-1,"modSmokeEnabled":false,"liveryRoof":-1,"dirtLevel":0.0,"windowTint":-1,"modAirFilter":-1,"modBackWheels":-1,"bodyHealth":1000.0592475178704,"modDashboard":-1,"modCustomTiresF":false,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modDoorSpeaker":-1,"modRearBumper":-1,"modShifterLeavers":-1,"modSideSkirt":-1,"modCustomTiresR":false,"modTrimA":-1,"modRoof":-1,"modPlateHolder":-1,"modKit47":-1,"wheelWidth":0.0,"modSuspension":-1,"model":970598228,"modTank":-1,"modKit21":-1,"wheels":0,"modKit49":-1}', '83PSJ678', NULL, 'pillboxgarage', 50, 1000, 1000, 1, 0, 852129, NULL, 0, 0, 0, 0, NULL, 0),
+	(13, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'massacro2', NULL, '-631760477', '{"modExhaust":-1,"fuelLevel":64.3405870126668,"modHorns":-1,"modOrnaments":-1,"modDial":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modVanityPlate":-1,"modArmor":4,"dashboardColor":0,"bodyHealth":1000.0592475178704,"modSeats":-1,"modHood":-1,"modDoorSpeaker":-1,"modTransmission":2,"modEngineBlock":-1,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"engineHealth":1000.0592475178704,"modRightFender":-1,"modCustomTiresR":false,"modKit47":-1,"tankHealth":1000.0592475178704,"extras":{"11":false,"10":true},"interiorColor":0,"modStruts":-1,"tyreSmokeColor":[255,255,255],"headlightColor":255,"modBrakes":2,"modRearBumper":-1,"modTurbo":1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSuspension":-1,"modTank":-1,"wheels":7,"color2":38,"modFender":-1,"modPlateHolder":-1,"modHydrolic":-1,"modBackWheels":-1,"modEngine":3,"modGrille":-1,"modTrimB":-1,"modKit21":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"oilLevel":4.76596940834568,"plate":"82TJV797","modXenon":false,"modShifterLeavers":-1,"modArchCover":-1,"modAerials":-1,"modFrontWheels":-1,"modKit49":-1,"pearlescentColor":42,"modKit19":-1,"modLivery":-1,"xenonColor":255,"modSpoilers":-1,"neonColor":[255,0,255],"modCustomTiresF":false,"dirtLevel":0.0,"modFrontBumper":-1,"modWindows":-1,"modSteeringWheel":-1,"modSmokeEnabled":false,"modFrame":-1,"wheelWidth":0.0,"wheelSize":0.0,"liveryRoof":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimA":-1,"modSideSkirt":-1,"modAPlate":-1,"modAirFilter":-1,"modTrunk":-1,"modRoof":-1,"modSpeakers":-1,"model":-631760477,"modDashboard":-1,"plateIndex":0,"windowTint":-1,"neonEnabled":[false,false,false,false],"color1":38,"wheelColor":38,"modKit17":-1}', '82TJV797', NULL, 'pillboxgarage', 65, 1000, 1000, 1, 0, 230124, NULL, 0, 0, 0, 0, NULL, 0),
+	(14, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'bmx', NULL, '1131912276', '{"modEngineBlock":-1,"modLivery":-1,"modTrimB":-1,"modPlateHolder":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"modExhaust":-1,"modSteeringWheel":-1,"headlightColor":255,"modFrontWheels":-1,"modKit47":-1,"modRoof":-1,"modFrame":-1,"modFrontBumper":-1,"modSeats":-1,"neonEnabled":[false,false,false,false],"plate":"9XV519FB","modCustomTiresR":false,"modGrille":-1,"modSmokeEnabled":false,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"wheelSize":0.0,"modHydrolic":-1,"modBrakes":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modKit19":-1,"modHorns":-1,"fuelLevel":100.08535757525947,"modSideSkirt":-1,"pearlescentColor":111,"modTank":-1,"tyreSmokeColor":[255,255,255],"liveryRoof":-1,"dashboardColor":0,"modDashboard":-1,"windowTint":-1,"dirtLevel":3.17731293889712,"wheelWidth":0.0,"modVanityPlate":-1,"interiorColor":0,"modTrunk":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modXenon":false,"modHood":-1,"modDial":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modRearBumper":-1,"wheels":6,"color1":7,"extras":[],"tankHealth":1000.0592475178704,"modEngine":-1,"plateIndex":4,"modTrimA":-1,"modSuspension":-1,"neonColor":[255,0,255],"modKit21":-1,"modKit49":-1,"modSpeakers":-1,"modSpoilers":-1,"oilLevel":0.0,"modFender":-1,"modDoorSpeaker":-1,"color2":0,"bodyHealth":1000.0592475178704,"modAerials":-1,"wheelColor":156,"modShifterLeavers":-1,"modBackWheels":-1,"engineHealth":1000.0592475178704,"modTransmission":-1,"modStruts":-1,"modAirFilter":-1,"modCustomTiresF":false,"xenonColor":255,"modTurbo":false,"modArmor":-1,"model":1131912276,"modAPlate":-1,"modArchCover":-1,"modWindows":-1,"modRightFender":-1,"modKit17":-1,"modOrnaments":-1}', '9XV519FB', NULL, NULL, 100, 1000, 1000, 1, 0, 556501, NULL, 0, 0, 0, 0, NULL, 0),
+	(15, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'buffalo', NULL, '-304802106', '{"modKit47":-1,"modTurbo":false,"modStruts":-1,"extras":{"5":true,"4":true,"10":false,"1":true,"11":false,"3":true,"2":true},"headlightColor":255,"modHydrolic":-1,"color2":0,"wheelSize":1.0,"xenonColor":255,"modHorns":-1,"modVanityPlate":-1,"dashboardColor":0,"modWindows":-1,"tankHealth":4000.2369900714818,"wheelColor":120,"modArchCover":-1,"modOrnaments":-1,"neonEnabled":[false,false,false,false],"wheelWidth":1.0,"modDoorSpeaker":-1,"liveryRoof":-1,"tyreSmokeColor":[255,255,255],"modBrakes":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modRoof":-1,"modPlateHolder":-1,"modTrimA":-1,"modFrontBumper":0,"pearlescentColor":5,"modSmokeEnabled":false,"modSteeringWheel":-1,"modAirFilter":-1,"color1":120,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"model":-304802106,"modTank":-1,"modSideSkirt":0,"modAerials":-1,"modBackWheels":-1,"modFender":-1,"modTransmission":-1,"modCustomTiresR":false,"modKit49":-1,"modSeats":-1,"modLivery":-1,"engineHealth":1000.0592475178704,"fuelLevel":65.13491524739108,"neonColor":[255,0,255],"wheels":0,"modSpoilers":0,"modTrunk":-1,"windowTint":1,"modSpeakers":-1,"modEngineBlock":-1,"modExhaust":0,"modArmor":-1,"modHood":-1,"modDial":-1,"modFrame":-1,"modDashboard":-1,"modEngine":-1,"oilLevel":4.76596940834568,"modKit17":-1,"plateIndex":5,"interiorColor":0,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modAPlate":-1,"modKit21":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"modSuspension":-1,"modRearBumper":0,"modXenon":false,"windowStatus":{"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"0":true},"dirtLevel":7.14895411251853,"modCustomTiresF":false,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modGrille":-1,"plate":"3LS447DM","modRightFender":-1,"modTrimB":-1,"modFrontWheels":-1,"modKit19":-1}', '3LS447DM', NULL, NULL, 100, 1000, 1000, 1, 0, 5950, NULL, 0, 0, 0, 0, '857WAI61', 0),
+	(16, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'buffalo', NULL, '-304802106', '{"oilLevel":4.76596940834568,"modSpoilers":-1,"modRightFender":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"0":true},"modSeats":-1,"modSpeakers":-1,"modFrontBumper":-1,"pearlescentColor":6,"modBrakes":-1,"fuelLevel":100.08535757525947,"modEngine":-1,"modArmor":-1,"color2":0,"wheelSize":0.0,"modCustomTiresF":false,"modOrnaments":-1,"wheelColor":156,"dirtLevel":4.76596940834568,"modArchCover":-1,"modFrontWheels":-1,"modEngineBlock":-1,"modRoof":-1,"tyreSmokeColor":[255,255,255],"modTrimA":-1,"tankHealth":1000.0592475178704,"engineHealth":1000.0592475178704,"dashboardColor":0,"plate":"4ES046TV","doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modFrame":-1,"xenonColor":255,"modTank":-1,"modBackWheels":-1,"modWindows":-1,"modKit49":-1,"windowTint":-1,"modDial":-1,"modAerials":-1,"modSuspension":-1,"neonColor":[255,0,255],"modCustomTiresR":false,"modHorns":-1,"wheelWidth":0.0,"modKit19":-1,"extras":{"1":true,"10":false,"11":false,"5":true,"4":true,"3":true,"2":true},"modSmokeEnabled":false,"color1":9,"modDashboard":-1,"headlightColor":255,"modAirFilter":-1,"modTrunk":-1,"liveryRoof":-1,"neonEnabled":[false,false,false,false],"modVanityPlate":-1,"modDoorSpeaker":-1,"bodyHealth":1000.0592475178704,"modAPlate":-1,"wheels":0,"modPlateHolder":-1,"modHydrolic":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modXenon":false,"modKit17":-1,"modHood":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modShifterLeavers":-1,"modExhaust":-1,"modTransmission":-1,"modGrille":-1,"modKit21":-1,"interiorColor":0,"modStruts":-1,"modFender":-1,"modTrimB":-1,"modLivery":-1,"modTurbo":false,"modSideSkirt":-1,"model":-304802106,"modKit47":-1,"modSteeringWheel":-1,"modRearBumper":-1,"plateIndex":0}', '4ES046TV', NULL, NULL, 100, 1000, 1000, 1, 0, 112, NULL, 0, 0, 0, 0, '560YEC72', 0),
+	(17, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'nkcruiser', NULL, '-271783068', '{"neonEnabled":[false,false,false,false],"modSeats":-1,"modExhaust":-1,"modTrunk":-1,"modSideSkirt":-1,"interiorColor":0,"modHorns":-1,"extras":{"1":true,"2":false,"3":false,"4":false,"9":false,"5":false,"6":false,"7":false,"8":false},"modKit47":-1,"wheels":1,"modAerials":-1,"modBackWheels":-1,"modLivery":0,"modCustomTiresF":false,"wheelColor":0,"modWindows":-1,"modRearBumper":-1,"modArchCover":-1,"oilLevel":4.76596940834568,"wheelWidth":1.0,"plate":"7ZB239VA","modTurbo":false,"modHydrolic":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"pearlescentColor":0,"color1":0,"modStruts":-1,"modAirFilter":-1,"modDashboard":-1,"modDial":-1,"modSuspension":-1,"modDoorSpeaker":-1,"plateIndex":4,"modSmokeEnabled":false,"modHood":-1,"modEngineBlock":-1,"modFrontWheels":-1,"modSteeringWheel":-1,"tyreSmokeColor":[255,255,255],"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"tankHealth":1000.0592475178704,"modKit49":-1,"dashboardColor":0,"modSpeakers":-1,"bodyHealth":1000.0592475178704,"modKit21":-1,"modBrakes":-1,"modRightFender":3,"modFender":1,"neonColor":[255,0,255],"modShifterLeavers":-1,"headlightColor":255,"dirtLevel":7.14895411251853,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"color2":112,"wheelSize":1.0,"modSpoilers":-1,"modRoof":7,"modTank":1,"xenonColor":255,"fuelLevel":96.90804463636234,"modPlateHolder":-1,"modKit17":-1,"modTrimB":-1,"liveryRoof":-1,"modOrnaments":-1,"modEngine":-1,"modCustomTiresR":false,"modXenon":false,"modTransmission":-1,"modArmor":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modFrame":0,"modFrontBumper":1,"modVanityPlate":-1,"modKit19":-1,"model":-271783068,"modGrille":-1,"windowTint":-1,"modAPlate":-1,"engineHealth":1000.0592475178704,"modTrimA":-1}', '7ZB239VA', NULL, NULL, 100, 1000, 1000, 1, 0, 31054, NULL, 0, 0, 0, 0, '629QFP51', 0),
+	(18, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'polbuffalo4', NULL, '909095717', '{"modDial":-1,"modAPlate":-1,"modSuspension":-1,"modRearBumper":-1,"tankHealth":1000.0592475178704,"modVanityPlate":-1,"modEngine":-1,"modArchCover":-1,"modSpeakers":-1,"modHorns":-1,"modDoorSpeaker":-1,"modGrille":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimA":-1,"modAerials":-1,"tyreSmokeColor":[255,255,255],"modAirFilter":-1,"model":909095717,"modSideSkirt":-1,"modKit17":-1,"modFender":-1,"wheelColor":0,"modFrontWheels":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modOrnaments":-1,"liveryRoof":-1,"fuelLevel":100.08535757525947,"modSmokeEnabled":false,"modCustomTiresF":false,"color1":0,"wheels":0,"engineHealth":1000.0592475178704,"extras":{"10":true,"1":true,"12":true,"11":true,"2":true},"dirtLevel":4.76596940834568,"modHydrolic":-1,"modCustomTiresR":false,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modSeats":-1,"modShifterLeavers":-1,"wheelWidth":0.0,"dashboardColor":0,"headlightColor":255,"interiorColor":0,"modDashboard":-1,"modFrontBumper":-1,"windowTint":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modExhaust":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modStruts":-1,"modKit21":-1,"modKit49":-1,"modRoof":-1,"plate":"7MY999YM","modKit19":-1,"pearlescentColor":0,"modTransmission":-1,"modEngineBlock":-1,"bodyHealth":1000.0592475178704,"modSpoilers":-1,"modRightFender":-1,"modXenon":false,"oilLevel":4.76596940834568,"modLivery":-1,"modArmor":-1,"xenonColor":255,"modSteeringWheel":-1,"neonColor":[255,0,255],"modPlateHolder":-1,"modBrakes":-1,"color2":112,"modKit47":-1,"modTrunk":-1,"wheelSize":0.0,"modTank":-1,"plateIndex":4,"modBackWheels":-1,"modTrimB":-1,"modHood":-1,"modTurbo":false,"modFrame":-1,"modWindows":-1}', '7MY999YM', NULL, NULL, 100, 1000, 1000, 1, 0, 39724, NULL, 0, 0, 0, 0, '460LQV27', 0),
+	(19, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'polvstr', NULL, '1422492162', '{"modDial":-1,"modAPlate":-1,"modSuspension":-1,"modRearBumper":-1,"tankHealth":1000.0592475178704,"modVanityPlate":-1,"modEngine":-1,"modArchCover":-1,"modSpeakers":-1,"modHorns":-1,"modDoorSpeaker":-1,"modGrille":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimA":-1,"modAerials":-1,"tyreSmokeColor":[255,255,255],"modAirFilter":-1,"model":1422492162,"modSideSkirt":-1,"modKit17":-1,"modFender":-1,"wheelColor":0,"modFrontWheels":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modOrnaments":-1,"liveryRoof":-1,"fuelLevel":100.08535757525947,"modSmokeEnabled":false,"modCustomTiresF":false,"color1":0,"wheels":7,"engineHealth":1000.0592475178704,"extras":{"10":true,"1":true,"12":true,"11":true,"2":true},"dirtLevel":6.35462587779425,"modHydrolic":-1,"modCustomTiresR":false,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modSeats":-1,"modShifterLeavers":-1,"wheelWidth":0.0,"dashboardColor":0,"headlightColor":255,"interiorColor":0,"modDashboard":-1,"modFrontBumper":-1,"windowTint":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modExhaust":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modStruts":-1,"modKit21":-1,"modKit49":-1,"modRoof":-1,"plate":"2OJ454NA","modKit19":-1,"pearlescentColor":0,"modTransmission":-1,"modEngineBlock":-1,"bodyHealth":1000.0592475178704,"modSpoilers":-1,"modRightFender":-1,"modXenon":false,"oilLevel":6.35462587779425,"modLivery":-1,"modArmor":-1,"xenonColor":255,"modSteeringWheel":-1,"neonColor":[255,0,255],"modPlateHolder":-1,"modBrakes":-1,"color2":112,"modKit47":-1,"modTrunk":-1,"wheelSize":0.0,"modTank":-1,"plateIndex":0,"modBackWheels":-1,"modTrimB":-1,"modHood":-1,"modTurbo":false,"modFrame":-1,"modWindows":-1}', '2OJ454NA', NULL, NULL, 100, 1000, 1000, 1, 0, 16697, NULL, 0, 0, 0, 0, NULL, 0),
+	(20, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'polcomet', NULL, '-811548126', '{"modDial":-1,"modAPlate":-1,"modSuspension":-1,"modRearBumper":-1,"tankHealth":1000.0592475178704,"modVanityPlate":-1,"modEngine":-1,"modArchCover":-1,"modSpeakers":-1,"modHorns":-1,"modDoorSpeaker":-1,"modGrille":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimA":-1,"modAerials":-1,"tyreSmokeColor":[255,255,255],"modAirFilter":-1,"model":-811548126,"modSideSkirt":-1,"modKit17":-1,"modFender":-1,"wheelColor":0,"modFrontWheels":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modOrnaments":-1,"liveryRoof":-1,"fuelLevel":100.08535757525947,"modSmokeEnabled":false,"modCustomTiresF":false,"color1":0,"wheels":0,"engineHealth":1000.0592475178704,"extras":{"10":true,"1":true,"11":true,"2":true,"3":true},"dirtLevel":4.76596940834568,"modHydrolic":-1,"modCustomTiresR":false,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modSeats":-1,"modShifterLeavers":-1,"wheelWidth":0.0,"dashboardColor":0,"headlightColor":255,"interiorColor":0,"modDashboard":-1,"modFrontBumper":-1,"windowTint":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modExhaust":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modStruts":-1,"modKit21":-1,"modKit49":-1,"modRoof":-1,"plate":"2UP753NJ","modKit19":-1,"pearlescentColor":0,"modTransmission":-1,"modEngineBlock":-1,"bodyHealth":1000.0592475178704,"modSpoilers":-1,"modRightFender":-1,"modXenon":false,"oilLevel":4.76596940834568,"modLivery":-1,"modArmor":-1,"xenonColor":255,"modSteeringWheel":-1,"neonColor":[255,0,255],"modPlateHolder":-1,"modBrakes":-1,"color2":112,"modKit47":-1,"modTrunk":-1,"wheelSize":0.0,"modTank":-1,"plateIndex":0,"modBackWheels":-1,"modTrimB":-1,"modHood":-1,"modTurbo":false,"modFrame":-1,"modWindows":-1}', '2UP753NJ', NULL, NULL, 100, 1000, 1000, 1, 0, 24859, NULL, 0, 0, 0, 0, '322VHU33', 0),
+	(21, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'polvigero2', NULL, '424789336', '{"modDial":-1,"modAPlate":-1,"modSuspension":-1,"modRearBumper":-1,"tankHealth":1000.0592475178704,"modVanityPlate":-1,"modEngine":-1,"modArchCover":-1,"modSpeakers":-1,"modHorns":-1,"modDoorSpeaker":-1,"modGrille":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimA":-1,"modAerials":-1,"tyreSmokeColor":[255,255,255],"modAirFilter":-1,"model":424789336,"modSideSkirt":-1,"modKit17":-1,"modFender":-1,"wheelColor":0,"modFrontWheels":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modOrnaments":-1,"liveryRoof":-1,"fuelLevel":100.08535757525947,"modSmokeEnabled":false,"modCustomTiresF":false,"color1":0,"wheels":1,"engineHealth":1000.0592475178704,"extras":{"10":true,"1":true,"12":true,"11":true,"2":true},"dirtLevel":3.9716411736214,"modHydrolic":-1,"modCustomTiresR":false,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modSeats":-1,"modShifterLeavers":-1,"wheelWidth":0.0,"dashboardColor":0,"headlightColor":255,"interiorColor":0,"modDashboard":-1,"modFrontBumper":-1,"windowTint":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modExhaust":-1,"windowStatus":{"1":true,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"0":true},"modStruts":-1,"modKit21":-1,"modKit49":-1,"modRoof":-1,"plate":"3KK157HW","modKit19":-1,"pearlescentColor":0,"modTransmission":-1,"modEngineBlock":-1,"bodyHealth":1000.0592475178704,"modSpoilers":-1,"modRightFender":-1,"modXenon":false,"oilLevel":4.76596940834568,"modLivery":-1,"modArmor":-1,"xenonColor":255,"modSteeringWheel":-1,"neonColor":[255,0,255],"modPlateHolder":-1,"modBrakes":-1,"color2":112,"modKit47":-1,"modTrunk":-1,"wheelSize":0.0,"modTank":-1,"plateIndex":4,"modBackWheels":-1,"modTrimB":-1,"modHood":-1,"modTurbo":false,"modFrame":-1,"modWindows":-1}', '3KK157HW', NULL, NULL, 100, 1000, 1000, 1, 0, 324084, NULL, 0, 0, 0, 0, NULL, 0),
+	(22, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'poldom', NULL, '-1009160531', '{"modDial":-1,"modAPlate":-1,"modSuspension":-1,"modRearBumper":-1,"tankHealth":1000.0592475178704,"modVanityPlate":-1,"modEngine":-1,"modArchCover":-1,"modSpeakers":-1,"modHorns":-1,"modDoorSpeaker":-1,"modGrille":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimA":-1,"modAerials":-1,"tyreSmokeColor":[255,255,255],"modAirFilter":-1,"model":-1009160531,"modSideSkirt":-1,"modKit17":-1,"modFender":-1,"wheelColor":0,"modFrontWheels":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modOrnaments":-1,"liveryRoof":-1,"fuelLevel":100.08535757525947,"modSmokeEnabled":false,"modCustomTiresF":false,"color1":0,"wheels":7,"engineHealth":1000.0592475178704,"extras":{"10":true,"12":true,"11":true},"dirtLevel":3.9716411736214,"modHydrolic":-1,"modCustomTiresR":false,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modSeats":-1,"modShifterLeavers":-1,"wheelWidth":0.0,"dashboardColor":0,"headlightColor":255,"interiorColor":0,"modDashboard":-1,"modFrontBumper":-1,"windowTint":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modExhaust":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modStruts":-1,"modKit21":-1,"modKit49":-1,"modRoof":-1,"plate":"9KU801VS","modKit19":-1,"pearlescentColor":0,"modTransmission":-1,"modEngineBlock":-1,"bodyHealth":1000.0592475178704,"modSpoilers":-1,"modRightFender":-1,"modXenon":false,"oilLevel":4.76596940834568,"modLivery":-1,"modArmor":-1,"xenonColor":255,"modSteeringWheel":-1,"neonColor":[255,0,255],"modPlateHolder":-1,"modBrakes":-1,"color2":12,"modKit47":-1,"modTrunk":-1,"wheelSize":0.0,"modTank":-1,"plateIndex":0,"modBackWheels":-1,"modTrimB":-1,"modHood":-1,"modTurbo":false,"modFrame":-1,"modWindows":-1}', '9KU801VS', NULL, NULL, 100, 1000, 1000, 1, 0, 23750, NULL, 0, 0, 0, 0, '028SOM76', 0),
+	(23, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'NCY05380', 'polnspeedo', NULL, '941471002', '{"modDial":-1,"modAPlate":-1,"modSuspension":-1,"modRearBumper":-1,"tankHealth":1000.0592475178704,"modVanityPlate":-1,"modEngine":-1,"modArchCover":-1,"modSpeakers":-1,"modHorns":-1,"modDoorSpeaker":-1,"modGrille":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimA":-1,"modAerials":-1,"tyreSmokeColor":[255,255,255],"modAirFilter":-1,"model":941471002,"modSideSkirt":-1,"modKit17":-1,"modFender":-1,"wheelColor":156,"modFrontWheels":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modOrnaments":-1,"liveryRoof":-1,"fuelLevel":100.08535757525947,"modSmokeEnabled":false,"modCustomTiresF":false,"color1":111,"wheels":1,"engineHealth":1000.0592475178704,"extras":{"11":true},"dirtLevel":11.12059528613994,"modHydrolic":-1,"modCustomTiresR":false,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modSeats":-1,"modShifterLeavers":-1,"wheelWidth":0.0,"dashboardColor":0,"headlightColor":255,"interiorColor":0,"modDashboard":-1,"modFrontBumper":-1,"windowTint":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modExhaust":-1,"windowStatus":{"1":true,"2":false,"3":false,"4":false,"5":false,"6":true,"7":false,"0":true},"modStruts":-1,"modKit21":-1,"modKit49":-1,"modRoof":-1,"plate":"0KQ428BC","modKit19":-1,"pearlescentColor":0,"modTransmission":-1,"modEngineBlock":-1,"bodyHealth":1000.0592475178704,"modSpoilers":-1,"modRightFender":-1,"modXenon":false,"oilLevel":4.76596940834568,"modLivery":1,"modArmor":-1,"xenonColor":255,"modSteeringWheel":-1,"neonColor":[255,0,255],"modPlateHolder":-1,"modBrakes":-1,"color2":111,"modKit47":-1,"modTrunk":-1,"wheelSize":0.0,"modTank":-1,"plateIndex":4,"modBackWheels":-1,"modTrimB":-1,"modHood":-1,"modTurbo":false,"modFrame":-1,"modWindows":-1}', '0KQ428BC', NULL, NULL, 100, 1000, 1000, 1, 0, 6086, NULL, 0, 0, 0, 0, '295MDW87', 0),
+	(24, 'license:c2cc031f5ae90062435c5b60555b32c5393bd4a1', 'IIJ16816', 'smallboat', NULL, '-222947487', '{"modKit21":-1,"fuelLevel":100.08535757525947,"modSideSkirt":-1,"headlightColor":255,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"wheelWidth":0.0,"modOrnaments":-1,"modEngine":-1,"modRoof":-1,"bodyHealth":1000.0592475178704,"modCustomTiresR":false,"modTrunk":-1,"modExhaust":-1,"modGrille":-1,"pearlescentColor":8,"wheelColor":156,"modHood":-1,"modRearBumper":-1,"modWindows":-1,"modDoorSpeaker":-1,"modSpeakers":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimA":-1,"dirtLevel":0.79432823472428,"modXenon":false,"modPlateHolder":-1,"engineHealth":1000.0592475178704,"color2":156,"modFrontBumper":-1,"modSteeringWheel":-1,"modLivery":-1,"modEngineBlock":-1,"modKit19":-1,"modKit17":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"plateIndex":4,"modFrontWheels":-1,"modTransmission":-1,"modArchCover":-1,"modAPlate":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"dashboardColor":0,"xenonColor":255,"modDashboard":-1,"color1":156,"modTurbo":false,"neonColor":[255,0,255],"windowTint":-1,"modFrame":-1,"interiorColor":0,"extras":{"1":true},"oilLevel":3.17731293889712,"tankHealth":1000.0592475178704,"modSpoilers":-1,"modTrimB":-1,"wheelSize":0.0,"tireHealth":{"1":0.0,"2":0.0,"3":0.0,"0":0.0},"modSmokeEnabled":false,"wheels":0,"modBrakes":-1,"modHydrolic":-1,"modAirFilter":-1,"neonEnabled":[false,false,false,false],"modHorns":-1,"model":-222947487,"modRightFender":-1,"modAerials":-1,"modCustomTiresF":false,"modVanityPlate":-1,"modSeats":-1,"modShifterLeavers":-1,"modTank":-1,"modSuspension":-1,"modArmor":-1,"modFender":-1,"modDial":-1,"modStruts":-1,"liveryRoof":-1,"plate":"6ZI722BR","modKit47":-1,"modBackWheels":-1,"modKit49":-1,"tyreSmokeColor":[255,255,255]}', '6ZI722BR', NULL, NULL, 100, 1000, 1000, 1, 0, 11063, NULL, 0, 0, 0, 0, '709RUM59', 0);
 
 -- Dumping structure for table ezfw.player_warns
 CREATE TABLE IF NOT EXISTS `player_warns` (
@@ -807,7 +895,7 @@ CREATE TABLE IF NOT EXISTS `player_warns` (
   `reason` text DEFAULT NULL,
   `warnId` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.player_warns: ~0 rows (approximately)
 
@@ -830,24 +918,80 @@ CREATE TABLE IF NOT EXISTS `properties` (
   PRIMARY KEY (`property_id`),
   UNIQUE KEY `UQ_owner_apartment` (`owner_citizenid`,`apartment`),
   CONSTRAINT `FK_owner_citizenid` FOREIGN KEY (`owner_citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table ezfw.properties: ~2 rows (approximately)
-INSERT IGNORE INTO `properties` (`property_id`, `owner_citizenid`, `street`, `region`, `description`, `has_access`, `extra_imgs`, `furnitures`, `for_sale`, `price`, `shell`, `apartment`, `door_data`, `garage_data`) VALUES
-	(1, 'NCY05380', NULL, NULL, 'This is School Ender\'s apartment in Integrity Way', '[]', '[]', '[]', 0, 0, 'Apartment Furnished', 'Integrity Way', '[]', '[]'),
-	(2, 'NCY05380', 'Great Ocean Hwy', 'Banham Canyon', 'Ocean View Mansion', '[]', '[]', '[{"rotation":{"x":0.0,"y":-0.0,"z":0.0},"label":"Storage Unit","type":"storage","id":"8826302","object":"v_res_tre_storagebox","position":{"z":-0.4759,"y":-2.31,"x":3.3701}}]', 0, 5000, '2 Floor House', NULL, '{"h":25.06,"x":-2992.85,"locked":false,"z":28.69,"y":707.59,"length":1.5,"width":2.2}', '{"x":-3003.63,"h":123.85,"z":28.26,"width":5.0,"length":3.0,"y":718.59}');
+-- Dumping data for table ezfw.properties: ~0 rows (approximately)
+REPLACE INTO `properties` (`property_id`, `owner_citizenid`, `street`, `region`, `description`, `has_access`, `extra_imgs`, `furnitures`, `for_sale`, `price`, `shell`, `apartment`, `door_data`, `garage_data`) VALUES
+	(5, 'IIJ16816', NULL, NULL, 'This is test test\'s apartment in Dream View Motel', '[]', '[]', '[]', 0, 0, 'Standard Motel', 'Dream View Motel', '[]', '[]'),
+	(6, 'PPI90621', NULL, NULL, 'This is dora theexlora\'s apartment in Templar Hotel', '[]', '[]', '[]', 0, 0, 'Standard Motel', 'Templar Hotel', '[]', '[]');
+
+-- Dumping structure for table ezfw.racer_names
+CREATE TABLE IF NOT EXISTS `racer_names` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `citizenid` text NOT NULL,
+  `racername` text NOT NULL,
+  `lasttouched` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `races` int(11) NOT NULL DEFAULT 0,
+  `wins` int(11) NOT NULL DEFAULT 0,
+  `tracks` int(11) NOT NULL DEFAULT 0,
+  `auth` text DEFAULT 'racer',
+  `createdby` text DEFAULT NULL,
+  `revoked` tinyint(4) DEFAULT 0,
+  `ranking` int(11) DEFAULT 0,
+  KEY `id` (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table ezfw.racer_names: ~0 rows (approximately)
+REPLACE INTO `racer_names` (`id`, `citizenid`, `racername`, `lasttouched`, `races`, `wins`, `tracks`, `auth`, `createdby`, `revoked`, `ranking`) VALUES
+	(44, 'NCY05380', 'bbsag', '2024-04-03 07:38:56', 0, 0, 0, 'god', 'NCY05380', 0, 0);
+
+-- Dumping structure for table ezfw.race_tracks
+CREATE TABLE IF NOT EXISTS `race_tracks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `checkpoints` text DEFAULT NULL,
+  `records` text DEFAULT NULL,
+  `creatorid` varchar(50) DEFAULT NULL,
+  `creatorname` varchar(50) DEFAULT NULL,
+  `distance` int(11) DEFAULT NULL,
+  `raceid` varchar(50) DEFAULT NULL,
+  `access` text DEFAULT '{}',
+  `curated` tinyint(4) DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `raceid` (`raceid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Dumping data for table ezfw.race_tracks: ~0 rows (approximately)
+
+-- Dumping structure for table ezfw.racing_crews
+CREATE TABLE IF NOT EXISTS `racing_crews` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `crew_name` text DEFAULT NULL,
+  `members` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `wins` int(11) DEFAULT NULL,
+  `races` int(11) DEFAULT NULL,
+  `rank` int(11) DEFAULT NULL,
+  `founder_name` text DEFAULT NULL,
+  `founder_citizenid` text DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  CONSTRAINT `members` CHECK (json_valid(`members`))
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table ezfw.racing_crews: ~0 rows (approximately)
+REPLACE INTO `racing_crews` (`id`, `crew_name`, `members`, `wins`, `races`, `rank`, `founder_name`, `founder_citizenid`) VALUES
+	(17, 'Saggers', '[{"citizenID": "NCY05380", "racername": "bbsag", "rank": 0}]', 0, 0, 0, 'bbsag', 'NCY05380');
 
 -- Dumping structure for table ezfw.scenes
 CREATE TABLE IF NOT EXISTS `scenes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `creator` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
-  `text` mediumtext COLLATE utf8mb4_bin DEFAULT NULL,
-  `color` mediumtext COLLATE utf8mb4_bin DEFAULT NULL,
+  `creator` varchar(50) DEFAULT NULL,
+  `text` mediumtext DEFAULT NULL,
+  `color` mediumtext DEFAULT NULL,
   `viewdistance` int(11) DEFAULT NULL,
   `expiration` int(11) DEFAULT NULL,
   `fontsize` decimal(10,1) DEFAULT NULL,
   `fontstyle` int(11) DEFAULT NULL,
-  `coords` mediumtext COLLATE utf8mb4_bin DEFAULT NULL,
+  `coords` mediumtext DEFAULT NULL,
   `date_creation` datetime DEFAULT NULL,
   `date_deletion` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -862,12 +1006,39 @@ CREATE TABLE IF NOT EXISTS `stashitems` (
   `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`stash`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table ezfw.stashitems: ~2 rows (approximately)
-INSERT IGNORE INTO `stashitems` (`id`, `stash`, `items`) VALUES
+-- Dumping data for table ezfw.stashitems: ~7 rows (approximately)
+REPLACE INTO `stashitems` (`id`, `stash`, `items`) VALUES
+	(29, 'BossPrinterMRPD', '[{"label":"Paper","unique":true,"type":"item","slot":1,"name":"paper","useable":true,"weight":500,"image":"images/printerdocument.png","info":[],"amount":1}]'),
+	(28, 'burgershot_12', '[]'),
 	(23, 'property_1', '[]'),
-	(24, 'property_2', '[]');
+	(24, 'property_2', '[]'),
+	(27, 'property_3', '[]'),
+	(32, 'property_4', '[]'),
+	(33, 'property_5', '[]'),
+	(34, 'property_6', '[]');
+
+-- Dumping structure for table ezfw.svdden_gangs
+CREATE TABLE IF NOT EXISTS `svdden_gangs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner` varchar(255) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `gangUrl` varchar(50) NOT NULL,
+  `rank` int(11) DEFAULT NULL,
+  `rankLabel` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `wins` int(11) DEFAULT NULL,
+  `losses` int(11) DEFAULT NULL,
+  `members` longtext NOT NULL,
+  `activeWar` longtext DEFAULT NULL,
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`name`) USING BTREE,
+  KEY `id` (`id`) USING BTREE,
+  KEY `last_updated` (`last_updated`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Dumping data for table ezfw.svdden_gangs: ~0 rows (approximately)
 
 -- Dumping structure for table ezfw.trunkitems
 CREATE TABLE IF NOT EXISTS `trunkitems` (
@@ -876,7 +1047,7 @@ CREATE TABLE IF NOT EXISTS `trunkitems` (
   `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`plate`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.trunkitems: ~0 rows (approximately)
 
@@ -889,7 +1060,7 @@ CREATE TABLE IF NOT EXISTS `weedplants` (
   `water` longtext NOT NULL CHECK (json_valid(`water`)),
   `gender` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table ezfw.weedplants: ~0 rows (approximately)
 
