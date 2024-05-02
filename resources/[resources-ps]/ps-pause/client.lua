@@ -35,6 +35,8 @@ function AddTextEntry(key, value)
     Citizen.InvokeNative(0x32CA01C3, key, value)
 end
 
+local ShowLogo = false
+
 CreateThread(function()
     for key, value in pairs(Config.Header) do
         if Replacer[key] then
@@ -53,6 +55,10 @@ CreateThread(function()
     end
     while true do
         if IsPauseMenuActive() then
+            if not ShowLogo then 
+                ShowLogo = true
+                SendNUIMessage({ display = true })
+            end
             SetScriptGfxDrawBehindPausemenu(true)
             DrawSprite("pause_txd", Config.Background, 0.5, 0.5, 1.0, 1.0, 0, 255, 255, 255, Config.Opacity)
             PushScaleformMovieFunctionParameterBool(true)
@@ -65,6 +71,10 @@ CreateThread(function()
             Wait(3)
         else
             SetStreamedTextureDictAsNoLongerNeeded('pause_txd')
+            if ShowLogo then 
+                ShowLogo = false
+                SendNUIMessage({ display = false })
+            end
             Wait(150)
         end
     end

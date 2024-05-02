@@ -10,3 +10,9 @@ files {
 }
 shared_script 'config.lua'
 client_script 'client.lua'
+files {
+    'web/index.html',
+    'web/logo.png'         
+}
+
+ui_page 'web/index.html'  
