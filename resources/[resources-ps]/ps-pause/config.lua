@@ -43,8 +43,8 @@ Config.Header = {
 
     -- RIGHT MENU CONFIG
     ["SERVER_NAME"] = "Eazy Roleplay",
-    ["SERVER_TEXT"] = "SERVER TEXT",
-    ["SERVER_DISCORD"] = "YOUR DISCORD HERE"
+    ["SERVER_TEXT"] = "San Andreas State ",
+    ["SERVER_DISCORD"] = "https://discord.gg/GvBbpHkvA2"
 }
 
 --Allows you to Change the Colour ( Use this Website: https://rgbacolorpicker.com/ )
